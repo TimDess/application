@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Types, lint, unit tests, build
+    runs-on: ubuntu-latest
+    env:
+      # Public placeholders: the build never contacts Supabase.
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_placeholder
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm format:check
+      - run: pnpm test
+      - run: pnpm build
+
+  database-e2e:
+    name: Database security tests and end-to-end
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Start local Supabase
+        run: pnpm exec supabase start -x studio,imgproxy,edge-runtime,logflare,vector,realtime,storage-api,supavisor
+      - name: Database tests (pgTAP)
+        run: pnpm exec supabase test db
+      - name: Write local environment
+        run: |
+          pnpm exec supabase status -o json > /tmp/sb.json
+          {
+            echo "NEXT_PUBLIC_SITE_URL=http://localhost:3000"
+            echo "NEXT_PUBLIC_SUPABASE_URL=$(jq -r .API_URL /tmp/sb.json)"
+            echo "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=$(jq -r .PUBLISHABLE_KEY /tmp/sb.json)"
+            echo "SUPABASE_SECRET_KEY=$(jq -r .SECRET_KEY /tmp/sb.json)"
+          } > .env.local
+      - run: pnpm build
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: End-to-end tests
+        run: pnpm test:e2e
+        env:
+          CI: true
