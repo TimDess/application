@@ -1,0 +1,1 @@
+-- Local development seed (runs on supabase db reset). Reference data lives in migrations.
