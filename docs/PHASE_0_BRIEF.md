@@ -1,7 +1,7 @@
 # Phase 0 — Brief de cadrage
 
 > Statut : **proposition, en attente de validation**. Rien n'est développé tant que les décisions de la section 10 ne sont pas tranchées.
-> Date : 26 novembre 2026. Nom de code provisoire : **« Kulto »** (remplaçable en une ligne dans `src/config/brand.ts` dès la phase 1).
+> Date : 26 novembre 2026. Nom retenu : **Kulto** (validé par Tim, disponibilité de la marque encore à vérifier ; centralisé dans `src/config/brand.ts` dès la phase 1).
 
 Sommaire :
 
@@ -221,6 +221,22 @@ Point de vigilance sur #B8F54A : le duo « fond quasi noir + vert acide » est d
 - **C** fournit uniquement ses micro-interactions tactiles (boutons de réponse qui s'enfoncent, révélation des badges).
 
 Ce n'est pas un compromis tiède : chaque direction a un rôle défini, ce qui donne au produit deux « modes » lisibles (apprendre / s'affronter) dans une seule marque.
+
+### Itération 2 — retours de Tim (26/11/2026)
+
+Retours sur la V1 :
+
+- **A** : couleurs trop chargées, Geist pas apprécié, Big Shoulders jugée cliché, titres trop gros, grille de fond et angles coupés rejetés, pas d'italique ni d'inclinaison. **La barre d'onglets du bas plaît.**
+- **B** : couleurs appréciées, Bricolage Grotesque non retenue pour les titres, Inter validée pour le texte. Éléments trop gros (emblème de division notamment) : il faut plus petit, plus discret, plus classe.
+- **C** : vraie DA, fond nuit apprécié. L'association rouge + vert + bleu foncé ne fonctionne pas.
+
+Direction 2, en cours de validation :
+
+- **Base** : fond nuit `#16142E` (sombre) et `#F6F5FB` (clair), surfaces et bordures teintées lavande.
+- **Typographie** : Inter pour le texte. Titres à choisir entre Inter Tight (recommandé), Plus Jakarta Sans et Unbounded. Quatre tailles seulement (22, 16, 14 et 12 px) ; la hiérarchie passe par la graisse et la couleur.
+- **Formes** : cartes droites, rayon 14 px, bordure 1 px. Option « Relief » (contour + ombre portée franche, hérités de C) à départager.
+- **Couleur** : une seule couleur vive par carte (celle de l'univers sur la carte de parcours, l'accent ailleurs). Accent à choisir entre Soleil `#FFC83D`, Klein `#3F5BFF` et Lavande `#B4A8FF`. Vert et rouge réservés à la correction des réponses, toujours avec une icône.
+- **Navigation** : barre d'onglets conservée.
 
 ### Palette des univers (proposition, à harmoniser selon la direction retenue)
 
@@ -557,8 +573,8 @@ Contrainte de cet environnement : Docker n'y tourne pas, donc la stack Supabase 
 
 | # | Décision | Options | Ma recommandation |
 |---|---|---|---|
-| 1 | **Nom de code** | Kulto, Uplore, Grail, autre | Kulto en provisoire (modifiable en une ligne), décision finale avec Couche.12 |
-| 2 | **Direction artistique** | A Télémétrie, B Pochette, C Collection, hybride | B en socle + A pour la compétition |
+| 1 | **Nom** | Kulto, Uplore, Grail, autre | ✅ **Kulto** retenu (marque à vérifier) |
+| 2 | **Direction artistique** | Direction 2 : accent, police des titres, style de cartes | En cours : choix final via le configurateur de la planche |
 | 3 | **Logique métier critique** | Fonctions Postgres (RPC) / serveur Next.js avec clé secrète | Postgres : atomicité, idempotence, impossible à contourner |
 | 4 | **Modèle compétitif** | Rang par cote / divisions par ligues / les deux | Cote cachée pour le matchmaking + divisions visibles via ligues + plafond de 15 duels comptés par semaine |
 | 5 | **Duels** | Temps réel seul / temps réel + asynchrone | Les deux dès la phase 4 (démarrage à froid) |
