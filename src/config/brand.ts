@@ -1,0 +1,37 @@
+/**
+ * Single source of truth for the brand. Never hard-code the product name elsewhere:
+ * import `brand` instead, so a rename is a one-line change.
+ */
+export const brand = {
+  name: 'Kulto',
+  wordmark: 'kulto',
+  tagline: 'Développe ta culture. Explore tes passions. Défie tes amis.',
+  description:
+    'Kulto transforme tes passions en culture : des parcours courts, des mini-jeux et des défis pour apprendre la F1, la musique, le gaming et bien plus.',
+  locale: 'fr-FR',
+  language: 'fr',
+  colors: {
+    /** Dark theme background, used for browser UI (theme-color). */
+    night: '#16142E',
+    /** Light theme background. */
+    paper: '#F6F5FB',
+    /** Brand accent "Soleil". */
+    accent: '#FFC83D',
+  },
+  /** Social links. `null` means "not created yet" and the link is not rendered. */
+  social: {
+    instagram: null as string | null,
+    tiktok: null as string | null,
+    x: null as string | null,
+  },
+  legal: {
+    /** Version of the terms the user accepts at sign-up. Bump it when the terms change. */
+    termsVersion: '2026-11',
+    minimumAge: 15,
+  },
+} as const
+
+export function siteUrl(): string {
+  const url = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+  return url.replace(/\/$/, '')
+}
