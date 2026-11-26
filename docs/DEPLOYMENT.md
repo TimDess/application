@@ -28,7 +28,7 @@ pnpm db:push
 
 | Variable                               | Preview                        | Production              |
 | -------------------------------------- | ------------------------------ | ----------------------- |
-| `NEXT_PUBLIC_SITE_URL`                 | URL de preview ou laisser vide | URL de production       |
+| `NEXT_PUBLIC_SITE_URL` (facultatif)    | URL de preview ou laisser vide | URL de production       |
 | `NEXT_PUBLIC_SUPABASE_URL`             | projet dev                     | projet prod             |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | projet dev                     | projet prod             |
 | `SUPABASE_SECRET_KEY`                  | projet dev (Sensitive)         | projet prod (Sensitive) |
