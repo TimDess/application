@@ -16,12 +16,45 @@ export function resolveTheme(pref: ThemePreference): 'light' | 'dark' {
   return pref
 }
 
-/** Applies a theme preference immediately and remembers it on this device. */
+let lastPointer: { x: number; y: number } | null = null
+
+/** Remembers where the user last pressed, so the theme reveal starts from there. */
+export function rememberPointer(x: number, y: number) {
+  lastPointer = { x, y }
+}
+
+export function motionReduced(): boolean {
+  return (
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    document.documentElement.getAttribute('data-motion') === 'reduced'
+  )
+}
+
+/**
+ * Applies a theme preference and remembers it on this device. When the resolved theme
+ * changes, a circle reveals the new theme from the last pressed point (View Transitions).
+ */
 export function applyThemePreference(pref: ThemePreference) {
   const root = document.documentElement
-  root.setAttribute('data-theme', resolveTheme(pref))
-  root.setAttribute('data-theme-pref', pref)
+  const next = resolveTheme(pref)
+  const apply = () => {
+    root.setAttribute('data-theme', next)
+    root.setAttribute('data-theme-pref', pref)
+  }
   writeCookie(THEME_COOKIE, pref)
+
+  const changes = root.getAttribute('data-theme') !== next
+  if (!changes || motionReduced() || typeof document.startViewTransition !== 'function') {
+    apply()
+    return
+  }
+  const x = lastPointer?.x ?? window.innerWidth / 2
+  const y = lastPointer?.y ?? window.innerHeight / 2
+  const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
+  root.style.setProperty('--vt-x', `${x}px`)
+  root.style.setProperty('--vt-y', `${y}px`)
+  root.style.setProperty('--vt-r', `${radius}px`)
+  document.startViewTransition(apply)
 }
 
 export function applyReducedMotion(reduced: boolean) {

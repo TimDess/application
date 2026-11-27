@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { currentThemePreference, resolveTheme } from './theme-client'
+import { currentThemePreference, rememberPointer, resolveTheme } from './theme-client'
 
 /** Follows OS theme changes while the preference is "system". */
 export function ThemeWatcher() {
@@ -12,8 +12,13 @@ export function ThemeWatcher() {
         document.documentElement.setAttribute('data-theme', resolveTheme('system'))
       }
     }
+    const onPointer = (e: PointerEvent) => rememberPointer(e.clientX, e.clientY)
     mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
+    window.addEventListener('pointerdown', onPointer, { passive: true })
+    return () => {
+      mq.removeEventListener('change', onChange)
+      window.removeEventListener('pointerdown', onPointer)
+    }
   }, [])
   return null
 }

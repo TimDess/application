@@ -77,3 +77,71 @@ export async function signOut(page: Page) {
   await page.getByRole('button', { name: 'Se déconnecter' }).click()
   await expect(page).toHaveURL(/\/$/)
 }
+
+/** Answers whatever question is on screen (correctness does not matter here). */
+export async function answerCurrentQuestion(page: Page) {
+  const main = page.getByRole('main')
+  const format = (await main.locator('p.text-caption').first().textContent())?.trim()
+  switch (format) {
+    case 'Quiz':
+      await main.getByRole('radio').first().click()
+      await main.getByRole('button', { name: 'Valider', exact: true }).click()
+      break
+    case 'Vrai ou faux':
+      await main.getByRole('button', { name: /^Vrai/ }).click()
+      break
+    case 'Associations': {
+      const left = main.getByRole('group', { name: 'Éléments à associer' }).getByRole('button')
+      const right = main.getByRole('group', { name: 'Partenaires' }).getByRole('button')
+      const n = await left.count()
+      for (let i = 0; i < n; i++) {
+        await left.nth(i).click()
+        await right.nth(i).click()
+      }
+      await main.getByRole('button', { name: 'Valider', exact: true }).click()
+      break
+    }
+    case 'Frise chronologique':
+      await main.getByRole('button', { name: 'Valider l’ordre' }).click()
+      break
+    case 'Devine l’année':
+      await main.getByRole('button', { name: /^Valider \d+/ }).click()
+      break
+    default:
+      throw new Error(`Unknown question format: ${format}`)
+  }
+  await expect(
+    main.getByRole('status').filter({ hasText: /Bonne réponse|Presque|Pas tout à fait/ }),
+  ).toBeVisible()
+}
+
+export async function playToEnd(page: Page) {
+  const main = page.getByRole('main')
+  await expect(page.getByRole('button', { name: 'C’est parti' })).toBeHidden()
+  for (let i = 0; i < 20; i++) {
+    const nextCard = main.getByRole('button', { name: /^(Suivant|Passer aux questions)/ })
+    if (await nextCard.isVisible().catch(() => false)) {
+      const title = await main
+        .getByRole('heading')
+        .nth(1)
+        .textContent()
+        .catch(() => null)
+      await nextCard.click()
+      if (title) await expect(main.getByRole('heading', { name: title, exact: true })).toBeHidden()
+      continue
+    }
+    if (
+      await main
+        .getByRole('heading', { name: /Sans faute|Leçon terminée/ })
+        .isVisible()
+        .catch(() => false)
+    )
+      return
+    const heading = main.getByRole('heading').first()
+    const before = await heading.textContent()
+    await answerCurrentQuestion(page)
+    await main.getByRole('button', { name: /^(Continuer|Voir mon résultat)$/ }).click()
+    await expect(heading).not.toHaveText(before ?? '')
+  }
+  throw new Error('Lesson did not finish')
+}

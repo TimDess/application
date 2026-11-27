@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeft, ArrowRight, CircleCheck, CircleX, Clock, Trophy, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CircleCheck, CircleX, Clock, X } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState, useTransition } from 'react'
@@ -17,7 +17,10 @@ import {
 import type { PlayableLesson } from '@/features/learning/queries'
 import type { Answer, AnswerResult, LessonSummary } from '@/features/learning/types'
 import { cn } from '@/lib/utils/cn'
+import { motionReduced } from '@/components/theme/theme-client'
+import { LaunchScreen } from './launch-screen'
 import { LearningCard } from './learning-card'
+import { LessonResult } from './lesson-result'
 
 type Step =
   | { kind: 'intro' }
@@ -32,6 +35,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
   const [results, setResults] = useState<Record<string, AnswerResult>>({})
   const [error, setError] = useState<string>()
   const [pending, startTransition] = useTransition()
+  const [launching, setLaunching] = useState(false)
   const headingRef = useRef<HTMLHeadingElement>(null)
 
   const totalSteps = lesson.cards.length + lesson.questions.length
@@ -50,8 +54,14 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
 
   function start() {
     setError(undefined)
+    const animate = !motionReduced()
+    if (animate) setLaunching(true)
     startTransition(async () => {
-      const res = await startLessonAction(lesson.id)
+      const [res] = await Promise.all([
+        startLessonAction(lesson.id),
+        animate ? new Promise((r) => setTimeout(r, 900)) : Promise.resolve(),
+      ])
+      setLaunching(false)
       if (!res.ok) return setError(res.message)
       setSessionId(res.data.sessionId)
       setResults(res.data.answers)
@@ -121,6 +131,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
         </span>
       </header>
 
+      {launching ? <LaunchScreen title={lesson.title} /> : null}
       <main id="contenu" className="flex flex-1 flex-col gap-5 py-4">
         {step.kind === 'intro' ? (
           <div className="step-in flex flex-1 flex-col gap-6">
@@ -166,7 +177,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
         ) : null}
 
         {step.kind === 'card' ? (
-          <div key={`card-${step.index}`} className="flex flex-1 flex-col gap-5">
+          <div key={`card-${step.index}`} className="slide-in-x flex flex-1 flex-col gap-5">
             <h1 ref={headingRef} tabIndex={-1} className="sr-only outline-none">
               Fiche {step.index + 1} sur {lesson.cards.length}
             </h1>
@@ -195,7 +206,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
               const question = lesson.questions[step.index]!
               const result = results[question.id] ?? null
               return (
-                <div key={question.id} className="step-in flex flex-1 flex-col gap-5">
+                <div key={question.id} className="slide-in-x flex flex-1 flex-col gap-5">
                   <div className="flex flex-col gap-2">
                     <p className="text-caption font-semibold text-muted">
                       {formatLabels[question.format]}
@@ -219,7 +230,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
                     <div
                       role="status"
                       className={cn(
-                        'step-in mt-auto flex flex-col gap-3 rounded-lg border p-4',
+                        'rise-in mt-auto flex flex-col gap-3 rounded-lg border p-4',
                         result.isCorrect
                           ? 'border-success/50 bg-success/10'
                           : 'border-danger/40 bg-danger/8',
@@ -252,40 +263,17 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
 
         {step.kind === 'result' ? (
           <div className="step-in flex flex-1 flex-col gap-6">
-            <div className="flex flex-col items-center gap-3 pt-6 text-center">
-              <span className="grid size-16 place-items-center rounded-full bg-accent/15 text-accent-text">
-                <Trophy className="size-8" aria-hidden="true" />
-              </span>
-              <h1 ref={headingRef} tabIndex={-1} className="text-title outline-none">
-                {step.summary.perfect
-                  ? 'Sans faute !'
-                  : step.summary.score >= 60
-                    ? 'Leçon terminée'
-                    : 'Leçon terminée, à revoir'}
-              </h1>
-              <p className="text-body text-muted">
-                {step.summary.correct} bonne{step.summary.correct > 1 ? 's' : ''} réponse
-                {step.summary.correct > 1 ? 's' : ''} sur {step.summary.total}
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="flex flex-col gap-1 rounded-lg border border-line bg-surface p-4">
-                <span className="text-caption text-muted">Précision</span>
-                <span className="tabular font-display text-title font-semibold text-ink">
-                  {step.summary.score} %
-                </span>
-              </div>
-              <div className="flex flex-col gap-1 rounded-lg border border-line bg-surface p-4">
-                <span className="text-caption text-muted">Bonnes réponses</span>
-                <span className="tabular font-display text-title font-semibold text-ink">
-                  {step.summary.correct}/{step.summary.total}
-                </span>
-              </div>
-            </div>
-            <p className="text-center text-caption text-muted">
+            <LessonResult summary={step.summary} headingRef={headingRef} />
+            <p
+              className="rise-in text-center text-caption text-muted"
+              style={{ animationDelay: '600ms' }}
+            >
               L’XP, les séries et les révisions arrivent dans la prochaine version.
             </p>
-            <div className="mt-auto flex flex-col gap-3">
+            <div
+              className="rise-in mt-auto flex flex-col gap-3"
+              style={{ animationDelay: '700ms' }}
+            >
               {lesson.nextLesson ? (
                 <Button size="lg" onClick={() => router.push(lessonPath(lesson.nextLesson!.slug))}>
                   Leçon suivante : {lesson.nextLesson.title}
