@@ -21,6 +21,8 @@ Postgres : questions (public) + private.question_solutions (privé)
 
 ### Statuts et relecture
 
+Une question peut porter `"status": "in_review"` dans un parcours publié : elle reste invisible des joueurs (révisions et défi du jour compris) jusqu'à validation, et le schéma refuse de la placer dans une leçon publiée.
+
 `draft` → `in_review` → `published`. Le contenu rédigé par IA arrive en `in_review` : il n'est visible que des comptes ayant le rôle `editor` ou `admin` (`private.is_reviewer()`), qui peuvent le jouer dans l'application réelle avant publication.
 
 ## Formats

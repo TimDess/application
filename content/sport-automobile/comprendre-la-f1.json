@@ -224,10 +224,19 @@
       "difficulty": 1,
       "knowledge": ["f1-championnat-1950"],
       "options": [
-        { "label": "1946" },
-        { "label": "1950", "correct": true },
-        { "label": "1958" },
-        { "label": "1966" }
+        {
+          "label": "1946"
+        },
+        {
+          "label": "1950",
+          "correct": true
+        },
+        {
+          "label": "1958"
+        },
+        {
+          "label": "1966"
+        }
       ],
       "explanation": "Le championnat du monde démarre le 13 mai 1950 à Silverstone, au Royaume-Uni."
     },
@@ -238,10 +247,19 @@
       "difficulty": 1,
       "knowledge": ["f1-fia"],
       "options": [
-        { "label": "La FIA", "correct": true },
-        { "label": "L’UEFA" },
-        { "label": "Pirelli" },
-        { "label": "Le CIO" }
+        {
+          "label": "La FIA",
+          "correct": true
+        },
+        {
+          "label": "L’UEFA"
+        },
+        {
+          "label": "Pirelli"
+        },
+        {
+          "label": "Le CIO"
+        }
       ],
       "explanation": "La Fédération internationale de l’automobile (FIA) rédige les règlements sportifs et techniques du championnat."
     },
@@ -273,10 +291,19 @@
       "difficulty": 3,
       "knowledge": ["f1-premier-champion"],
       "options": [
-        { "label": "Juan Manuel Fangio" },
-        { "label": "Giuseppe Farina", "correct": true },
-        { "label": "Alberto Ascari" },
-        { "label": "Stirling Moss" }
+        {
+          "label": "Juan Manuel Fangio"
+        },
+        {
+          "label": "Giuseppe Farina",
+          "correct": true
+        },
+        {
+          "label": "Alberto Ascari"
+        },
+        {
+          "label": "Stirling Moss"
+        }
       ],
       "explanation": "Giuseppe « Nino » Farina remporte le titre 1950 sur Alfa Romeo, devant son coéquipier Juan Manuel Fangio."
     },
@@ -298,10 +325,19 @@
       "difficulty": 1,
       "knowledge": ["f1-qualifications"],
       "options": [
-        { "label": "Partir en première place sur la grille", "correct": true },
-        { "label": "Partir depuis la voie des stands" },
-        { "label": "Partir en dernière place" },
-        { "label": "Avoir le droit de changer de pneus" }
+        {
+          "label": "Partir en première place sur la grille",
+          "correct": true
+        },
+        {
+          "label": "Partir depuis la voie des stands"
+        },
+        {
+          "label": "Partir en dernière place"
+        },
+        {
+          "label": "Avoir le droit de changer de pneus"
+        }
       ],
       "explanation": "La pole position est la première place sur la grille de départ, obtenue avec le meilleur temps en Q3."
     },
@@ -312,10 +348,19 @@
       "difficulty": 2,
       "knowledge": ["f1-qualifications"],
       "options": [
-        { "label": "5" },
-        { "label": "8" },
-        { "label": "10", "correct": true },
-        { "label": "15" }
+        {
+          "label": "5"
+        },
+        {
+          "label": "8"
+        },
+        {
+          "label": "10",
+          "correct": true
+        },
+        {
+          "label": "15"
+        }
       ],
       "explanation": "Q1 et Q2 éliminent les plus lents. Les 10 pilotes restants se disputent les premières places de la grille en Q3."
     },
@@ -326,10 +371,19 @@
       "difficulty": 2,
       "knowledge": ["f1-distance"],
       "options": [
-        { "label": "Environ 150 km" },
-        { "label": "Environ 305 km", "correct": true },
-        { "label": "Environ 500 km" },
-        { "label": "Environ 1 000 km" }
+        {
+          "label": "Environ 150 km"
+        },
+        {
+          "label": "Environ 305 km",
+          "correct": true
+        },
+        {
+          "label": "Environ 500 km"
+        },
+        {
+          "label": "Environ 1 000 km"
+        }
       ],
       "explanation": "Une course doit couvrir au moins 305 km. Monaco fait exception avec environ 260 km, à cause de son tracé lent."
     },
@@ -358,10 +412,19 @@
       "difficulty": 3,
       "knowledge": ["f1-distance"],
       "options": [
-        { "label": "1 heure" },
-        { "label": "2 heures", "correct": true },
-        { "label": "4 heures" },
-        { "label": "Il n’y a pas de limite" }
+        {
+          "label": "1 heure"
+        },
+        {
+          "label": "2 heures",
+          "correct": true
+        },
+        {
+          "label": "4 heures"
+        },
+        {
+          "label": "Il n’y a pas de limite"
+        }
       ],
       "explanation": "Une course s’arrête au bout de 2 heures de course, même si la distance prévue n’est pas atteinte."
     },
@@ -372,10 +435,19 @@
       "difficulty": 1,
       "knowledge": ["f1-points"],
       "options": [
-        { "label": "10" },
-        { "label": "20" },
-        { "label": "25", "correct": true },
-        { "label": "30" }
+        {
+          "label": "10"
+        },
+        {
+          "label": "20"
+        },
+        {
+          "label": "25",
+          "correct": true
+        },
+        {
+          "label": "30"
+        }
       ],
       "explanation": "Le vainqueur marque 25 points, le deuxième 18 et le troisième 15."
     },
@@ -386,10 +458,22 @@
       "difficulty": 2,
       "knowledge": ["f1-points"],
       "pairs": [
-        { "left": "1re place", "right": "25 points" },
-        { "left": "2e place", "right": "18 points" },
-        { "left": "3e place", "right": "15 points" },
-        { "left": "10e place", "right": "1 point" }
+        {
+          "left": "1re place",
+          "right": "25 points"
+        },
+        {
+          "left": "2e place",
+          "right": "18 points"
+        },
+        {
+          "left": "3e place",
+          "right": "15 points"
+        },
+        {
+          "left": "10e place",
+          "right": "1 point"
+        }
       ],
       "explanation": "Le barème complet : 25, 18, 15, 12, 10, 8, 6, 4, 2 et 1 point pour les dix premiers."
     },
@@ -420,10 +504,19 @@
       "difficulty": 2,
       "knowledge": ["f1-points-sprint"],
       "options": [
-        { "label": "3" },
-        { "label": "8", "correct": true },
-        { "label": "12" },
-        { "label": "25" }
+        {
+          "label": "3"
+        },
+        {
+          "label": "8",
+          "correct": true
+        },
+        {
+          "label": "12"
+        },
+        {
+          "label": "25"
+        }
       ],
       "explanation": "Le sprint rapporte 8 points au vainqueur, puis un point de moins par place jusqu’au 8e."
     },
@@ -434,10 +527,22 @@
       "difficulty": 3,
       "knowledge": ["f1-championnat-1950", "f1-deux-titres", "f1-pirelli", "f1-vsc"],
       "items": [
-        { "label": "Première course du championnat du monde", "date": "1950" },
-        { "label": "Premier titre constructeurs", "date": "1958" },
-        { "label": "Pirelli devient fournisseur unique de pneus", "date": "2011" },
-        { "label": "Arrivée de la voiture de sécurité virtuelle", "date": "2015" }
+        {
+          "label": "Première course du championnat du monde",
+          "date": "1950"
+        },
+        {
+          "label": "Premier titre constructeurs",
+          "date": "1958"
+        },
+        {
+          "label": "Pirelli devient fournisseur unique de pneus",
+          "date": "2011"
+        },
+        {
+          "label": "Arrivée de la voiture de sécurité virtuelle",
+          "date": "2015"
+        }
       ],
       "explanation": "1950 : premier Grand Prix du championnat. 1958 : premier titre constructeurs. 2011 : Pirelli seul fournisseur. 2015 : la VSC fait son apparition."
     },
@@ -460,10 +565,19 @@
       "difficulty": 1,
       "knowledge": ["f1-monza"],
       "options": [
-        { "label": "Monaco" },
-        { "label": "Monza", "correct": true },
-        { "label": "Silverstone" },
-        { "label": "Suzuka" }
+        {
+          "label": "Monaco"
+        },
+        {
+          "label": "Monza",
+          "correct": true
+        },
+        {
+          "label": "Silverstone"
+        },
+        {
+          "label": "Suzuka"
+        }
       ],
       "explanation": "Monza, en Italie, aligne de longues lignes droites où les F1 atteignent les vitesses les plus élevées de la saison."
     },
@@ -474,10 +588,19 @@
       "difficulty": 2,
       "knowledge": ["f1-spa"],
       "options": [
-        { "label": "Spa-Francorchamps", "correct": true },
-        { "label": "Interlagos" },
-        { "label": "Monza" },
-        { "label": "Zandvoort" }
+        {
+          "label": "Spa-Francorchamps",
+          "correct": true
+        },
+        {
+          "label": "Interlagos"
+        },
+        {
+          "label": "Monza"
+        },
+        {
+          "label": "Zandvoort"
+        }
       ],
       "explanation": "Eau Rouge – Raidillon est le virage le plus célèbre de Spa-Francorchamps, en Belgique : une compression suivie d’une montée très raide."
     },
@@ -488,10 +611,19 @@
       "difficulty": 2,
       "knowledge": ["f1-suzuka"],
       "options": [
-        { "label": "Suzuka", "correct": true },
-        { "label": "Spa-Francorchamps" },
-        { "label": "Bakou" },
-        { "label": "Melbourne" }
+        {
+          "label": "Suzuka",
+          "correct": true
+        },
+        {
+          "label": "Spa-Francorchamps"
+        },
+        {
+          "label": "Bakou"
+        },
+        {
+          "label": "Melbourne"
+        }
       ],
       "explanation": "Suzuka, au Japon, est le seul circuit du calendrier en forme de huit : la piste passe sous elle-même grâce à un pont."
     },
@@ -511,10 +643,22 @@
       "difficulty": 2,
       "knowledge": ["f1-monza", "f1-spa", "f1-suzuka", "f1-interlagos"],
       "pairs": [
-        { "left": "Monza", "right": "Italie" },
-        { "left": "Spa-Francorchamps", "right": "Belgique" },
-        { "left": "Suzuka", "right": "Japon" },
-        { "left": "Interlagos", "right": "Brésil" }
+        {
+          "left": "Monza",
+          "right": "Italie"
+        },
+        {
+          "left": "Spa-Francorchamps",
+          "right": "Belgique"
+        },
+        {
+          "left": "Suzuka",
+          "right": "Japon"
+        },
+        {
+          "left": "Interlagos",
+          "right": "Brésil"
+        }
       ],
       "explanation": "Monza (Italie), Spa-Francorchamps (Belgique), Suzuka (Japon) et Interlagos (Brésil, à São Paulo)."
     },
@@ -525,10 +669,19 @@
       "difficulty": 1,
       "knowledge": ["f1-circuit-urbain"],
       "options": [
-        { "label": "Un tracé sur des routes publiques fermées pour l’occasion", "correct": true },
-        { "label": "Un circuit construit à côté d’une ville" },
-        { "label": "Un circuit réservé aux essais" },
-        { "label": "Un circuit couvert" }
+        {
+          "label": "Un tracé sur des routes publiques fermées pour l’occasion",
+          "correct": true
+        },
+        {
+          "label": "Un circuit construit à côté d’une ville"
+        },
+        {
+          "label": "Un circuit réservé aux essais"
+        },
+        {
+          "label": "Un circuit couvert"
+        }
       ],
       "explanation": "Un circuit urbain emprunte des rues ouvertes à la circulation le reste de l’année, comme à Monaco ou à Singapour."
     },
@@ -539,10 +692,19 @@
       "difficulty": 2,
       "knowledge": ["f1-singapour-nuit"],
       "options": [
-        { "label": "Bahreïn" },
-        { "label": "Abou Dabi" },
-        { "label": "Singapour", "correct": true },
-        { "label": "Las Vegas" }
+        {
+          "label": "Bahreïn"
+        },
+        {
+          "label": "Abou Dabi"
+        },
+        {
+          "label": "Singapour",
+          "correct": true
+        },
+        {
+          "label": "Las Vegas"
+        }
       ],
       "explanation": "Singapour inaugure la course de nuit en 2008, sur le circuit urbain de Marina Bay éclairé par des projecteurs."
     },
@@ -583,10 +745,19 @@
       "difficulty": 2,
       "knowledge": ["f1-mexico-altitude"],
       "options": [
-        { "label": "Mexico", "correct": true },
-        { "label": "Interlagos" },
-        { "label": "Spa-Francorchamps" },
-        { "label": "Montréal" }
+        {
+          "label": "Mexico",
+          "correct": true
+        },
+        {
+          "label": "Interlagos"
+        },
+        {
+          "label": "Spa-Francorchamps"
+        },
+        {
+          "label": "Montréal"
+        }
       ],
       "explanation": "Le circuit de Mexico est le plus haut du calendrier, à plus de 2 200 m d’altitude."
     },
@@ -606,10 +777,19 @@
       "difficulty": 2,
       "knowledge": ["f1-spa"],
       "options": [
-        { "label": "Monza" },
-        { "label": "Spa-Francorchamps", "correct": true },
-        { "label": "Monaco" },
-        { "label": "Silverstone" }
+        {
+          "label": "Monza"
+        },
+        {
+          "label": "Spa-Francorchamps",
+          "correct": true
+        },
+        {
+          "label": "Monaco"
+        },
+        {
+          "label": "Silverstone"
+        }
       ],
       "explanation": "Spa-Francorchamps mesure environ 7 km, le plus long tour de la saison."
     },
@@ -620,10 +800,19 @@
       "difficulty": 3,
       "knowledge": ["f1-monaco-appui"],
       "options": [
-        { "label": "Un appui maximal", "correct": true },
-        { "label": "Un appui minimal" },
-        { "label": "Aucun aileron" },
-        { "label": "Le même réglage qu’à Monza" }
+        {
+          "label": "Un appui maximal",
+          "correct": true
+        },
+        {
+          "label": "Un appui minimal"
+        },
+        {
+          "label": "Aucun aileron"
+        },
+        {
+          "label": "Le même réglage qu’à Monza"
+        }
       ],
       "explanation": "Les virages lents et serrés de Monaco demandent un maximum d’appui. À Monza, c’est l’inverse : on réduit l’appui pour aller plus vite en ligne droite."
     },
@@ -643,9 +832,18 @@
       "difficulty": 3,
       "knowledge": ["f1-silverstone", "f1-singapour-nuit", "f1-las-vegas"],
       "items": [
-        { "label": "Première course du championnat, à Silverstone", "date": "1950" },
-        { "label": "Première course de nuit, à Singapour", "date": "2008" },
-        { "label": "Premier Grand Prix sur le Strip de Las Vegas", "date": "2023" }
+        {
+          "label": "Première course du championnat, à Silverstone",
+          "date": "1950"
+        },
+        {
+          "label": "Première course de nuit, à Singapour",
+          "date": "2008"
+        },
+        {
+          "label": "Premier Grand Prix sur le Strip de Las Vegas",
+          "date": "2023"
+        }
       ],
       "explanation": "Silverstone ouvre le championnat en 1950, Singapour lance les courses de nuit en 2008, et Las Vegas rejoint le calendrier en 2023."
     },
@@ -656,10 +854,19 @@
       "difficulty": 1,
       "knowledge": ["f1-pneus-couleurs"],
       "options": [
-        { "label": "Rouge", "correct": true },
-        { "label": "Jaune" },
-        { "label": "Blanc" },
-        { "label": "Vert" }
+        {
+          "label": "Rouge",
+          "correct": true
+        },
+        {
+          "label": "Jaune"
+        },
+        {
+          "label": "Blanc"
+        },
+        {
+          "label": "Vert"
+        }
       ],
       "explanation": "Depuis 2019, Pirelli marque ses pneus slicks en rouge (tendre), jaune (médium) et blanc (dur)."
     },
@@ -670,10 +877,22 @@
       "difficulty": 2,
       "knowledge": ["f1-pneus-couleurs", "f1-pneus-pluie"],
       "pairs": [
-        { "left": "Tendre", "right": "Rouge" },
-        { "left": "Médium", "right": "Jaune" },
-        { "left": "Dur", "right": "Blanc" },
-        { "left": "Intermédiaire", "right": "Vert" }
+        {
+          "left": "Tendre",
+          "right": "Rouge"
+        },
+        {
+          "left": "Médium",
+          "right": "Jaune"
+        },
+        {
+          "left": "Dur",
+          "right": "Blanc"
+        },
+        {
+          "left": "Intermédiaire",
+          "right": "Vert"
+        }
       ],
       "explanation": "Tendre rouge, médium jaune, dur blanc. Pour la pluie : vert pour les intermédiaires, bleu pour les pneus pluie."
     },
@@ -684,10 +903,19 @@
       "difficulty": 1,
       "knowledge": ["f1-pirelli"],
       "options": [
-        { "label": "Michelin" },
-        { "label": "Pirelli", "correct": true },
-        { "label": "Bridgestone" },
-        { "label": "Goodyear" }
+        {
+          "label": "Michelin"
+        },
+        {
+          "label": "Pirelli",
+          "correct": true
+        },
+        {
+          "label": "Bridgestone"
+        },
+        {
+          "label": "Goodyear"
+        }
       ],
       "explanation": "Pirelli est le fournisseur unique de la F1 depuis 2011."
     },
@@ -707,10 +935,19 @@
       "difficulty": 2,
       "knowledge": ["f1-tendre-usure"],
       "options": [
-        { "label": "accroche plus mais s’use plus vite", "correct": true },
-        { "label": "accroche moins mais dure plus longtemps" },
-        { "label": "est réservé à la pluie" },
-        { "label": "est identique, seule la couleur change" }
+        {
+          "label": "accroche plus mais s’use plus vite",
+          "correct": true
+        },
+        {
+          "label": "accroche moins mais dure plus longtemps"
+        },
+        {
+          "label": "est réservé à la pluie"
+        },
+        {
+          "label": "est identique, seule la couleur change"
+        }
       ],
       "explanation": "Le tendre offre plus d’adhérence, donc des tours plus rapides, mais il se dégrade plus vite. C’est tout l’enjeu de la stratégie."
     },
@@ -725,9 +962,15 @@
           "label": "S’arrêter au stand avant son rival pour le dépasser grâce aux pneus neufs",
           "correct": true
         },
-        { "label": "Dépasser par l’intérieur d’un virage" },
-        { "label": "Rouler sous la voiture de sécurité" },
-        { "label": "Partir des stands" }
+        {
+          "label": "Dépasser par l’intérieur d’un virage"
+        },
+        {
+          "label": "Rouler sous la voiture de sécurité"
+        },
+        {
+          "label": "Partir des stands"
+        }
       ],
       "explanation": "Avec des pneus neufs, on boucle des tours plus rapides pendant que le rival roule encore sur des pneus usés. Quand il s’arrête à son tour, on peut ressortir devant."
     },
@@ -747,10 +990,19 @@
       "difficulty": 2,
       "knowledge": ["f1-arret-stand"],
       "options": [
-        { "label": "Environ 2 à 3 secondes", "correct": true },
-        { "label": "Environ 10 secondes" },
-        { "label": "Environ 30 secondes" },
-        { "label": "Environ 1 minute" }
+        {
+          "label": "Environ 2 à 3 secondes",
+          "correct": true
+        },
+        {
+          "label": "Environ 10 secondes"
+        },
+        {
+          "label": "Environ 30 secondes"
+        },
+        {
+          "label": "Environ 1 minute"
+        }
       ],
       "explanation": "Une vingtaine de mécaniciens changent les quatre roues en 2 à 3 secondes. Le passage complet dans la voie des stands coûte, lui, une vingtaine de secondes."
     },
@@ -761,10 +1013,19 @@
       "difficulty": 3,
       "knowledge": ["f1-arret-stand"],
       "options": [
-        { "label": "30 km/h" },
-        { "label": "80 km/h", "correct": true },
-        { "label": "150 km/h" },
-        { "label": "Il n’y a pas de limite" }
+        {
+          "label": "30 km/h"
+        },
+        {
+          "label": "80 km/h",
+          "correct": true
+        },
+        {
+          "label": "150 km/h"
+        },
+        {
+          "label": "Il n’y a pas de limite"
+        }
       ],
       "explanation": "La vitesse y est généralement limitée à 80 km/h, parfois moins sur les circuits étroits, pour protéger les mécaniciens."
     },
@@ -779,9 +1040,15 @@
           "label": "Des pneus neufs sont nettement plus rapides que des pneus usés",
           "correct": true
         },
-        { "label": "Les stands sont plus courts en fin de course" },
-        { "label": "Le règlement donne un bonus à celui qui s’arrête en premier" },
-        { "label": "Le carburant est plus léger" }
+        {
+          "label": "Les stands sont plus courts en fin de course"
+        },
+        {
+          "label": "Le règlement donne un bonus à celui qui s’arrête en premier"
+        },
+        {
+          "label": "Le carburant est plus léger"
+        }
       ],
       "explanation": "L’écart de rythme entre pneus neufs et pneus usés peut dépasser une seconde au tour : quelques tours suffisent pour combler le temps perdu au stand."
     },
@@ -796,9 +1063,15 @@
           "label": "Une limitation de vitesse imposée à tous, sans voiture sur la piste",
           "correct": true
         },
-        { "label": "Une voiture pilotée à distance" },
-        { "label": "Un simulateur d’entraînement" },
-        { "label": "Un tour de chauffe supplémentaire" }
+        {
+          "label": "Une voiture pilotée à distance"
+        },
+        {
+          "label": "Un simulateur d’entraînement"
+        },
+        {
+          "label": "Un tour de chauffe supplémentaire"
+        }
       ],
       "explanation": "Sous VSC, chaque pilote doit respecter un temps de référence plus lent. Les écarts sont conservés sans faire entrer de voiture en piste."
     },
@@ -821,10 +1094,22 @@
       "difficulty": 2,
       "knowledge": ["f1-drapeaux"],
       "pairs": [
-        { "left": "Jaune", "right": "Danger, dépassement interdit" },
-        { "left": "Bleu", "right": "Laisser passer un pilote plus rapide" },
-        { "left": "Rouge", "right": "Séance arrêtée" },
-        { "left": "Damier", "right": "Fin de la course" }
+        {
+          "left": "Jaune",
+          "right": "Danger, dépassement interdit"
+        },
+        {
+          "left": "Bleu",
+          "right": "Laisser passer un pilote plus rapide"
+        },
+        {
+          "left": "Rouge",
+          "right": "Séance arrêtée"
+        },
+        {
+          "left": "Damier",
+          "right": "Fin de la course"
+        }
       ],
       "explanation": "Jaune : danger. Bleu : un pilote qui te prend un tour arrive. Rouge : arrêt de la séance. Damier : arrivée."
     },
@@ -835,10 +1120,19 @@
       "difficulty": 3,
       "knowledge": ["f1-drapeaux"],
       "options": [
-        { "label": "Il est disqualifié", "correct": true },
-        { "label": "Il a fait le meilleur tour" },
-        { "label": "Il doit changer de pneus" },
-        { "label": "Il pleut" }
+        {
+          "label": "Il est disqualifié",
+          "correct": true
+        },
+        {
+          "label": "Il a fait le meilleur tour"
+        },
+        {
+          "label": "Il doit changer de pneus"
+        },
+        {
+          "label": "Il pleut"
+        }
       ],
       "explanation": "Le drapeau noir signale une disqualification : le pilote doit rentrer au stand."
     },
@@ -858,12 +1152,946 @@
       "difficulty": 4,
       "knowledge": ["f1-pirelli", "f1-vsc", "f1-pneus-couleurs", "f1-meilleur-tour"],
       "items": [
-        { "label": "Pirelli devient fournisseur unique", "date": "2011" },
-        { "label": "Arrivée de la VSC", "date": "2015" },
-        { "label": "Code couleur rouge, jaune, blanc pour les pneus secs", "date": "2019" },
-        { "label": "Suppression du point du meilleur tour", "date": "2025" }
+        {
+          "label": "Pirelli devient fournisseur unique",
+          "date": "2011"
+        },
+        {
+          "label": "Arrivée de la VSC",
+          "date": "2015"
+        },
+        {
+          "label": "Code couleur rouge, jaune, blanc pour les pneus secs",
+          "date": "2019"
+        },
+        {
+          "label": "Suppression du point du meilleur tour",
+          "date": "2025"
+        }
       ],
       "explanation": "2011 : Pirelli seul fournisseur. 2015 : la VSC. 2019 : le code couleur simplifié. 2025 : fin du point bonus du meilleur tour."
+    },
+    {
+      "key": "f1-x-silverstone-1950",
+      "format": "true_false",
+      "prompt": "La première course du championnat du monde s’est disputée en 1950.",
+      "difficulty": 1,
+      "knowledge": ["f1-championnat-1950"],
+      "answer": true,
+      "explanation": "Vrai : le 13 mai 1950, à Silverstone, au Royaume-Uni.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-farina-ecurie",
+      "format": "quiz",
+      "prompt": "Sur quelle voiture Giuseppe Farina devient-il le premier champion du monde ?",
+      "difficulty": 3,
+      "knowledge": ["f1-premier-champion"],
+      "options": [
+        {
+          "label": "Alfa Romeo",
+          "correct": true
+        },
+        {
+          "label": "Ferrari"
+        },
+        {
+          "label": "Maserati"
+        },
+        {
+          "label": "Mercedes"
+        }
+      ],
+      "explanation": "Farina remporte le titre 1950 sur Alfa Romeo.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-farina-nationalite",
+      "format": "true_false",
+      "prompt": "Le premier champion du monde de F1 est italien.",
+      "difficulty": 2,
+      "knowledge": ["f1-premier-champion"],
+      "answer": true,
+      "explanation": "Vrai : Giuseppe « Nino » Farina, en 1950.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-fia-sigle",
+      "format": "quiz",
+      "prompt": "Que signifie le sigle FIA ?",
+      "difficulty": 1,
+      "knowledge": ["f1-fia"],
+      "options": [
+        {
+          "label": "Fédération internationale de l’automobile",
+          "correct": true
+        },
+        {
+          "label": "Formule internationale automobile"
+        },
+        {
+          "label": "Fédération italienne de l’automobile"
+        },
+        {
+          "label": "Formula International Association"
+        }
+      ],
+      "explanation": "La FIA fixe les règlements sportifs et techniques de la F1.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-fia-regles",
+      "format": "true_false",
+      "prompt": "Ce sont les écuries qui fixent elles-mêmes le règlement technique de la F1.",
+      "difficulty": 1,
+      "knowledge": ["f1-fia"],
+      "answer": false,
+      "explanation": "Faux : c’est la FIA qui fixe les règlements sportifs et techniques.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-constructeurs",
+      "format": "quiz",
+      "prompt": "Comment est calculé le classement du titre constructeurs ?",
+      "difficulty": 2,
+      "knowledge": ["f1-deux-titres"],
+      "options": [
+        {
+          "label": "En additionnant les points des deux pilotes de l’écurie",
+          "correct": true
+        },
+        {
+          "label": "En ne comptant que le meilleur pilote"
+        },
+        {
+          "label": "Au nombre de victoires uniquement"
+        },
+        {
+          "label": "Par un vote des journalistes"
+        }
+      ],
+      "explanation": "Les points des deux pilotes s’additionnent pour l’écurie.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-plateau-voitures",
+      "format": "quiz",
+      "prompt": "Combien de voitures prennent le départ d’un Grand Prix en 2026 ?",
+      "difficulty": 2,
+      "knowledge": ["f1-plateau"],
+      "options": [
+        {
+          "label": "20"
+        },
+        {
+          "label": "22",
+          "correct": true
+        },
+        {
+          "label": "24"
+        },
+        {
+          "label": "26"
+        }
+      ],
+      "explanation": "11 écuries de deux pilotes : 22 voitures.",
+      "isEvolving": true,
+      "validAsOf": "2026-11-27",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-cadillac",
+      "format": "quiz",
+      "prompt": "Quelle écurie fait ses débuts en F1 en 2026 ?",
+      "difficulty": 2,
+      "knowledge": ["f1-plateau"],
+      "options": [
+        {
+          "label": "Cadillac",
+          "correct": true
+        },
+        {
+          "label": "Porsche"
+        },
+        {
+          "label": "Toyota"
+        },
+        {
+          "label": "BMW"
+        }
+      ],
+      "explanation": "L’arrivée de Cadillac porte le plateau à 11 écuries.",
+      "isEvolving": true,
+      "validAsOf": "2026-11-27",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-week-end-ordre",
+      "format": "timeline",
+      "prompt": "Remets les séances d’un week-end classique dans l’ordre.",
+      "difficulty": 1,
+      "knowledge": ["f1-week-end"],
+      "items": [
+        {
+          "label": "Essais libres",
+          "date": "Vendredi"
+        },
+        {
+          "label": "Qualifications",
+          "date": "Samedi"
+        },
+        {
+          "label": "Course",
+          "date": "Dimanche"
+        }
+      ],
+      "explanation": "Essais libres, puis qualifications, puis course le dimanche.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-course-dimanche",
+      "format": "true_false",
+      "prompt": "Lors d’un week-end classique, le Grand Prix se dispute le dimanche.",
+      "difficulty": 1,
+      "knowledge": ["f1-week-end"],
+      "answer": true,
+      "explanation": "Vrai : après les essais libres et les qualifications.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-q1",
+      "format": "quiz",
+      "prompt": "Que se passe-t-il à la fin de la Q1 ?",
+      "difficulty": 2,
+      "knowledge": ["f1-qualifications"],
+      "options": [
+        {
+          "label": "Les pilotes les plus lents sont éliminés",
+          "correct": true
+        },
+        {
+          "label": "La pole position est attribuée"
+        },
+        {
+          "label": "Les pilotes changent de voiture"
+        },
+        {
+          "label": "La course démarre"
+        }
+      ],
+      "explanation": "Q1 et Q2 éliminent progressivement les plus lents ; la Q3 attribue la pole.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-qualifs-ordre",
+      "format": "timeline",
+      "prompt": "Remets les phases des qualifications dans l’ordre.",
+      "difficulty": 1,
+      "knowledge": ["f1-qualifications"],
+      "items": [
+        {
+          "label": "Q1",
+          "date": "1re phase"
+        },
+        {
+          "label": "Q2",
+          "date": "2e phase"
+        },
+        {
+          "label": "Q3, pour la pole",
+          "date": "3e phase"
+        }
+      ],
+      "explanation": "Trois phases : Q1, Q2 puis Q3.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-sprint-distance",
+      "format": "quiz",
+      "prompt": "Quelle distance environ parcourt-on lors d’une course sprint ?",
+      "difficulty": 2,
+      "knowledge": ["f1-sprint"],
+      "options": [
+        {
+          "label": "50 km"
+        },
+        {
+          "label": "100 km",
+          "correct": true
+        },
+        {
+          "label": "200 km"
+        },
+        {
+          "label": "305 km"
+        }
+      ],
+      "explanation": "Environ 100 km, soit un tiers d’un Grand Prix.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-sprint-jour",
+      "format": "quiz",
+      "prompt": "Quel jour se dispute la course sprint ?",
+      "difficulty": 2,
+      "knowledge": ["f1-sprint"],
+      "options": [
+        {
+          "label": "Le vendredi"
+        },
+        {
+          "label": "Le samedi",
+          "correct": true
+        },
+        {
+          "label": "Le dimanche"
+        },
+        {
+          "label": "Le jeudi"
+        }
+      ],
+      "explanation": "La course sprint a lieu le samedi des week-ends concernés.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-monaco-distance",
+      "format": "quiz",
+      "prompt": "Quelle distance environ fait le Grand Prix de Monaco ?",
+      "difficulty": 3,
+      "knowledge": ["f1-distance"],
+      "options": [
+        {
+          "label": "160 km"
+        },
+        {
+          "label": "260 km",
+          "correct": true
+        },
+        {
+          "label": "305 km"
+        },
+        {
+          "label": "400 km"
+        }
+      ],
+      "explanation": "Monaco fait exception à la règle des 305 km.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-points-deuxieme",
+      "format": "quiz",
+      "prompt": "Combien de points marque le deuxième d’un Grand Prix ?",
+      "difficulty": 2,
+      "knowledge": ["f1-points"],
+      "options": [
+        {
+          "label": "15"
+        },
+        {
+          "label": "18",
+          "correct": true
+        },
+        {
+          "label": "20"
+        },
+        {
+          "label": "25"
+        }
+      ],
+      "explanation": "Barème : 25, 18, 15, 12, 10, 8, 6, 4, 2, 1.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-points-dixieme",
+      "format": "quiz",
+      "prompt": "Combien de points marque le dixième d’un Grand Prix ?",
+      "difficulty": 2,
+      "knowledge": ["f1-points"],
+      "options": [
+        {
+          "label": "0"
+        },
+        {
+          "label": "1",
+          "correct": true
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "3"
+        }
+      ],
+      "explanation": "Le dixième marque le dernier point.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-meilleur-tour-annee",
+      "format": "quiz",
+      "prompt": "À partir de quelle saison le point du meilleur tour a-t-il été supprimé ?",
+      "difficulty": 3,
+      "knowledge": ["f1-meilleur-tour"],
+      "options": [
+        {
+          "label": "2023"
+        },
+        {
+          "label": "2024"
+        },
+        {
+          "label": "2025",
+          "correct": true
+        },
+        {
+          "label": "2026"
+        }
+      ],
+      "explanation": "Le point bonus du meilleur tour a disparu à partir de 2025.",
+      "isEvolving": true,
+      "validAsOf": "2026-11-27",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-sprint-huitieme",
+      "format": "quiz",
+      "prompt": "Jusqu’à quelle place marque-t-on des points en course sprint ?",
+      "difficulty": 2,
+      "knowledge": ["f1-points-sprint"],
+      "options": [
+        {
+          "label": "La 3e"
+        },
+        {
+          "label": "La 5e"
+        },
+        {
+          "label": "La 8e",
+          "correct": true
+        },
+        {
+          "label": "La 10e"
+        }
+      ],
+      "explanation": "De 8 points pour le vainqueur à 1 point pour le 8e.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-sprint-25",
+      "format": "true_false",
+      "prompt": "Le vainqueur d’une course sprint marque 25 points.",
+      "difficulty": 1,
+      "knowledge": ["f1-points-sprint"],
+      "answer": false,
+      "explanation": "Faux : il marque 8 points.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-monza-pays",
+      "format": "quiz",
+      "prompt": "Dans quel pays se trouve le circuit de Monza ?",
+      "difficulty": 1,
+      "knowledge": ["f1-monza"],
+      "options": [
+        {
+          "label": "L’Italie",
+          "correct": true
+        },
+        {
+          "label": "L’Espagne"
+        },
+        {
+          "label": "La France"
+        },
+        {
+          "label": "L’Autriche"
+        }
+      ],
+      "explanation": "Monza, près de Milan, est le « temple de la vitesse ».",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-monza-lent",
+      "format": "true_false",
+      "prompt": "Monza est un circuit lent et sinueux.",
+      "difficulty": 1,
+      "knowledge": ["f1-monza"],
+      "answer": false,
+      "explanation": "Faux : il est célèbre pour ses longues lignes droites et ses vitesses très élevées.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-spa-pays",
+      "format": "quiz",
+      "prompt": "Dans quel pays se trouve Spa-Francorchamps ?",
+      "difficulty": 1,
+      "knowledge": ["f1-spa"],
+      "options": [
+        {
+          "label": "La Belgique",
+          "correct": true
+        },
+        {
+          "label": "Les Pays-Bas"
+        },
+        {
+          "label": "La France"
+        },
+        {
+          "label": "Le Luxembourg"
+        }
+      ],
+      "explanation": "Spa-Francorchamps est en Belgique, dans les Ardennes.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-silverstone-pays",
+      "format": "quiz",
+      "prompt": "Dans quel pays se trouve Silverstone ?",
+      "difficulty": 1,
+      "knowledge": ["f1-silverstone"],
+      "options": [
+        {
+          "label": "Le Royaume-Uni",
+          "correct": true
+        },
+        {
+          "label": "L’Irlande"
+        },
+        {
+          "label": "L’Australie"
+        },
+        {
+          "label": "Le Canada"
+        }
+      ],
+      "explanation": "Silverstone, en Angleterre, a accueilli la toute première course en 1950.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-suzuka-pays",
+      "format": "quiz",
+      "prompt": "Dans quel pays se trouve le circuit en forme de huit de Suzuka ?",
+      "difficulty": 1,
+      "knowledge": ["f1-suzuka"],
+      "options": [
+        {
+          "label": "Le Japon",
+          "correct": true
+        },
+        {
+          "label": "La Chine"
+        },
+        {
+          "label": "La Corée du Sud"
+        },
+        {
+          "label": "Singapour"
+        }
+      ],
+      "explanation": "Suzuka est au Japon, avec son pont qui fait croiser le tracé.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-suzuka-pont",
+      "format": "true_false",
+      "prompt": "À Suzuka, le tracé passe sous un pont.",
+      "difficulty": 2,
+      "knowledge": ["f1-suzuka"],
+      "answer": true,
+      "explanation": "Vrai : c’est ce pont qui permet au tracé de former un huit.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-urbains",
+      "format": "match",
+      "prompt": "Associe chaque circuit urbain à son pays.",
+      "difficulty": 2,
+      "knowledge": ["f1-circuit-urbain"],
+      "pairs": [
+        {
+          "left": "Monaco",
+          "right": "Principauté de Monaco"
+        },
+        {
+          "left": "Marina Bay",
+          "right": "Singapour"
+        },
+        {
+          "left": "Las Vegas Strip",
+          "right": "États-Unis"
+        }
+      ],
+      "explanation": "Trois circuits tracés sur des routes publiques fermées.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-urbain-routes",
+      "format": "true_false",
+      "prompt": "Un circuit urbain est tracé sur des routes publiques fermées pour l’occasion.",
+      "difficulty": 1,
+      "knowledge": ["f1-circuit-urbain"],
+      "answer": true,
+      "explanation": "Vrai : comme à Monaco, Singapour ou Las Vegas.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-singapour-projecteurs",
+      "format": "true_false",
+      "prompt": "Le Grand Prix de Singapour se dispute de nuit, sous projecteurs.",
+      "difficulty": 1,
+      "knowledge": ["f1-singapour-nuit"],
+      "answer": true,
+      "explanation": "Vrai : depuis la première édition, en 2008.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-vegas-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année le Grand Prix de Las Vegas fait-il son retour, sur le Strip ?",
+      "difficulty": 2,
+      "knowledge": ["f1-las-vegas"],
+      "year": 2023,
+      "tolerance": 1,
+      "min": 2010,
+      "max": 2026,
+      "explanation": "Depuis 2023, la course se dispute de nuit dans les rues de Las Vegas.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-interlagos-ville",
+      "format": "quiz",
+      "prompt": "Dans quelle ville se trouve Interlagos ?",
+      "difficulty": 2,
+      "knowledge": ["f1-interlagos"],
+      "options": [
+        {
+          "label": "São Paulo",
+          "correct": true
+        },
+        {
+          "label": "Rio de Janeiro"
+        },
+        {
+          "label": "Buenos Aires"
+        },
+        {
+          "label": "Mexico"
+        }
+      ],
+      "explanation": "Interlagos accueille le Grand Prix du Brésil, à São Paulo.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-mexico-effet",
+      "format": "quiz",
+      "prompt": "Quel est l’effet de l’altitude à Mexico sur les voitures ?",
+      "difficulty": 3,
+      "knowledge": ["f1-mexico-altitude"],
+      "options": [
+        {
+          "label": "Moins d’appui et un refroidissement plus difficile",
+          "correct": true
+        },
+        {
+          "label": "Plus d’appui aérodynamique"
+        },
+        {
+          "label": "Des pneus qui ne s’usent pas"
+        },
+        {
+          "label": "Aucun effet"
+        }
+      ],
+      "explanation": "L’air raréfié réduit l’appui et rend le refroidissement plus difficile.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-monaco-depasser",
+      "format": "true_false",
+      "prompt": "Il est très facile de dépasser à Monaco.",
+      "difficulty": 1,
+      "knowledge": ["f1-monaco-appui"],
+      "answer": false,
+      "explanation": "Faux : les rues étroites et sinueuses rendent les dépassements très difficiles.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-pirelli-annee",
+      "format": "guess_year",
+      "prompt": "Depuis quelle année Pirelli est-il le fournisseur unique de pneus en F1 ?",
+      "difficulty": 2,
+      "knowledge": ["f1-pirelli"],
+      "year": 2011,
+      "tolerance": 2,
+      "min": 2000,
+      "max": 2020,
+      "explanation": "Pirelli équipe toutes les écuries depuis 2011.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-pneu-dur",
+      "format": "quiz",
+      "prompt": "De quelle couleur est la bande du pneu dur ?",
+      "difficulty": 1,
+      "knowledge": ["f1-pneus-couleurs"],
+      "options": [
+        {
+          "label": "Blanc",
+          "correct": true
+        },
+        {
+          "label": "Rouge"
+        },
+        {
+          "label": "Jaune"
+        },
+        {
+          "label": "Vert"
+        }
+      ],
+      "explanation": "Rouge pour le tendre, jaune pour le médium, blanc pour le dur.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-pneu-medium",
+      "format": "quiz",
+      "prompt": "De quelle couleur est la bande du pneu médium ?",
+      "difficulty": 1,
+      "knowledge": ["f1-pneus-couleurs"],
+      "options": [
+        {
+          "label": "Jaune",
+          "correct": true
+        },
+        {
+          "label": "Blanc"
+        },
+        {
+          "label": "Rouge"
+        },
+        {
+          "label": "Bleu"
+        }
+      ],
+      "explanation": "Le médium est signalé par une bande jaune.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-pneu-bleu",
+      "format": "quiz",
+      "prompt": "Sur quelle piste utilise-t-on les pneus pluie à bande bleue ?",
+      "difficulty": 2,
+      "knowledge": ["f1-pneus-pluie"],
+      "options": [
+        {
+          "label": "Une piste détrempée",
+          "correct": true
+        },
+        {
+          "label": "Une piste sèche"
+        },
+        {
+          "label": "Une piste froide mais sèche"
+        },
+        {
+          "label": "Une piste en terre"
+        }
+      ],
+      "explanation": "Les intermédiaires (vert) servent sur piste humide, les pneus pluie (bleu) sur piste détrempée.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-intermediaires",
+      "format": "true_false",
+      "prompt": "Les pneus intermédiaires ont une bande verte.",
+      "difficulty": 2,
+      "knowledge": ["f1-pneus-pluie"],
+      "answer": true,
+      "explanation": "Vrai : ils servent sur piste humide.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-tendre-durable",
+      "format": "true_false",
+      "prompt": "Le pneu tendre dure plus longtemps que le pneu dur.",
+      "difficulty": 1,
+      "knowledge": ["f1-tendre-usure"],
+      "answer": false,
+      "explanation": "Faux : il accroche davantage mais s’use plus vite.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-deux-gommes-pluie",
+      "format": "quiz",
+      "prompt": "Quand la règle des deux types de pneus secs s’applique-t-elle ?",
+      "difficulty": 3,
+      "knowledge": ["f1-deux-gommes"],
+      "options": [
+        {
+          "label": "En course sur piste sèche",
+          "correct": true
+        },
+        {
+          "label": "En qualifications"
+        },
+        {
+          "label": "Sous la pluie"
+        },
+        {
+          "label": "Uniquement à Monaco"
+        }
+      ],
+      "explanation": "Sur piste sèche, chaque pilote doit utiliser au moins deux gommes sèches différentes.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-undercut-avant",
+      "format": "true_false",
+      "prompt": "Faire un undercut, c’est s’arrêter au stand avant son rival.",
+      "difficulty": 1,
+      "knowledge": ["f1-undercut"],
+      "answer": true,
+      "explanation": "Vrai : on profite de pneus neufs plus rapides pour passer devant.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-strategies",
+      "format": "match",
+      "prompt": "Associe chaque terme de stratégie à sa définition.",
+      "difficulty": 2,
+      "knowledge": ["f1-undercut", "f1-overcut", "f1-arret-stand"],
+      "pairs": [
+        {
+          "left": "Undercut",
+          "right": "S’arrêter avant son rival"
+        },
+        {
+          "left": "Overcut",
+          "right": "S’arrêter après son rival"
+        },
+        {
+          "left": "Arrêt au stand",
+          "right": "Changer les quatre pneus en 2 à 3 secondes"
+        }
+      ],
+      "explanation": "L’undercut mise sur les pneus neufs, l’overcut sur le temps passé en piste.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-overcut-but",
+      "format": "quiz",
+      "prompt": "Quel est le but d’un overcut ?",
+      "difficulty": 3,
+      "knowledge": ["f1-overcut"],
+      "options": [
+        {
+          "label": "Ressortir des stands devant son rival en s’arrêtant après lui",
+          "correct": true
+        },
+        {
+          "label": "Doubler en piste sous voiture de sécurité"
+        },
+        {
+          "label": "Économiser du carburant"
+        },
+        {
+          "label": "Changer d’aileron"
+        }
+      ],
+      "explanation": "On reste en piste plus longtemps pour ressortir devant.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-pitlane-libre",
+      "format": "true_false",
+      "prompt": "Dans la voie des stands, les pilotes peuvent rouler aussi vite qu’ils le veulent.",
+      "difficulty": 1,
+      "knowledge": ["f1-arret-stand"],
+      "answer": false,
+      "explanation": "Faux : la vitesse y est limitée, souvent à 80 km/h.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-safety-car-role",
+      "format": "quiz",
+      "prompt": "Que doivent faire les pilotes derrière la voiture de sécurité ?",
+      "difficulty": 1,
+      "knowledge": ["f1-safety-car"],
+      "options": [
+        {
+          "label": "La suivre sans dépasser",
+          "correct": true
+        },
+        {
+          "label": "Rentrer tous au stand"
+        },
+        {
+          "label": "Couper leur moteur"
+        },
+        {
+          "label": "S’arrêter sur la piste"
+        }
+      ],
+      "explanation": "La course est neutralisée : on suit la Safety Car sans dépasser.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-vsc-voiture",
+      "format": "true_false",
+      "prompt": "Avec la voiture de sécurité virtuelle, aucune voiture de sécurité ne roule sur la piste.",
+      "difficulty": 2,
+      "knowledge": ["f1-vsc"],
+      "answer": true,
+      "explanation": "Vrai : les pilotes doivent respecter une vitesse réduite, contrôlée électroniquement.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-drapeau-jaune",
+      "format": "quiz",
+      "prompt": "Que signifie le drapeau jaune ?",
+      "difficulty": 1,
+      "knowledge": ["f1-drapeaux"],
+      "options": [
+        {
+          "label": "Danger : pas de dépassement",
+          "correct": true
+        },
+        {
+          "label": "Fin de la course"
+        },
+        {
+          "label": "Séance arrêtée"
+        },
+        {
+          "label": "Laisser passer un pilote plus rapide"
+        }
+      ],
+      "explanation": "Le jaune signale un danger : on ralentit et on ne dépasse pas.",
+      "status": "in_review"
+    },
+    {
+      "key": "f1-x-drapeau-bleu",
+      "format": "quiz",
+      "prompt": "Que signifie le drapeau bleu ?",
+      "difficulty": 2,
+      "knowledge": ["f1-drapeaux"],
+      "options": [
+        {
+          "label": "Laisser passer un pilote plus rapide qui prend un tour",
+          "correct": true
+        },
+        {
+          "label": "Pluie sur la piste"
+        },
+        {
+          "label": "Dernier tour"
+        },
+        {
+          "label": "Disqualification"
+        }
+      ],
+      "explanation": "Le pilote attardé doit laisser passer celui qui lui prend un tour.",
+      "status": "in_review"
     }
   ],
   "chapters": [
@@ -961,7 +2189,11 @@
                   "type": "text",
                   "text": "Elles se déroulent en trois phases : Q1 et Q2 éliminent les plus lents, puis les 10 meilleurs se disputent la pole position en Q3."
                 },
-                { "type": "keyfigure", "value": "10", "label": "pilotes en Q3" }
+                {
+                  "type": "keyfigure",
+                  "value": "10",
+                  "label": "pilotes en Q3"
+                }
               ]
             },
             {
@@ -997,7 +2229,11 @@
             {
               "title": "Le barème",
               "blocks": [
-                { "type": "keyfigure", "value": "25", "label": "points pour une victoire" },
+                {
+                  "type": "keyfigure",
+                  "value": "25",
+                  "label": "points pour une victoire"
+                },
                 {
                   "type": "list",
                   "items": [
@@ -1168,7 +2404,10 @@
                   "value": "2 200 m",
                   "label": "altitude du circuit de Mexico, la plus élevée du calendrier"
                 },
-                { "type": "text", "text": "L’air raréfié y réduit l’appui et le refroidissement." }
+                {
+                  "type": "text",
+                  "text": "L’air raréfié y réduit l’appui et le refroidissement."
+                }
               ]
             },
             {
@@ -1237,9 +2476,21 @@
                 {
                   "type": "swatches",
                   "items": [
-                    { "label": "Tendre", "color": "#E0301E", "text": "Le plus rapide, s’use vite" },
-                    { "label": "Médium", "color": "#F2C200", "text": "Le compromis" },
-                    { "label": "Dur", "color": "#F2F2F2", "text": "Le plus durable, moins rapide" }
+                    {
+                      "label": "Tendre",
+                      "color": "#E0301E",
+                      "text": "Le plus rapide, s’use vite"
+                    },
+                    {
+                      "label": "Médium",
+                      "color": "#F2C200",
+                      "text": "Le compromis"
+                    },
+                    {
+                      "label": "Dur",
+                      "color": "#F2F2F2",
+                      "text": "Le plus durable, moins rapide"
+                    }
                   ]
                 }
               ]
@@ -1250,8 +2501,16 @@
                 {
                   "type": "swatches",
                   "items": [
-                    { "label": "Intermédiaire", "color": "#1F9D55", "text": "Piste humide" },
-                    { "label": "Pluie", "color": "#1C6BFF", "text": "Piste détrempée" }
+                    {
+                      "label": "Intermédiaire",
+                      "color": "#1F9D55",
+                      "text": "Piste humide"
+                    },
+                    {
+                      "label": "Pluie",
+                      "color": "#1C6BFF",
+                      "text": "Piste détrempée"
+                    }
                   ]
                 },
                 {
@@ -1350,7 +2609,11 @@
                       "color": "#1C6BFF",
                       "text": "Laisser passer un pilote qui te prend un tour"
                     },
-                    { "label": "Rouge", "color": "#E0301E", "text": "Séance arrêtée" }
+                    {
+                      "label": "Rouge",
+                      "color": "#E0301E",
+                      "text": "Séance arrêtée"
+                    }
                   ]
                 },
                 {

@@ -1,0 +1,1593 @@
+{
+  "universe": "cinema-series",
+  "status": "in_review",
+  "category": {
+    "slug": "sagas",
+    "name": "Sagas et franchises",
+    "description": "Les grandes sagas du cinéma et des séries, de leurs origines à leurs records."
+  },
+  "course": {
+    "slug": "les-sagas-cultes",
+    "title": "Les sagas cultes",
+    "description": "Star Wars, James Bond, Harry Potter, Marvel, Game of Thrones… les sagas qui ont marqué le cinéma et les séries.",
+    "level": "debutant"
+  },
+  "knowledge": [
+    {
+      "key": "sg-star-wars-1977",
+      "title": "Star Wars, 1977",
+      "summary": "Le premier film Star Wars, réalisé par George Lucas, sort en 1977. Il sera rebaptisé Un nouvel espoir.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-je-suis-ton-pere",
+      "title": "« Je suis ton père »",
+      "summary": "Dans L’Empire contre-attaque (1980), Dark Vador révèle à Luke Skywalker qu’il est son père : l’une des révélations les plus célèbres du cinéma.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-disney-lucasfilm",
+      "title": "Disney rachète Lucasfilm",
+      "summary": "En 2012, Disney rachète Lucasfilm, et donc Star Wars, pour environ 4 milliards de dollars. Le Réveil de la Force sort en 2015.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-bond-fleming",
+      "title": "James Bond, créé par Ian Fleming",
+      "summary": "L’espion James Bond, matricule 007, naît en 1953 dans le roman Casino Royale de l’écrivain britannique Ian Fleming.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-bond-dr-no",
+      "title": "Le premier film James Bond",
+      "summary": "Le premier film de la saga, James Bond 007 contre Dr No, sort en 1962 avec Sean Connery.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-bond-craig",
+      "title": "Daniel Craig, 007 de 2006 à 2021",
+      "summary": "Daniel Craig incarne James Bond dans cinq films, de Casino Royale (2006) à Mourir peut attendre (2021).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-indiana-jones",
+      "title": "Indiana Jones",
+      "summary": "Les Aventuriers de l’arche perdue (1981), réalisé par Steven Spielberg sur une idée de George Lucas, lance Indiana Jones, incarné par Harrison Ford.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-harrison-ford",
+      "title": "Harrison Ford, Han Solo et Indiana Jones",
+      "summary": "Harrison Ford incarne à la fois Han Solo dans Star Wars et Indiana Jones.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-retour-vers-le-futur",
+      "title": "Retour vers le futur",
+      "summary": "Réalisé par Robert Zemeckis, Retour vers le futur sort en 1985. Marty McFly (Michael J. Fox) voyage dans le temps à bord d’une DeLorean.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-88-miles",
+      "title": "La DeLorean à 88 miles à l’heure",
+      "summary": "Pour voyager dans le temps, la DeLorean doit atteindre 88 miles à l’heure. Dans le deuxième film, Marty arrive le 21 octobre 2015.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-lotr-jackson",
+      "title": "Le Seigneur des anneaux de Peter Jackson",
+      "summary": "Peter Jackson adapte le roman de J. R. R. Tolkien en trois films sortis de 2001 à 2003, tournés en Nouvelle-Zélande.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-lotr-oscars",
+      "title": "Le Retour du roi et ses 11 Oscars",
+      "summary": "Le Retour du roi (2003) remporte 11 Oscars, dont celui du meilleur film. C’est le record, partagé avec Ben-Hur et Titanic.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-tolkien",
+      "title": "J. R. R. Tolkien",
+      "summary": "L’écrivain britannique J. R. R. Tolkien publie Le Seigneur des anneaux en 1954 et 1955, après Le Hobbit (1937).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-hp-livre",
+      "title": "Harry Potter, les livres",
+      "summary": "J. K. Rowling publie le premier tome, Harry Potter à l’école des sorciers, en 1997. La saga compte sept romans.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-hp-films",
+      "title": "Harry Potter, les films",
+      "summary": "Huit films sortent de 2001 à 2011, avec Daniel Radcliffe, Emma Watson et Rupert Grint. Le dernier livre est découpé en deux films.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-hp-poudlard",
+      "title": "Poudlard et ses maisons",
+      "summary": "À Poudlard, l’école des sorciers, les élèves sont répartis dans quatre maisons : Gryffondor, Serpentard, Poufsouffle et Serdaigle.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-mcu-iron-man",
+      "title": "Iron Man lance l’univers Marvel",
+      "summary": "L’univers cinématographique Marvel démarre en 2008 avec Iron Man, porté par Robert Downey Jr.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-disney-marvel",
+      "title": "Disney rachète Marvel",
+      "summary": "En 2009, Disney rachète Marvel Entertainment pour environ 4 milliards de dollars.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-endgame",
+      "title": "Avengers: Endgame",
+      "summary": "Sorti en 2019, Avengers: Endgame dépasse Avatar et devient un temps le plus gros succès de l’histoire au box-office, avant qu’Avatar ne reprenne la première place en 2021.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-toy-story",
+      "title": "Toy Story, première image de synthèse",
+      "summary": "Toy Story (1995), de Pixar, est le premier long métrage entièrement réalisé en images de synthèse.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-shrek-oscar",
+      "title": "Shrek et le premier Oscar de l’animation",
+      "summary": "Shrek, de DreamWorks, remporte en 2002 le tout premier Oscar du meilleur film d’animation.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-disney-pixar",
+      "title": "Disney rachète Pixar",
+      "summary": "Partenaire de Pixar depuis Toy Story, Disney rachète le studio en 2006.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-mission-impossible",
+      "title": "Mission : Impossible",
+      "summary": "Adaptée d’une série télévisée de 1966, la saga démarre au cinéma en 1996 avec Tom Cruise, connu pour réaliser lui-même ses cascades.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-burj-khalifa",
+      "title": "Tom Cruise sur la Burj Khalifa",
+      "summary": "Dans Mission : Impossible – Protocole Fantôme (2011), Tom Cruise escalade la façade de la Burj Khalifa, à Dubaï.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-fast-furious",
+      "title": "Fast & Furious",
+      "summary": "La saga Fast & Furious démarre en 2001 avec Vin Diesel et Paul Walker, autour des courses de rue.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-jurassic-park",
+      "title": "Jurassic Park",
+      "summary": "Jurassic Park (1993), de Steven Spielberg, adapte le roman de Michael Crichton et révolutionne les effets spéciaux avec ses dinosaures numériques.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-got",
+      "title": "Game of Thrones",
+      "summary": "Diffusée sur HBO de 2011 à 2019 en huit saisons, Game of Thrones adapte la saga Le Trône de fer de George R. R. Martin.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-got-spinoff",
+      "title": "House of the Dragon",
+      "summary": "En 2022, HBO lance House of the Dragon, préquel de Game of Thrones centré sur la famille Targaryen.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "sg-westeros",
+      "title": "Westeros et le Trône de fer",
+      "summary": "L’intrigue de Game of Thrones se déroule principalement sur le continent de Westeros, où les grandes familles se disputent le Trône de fer.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "sg-q-sw-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort le premier film Star Wars ?",
+      "difficulty": 2,
+      "knowledge": ["sg-star-wars-1977"],
+      "year": 1977,
+      "tolerance": 2,
+      "min": 1965,
+      "max": 1990,
+      "explanation": "Star Wars sort en 1977 aux États-Unis."
+    },
+    {
+      "key": "sg-q-lucas",
+      "format": "quiz",
+      "prompt": "Qui a créé Star Wars ?",
+      "difficulty": 1,
+      "knowledge": ["sg-star-wars-1977"],
+      "options": [
+        {
+          "label": "George Lucas",
+          "correct": true
+        },
+        {
+          "label": "Steven Spielberg"
+        },
+        {
+          "label": "James Cameron"
+        },
+        {
+          "label": "Ridley Scott"
+        }
+      ],
+      "explanation": "George Lucas écrit et réalise le premier film en 1977."
+    },
+    {
+      "key": "sg-q-ton-pere",
+      "format": "quiz",
+      "prompt": "Dans quel film Dark Vador révèle-t-il à Luke qu’il est son père ?",
+      "difficulty": 2,
+      "knowledge": ["sg-je-suis-ton-pere"],
+      "options": [
+        {
+          "label": "L’Empire contre-attaque",
+          "correct": true
+        },
+        {
+          "label": "Un nouvel espoir"
+        },
+        {
+          "label": "Le Retour du Jedi"
+        },
+        {
+          "label": "La Revanche des Sith"
+        }
+      ],
+      "explanation": "La révélation arrive dans L’Empire contre-attaque, en 1980."
+    },
+    {
+      "key": "sg-q-disney-sw",
+      "format": "true_false",
+      "prompt": "Disney est aujourd’hui propriétaire de Star Wars.",
+      "difficulty": 1,
+      "knowledge": ["sg-disney-lucasfilm"],
+      "answer": true,
+      "explanation": "Vrai : Disney rachète Lucasfilm en 2012."
+    },
+    {
+      "key": "sg-q-lucasfilm-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année Disney rachète-t-il Lucasfilm ?",
+      "difficulty": 3,
+      "knowledge": ["sg-disney-lucasfilm"],
+      "year": 2012,
+      "tolerance": 2,
+      "min": 2000,
+      "max": 2020,
+      "explanation": "Le rachat a lieu en 2012, pour environ 4 milliards de dollars."
+    },
+    {
+      "key": "sg-q-fleming",
+      "format": "quiz",
+      "prompt": "Qui a créé le personnage de James Bond ?",
+      "difficulty": 2,
+      "knowledge": ["sg-bond-fleming"],
+      "options": [
+        {
+          "label": "Ian Fleming",
+          "correct": true
+        },
+        {
+          "label": "John le Carré"
+        },
+        {
+          "label": "Agatha Christie"
+        },
+        {
+          "label": "Arthur Conan Doyle"
+        }
+      ],
+      "explanation": "Ian Fleming invente 007 dans le roman Casino Royale, en 1953."
+    },
+    {
+      "key": "sg-q-casino-royale",
+      "format": "true_false",
+      "prompt": "Casino Royale est le premier roman de la saga James Bond.",
+      "difficulty": 2,
+      "knowledge": ["sg-bond-fleming"],
+      "answer": true,
+      "explanation": "Vrai : Ian Fleming le publie en 1953. Il est adapté au cinéma en 2006 avec Daniel Craig."
+    },
+    {
+      "key": "sg-q-007",
+      "format": "true_false",
+      "prompt": "Le matricule de James Bond est 007.",
+      "difficulty": 1,
+      "knowledge": ["sg-bond-fleming"],
+      "answer": true,
+      "explanation": "Vrai : le double zéro signifie qu’il a le permis de tuer."
+    },
+    {
+      "key": "sg-q-connery",
+      "format": "quiz",
+      "prompt": "Qui incarne James Bond dans le premier film de la saga ?",
+      "difficulty": 2,
+      "knowledge": ["sg-bond-dr-no"],
+      "options": [
+        {
+          "label": "Sean Connery",
+          "correct": true
+        },
+        {
+          "label": "Roger Moore"
+        },
+        {
+          "label": "Pierce Brosnan"
+        },
+        {
+          "label": "Daniel Craig"
+        }
+      ],
+      "explanation": "Sean Connery joue 007 dans James Bond 007 contre Dr No, en 1962."
+    },
+    {
+      "key": "sg-q-craig",
+      "format": "quiz",
+      "prompt": "Dans combien de films Daniel Craig incarne-t-il James Bond ?",
+      "difficulty": 3,
+      "knowledge": ["sg-bond-craig"],
+      "options": [
+        {
+          "label": "3"
+        },
+        {
+          "label": "5",
+          "correct": true
+        },
+        {
+          "label": "7"
+        },
+        {
+          "label": "9"
+        }
+      ],
+      "explanation": "Cinq films, de Casino Royale (2006) à Mourir peut attendre (2021)."
+    },
+    {
+      "key": "sg-q-indy",
+      "format": "quiz",
+      "prompt": "Qui réalise Les Aventuriers de l’arche perdue ?",
+      "difficulty": 2,
+      "knowledge": ["sg-indiana-jones"],
+      "options": [
+        {
+          "label": "Steven Spielberg",
+          "correct": true
+        },
+        {
+          "label": "George Lucas"
+        },
+        {
+          "label": "Robert Zemeckis"
+        },
+        {
+          "label": "James Cameron"
+        }
+      ],
+      "explanation": "Spielberg réalise le film, sur une idée de George Lucas."
+    },
+    {
+      "key": "sg-q-ford",
+      "format": "true_false",
+      "prompt": "Harrison Ford a joué à la fois Han Solo et Indiana Jones.",
+      "difficulty": 1,
+      "knowledge": ["sg-harrison-ford"],
+      "answer": true,
+      "explanation": "Vrai : deux rôles cultes pour le même acteur."
+    },
+    {
+      "key": "sg-q-delorean",
+      "format": "quiz",
+      "prompt": "Dans quelle voiture Marty McFly voyage-t-il dans le temps ?",
+      "difficulty": 1,
+      "knowledge": ["sg-retour-vers-le-futur"],
+      "options": [
+        {
+          "label": "Une DeLorean",
+          "correct": true
+        },
+        {
+          "label": "Une Ford Mustang"
+        },
+        {
+          "label": "Une Aston Martin"
+        },
+        {
+          "label": "Une Coccinelle"
+        }
+      ],
+      "explanation": "La DeLorean DMC-12, transformée par le Doc, est devenue mythique."
+    },
+    {
+      "key": "sg-q-88",
+      "format": "quiz",
+      "prompt": "Quelle vitesse la DeLorean doit-elle atteindre pour voyager dans le temps ?",
+      "difficulty": 2,
+      "knowledge": ["sg-88-miles"],
+      "options": [
+        {
+          "label": "55 miles à l’heure"
+        },
+        {
+          "label": "88 miles à l’heure",
+          "correct": true
+        },
+        {
+          "label": "100 miles à l’heure"
+        },
+        {
+          "label": "121 miles à l’heure"
+        }
+      ],
+      "explanation": "Environ 140 km/h : « 88 miles à l’heure ! »"
+    },
+    {
+      "key": "sg-q-2015",
+      "format": "true_false",
+      "prompt": "Dans Retour vers le futur 2, Marty arrive en 2015.",
+      "difficulty": 2,
+      "knowledge": ["sg-88-miles"],
+      "answer": true,
+      "explanation": "Vrai : le 21 octobre 2015, date fêtée par les fans du monde entier."
+    },
+    {
+      "key": "sg-q-zemeckis",
+      "format": "quiz",
+      "prompt": "Qui réalise Retour vers le futur ?",
+      "difficulty": 3,
+      "knowledge": ["sg-retour-vers-le-futur"],
+      "options": [
+        {
+          "label": "Robert Zemeckis",
+          "correct": true
+        },
+        {
+          "label": "Steven Spielberg"
+        },
+        {
+          "label": "John Hughes"
+        },
+        {
+          "label": "Ron Howard"
+        }
+      ],
+      "explanation": "Robert Zemeckis réalise la trilogie, produite par Steven Spielberg."
+    },
+    {
+      "key": "sg-q-pionnieres",
+      "format": "match",
+      "prompt": "Associe chaque personnage à sa saga.",
+      "difficulty": 2,
+      "knowledge": [
+        "sg-star-wars-1977",
+        "sg-bond-fleming",
+        "sg-indiana-jones",
+        "sg-retour-vers-le-futur"
+      ],
+      "pairs": [
+        {
+          "left": "Dark Vador",
+          "right": "Star Wars"
+        },
+        {
+          "left": "007",
+          "right": "James Bond"
+        },
+        {
+          "left": "Le docteur Jones",
+          "right": "Indiana Jones"
+        },
+        {
+          "left": "Marty McFly",
+          "right": "Retour vers le futur"
+        }
+      ],
+      "explanation": "Quatre personnages qui ont marqué le cinéma des années 1960 à 1980."
+    },
+    {
+      "key": "sg-q-frise-pionnieres",
+      "format": "timeline",
+      "prompt": "Remets ces films dans l’ordre de sortie.",
+      "difficulty": 3,
+      "knowledge": [
+        "sg-bond-dr-no",
+        "sg-star-wars-1977",
+        "sg-indiana-jones",
+        "sg-retour-vers-le-futur"
+      ],
+      "items": [
+        {
+          "label": "James Bond 007 contre Dr No",
+          "date": "1962"
+        },
+        {
+          "label": "Star Wars",
+          "date": "1977"
+        },
+        {
+          "label": "Les Aventuriers de l’arche perdue",
+          "date": "1981"
+        },
+        {
+          "label": "Retour vers le futur",
+          "date": "1985"
+        }
+      ],
+      "explanation": "1962, 1977, 1981, 1985."
+    },
+    {
+      "key": "sg-q-jackson",
+      "format": "quiz",
+      "prompt": "Qui réalise la trilogie Le Seigneur des anneaux ?",
+      "difficulty": 1,
+      "knowledge": ["sg-lotr-jackson"],
+      "options": [
+        {
+          "label": "Peter Jackson",
+          "correct": true
+        },
+        {
+          "label": "Christopher Nolan"
+        },
+        {
+          "label": "Guillermo del Toro"
+        },
+        {
+          "label": "Ridley Scott"
+        }
+      ],
+      "explanation": "Le Néo-Zélandais Peter Jackson réalise les trois films."
+    },
+    {
+      "key": "sg-q-nz",
+      "format": "quiz",
+      "prompt": "Dans quel pays la trilogie est-elle tournée ?",
+      "difficulty": 2,
+      "knowledge": ["sg-lotr-jackson"],
+      "options": [
+        {
+          "label": "La Nouvelle-Zélande",
+          "correct": true
+        },
+        {
+          "label": "L’Irlande"
+        },
+        {
+          "label": "L’Islande"
+        },
+        {
+          "label": "Le Canada"
+        }
+      ],
+      "explanation": "Les paysages néo-zélandais sont devenus la Terre du Milieu."
+    },
+    {
+      "key": "sg-q-oscars",
+      "format": "quiz",
+      "prompt": "Combien d’Oscars remporte Le Retour du roi ?",
+      "difficulty": 2,
+      "knowledge": ["sg-lotr-oscars"],
+      "options": [
+        {
+          "label": "7"
+        },
+        {
+          "label": "9"
+        },
+        {
+          "label": "11",
+          "correct": true
+        },
+        {
+          "label": "13"
+        }
+      ],
+      "explanation": "11 Oscars, le record, partagé avec Ben-Hur et Titanic."
+    },
+    {
+      "key": "sg-q-records-oscars",
+      "format": "match",
+      "prompt": "Associe chaque film recordman des Oscars à son année de sortie.",
+      "difficulty": 4,
+      "knowledge": ["sg-lotr-oscars"],
+      "pairs": [
+        {
+          "left": "Ben-Hur",
+          "right": "1959"
+        },
+        {
+          "left": "Titanic",
+          "right": "1997"
+        },
+        {
+          "left": "Le Retour du roi",
+          "right": "2003"
+        }
+      ],
+      "explanation": "Ces trois films partagent le record de 11 Oscars."
+    },
+    {
+      "key": "sg-q-tolkien",
+      "format": "true_false",
+      "prompt": "Le Seigneur des anneaux est un roman de J. R. R. Tolkien.",
+      "difficulty": 1,
+      "knowledge": ["sg-tolkien"],
+      "answer": true,
+      "explanation": "Vrai : publié en 1954 et 1955, après Le Hobbit (1937)."
+    },
+    {
+      "key": "sg-q-hp-auteur",
+      "format": "quiz",
+      "prompt": "Qui a écrit la saga Harry Potter ?",
+      "difficulty": 1,
+      "knowledge": ["sg-hp-livre"],
+      "options": [
+        {
+          "label": "J. K. Rowling",
+          "correct": true
+        },
+        {
+          "label": "J. R. R. Tolkien"
+        },
+        {
+          "label": "Suzanne Collins"
+        },
+        {
+          "label": "Stephenie Meyer"
+        }
+      ],
+      "explanation": "J. K. Rowling publie le premier tome en 1997."
+    },
+    {
+      "key": "sg-q-hp-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année paraît le premier tome de Harry Potter ?",
+      "difficulty": 3,
+      "knowledge": ["sg-hp-livre"],
+      "year": 1997,
+      "tolerance": 2,
+      "min": 1985,
+      "max": 2010,
+      "explanation": "Harry Potter à l’école des sorciers paraît en 1997."
+    },
+    {
+      "key": "sg-q-hp-films",
+      "format": "quiz",
+      "prompt": "Combien de films compte la saga Harry Potter ?",
+      "difficulty": 2,
+      "knowledge": ["sg-hp-films"],
+      "options": [
+        {
+          "label": "7"
+        },
+        {
+          "label": "8",
+          "correct": true
+        },
+        {
+          "label": "9"
+        },
+        {
+          "label": "10"
+        }
+      ],
+      "explanation": "Huit films : le dernier livre est découpé en deux parties."
+    },
+    {
+      "key": "sg-q-hp-acteurs",
+      "format": "match",
+      "prompt": "Associe chaque acteur à son personnage.",
+      "difficulty": 2,
+      "knowledge": ["sg-hp-films"],
+      "pairs": [
+        {
+          "left": "Daniel Radcliffe",
+          "right": "Harry Potter"
+        },
+        {
+          "left": "Emma Watson",
+          "right": "Hermione Granger"
+        },
+        {
+          "left": "Rupert Grint",
+          "right": "Ron Weasley"
+        }
+      ],
+      "explanation": "Le trio principal des huit films."
+    },
+    {
+      "key": "sg-q-maisons",
+      "format": "true_false",
+      "prompt": "Poudlard compte quatre maisons.",
+      "difficulty": 1,
+      "knowledge": ["sg-hp-poudlard"],
+      "answer": true,
+      "explanation": "Vrai : Gryffondor, Serpentard, Poufsouffle et Serdaigle."
+    },
+    {
+      "key": "sg-q-iron-man",
+      "format": "quiz",
+      "prompt": "Quel film lance l’univers cinématographique Marvel en 2008 ?",
+      "difficulty": 2,
+      "knowledge": ["sg-mcu-iron-man"],
+      "options": [
+        {
+          "label": "Iron Man",
+          "correct": true
+        },
+        {
+          "label": "Captain America"
+        },
+        {
+          "label": "Thor"
+        },
+        {
+          "label": "Avengers"
+        }
+      ],
+      "explanation": "Iron Man, avec Robert Downey Jr., ouvre le bal en 2008."
+    },
+    {
+      "key": "sg-q-rdj",
+      "format": "true_false",
+      "prompt": "Robert Downey Jr. incarne Iron Man.",
+      "difficulty": 1,
+      "knowledge": ["sg-mcu-iron-man"],
+      "answer": true,
+      "explanation": "Vrai : il porte le rôle de 2008 à 2019."
+    },
+    {
+      "key": "sg-q-disney-marvel",
+      "format": "quiz",
+      "prompt": "Quand Disney rachète-t-il Marvel ?",
+      "difficulty": 3,
+      "knowledge": ["sg-disney-marvel"],
+      "options": [
+        {
+          "label": "En 2009",
+          "correct": true
+        },
+        {
+          "label": "En 1999"
+        },
+        {
+          "label": "En 2015"
+        },
+        {
+          "label": "En 2019"
+        }
+      ],
+      "explanation": "Disney rachète Marvel Entertainment en 2009, pour environ 4 milliards de dollars."
+    },
+    {
+      "key": "sg-q-endgame",
+      "format": "true_false",
+      "prompt": "Avengers: Endgame est encore aujourd’hui le plus gros succès de l’histoire au box-office.",
+      "difficulty": 3,
+      "knowledge": ["sg-endgame"],
+      "answer": false,
+      "explanation": "Faux : il a dépassé Avatar en 2019, mais Avatar a repris la première place en 2021."
+    },
+    {
+      "key": "sg-q-frise-adaptations",
+      "format": "timeline",
+      "prompt": "Remets ces sorties dans l’ordre chronologique.",
+      "difficulty": 3,
+      "knowledge": ["sg-tolkien", "sg-hp-livre", "sg-lotr-jackson", "sg-mcu-iron-man"],
+      "items": [
+        {
+          "label": "Le Seigneur des anneaux (roman)",
+          "date": "1954"
+        },
+        {
+          "label": "Harry Potter à l’école des sorciers (roman)",
+          "date": "1997"
+        },
+        {
+          "label": "La Communauté de l’anneau (film)",
+          "date": "2001"
+        },
+        {
+          "label": "Iron Man (film)",
+          "date": "2008"
+        }
+      ],
+      "explanation": "1954, 1997, 2001, 2008."
+    },
+    {
+      "key": "sg-q-toy-story",
+      "format": "quiz",
+      "prompt": "Quel est le premier long métrage entièrement en images de synthèse ?",
+      "difficulty": 2,
+      "knowledge": ["sg-toy-story"],
+      "options": [
+        {
+          "label": "Toy Story",
+          "correct": true
+        },
+        {
+          "label": "Shrek"
+        },
+        {
+          "label": "Le Roi lion"
+        },
+        {
+          "label": "Le Monde de Nemo"
+        }
+      ],
+      "explanation": "Toy Story, de Pixar, sort en 1995."
+    },
+    {
+      "key": "sg-q-toy-story-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort Toy Story ?",
+      "difficulty": 3,
+      "knowledge": ["sg-toy-story"],
+      "year": 1995,
+      "tolerance": 2,
+      "min": 1985,
+      "max": 2005,
+      "explanation": "Toy Story sort en 1995."
+    },
+    {
+      "key": "sg-q-shrek",
+      "format": "quiz",
+      "prompt": "Quel film remporte le premier Oscar du meilleur film d’animation ?",
+      "difficulty": 3,
+      "knowledge": ["sg-shrek-oscar"],
+      "options": [
+        {
+          "label": "Shrek",
+          "correct": true
+        },
+        {
+          "label": "Toy Story"
+        },
+        {
+          "label": "Monstres et Cie"
+        },
+        {
+          "label": "Le Voyage de Chihiro"
+        }
+      ],
+      "explanation": "Shrek, de DreamWorks, l’emporte en 2002, première année de cette catégorie."
+    },
+    {
+      "key": "sg-q-pixar-disney",
+      "format": "true_false",
+      "prompt": "Pixar appartient aujourd’hui à Disney.",
+      "difficulty": 1,
+      "knowledge": ["sg-disney-pixar"],
+      "answer": true,
+      "explanation": "Vrai : Disney rachète Pixar en 2006."
+    },
+    {
+      "key": "sg-q-shrek-studio",
+      "format": "quiz",
+      "prompt": "Quel studio produit Shrek ?",
+      "difficulty": 2,
+      "knowledge": ["sg-shrek-oscar"],
+      "options": [
+        {
+          "label": "DreamWorks",
+          "correct": true
+        },
+        {
+          "label": "Pixar"
+        },
+        {
+          "label": "Disney"
+        },
+        {
+          "label": "Illumination"
+        }
+      ],
+      "explanation": "Shrek est une production DreamWorks, rival de Disney."
+    },
+    {
+      "key": "sg-q-mi-acteur",
+      "format": "quiz",
+      "prompt": "Quel acteur porte la saga Mission : Impossible ?",
+      "difficulty": 1,
+      "knowledge": ["sg-mission-impossible"],
+      "options": [
+        {
+          "label": "Tom Cruise",
+          "correct": true
+        },
+        {
+          "label": "Matt Damon"
+        },
+        {
+          "label": "Keanu Reeves"
+        },
+        {
+          "label": "Brad Pitt"
+        }
+      ],
+      "explanation": "Tom Cruise incarne Ethan Hunt depuis 1996."
+    },
+    {
+      "key": "sg-q-mi-serie",
+      "format": "true_false",
+      "prompt": "Mission : Impossible est d’abord une série télévisée.",
+      "difficulty": 2,
+      "knowledge": ["sg-mission-impossible"],
+      "answer": true,
+      "explanation": "Vrai : la série démarre en 1966, trente ans avant le premier film."
+    },
+    {
+      "key": "sg-q-burj",
+      "format": "quiz",
+      "prompt": "Quelle tour Tom Cruise escalade-t-il dans Protocole Fantôme ?",
+      "difficulty": 2,
+      "knowledge": ["sg-burj-khalifa"],
+      "options": [
+        {
+          "label": "La Burj Khalifa",
+          "correct": true
+        },
+        {
+          "label": "L’Empire State Building"
+        },
+        {
+          "label": "La tour Eiffel"
+        },
+        {
+          "label": "La tour CN"
+        }
+      ],
+      "explanation": "Il escalade la plus haute tour du monde, à Dubaï, pour le film de 2011."
+    },
+    {
+      "key": "sg-q-fast",
+      "format": "quiz",
+      "prompt": "Autour de quoi tourne le premier Fast & Furious ?",
+      "difficulty": 2,
+      "knowledge": ["sg-fast-furious"],
+      "options": [
+        {
+          "label": "Les courses de rue",
+          "correct": true
+        },
+        {
+          "label": "Le braquage de casinos"
+        },
+        {
+          "label": "L’espionnage"
+        },
+        {
+          "label": "La boxe"
+        }
+      ],
+      "explanation": "Le film de 2001 plonge dans les courses de voitures clandestines à Los Angeles."
+    },
+    {
+      "key": "sg-q-jurassic",
+      "format": "quiz",
+      "prompt": "Qui réalise Jurassic Park ?",
+      "difficulty": 1,
+      "knowledge": ["sg-jurassic-park"],
+      "options": [
+        {
+          "label": "Steven Spielberg",
+          "correct": true
+        },
+        {
+          "label": "James Cameron"
+        },
+        {
+          "label": "Peter Jackson"
+        },
+        {
+          "label": "George Lucas"
+        }
+      ],
+      "explanation": "Spielberg adapte le roman de Michael Crichton en 1993."
+    },
+    {
+      "key": "sg-q-jurassic-cgi",
+      "format": "true_false",
+      "prompt": "Jurassic Park a marqué un tournant pour les effets numériques.",
+      "difficulty": 1,
+      "knowledge": ["sg-jurassic-park"],
+      "answer": true,
+      "explanation": "Vrai : ses dinosaures en images de synthèse ont bluffé le monde en 1993."
+    },
+    {
+      "key": "sg-q-action",
+      "format": "match",
+      "prompt": "Associe chaque saga à son année de départ au cinéma.",
+      "difficulty": 3,
+      "knowledge": ["sg-jurassic-park", "sg-mission-impossible", "sg-fast-furious"],
+      "pairs": [
+        {
+          "left": "Jurassic Park",
+          "right": "1993"
+        },
+        {
+          "left": "Mission : Impossible",
+          "right": "1996"
+        },
+        {
+          "left": "Fast & Furious",
+          "right": "2001"
+        }
+      ],
+      "explanation": "Trois sagas d’action nées entre 1993 et 2001."
+    },
+    {
+      "key": "sg-q-got-chaine",
+      "format": "quiz",
+      "prompt": "Sur quelle chaîne est diffusée Game of Thrones ?",
+      "difficulty": 1,
+      "knowledge": ["sg-got"],
+      "options": [
+        {
+          "label": "HBO",
+          "correct": true
+        },
+        {
+          "label": "Netflix"
+        },
+        {
+          "label": "Canal+"
+        },
+        {
+          "label": "AMC"
+        }
+      ],
+      "explanation": "HBO diffuse la série de 2011 à 2019."
+    },
+    {
+      "key": "sg-q-got-saisons",
+      "format": "quiz",
+      "prompt": "Combien de saisons compte Game of Thrones ?",
+      "difficulty": 2,
+      "knowledge": ["sg-got"],
+      "options": [
+        {
+          "label": "6"
+        },
+        {
+          "label": "7"
+        },
+        {
+          "label": "8",
+          "correct": true
+        },
+        {
+          "label": "10"
+        }
+      ],
+      "explanation": "Huit saisons, de 2011 à 2019."
+    },
+    {
+      "key": "sg-q-got-martin",
+      "format": "true_false",
+      "prompt": "Game of Thrones adapte les romans de George R. R. Martin.",
+      "difficulty": 1,
+      "knowledge": ["sg-got"],
+      "answer": true,
+      "explanation": "Vrai : la saga Le Trône de fer."
+    },
+    {
+      "key": "sg-q-hotd",
+      "format": "quiz",
+      "prompt": "Sur quelle famille est centrée House of the Dragon ?",
+      "difficulty": 2,
+      "knowledge": ["sg-got-spinoff"],
+      "options": [
+        {
+          "label": "Les Targaryen",
+          "correct": true
+        },
+        {
+          "label": "Les Stark"
+        },
+        {
+          "label": "Les Lannister"
+        },
+        {
+          "label": "Les Baratheon"
+        }
+      ],
+      "explanation": "Le préquel, lancé en 2022, raconte la guerre civile des Targaryen."
+    },
+    {
+      "key": "sg-q-westeros",
+      "format": "quiz",
+      "prompt": "Sur quel continent se déroule principalement Game of Thrones ?",
+      "difficulty": 2,
+      "knowledge": ["sg-westeros"],
+      "options": [
+        {
+          "label": "Westeros",
+          "correct": true
+        },
+        {
+          "label": "La Terre du Milieu"
+        },
+        {
+          "label": "Narnia"
+        },
+        {
+          "label": "Tamriel"
+        }
+      ],
+      "explanation": "Les grandes familles de Westeros se disputent le Trône de fer."
+    },
+    {
+      "key": "sg-q-frise-moderne",
+      "format": "timeline",
+      "prompt": "Remets ces œuvres dans l’ordre de sortie.",
+      "difficulty": 3,
+      "knowledge": ["sg-toy-story", "sg-shrek-oscar", "sg-got", "sg-got-spinoff"],
+      "items": [
+        {
+          "label": "Toy Story",
+          "date": "1995"
+        },
+        {
+          "label": "Shrek",
+          "date": "2001"
+        },
+        {
+          "label": "Game of Thrones (saison 1)",
+          "date": "2011"
+        },
+        {
+          "label": "House of the Dragon",
+          "date": "2022"
+        }
+      ],
+      "explanation": "1995, 2001, 2011, 2022."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les pionnières",
+      "description": "Star Wars, James Bond, Indiana Jones et Retour vers le futur.",
+      "lessons": [
+        {
+          "slug": "sg-star-wars",
+          "title": "Star Wars",
+          "objective": "Connaître les débuts de la saga de George Lucas.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Une galaxie lointaine",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1977",
+                  "label": "Sortie du premier Star Wars"
+                },
+                {
+                  "type": "text",
+                  "text": "George Lucas imagine un space opera mêlant chevaliers, empire et rébellion. Le film deviendra Un nouvel espoir."
+                }
+              ]
+            },
+            {
+              "title": "La révélation",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Dans L’Empire contre-attaque (1980), Dark Vador révèle à Luke : « Je suis ton père. »"
+                },
+                {
+                  "type": "fact",
+                  "text": "En 2012, Disney rachète Lucasfilm pour environ 4 milliards de dollars. Le Réveil de la Force sort en 2015."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-sw-annee",
+            "sg-q-lucas",
+            "sg-q-ton-pere",
+            "sg-q-disney-sw",
+            "sg-q-lucasfilm-annee"
+          ]
+        },
+        {
+          "slug": "sg-james-bond",
+          "title": "James Bond",
+          "objective": "Connaître l’espion le plus célèbre du cinéma.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Né dans un roman",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "L’écrivain britannique Ian Fleming crée James Bond, matricule 007, dans Casino Royale en 1953."
+                }
+              ]
+            },
+            {
+              "title": "Au cinéma",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1962",
+                  "label": "James Bond 007 contre Dr No, avec Sean Connery"
+                },
+                {
+                  "type": "list",
+                  "items": [
+                    "Sean Connery est le premier 007 au cinéma.",
+                    "Daniel Craig l’incarne dans cinq films, de 2006 à 2021."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-fleming",
+            "sg-q-007",
+            "sg-q-connery",
+            "sg-q-craig",
+            "sg-q-casino-royale"
+          ]
+        },
+        {
+          "slug": "sg-aventures-annees-80",
+          "title": "Les aventures des années 1980",
+          "objective": "Connaître Indiana Jones et Retour vers le futur.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Indiana Jones",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Les Aventuriers de l’arche perdue (1981) : Spielberg à la réalisation, Lucas à l’idée, Harrison Ford sous le chapeau. Ford est aussi Han Solo dans Star Wars."
+                }
+              ]
+            },
+            {
+              "title": "Retour vers le futur",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1985",
+                  "label": "Sortie de Retour vers le futur"
+                },
+                {
+                  "type": "text",
+                  "text": "Robert Zemeckis envoie Marty McFly (Michael J. Fox) dans le passé à bord d’une DeLorean qui doit atteindre 88 miles à l’heure."
+                },
+                {
+                  "type": "fact",
+                  "text": "Dans le deuxième film, Marty arrive le 21 octobre 2015."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-indy",
+            "sg-q-ford",
+            "sg-q-delorean",
+            "sg-q-88",
+            "sg-q-2015",
+            "sg-q-zemeckis"
+          ]
+        },
+        {
+          "slug": "sg-epreuve-pionnieres",
+          "title": "Épreuve : les pionnières",
+          "objective": "Valide tes connaissances sur les premières grandes sagas.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "sg-q-lucas",
+            "sg-q-ton-pere",
+            "sg-q-connery",
+            "sg-q-delorean",
+            "sg-q-pionnieres",
+            "sg-q-frise-pionnieres"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les grandes adaptations",
+      "description": "Tolkien, Harry Potter et l’univers Marvel.",
+      "lessons": [
+        {
+          "slug": "sg-seigneur-des-anneaux",
+          "title": "Le Seigneur des anneaux",
+          "objective": "Connaître la trilogie de Peter Jackson.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "De Tolkien à Jackson",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "J. R. R. Tolkien publie Le Seigneur des anneaux en 1954 et 1955. Peter Jackson l’adapte en trois films, de 2001 à 2003, tournés en Nouvelle-Zélande."
+                }
+              ]
+            },
+            {
+              "title": "Un record",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "11",
+                  "label": "Oscars pour Le Retour du roi (2003)"
+                },
+                {
+                  "type": "text",
+                  "text": "Un record partagé avec Ben-Hur (1959) et Titanic (1997)."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-jackson",
+            "sg-q-nz",
+            "sg-q-oscars",
+            "sg-q-tolkien",
+            "sg-q-records-oscars"
+          ]
+        },
+        {
+          "slug": "sg-harry-potter",
+          "title": "Harry Potter",
+          "objective": "Connaître la saga du jeune sorcier.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Les livres",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1997",
+                  "label": "Parution de Harry Potter à l’école des sorciers"
+                },
+                {
+                  "type": "text",
+                  "text": "J. K. Rowling écrit sept romans. À Poudlard, les élèves sont répartis dans quatre maisons : Gryffondor, Serpentard, Poufsouffle et Serdaigle."
+                }
+              ]
+            },
+            {
+              "title": "Les films",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Huit films sortent de 2001 à 2011, avec Daniel Radcliffe, Emma Watson et Rupert Grint. Le dernier livre est découpé en deux films."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-hp-auteur",
+            "sg-q-hp-annee",
+            "sg-q-hp-films",
+            "sg-q-hp-acteurs",
+            "sg-q-maisons"
+          ]
+        },
+        {
+          "slug": "sg-univers-marvel",
+          "title": "L’univers Marvel",
+          "objective": "Comprendre la naissance du MCU.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Iron Man",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "2008",
+                  "label": "Iron Man lance l’univers cinématographique Marvel"
+                },
+                {
+                  "type": "text",
+                  "text": "Robert Downey Jr. porte le premier film. Les héros finissent par se croiser dans Avengers."
+                }
+              ]
+            },
+            {
+              "title": "Disney et le box-office",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "2009 : Disney rachète Marvel pour environ 4 milliards de dollars.",
+                    "2019 : Avengers: Endgame dépasse Avatar au box-office.",
+                    "2021 : Avatar reprend la première place."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-iron-man",
+            "sg-q-rdj",
+            "sg-q-disney-marvel",
+            "sg-q-endgame",
+            "sg-q-frise-adaptations"
+          ]
+        },
+        {
+          "slug": "sg-epreuve-adaptations",
+          "title": "Épreuve : les grandes adaptations",
+          "objective": "Valide tes connaissances sur ces sagas adaptées.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "sg-q-jackson",
+            "sg-q-oscars",
+            "sg-q-hp-films",
+            "sg-q-iron-man",
+            "sg-q-frise-adaptations",
+            "sg-q-hp-acteurs"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Animation, action et séries",
+      "description": "Pixar, les grandes sagas d’action et Game of Thrones.",
+      "lessons": [
+        {
+          "slug": "sg-animation",
+          "title": "La révolution de l’animation",
+          "objective": "Connaître Toy Story et Shrek.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Toy Story",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1995",
+                  "label": "Premier long métrage entièrement en images de synthèse"
+                },
+                {
+                  "type": "text",
+                  "text": "Toy Story, de Pixar, ouvre une nouvelle ère. Disney rachète Pixar en 2006."
+                }
+              ]
+            },
+            {
+              "title": "Shrek",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Produit par DreamWorks, Shrek remporte en 2002 le tout premier Oscar du meilleur film d’animation."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-toy-story",
+            "sg-q-toy-story-annee",
+            "sg-q-shrek",
+            "sg-q-pixar-disney",
+            "sg-q-shrek-studio"
+          ]
+        },
+        {
+          "slug": "sg-sagas-action",
+          "title": "Les sagas d’action",
+          "objective": "Connaître Jurassic Park, Mission : Impossible et Fast & Furious.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Jurassic Park",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1993, Steven Spielberg adapte Michael Crichton. Ses dinosaures numériques marquent un tournant des effets spéciaux."
+                }
+              ]
+            },
+            {
+              "title": "Mission : Impossible",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Tirée d’une série de 1966, la saga démarre en 1996 avec Tom Cruise, qui réalise ses cascades."
+                },
+                {
+                  "type": "fact",
+                  "text": "Dans Protocole Fantôme (2011), il escalade la Burj Khalifa, à Dubaï."
+                }
+              ]
+            },
+            {
+              "title": "Fast & Furious",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2001, Vin Diesel et Paul Walker lancent une saga née dans les courses de rue de Los Angeles."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-mi-acteur",
+            "sg-q-mi-serie",
+            "sg-q-burj",
+            "sg-q-fast",
+            "sg-q-jurassic"
+          ]
+        },
+        {
+          "slug": "sg-game-of-thrones",
+          "title": "Game of Thrones",
+          "objective": "Connaître la saga phénomène de HBO.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Une série événement",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "8",
+                  "label": "saisons, de 2011 à 2019, sur HBO"
+                },
+                {
+                  "type": "text",
+                  "text": "Adaptée du Trône de fer de George R. R. Martin, la série suit les grandes familles de Westeros en lutte pour le Trône de fer."
+                }
+              ]
+            },
+            {
+              "title": "La suite",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2022, HBO lance House of the Dragon, préquel centré sur la famille Targaryen."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "sg-q-got-chaine",
+            "sg-q-got-saisons",
+            "sg-q-got-martin",
+            "sg-q-hotd",
+            "sg-q-westeros"
+          ]
+        },
+        {
+          "slug": "sg-epreuve-moderne",
+          "title": "Épreuve : animation, action et séries",
+          "objective": "Valide tes connaissances sur ces sagas.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "sg-q-toy-story",
+            "sg-q-jurassic-cgi",
+            "sg-q-burj",
+            "sg-q-got-saisons",
+            "sg-q-action",
+            "sg-q-frise-moderne"
+          ]
+        }
+      ]
+    }
+  ]
+}

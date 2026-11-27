@@ -31,7 +31,8 @@ export function MatchGame({ question, result, pending, onSubmit }: GameProps<Mat
       setActive(id)
       return
     }
-    setActive(active === id ? null : id)
+    // The next item is pre-selected after each pair: tapping it again must keep it selected.
+    setActive(id)
   }
 
   function pickRight(id: string) {
