@@ -510,3 +510,76 @@
     border-color: var(--line-strong);
   }
 }
+
+/* ===================== Wave transition (lesson launch / next lesson) ===================== */
+@property --wave-r {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+.wave-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.wave-overlay[data-phase='cover'] {
+  animation: wave-cover 700ms var(--ease-in-out) both;
+}
+
+.wave-overlay[data-phase='reveal'] {
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 45%,
+    transparent var(--wave-r),
+    #000 calc(var(--wave-r) + 1px)
+  );
+  mask-image: radial-gradient(
+    circle at 50% 45%,
+    transparent var(--wave-r),
+    #000 calc(var(--wave-r) + 1px)
+  );
+  animation: wave-reveal 760ms var(--ease-in-out) both;
+}
+
+@keyframes wave-cover {
+  from {
+    clip-path: circle(0 at var(--wx, 50%) var(--wy, 80%));
+  }
+  to {
+    clip-path: circle(150vmax at var(--wx, 50%) var(--wy, 80%));
+  }
+}
+
+@keyframes wave-reveal {
+  from {
+    --wave-r: 0px;
+  }
+  to {
+    --wave-r: 150vmax;
+  }
+}
+
+.wave-ring {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 9999px;
+  border: 2px solid color-mix(in srgb, var(--on-accent) 35%, transparent);
+  animation: wave-ripple 1.8s var(--ease-out) infinite;
+}
+
+@keyframes wave-ripple {
+  from {
+    transform: scale(0.35);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}

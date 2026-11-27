@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight, CircleCheck, CircleX, Clock, X } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useEffect, useRef, useState, useTransition } from 'react'
+import { type MouseEvent, useEffect, useRef, useState, useTransition } from 'react'
 import { formatLabels, QuestionView } from '@/components/games/question-view'
 import { Button } from '@/components/ui/button'
 import { FormMessage } from '@/components/ui/form-message'
@@ -18,7 +18,15 @@ import type { PlayableLesson } from '@/features/learning/queries'
 import type { Answer, AnswerResult, LessonSummary } from '@/features/learning/types'
 import { cn } from '@/lib/utils/cn'
 import { motionReduced } from '@/components/theme/theme-client'
-import { LaunchScreen } from './launch-screen'
+import {
+  consumePendingReveal,
+  hasPendingReveal,
+  markPendingReveal,
+  WAVE_COVER_MS,
+  WAVE_REVEAL_MS,
+  WaveTransition,
+  type WavePhase,
+} from './wave-transition'
 import { universeStyle } from '@/features/universes/universe-style'
 import { LearningCard } from './learning-card'
 import { LessonResult } from './lesson-result'
@@ -36,7 +44,10 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
   const [results, setResults] = useState<Record<string, AnswerResult>>({})
   const [error, setError] = useState<string>()
   const [pending, startTransition] = useTransition()
-  const [launching, setLaunching] = useState(false)
+  const [wave, setWave] = useState<WavePhase>(() =>
+    typeof window !== 'undefined' && hasPendingReveal() && !motionReduced() ? 'reveal' : 'idle',
+  )
+  const [waveOrigin, setWaveOrigin] = useState<{ x: number; y: number }>()
   const headingRef = useRef<HTMLHeadingElement>(null)
 
   const totalSteps = lesson.cards.length + lesson.questions.length
@@ -53,17 +64,43 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
     headingRef.current?.focus()
   }, [step])
 
-  function start() {
+  // Arriving from "Leçon suivante": the previous player covered the screen, so open the wave.
+  useEffect(() => {
+    if (!consumePendingReveal()) return
+    const t = setTimeout(() => setWave('idle'), WAVE_REVEAL_MS)
+    return () => clearTimeout(t)
+  }, [])
+
+  /** Covers the screen with the wave from the clicked element; resolves once fully covered. */
+  function cover(target: HTMLElement | null): Promise<boolean> {
+    if (motionReduced()) return Promise.resolve(false)
+    const rect = target?.getBoundingClientRect()
+    setWaveOrigin(
+      rect ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 } : undefined,
+    )
+    setWave('cover')
+    return new Promise((resolve) =>
+      setTimeout(() => {
+        setWave('hold')
+        resolve(true)
+      }, WAVE_COVER_MS),
+    )
+  }
+
+  function reveal() {
+    setWave('reveal')
+    setTimeout(() => setWave('idle'), WAVE_REVEAL_MS)
+  }
+
+  function start(event: MouseEvent<HTMLButtonElement>) {
     setError(undefined)
-    const animate = !motionReduced()
-    if (animate) setLaunching(true)
+    const covering = cover(event.currentTarget)
     startTransition(async () => {
-      const [res] = await Promise.all([
-        startLessonAction(lesson.id),
-        animate ? new Promise((r) => setTimeout(r, 900)) : Promise.resolve(),
-      ])
-      setLaunching(false)
-      if (!res.ok) return setError(res.message)
+      const [res, animated] = await Promise.all([startLessonAction(lesson.id), covering])
+      if (!res.ok) {
+        if (animated) reveal()
+        return setError(res.message)
+      }
       setSessionId(res.data.sessionId)
       setResults(res.data.answers)
       const firstUnanswered = lesson.questions.findIndex((q) => !res.data.answers[q.id])
@@ -77,7 +114,15 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
         setStep(
           lesson.cards.length > 0 ? { kind: 'card', index: 0 } : { kind: 'question', index: 0 },
         )
+      if (animated) reveal()
     })
+  }
+
+  async function goToNextLesson(event: MouseEvent<HTMLButtonElement>) {
+    if (!lesson.nextLesson) return
+    const animated = await cover(event.currentTarget)
+    if (animated) markPendingReveal()
+    router.push(lessonPath(lesson.nextLesson.slug))
   }
 
   function submit(questionId: string, answer: Answer) {
@@ -139,7 +184,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
         </span>
       </header>
 
-      {launching ? <LaunchScreen title={lesson.title} /> : null}
+      <WaveTransition phase={wave} origin={waveOrigin} />
       <main id="contenu" className="flex flex-1 flex-col gap-5 py-4">
         {step.kind === 'intro' ? (
           <div className="step-in flex flex-1 flex-col gap-6">
@@ -283,7 +328,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
               style={{ animationDelay: '700ms' }}
             >
               {lesson.nextLesson ? (
-                <Button size="lg" onClick={() => router.push(lessonPath(lesson.nextLesson!.slug))}>
+                <Button size="lg" onClick={goToNextLesson}>
                   Leçon suivante : {lesson.nextLesson.title}
                 </Button>
               ) : null}

@@ -19,6 +19,7 @@ Dernière mise à jour : 27 novembre 2026.
 - Next.js 16.4 + React 19 + TypeScript strict + Tailwind 4, Cache Components activés.
 - Configuration centrale de la marque (`src/config/brand.ts`).
 - Design system direction 2, thèmes clair / sombre / automatique sans flash, réduction des animations.
+- Transition en vague au lancement d’une leçon et entre deux leçons (remplace l’écran de chargement).
 - Navigation mobile (onglets) et desktop (sidebar).
 - Supabase : 6 tables, RLS, 2 RPC, trigger d'initialisation, 9 univers, emails en français.
 - Auth complète : inscription avec consentement, confirmation email, connexion, déconnexion, mot de passe oublié et réinitialisation, changement de mot de passe, export RGPD, suppression de compte.
