@@ -5,18 +5,12 @@ import { z } from 'zod'
 import { parseRewards } from '@/features/gamification/parse'
 import { requireUser } from '@/lib/auth/session'
 import { createClient } from '@/lib/supabase/server'
+import { answerSchema } from './answer-schema'
 import type { Answer, AnswerResult, LessonSummary, Solution } from './types'
 
 type Result<T> = { ok: true; data: T } | { ok: false; message: string }
 
 const uuid = z.uuid()
-const answerSchema = z.union([
-  z.object({ selected: z.array(z.string().max(20)).max(10) }).strict(),
-  z.object({ value: z.boolean() }).strict(),
-  z.object({ pairs: z.record(z.string().max(20), z.string().max(20)) }).strict(),
-  z.object({ order: z.array(z.string().max(20)).max(10) }).strict(),
-  z.object({ year: z.number().int().min(-9999).max(9999) }).strict(),
-])
 
 const messages: Record<string, string> = {
   lesson_locked: 'Termine la leçon précédente pour débloquer celle-ci.',

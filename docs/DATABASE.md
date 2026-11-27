@@ -32,7 +32,7 @@ Postgres 17 (Supabase). Migrations dans `supabase/migrations`, tests pgTAP dans 
 | `public.set_universe_preferences(universes)`                    | Remplace atomiquement les univers favoris (slugs publiés, sans doublon)                                                                                          |
 | `public.has_role(role)`                                         | Vrai si l'utilisateur courant a le rôle                                                                                                                          |
 
-## Tests pgTAP (96 assertions)
+## Tests pgTAP (124 assertions)
 
 RLS active partout ; univers publiés seulement pour les anonymes ; isolement entre utilisateurs ; impossibilité de forger le consentement, de changer de pseudo hors fonction, de s'attribuer un rôle ou d'écrire directement ses préférences ; unicité insensible à la casse ; pseudos réservés ; suppression en cascade.
 
@@ -63,6 +63,17 @@ RPC : `start_lesson`, `submit_answer`, `complete_lesson` (détails dans `docs/GA
 | `user_streaks`        | Série actuelle, record, dernier jour actif, protections                      | Lecture par le propriétaire                  |
 
 Seul `complete_lesson` écrit ces tables (via `private.grant_xp` et `private.register_activity`). `lesson_sessions.rewards` garde les récompenses de la session pour qu'un second appel renvoie le même résumé. RPC de lecture : `get_my_progress()` (niveau, jour, série effective calculée sur le jour local, 7 derniers jours, niveaux par univers).
+
+## Tables (phase 3B)
+
+| Table                  | Rôle                                                                                        | Accès                       |
+| ---------------------- | ------------------------------------------------------------------------------------------- | --------------------------- |
+| `user_knowledge_state` | Boîte de Leitner, prochaine date, compteurs par notion et par joueur                        | Lecture par le propriétaire |
+| `daily_challenges`     | Un défi par jour (Paris) : liste figée de questions publiées                                | Lecture pour les connectés  |
+| `practice_sessions`    | Sessions de révision et de défi (questions figées, score, récompenses) ; un défi par joueur | Lecture par le propriétaire |
+| `practice_attempts`    | Une tentative par question et par session                                                   | Lecture par le propriétaire |
+
+RPC : `start_review`, `start_daily_challenge`, `submit_practice_answer`, `complete_practice`. Un trigger sur `lesson_sessions` amorce les notions à la fin d'une leçon. `get_my_progress` renvoie aussi `reviews` (dues, connues, maîtrisées) et `daily` (fait, score, cases de partage).
 
 ## Schéma cible
 

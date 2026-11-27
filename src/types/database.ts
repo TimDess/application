@@ -165,6 +165,7 @@ export type Database = {
           goal_met: boolean
           goal_xp: number
           lessons_completed: number
+          practice_completed: number
           updated_at: string
           user_id: string
           xp: number
@@ -176,6 +177,7 @@ export type Database = {
           goal_met?: boolean
           goal_xp?: number
           lessons_completed?: number
+          practice_completed?: number
           updated_at?: string
           user_id: string
           xp?: number
@@ -186,9 +188,32 @@ export type Database = {
           goal_met?: boolean
           goal_xp?: number
           lessons_completed?: number
+          practice_completed?: number
           updated_at?: string
           user_id?: string
           xp?: number
+        }
+        Relationships: []
+      }
+      daily_challenges: {
+        Row: {
+          created_at: string
+          day: string
+          id: string
+          question_ids: string[]
+        }
+        ComputedFields: never
+        Insert: {
+          created_at?: string
+          day: string
+          id?: string
+          question_ids: string[]
+        }
+        Update: {
+          created_at?: string
+          day?: string
+          id?: string
+          question_ids?: string[]
         }
         Relationships: []
       }
@@ -430,6 +455,109 @@ export type Database = {
             columns: ['chapter_id']
             isOneToOne: false
             referencedRelation: 'chapters'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      practice_attempts: {
+        Row: {
+          answer: NonNullable<Json>
+          created_at: string
+          id: string
+          is_correct: boolean
+          question_id: string
+          score: number
+          session_id: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          answer: NonNullable<Json>
+          created_at?: string
+          id?: string
+          is_correct: boolean
+          question_id: string
+          score: number
+          session_id: string
+          user_id: string
+        }
+        Update: {
+          answer?: NonNullable<Json>
+          created_at?: string
+          id?: string
+          is_correct?: boolean
+          question_id?: string
+          score?: number
+          session_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'practice_attempts_question_id_fkey'
+            columns: ['question_id']
+            isOneToOne: false
+            referencedRelation: 'questions'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'practice_attempts_session_id_fkey'
+            columns: ['session_id']
+            isOneToOne: false
+            referencedRelation: 'practice_sessions'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      practice_sessions: {
+        Row: {
+          completed_at: string | null
+          correct_count: number | null
+          daily_challenge_id: string | null
+          day: string
+          id: string
+          kind: Database['public']['Enums']['practice_kind']
+          knowledge_item_ids: string[] | null
+          question_ids: string[]
+          rewards: Json | null
+          score: number | null
+          started_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          completed_at?: string | null
+          correct_count?: number | null
+          daily_challenge_id?: string | null
+          day: string
+          id?: string
+          kind: Database['public']['Enums']['practice_kind']
+          knowledge_item_ids?: string[] | null
+          question_ids: string[]
+          rewards?: Json | null
+          score?: number | null
+          started_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          correct_count?: number | null
+          daily_challenge_id?: string | null
+          day?: string
+          id?: string
+          kind?: Database['public']['Enums']['practice_kind']
+          knowledge_item_ids?: string[] | null
+          question_ids?: string[]
+          rewards?: Json | null
+          score?: number | null
+          started_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'practice_sessions_daily_challenge_id_fkey'
+            columns: ['daily_challenge_id']
+            isOneToOne: false
+            referencedRelation: 'daily_challenges'
             referencedColumns: ['id']
           },
         ]
@@ -684,6 +812,61 @@ export type Database = {
             columns: ['last_lesson_id']
             isOneToOne: false
             referencedRelation: 'lessons'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      user_knowledge_state: {
+        Row: {
+          box: number
+          correct_count: number
+          created_at: string
+          due_on: string
+          knowledge_item_id: string
+          last_question_id: string | null
+          last_reviewed_at: string | null
+          updated_at: string
+          user_id: string
+          wrong_count: number
+        }
+        ComputedFields: never
+        Insert: {
+          box?: number
+          correct_count?: number
+          created_at?: string
+          due_on: string
+          knowledge_item_id: string
+          last_question_id?: string | null
+          last_reviewed_at?: string | null
+          updated_at?: string
+          user_id: string
+          wrong_count?: number
+        }
+        Update: {
+          box?: number
+          correct_count?: number
+          created_at?: string
+          due_on?: string
+          knowledge_item_id?: string
+          last_question_id?: string | null
+          last_reviewed_at?: string | null
+          updated_at?: string
+          user_id?: string
+          wrong_count?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'user_knowledge_state_knowledge_item_id_fkey'
+            columns: ['knowledge_item_id']
+            isOneToOne: false
+            referencedRelation: 'knowledge_items'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'user_knowledge_state_last_question_id_fkey'
+            columns: ['last_question_id']
+            isOneToOne: false
+            referencedRelation: 'questions'
             referencedColumns: ['id']
           },
         ]
@@ -1004,11 +1187,18 @@ export type Database = {
         Args: { p_avatar_key: string; p_daily_goal: number; p_universes: Json; p_username: string }
         Returns: undefined
       }
+      complete_practice: { Args: { p_session: string }; Returns: Json }
       get_my_progress: { Args: Record<PropertyKey, never>; Returns: Json }
       has_role: { Args: { p_role: Database['public']['Enums']['app_role'] }; Returns: boolean }
       set_universe_preferences: { Args: { p_universes: Json }; Returns: undefined }
+      start_daily_challenge: { Args: Record<PropertyKey, never>; Returns: Json }
       start_lesson: { Args: { p_lesson: string }; Returns: Json }
+      start_review: { Args: Record<PropertyKey, never>; Returns: Json }
       submit_answer: {
+        Args: { p_answer: Json; p_question: string; p_session: string }
+        Returns: Json
+      }
+      submit_practice_answer: {
         Args: { p_answer: Json; p_question: string; p_session: string }
         Returns: Json
       }
@@ -1019,6 +1209,7 @@ export type Database = {
       course_level: 'decouverte' | 'debutant' | 'intermediaire' | 'avance' | 'expert' | 'maitre'
       lesson_kind: 'standard' | 'exam'
       lesson_progress_status: 'in_progress' | 'completed'
+      practice_kind: 'review' | 'daily'
       profile_visibility: 'public' | 'friends' | 'private'
       question_format: 'quiz' | 'true_false' | 'match' | 'timeline' | 'guess_year'
       self_level: 'debutant' | 'intermediaire' | 'expert'
@@ -1029,7 +1220,10 @@ export type Database = {
         | 'lesson_perfect'
         | 'chapter_completed'
         | 'exam_passed'
-      xp_source: 'question' | 'lesson' | 'chapter'
+        | 'review_answer'
+        | 'review_completed'
+        | 'daily_challenge'
+      xp_source: 'question' | 'lesson' | 'chapter' | 'practice_session' | 'daily_challenge'
     }
     CompositeTypes: {
       [_ in never]: never
@@ -1149,6 +1343,7 @@ export const Constants = {
       course_level: ['decouverte', 'debutant', 'intermediaire', 'avance', 'expert', 'maitre'],
       lesson_kind: ['standard', 'exam'],
       lesson_progress_status: ['in_progress', 'completed'],
+      practice_kind: ['review', 'daily'],
       profile_visibility: ['public', 'friends', 'private'],
       question_format: ['quiz', 'true_false', 'match', 'timeline', 'guess_year'],
       self_level: ['debutant', 'intermediaire', 'expert'],
@@ -1159,8 +1354,11 @@ export const Constants = {
         'lesson_perfect',
         'chapter_completed',
         'exam_passed',
+        'review_answer',
+        'review_completed',
+        'daily_challenge',
       ],
-      xp_source: ['question', 'lesson', 'chapter'],
+      xp_source: ['question', 'lesson', 'chapter', 'practice_session', 'daily_challenge'],
     },
   },
 } as const

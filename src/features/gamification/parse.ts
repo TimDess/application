@@ -7,6 +7,9 @@ const reason = z.enum([
   'lesson_perfect',
   'chapter_completed',
   'exam_passed',
+  'review_answer',
+  'review_completed',
+  'daily_challenge',
 ])
 
 const rewardsSchema = z.object({
@@ -20,8 +23,8 @@ const rewardsSchema = z.object({
   next_level_xp: z.number().int(),
   previous_floor_xp: z.number().int(),
   previous_next_xp: z.number().int(),
-  universe_level_before: z.number().int(),
-  universe_level_after: z.number().int(),
+  universe_level_before: z.number().int().nullable(),
+  universe_level_after: z.number().int().nullable(),
   goal_xp: z.number().int(),
   today_xp_before: z.number().int(),
   today_xp_after: z.number().int(),
@@ -95,6 +98,16 @@ const progressSchema = z.object({
       next_level_xp: z.number().int(),
     }),
   ),
+  reviews: z.object({ due: z.number().int(), known: z.number().int(), mastered: z.number().int() }),
+  daily: z.object({
+    day: z.string(),
+    available: z.boolean(),
+    started: z.boolean(),
+    completed: z.boolean(),
+    correct: z.number().int().nullable(),
+    total: z.number().int().nullable(),
+    results: z.array(z.boolean()),
+  }),
 })
 
 /** Maps get_my_progress(). Throws on an unexpected shape (a contract bug, not user input). */
@@ -116,6 +129,8 @@ export function parseProgress(raw: unknown): Progress {
       floorXp: u.level_floor_xp,
       nextXp: u.next_level_xp,
     })),
+    reviews: d.reviews,
+    daily: d.daily,
   }
 }
 

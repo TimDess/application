@@ -1,4 +1,4 @@
-import { CalendarCheck, Repeat2, Swords, Trophy, Users } from 'lucide-react'
+import { Swords, Trophy, Users } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -12,6 +12,7 @@ import { selfLevels } from '@/config/product'
 import { coursePath, lessonPath, routes } from '@/config/routes'
 import { getMyProgress } from '@/features/gamification/queries'
 import { TodayCard } from '@/features/gamification/today-card'
+import { DailyCards } from '@/features/practice/daily-cards'
 import { getContinueCourse } from '@/features/learning/queries'
 import { UniverseArt } from '@/features/universes/universe-art'
 import { UniverseCover, UniverseTile } from '@/features/universes/universe-tile'
@@ -29,18 +30,6 @@ export default function DashboardPage() {
 }
 
 const upcoming = [
-  {
-    icon: CalendarCheck,
-    title: 'Défi du jour',
-    text: 'Le même défi pour tout le monde, chaque jour.',
-    phase: 3,
-  },
-  {
-    icon: Repeat2,
-    title: 'Révisions',
-    text: 'Tes notions reviennent au bon moment pour ne pas les oublier.',
-    phase: 3,
-  },
   {
     icon: Swords,
     title: 'Ligue et duels',
@@ -73,6 +62,13 @@ async function Dashboard() {
       />
 
       <TodayCard progress={progress} />
+
+      <section aria-labelledby="au-programme" className="flex flex-col gap-3">
+        <SectionTitle>
+          <span id="au-programme">Au programme</span>
+        </SectionTitle>
+        <DailyCards progress={progress} />
+      </section>
 
       <section aria-labelledby="continue" className="flex flex-col gap-3">
         <SectionTitle>

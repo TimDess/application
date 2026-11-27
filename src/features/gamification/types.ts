@@ -1,5 +1,12 @@
 export type XpReason =
-  'correct_answer' | 'lesson_completed' | 'lesson_perfect' | 'chapter_completed' | 'exam_passed'
+  | 'correct_answer'
+  | 'lesson_completed'
+  | 'lesson_perfect'
+  | 'chapter_completed'
+  | 'exam_passed'
+  | 'review_answer'
+  | 'review_completed'
+  | 'daily_challenge'
 
 export type StreakStatus = 'done' | 'pending' | 'protected' | 'paused' | 'none'
 
@@ -33,8 +40,9 @@ export type Rewards = {
   /** Bounds of the level held before the lesson (to animate the bar from there). */
   previousFloorXp: number
   previousNextXp: number
-  universeLevelBefore: number
-  universeLevelAfter: number
+  /** Null for reviews and daily challenges (not tied to one universe). */
+  universeLevelBefore: number | null
+  universeLevelAfter: number | null
   goalXp: number
   todayXpBefore: number
   todayXpAfter: number
@@ -50,4 +58,15 @@ export type Progress = LevelProgress & {
   streak: { current: number; longest: number; freezes: number; status: StreakStatus }
   week: { day: string; active: boolean; frozen: boolean }[]
   universes: UniverseProgress[]
+  reviews: { due: number; known: number; mastered: number }
+  daily: {
+    day: string
+    available: boolean
+    started: boolean
+    completed: boolean
+    correct: number | null
+    total: number | null
+    /** One entry per question once completed: right or not (for sharing). */
+    results: boolean[]
+  }
 }

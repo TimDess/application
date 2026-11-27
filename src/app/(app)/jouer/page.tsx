@@ -1,19 +1,16 @@
-import { CalendarCheck, ChevronRight, Gamepad2, Medal, Swords, Zap } from 'lucide-react'
+import { ChevronRight, Gamepad2, Medal, Swords, Zap } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHeader } from '@/components/layout/page-header'
 import { SoonBadge } from '@/components/ui/pill'
 import { routes } from '@/config/routes'
+import { getMyProgress } from '@/features/gamification/queries'
+import { DailyCards } from '@/features/practice/daily-cards'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = { title: 'Jouer' }
 
 const upcoming = [
-  {
-    icon: CalendarCheck,
-    title: 'Défi du jour',
-    text: 'Un défi identique pour tous, disponible 24 heures et partageable.',
-    phase: 3,
-  },
   {
     icon: Zap,
     title: 'Partie rapide',
@@ -56,6 +53,10 @@ export default function PlayPage() {
         <ChevronRight className="size-5 shrink-0 text-muted" aria-hidden="true" />
       </Link>
 
+      <Suspense fallback={null}>
+        <PlayDaily />
+      </Suspense>
+
       <section aria-labelledby="bientot" className="flex flex-col gap-3">
         <h2 id="bientot" className="text-heading">
           Bientôt
@@ -77,4 +78,9 @@ export default function PlayPage() {
       </section>
     </div>
   )
+}
+
+async function PlayDaily() {
+  const progress = await getMyProgress()
+  return <DailyCards progress={progress} />
 }
