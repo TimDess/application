@@ -416,6 +416,7 @@
 [data-theme='dark'] {
   --glass-bg: rgb(31 28 62 / 0.55);
   --glass-bg-strong: rgb(22 20 46 / 0.78);
+  --glass-bg-nav: rgb(20 18 42 / 0.94);
   --glass-border: rgb(255 255 255 / 0.11);
   --glass-highlight: rgb(255 255 255 / 0.1);
   --glass-shadow: 0 24px 48px -28px rgb(0 0 0 / 0.65);
@@ -429,6 +430,7 @@
 [data-theme='light'] {
   --glass-bg: rgb(255 255 255 / 0.68);
   --glass-bg-strong: rgb(255 255 255 / 0.86);
+  --glass-bg-nav: rgb(255 255 255 / 0.95);
   --glass-border: rgb(27 24 56 / 0.08);
   --glass-highlight: rgb(255 255 255 / 0.9);
   --glass-shadow: 0 20px 40px -28px rgb(27 24 56 / 0.35);
@@ -468,6 +470,18 @@
   -webkit-backdrop-filter: blur(32px) saturate(150%);
 }
 
+/* Tab bar: content scrolls under it, and WebKit renders glass-behind-glass unblurred,
+   so it needs a near-opaque fill to keep its labels readable. */
+.glass-nav {
+  background: var(--glass-bg-nav);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 var(--glass-highlight);
+  backdrop-filter: blur(40px) saturate(160%);
+  -webkit-backdrop-filter: blur(40px) saturate(160%);
+}
+
 .glow-accent {
   box-shadow:
     0 10px 28px -10px color-mix(in srgb, var(--accent) 70%, transparent),
@@ -493,7 +507,8 @@
 /* Users who ask for less transparency get solid surfaces. */
 @media (prefers-reduced-transparency: reduce) {
   .glass,
-  .glass-strong {
+  .glass-strong,
+  .glass-nav {
     background: var(--surface);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -505,7 +520,8 @@
 
 @media (prefers-contrast: more) {
   .glass,
-  .glass-strong {
+  .glass-strong,
+  .glass-nav {
     background: var(--surface);
     border-color: var(--line-strong);
   }

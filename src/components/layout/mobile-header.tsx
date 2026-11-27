@@ -5,7 +5,11 @@ import { routes } from '@/config/routes'
 
 export function MobileHeader() {
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center justify-between px-4 pt-[env(safe-area-inset-top)] lg:hidden">
+    <header className="sticky top-0 isolate z-30 flex h-14 items-center justify-between px-4 pt-[env(safe-area-inset-top)] lg:hidden">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[calc(100%+1.5rem)] bg-linear-to-b from-(--bg-deep) via-(--bg-deep)/85 to-transparent"
+      />
       <Link href={routes.dashboard} aria-label="Kulto, accueil">
         <Logo className="text-[1.125rem]" />
       </Link>
