@@ -9,6 +9,7 @@ Choisie parmi trois maquettes (A Verre et lumière, B Pochettes vivantes, C Arca
 - **Lumière** : `AmbientBackground` pose trois halos flous derrière l'interface ; les pages de parcours et de leçon ajoutent un halo teinté par l'univers.
 - **Verre** : `.glass` (cartes, listes, réponses) et `.glass-strong` (navigation, panneaux de correction) : fond translucide, flou d'arrière-plan, bordure fine et reflet en haut.
 - **Barres qui recouvrent le contenu** (barre d’onglets mobile, en-tête mobile) : `.glass-nav`, quasi opaque, plus un dégradé de la couleur de fond qui estompe le contenu avant qu’il passe dessous. Safari affiche net un élément en verre placé derrière un autre élément en verre : un simple flou ne suffit pas.
+- **Grilles** : toujours `grid-cols-1` en base (une colonne `minmax(0, 1fr)`). Sans colonne définie, un texte tronqué sur une ligne élargit la grille au-delà de l’écran.
 - **Accent lumineux** : `.glow-accent` sur les boutons principaux.
 - **Rayons** : `rounded-card` 22 px, `rounded-hero` 26 px, `rounded-control` 16 px.
 - **Navigation mobile** : pilule flottante en verre ; desktop : sidebar en verre détachée du bord.

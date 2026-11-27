@@ -39,7 +39,7 @@ async function Explore() {
         title="Explorer"
         description="Tous les univers de Kulto. Les parcours arrivent univers par univers."
       />
-      <ul className="grid gap-3 sm:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {universes.map((u) => (
           <li key={u.slug}>
             <Link
