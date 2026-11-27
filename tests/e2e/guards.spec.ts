@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { signIn, signUp, uniqueEmail } from './helpers'
+import { readAuthLink, signIn, signUp, uniqueEmail } from './helpers'
 
 test('signed-out visitors are sent to sign-in, then back where they were going', async ({
   page,
@@ -40,4 +40,30 @@ test('the saved theme is applied before first paint', async ({ page, context, ba
   await page.waitForSelector('html[data-theme]')
   const theme = await page.evaluate(() => document.documentElement.dataset.theme)
   expect(theme).toBe('light')
+})
+
+test('a confirmation link opened in another browser confirms the address', async ({
+  page,
+  browser,
+}) => {
+  const email = uniqueEmail('otherbrowser')
+  await signUp(page, email)
+  const link = new URL(await readAuthLink(email, /Confirm/))
+
+  // Production uses Supabase's default template: /auth/v1/verify, then /auth/callback?code=…
+  // Rebuild that link from the token so the test follows the same path.
+  const api = process.env.NEXT_PUBLIC_SUPABASE_URL ?? 'http://127.0.0.1:54321'
+  const token = link.searchParams.get('token_hash') ?? link.searchParams.get('token')
+  const redirect = `${new URL(page.url()).origin}/auth/callback?next=/onboarding`
+  const defaultLink = `${api}/auth/v1/verify?token=${token}&type=signup&redirect_to=${encodeURIComponent(redirect)}`
+
+  // Another browser has no PKCE verifier: the address is still confirmed.
+  const other = await browser.newContext()
+  const phone = await other.newPage()
+  await phone.goto(defaultLink)
+  await expect(phone).toHaveURL(/\/connexion\?confirme=1$/)
+  await expect(phone.getByText('Ton adresse email est confirmée')).toBeVisible()
+  await signIn(phone, email)
+  await expect(phone).toHaveURL(/\/onboarding$/)
+  await other.close()
 })
