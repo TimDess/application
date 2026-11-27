@@ -92,6 +92,10 @@ Dernière mise à jour : 28 novembre 2026.
 
 ## Écarts et points ouverts
 
+- **À reprendre (signalé par Tim, 28 novembre 2026)** :
+  - Création de compte : il reste un problème (à reproduire avec Tim ; probablement lié aux emails sans SMTP personnalisé).
+  - Pseudos des invités : un compte invité réserve son pseudo, qui devient indisponible pour un vrai joueur même si l’invité ne crée jamais de compte. Pistes : pseudo provisoire pour les invités (choisi à la sauvegarde), ou libération du pseudo à la purge des invités inactifs.
+
 - **Emails en production** : sans SMTP personnalisé (Brevo), Supabase n'envoie les emails qu'aux membres de l'équipe du projet et refuse la personnalisation des modèles. Indispensable avant d'ouvrir à d'autres joueurs (inscription, mot de passe oublié, sauvegarde d'un compte invité).
 - **Mini-test de placement** de l'onboarding : phase 3.
 - **Indices** pendant les leçons : reportés (non prioritaires, les révisions jouent le rôle de rattrapage).
