@@ -1,6 +1,6 @@
 # Roadmap et état du projet
 
-Dernière mise à jour : 26 novembre 2026.
+Dernière mise à jour : 27 novembre 2026.
 
 | Phase              | Contenu                                                                                         | État                                                 |
 | ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -26,10 +26,22 @@ Dernière mise à jour : 26 novembre 2026.
 - Tests : 30 unitaires, 31 assertions pgTAP, 14 scénarios E2E (7 sur mobile, 7 sur desktop).
 - CI GitHub Actions.
 
+## Phase 2 — livré
+
+- Schéma contenu (catégories, parcours, chapitres, leçons, notions, fiches, questions) et progression (sessions, tentatives, progression par leçon et par parcours).
+- Solutions et explications dans le schéma privé ; scoring côté serveur ; une tentative par question ; déblocage séquentiel des leçons.
+- Contenu « as code » : `content/*.json` validé par Zod, compilé en SQL idempotent.
+- Parcours « Comprendre la F1 » : 3 chapitres, 9 leçons, 3 épreuves, 33 notions, 51 questions. **Statut : en relecture** (visible des relecteurs uniquement).
+- Lecteur de leçon : fiches, 5 mini-jeux (quiz, vrai/faux, associations, frise, devine l'année), correction expliquée, résultat, reprise.
+- Pages univers et parcours, « Continue ton aventure » sur l'accueil.
+- Tests : 36 unitaires, 64 assertions pgTAP, 18 scénarios E2E (mobile + desktop).
+
 ## Écarts et points ouverts
 
-- **Mode invité** : décidé, mais reporté en phase 2. Il n'a de sens qu'avec une première leçon jouable avant l'inscription.
-- **Mini-test de placement** de l'onboarding : arrive avec les premières questions (phase 2).
+- **Mode invité** : reporté en phase 3 (conversion d'un compte anonyme en compte email à concevoir proprement).
+- **Mini-test de placement** de l'onboarding : phase 3.
+- **Indices** pendant les leçons : phase 3, avec l'XP (réduction de score).
+- **Contenu F1** : à relire par Tim avant publication.
 - **Changement d'adresse email** : non inclus en phase 1 (le modèle d'email est prêt).
 - **Pages légales** : brouillons à faire valider juridiquement avant toute ouverture publique.
 - **Marque Kulto** : disponibilité (INPI, EUIPO, domaines) à vérifier.

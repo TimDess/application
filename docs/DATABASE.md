@@ -32,7 +32,7 @@ Postgres 17 (Supabase). Migrations dans `supabase/migrations`, tests pgTAP dans 
 | `public.set_universe_preferences(universes)`                    | Remplace atomiquement les univers favoris (slugs publiés, sans doublon)                                                                                          |
 | `public.has_role(role)`                                         | Vrai si l'utilisateur courant a le rôle                                                                                                                          |
 
-## Tests pgTAP (31 assertions)
+## Tests pgTAP (64 assertions)
 
 RLS active partout ; univers publiés seulement pour les anonymes ; isolement entre utilisateurs ; impossibilité de forger le consentement, de changer de pseudo hors fonction, de s'attribuer un rôle ou d'écrire directement ses préférences ; unicité insensible à la casse ; pseudos réservés ; suppression en cascade.
 
@@ -40,6 +40,16 @@ RLS active partout ; univers publiés seulement pour les anonymes ; isolement en
 pnpm db:test        # via le CLI Supabase
 pnpm db:test:psql   # même suite via psql (si l'image pg_prove ne peut pas être téléchargée)
 ```
+
+## Tables (phase 2)
+
+| Groupe      | Tables                                                                                                                                       | Accès                                                                             |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Contenu     | `categories`, `courses`, `chapters`, `lessons`, `knowledge_items`, `learning_cards`, `questions`, `question_knowledge_items`, `lesson_items` | Lecture si publié (ou `in_review` pour les relecteurs), aucune écriture via l'API |
+| Privé       | `private.question_solutions` (solution + explication)                                                                                        | Aucun accès client                                                                |
+| Progression | `lesson_sessions`, `question_attempts`, `user_lesson_progress`, `user_course_progress`                                                       | Lecture par le propriétaire, écriture par les RPC uniquement                      |
+
+RPC : `start_lesson`, `submit_answer`, `complete_lesson` (détails dans `docs/GAME_ENGINE.md`).
 
 ## Schéma cible
 
