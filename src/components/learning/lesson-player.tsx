@@ -8,7 +8,7 @@ import { formatLabels, QuestionView } from '@/components/games/question-view'
 import { Button } from '@/components/ui/button'
 import { FormMessage } from '@/components/ui/form-message'
 import { Progress } from '@/components/ui/progress'
-import { coursePath, lessonPath } from '@/config/routes'
+import { coursePath, lessonPath, routes } from '@/config/routes'
 import {
   completeLessonAction,
   startLessonAction,
@@ -38,7 +38,13 @@ type Step =
   | { kind: 'question'; index: number }
   | { kind: 'result'; summary: LessonSummary }
 
-export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
+export function LessonPlayer({
+  lesson,
+  isGuest = false,
+}: {
+  lesson: PlayableLesson
+  isGuest?: boolean
+}) {
   const router = useRouter()
   const [step, setStep] = useState<Step>({ kind: 'intro' })
   const [sessionId, setSessionId] = useState<string | null>(null)
@@ -323,6 +329,17 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
               className="rise-in mt-auto flex flex-col gap-3"
               style={{ animationDelay: '1100ms' }}
             >
+              {isGuest ? (
+                <div className="glass flex flex-col gap-3 rounded-card border-accent/50 p-4">
+                  <p className="text-body text-ink">
+                    <span className="font-semibold">Sauvegarde ta progression</span> : crée ton
+                    compte pour garder ton XP, ta série et tes notions.
+                  </p>
+                  <Button asChild size="lg">
+                    <Link href={routes.saveAccount}>Créer mon compte</Link>
+                  </Button>
+                </div>
+              ) : null}
               {lesson.nextLesson ? (
                 <Button size="lg" onClick={goToNextLesson}>
                   Leçon suivante : {lesson.nextLesson.title}

@@ -6,7 +6,7 @@ import { requireUser } from '@/lib/auth/session'
 import { createAdminClient, createVerifierClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 import { failure, invalid, type ActionState } from '@/lib/validation/action-state'
-import { changePasswordSchema, deleteAccountSchema } from '@/lib/validation/auth'
+import { changePasswordSchema, deleteAccountSchema, guestDeleteSchema } from '@/lib/validation/auth'
 import { authErrorMessage, genericAuthError } from '@/features/auth/errors'
 
 const text = (fd: FormData, key: string) => {
@@ -52,21 +52,27 @@ export async function deleteAccountAction(
   formData: FormData,
 ): Promise<ActionState> {
   const user = await requireUser()
-  const parsed = deleteAccountSchema.safeParse({
-    password: text(formData, 'password'),
-    confirmation: text(formData, 'confirmation'),
-  })
-  if (!parsed.success) return invalid(parsed.error)
-  if (!user.email) return failure(genericAuthError)
+  if (user.isAnonymous) {
+    // Guests have no password: the confirmation word is the safeguard.
+    const parsed = guestDeleteSchema.safeParse({ confirmation: text(formData, 'confirmation') })
+    if (!parsed.success) return invalid(parsed.error)
+  } else {
+    const parsed = deleteAccountSchema.safeParse({
+      password: text(formData, 'password'),
+      confirmation: text(formData, 'confirmation'),
+    })
+    if (!parsed.success) return invalid(parsed.error)
+    if (!user.email) return failure(genericAuthError)
 
-  // Re-verify the password with a stateless client: deletion is irreversible.
-  const verifier = createVerifierClient()
-  const { error: verifyError } = await verifier.auth.signInWithPassword({
-    email: user.email,
-    password: parsed.data.password,
-  })
-  if (verifyError) {
-    return { status: 'error', fieldErrors: { password: 'Mot de passe incorrect.' } }
+    // Re-verify the password with a stateless client: deletion is irreversible.
+    const verifier = createVerifierClient()
+    const { error: verifyError } = await verifier.auth.signInWithPassword({
+      email: user.email,
+      password: parsed.data.password,
+    })
+    if (verifyError) {
+      return { status: 'error', fieldErrors: { password: 'Mot de passe incorrect.' } }
+    }
   }
 
   // Deleting the auth user cascades to every table (ON DELETE CASCADE on user_id / id).

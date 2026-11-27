@@ -44,18 +44,20 @@ export function ChangePasswordForm() {
   )
 }
 
-export function DeleteAccountForm() {
+export function DeleteAccountForm({ guest = false }: { guest?: boolean }) {
   const [state, action, pending] = useActionState(deleteAccountAction, idle)
   return (
     <form action={action} className="flex flex-col gap-4" noValidate>
-      <PasswordField
-        id="delete-password"
-        name="password"
-        label="Ton mot de passe"
-        autoComplete="current-password"
-        required
-        error={state.fieldErrors?.password}
-      />
+      {guest ? null : (
+        <PasswordField
+          id="delete-password"
+          name="password"
+          label="Ton mot de passe"
+          autoComplete="current-password"
+          required
+          error={state.fieldErrors?.password}
+        />
+      )}
       <TextField
         id="delete-confirmation"
         name="confirmation"

@@ -23,6 +23,34 @@ export type Database = {
   }
   public: {
     Tables: {
+      badges: {
+        Row: {
+          description: string
+          family: Database['public']['Enums']['badge_family']
+          key: string
+          rarity: Database['public']['Enums']['badge_rarity']
+          sort_order: number
+          title: string
+        }
+        ComputedFields: never
+        Insert: {
+          description: string
+          family: Database['public']['Enums']['badge_family']
+          key: string
+          rarity: Database['public']['Enums']['badge_rarity']
+          sort_order?: number
+          title: string
+        }
+        Update: {
+          description?: string
+          family?: Database['public']['Enums']['badge_family']
+          key?: string
+          rarity?: Database['public']['Enums']['badge_rarity']
+          sort_order?: number
+          title?: string
+        }
+        Relationships: []
+      }
       categories: {
         Row: {
           created_at: string
@@ -770,6 +798,33 @@ export type Database = {
         }
         Relationships: []
       }
+      user_badges: {
+        Row: {
+          badge_key: string
+          earned_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          badge_key: string
+          earned_at?: string
+          user_id: string
+        }
+        Update: {
+          badge_key?: string
+          earned_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'user_badges_badge_key_fkey'
+            columns: ['badge_key']
+            isOneToOne: false
+            referencedRelation: 'badges'
+            referencedColumns: ['key']
+          },
+        ]
+      }
       user_course_progress: {
         Row: {
           completed_at: string | null
@@ -1188,6 +1243,7 @@ export type Database = {
         Returns: undefined
       }
       complete_practice: { Args: { p_session: string }; Returns: Json }
+      get_my_dna: { Args: Record<PropertyKey, never>; Returns: Json }
       get_my_progress: { Args: Record<PropertyKey, never>; Returns: Json }
       has_role: { Args: { p_role: Database['public']['Enums']['app_role'] }; Returns: boolean }
       set_universe_preferences: { Args: { p_universes: Json }; Returns: undefined }
@@ -1205,6 +1261,8 @@ export type Database = {
     }
     Enums: {
       app_role: 'admin' | 'editor' | 'moderator'
+      badge_family: 'progress' | 'streak' | 'level' | 'review' | 'daily'
+      badge_rarity: 'common' | 'rare' | 'epic' | 'legendary'
       content_status: 'draft' | 'in_review' | 'published' | 'archived'
       course_level: 'decouverte' | 'debutant' | 'intermediaire' | 'avance' | 'expert' | 'maitre'
       lesson_kind: 'standard' | 'exam'
@@ -1339,6 +1397,8 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ['admin', 'editor', 'moderator'],
+      badge_family: ['progress', 'streak', 'level', 'review', 'daily'],
+      badge_rarity: ['common', 'rare', 'epic', 'legendary'],
       content_status: ['draft', 'in_review', 'published', 'archived'],
       course_level: ['decouverte', 'debutant', 'intermediaire', 'avance', 'expert', 'maitre'],
       lesson_kind: ['standard', 'exam'],

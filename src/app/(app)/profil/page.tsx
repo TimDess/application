@@ -7,13 +7,16 @@ import { PageSkeleton } from '@/components/layout/page-skeleton'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { SoonBadge } from '@/components/ui/pill'
 import { dailyGoals, profileVisibilities, selfLevels } from '@/config/product'
 import { routes } from '@/config/routes'
 import { UniverseTile } from '@/features/universes/universe-tile'
 import { getPublishedUniverses, getViewer } from '@/lib/auth/session'
 import { streakDays } from '@/features/gamification/labels'
-import { getMyProgress } from '@/features/gamification/queries'
+import { getMyBadges, getMyDna, getMyProgress } from '@/features/gamification/queries'
+import { BadgeMedal, rarityLabels, type BadgeFamily } from '@/features/gamification/badge-medal'
+import { DnaRadar } from '@/features/gamification/dna-radar'
+import { dnaIdentity, dnaShortLabels } from '@/config/dna'
+import { Progress } from '@/components/ui/progress'
 
 export const metadata: Metadata = { title: 'Profil' }
 
@@ -32,11 +35,17 @@ const monthYear = new Intl.DateTimeFormat('fr-FR', {
 })
 
 async function Profile() {
-  const [viewer, progress, universes] = await Promise.all([
+  const [viewer, progress, universes, dna, badges] = await Promise.all([
     getViewer(),
     getMyProgress(),
     getPublishedUniverses(),
+    getMyDna(),
+    getMyBadges(),
   ])
+  const identity = dnaIdentity(dna)
+  const playable = dna.filter((d) => d.available > 0)
+  const earnedCount = badges.filter((b) => b.earnedAt).length
+  const universeName = (slug: string) => universes.find((u) => u.slug === slug)?.name ?? slug
   const stats = [
     { label: 'Niveau', value: String(progress.level) },
     { label: 'XP totale', value: progress.totalXp.toLocaleString('fr-FR') },
@@ -146,17 +155,79 @@ async function Profile() {
         </Card>
       </section>
 
-      <Card className="flex items-center justify-between gap-3">
-        <div className="flex flex-col gap-0.5">
-          <span className="font-display text-heading font-semibold text-ink">
-            ADN culturel et badges
-          </span>
-          <span className="text-body text-muted">
-            Ils se construiront à partir de tes niveaux par univers.
-          </span>
-        </div>
-        <SoonBadge phase={3} />
-      </Card>
+      <section aria-labelledby="adn" className="flex flex-col gap-3">
+        <SectionTitle>
+          <span id="adn">ADN culturel</span>
+        </SectionTitle>
+        <Card className="flex flex-col gap-5">
+          <div className="flex flex-col gap-1 text-center">
+            {identity ? (
+              <>
+                <p className="font-display text-title font-bold text-ink">{identity.title}</p>
+                <p className="text-body text-muted">{identity.qualifier}</p>
+              </>
+            ) : (
+              <>
+                <p className="font-display text-title font-bold text-ink">ADN en construction</p>
+                <p className="text-body text-muted">
+                  Il se dessine à mesure que tu retiens des notions en révision.
+                </p>
+              </>
+            )}
+          </div>
+          <DnaRadar branches={dna} labels={dnaShortLabels} />
+          <ul className="flex flex-col gap-3" aria-label="Maîtrise par univers">
+            {playable.map((d) => (
+              <li key={d.slug} className="flex flex-col gap-1.5">
+                <div className="flex items-baseline justify-between gap-3 text-caption">
+                  <span className="font-semibold text-ink">{universeName(d.slug)}</span>
+                  <span className="tabular text-muted">
+                    {d.score} % · {d.mastered}/{d.available} notions retenues
+                  </span>
+                </div>
+                <Progress value={d.score} label={`Maîtrise : ${universeName(d.slug)}`} />
+              </li>
+            ))}
+          </ul>
+          <p className="text-caption text-muted">
+            La maîtrise compte les notions bien retenues en révision, pas le temps passé. Les autres
+            univers s’ajouteront avec leurs parcours.
+          </p>
+        </Card>
+      </section>
+
+      <section aria-labelledby="badges" className="flex flex-col gap-3">
+        <SectionTitle
+          aside={
+            <span className="tabular text-caption text-muted">
+              {earnedCount}/{badges.length}
+            </span>
+          }
+        >
+          <span id="badges">Badges</span>
+        </SectionTitle>
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {badges.map((b) => (
+            <li
+              key={b.key}
+              className="glass flex flex-col items-center gap-2 rounded-card p-4 text-center"
+            >
+              <BadgeMedal
+                family={b.family as BadgeFamily}
+                rarity={b.rarity}
+                earned={Boolean(b.earnedAt)}
+              />
+              <span className={b.earnedAt ? 'font-semibold text-ink' : 'font-semibold text-muted'}>
+                {b.title}
+              </span>
+              <span className="text-caption text-muted">
+                {b.earnedAt ? rarityLabels[b.rarity] : b.description}
+              </span>
+              <span className="sr-only">{b.earnedAt ? 'Obtenu' : 'Pas encore obtenu'}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   )
 }

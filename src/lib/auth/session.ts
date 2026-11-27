@@ -14,7 +14,12 @@ export const getSessionUser = cache(async () => {
   const { data, error } = await supabase.auth.getClaims()
   const sub = data?.claims?.sub
   if (error || !sub) return null
-  return { id: sub, email: typeof data.claims.email === 'string' ? data.claims.email : null }
+  return {
+    id: sub,
+    email: typeof data.claims.email === 'string' && data.claims.email ? data.claims.email : null,
+    /** Guest (Supabase anonymous user): plays for real, has no email or password yet. */
+    isAnonymous: data.claims.is_anonymous === true,
+  }
 })
 
 export async function requireUser() {
@@ -42,6 +47,7 @@ export type Viewer = {
   visibility: ProfileVisibility
   memberSince: string
   onboardingCompleted: boolean
+  isGuest: boolean
   settings: {
     theme: ThemePreference
     reducedMotion: boolean
@@ -97,6 +103,7 @@ export const getViewer = cache(async (): Promise<Viewer> => {
     visibility: profile.data.visibility,
     memberSince: profile.data.created_at,
     onboardingCompleted: Boolean(onboarding.data.completed_at),
+    isGuest: user.isAnonymous,
     settings: {
       theme: settings.data.theme,
       reducedMotion: settings.data.reduced_motion,

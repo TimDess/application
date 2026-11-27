@@ -38,6 +38,15 @@ describe('parseRewards', () => {
     expect(r?.levelAfter).toBe(2)
     expect(r?.streak.after).toBe(4)
     expect(r?.items[1]).toEqual({ reason: 'lesson_completed', amount: 50 })
+    expect(r?.badges).toEqual([])
+  })
+
+  it('keeps the badges earned by the session', () => {
+    const r = parseRewards({
+      ...rawRewards,
+      badges: [{ key: 'first_lesson', title: 'Premiers pas', description: 'x', rarity: 'common' }],
+    })
+    expect(r?.badges[0]?.key).toBe('first_lesson')
   })
 
   it('returns null for missing or malformed rewards', () => {

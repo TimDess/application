@@ -15,6 +15,9 @@ const messages: Record<string, string> = {
   signup_disabled: 'Les inscriptions sont temporairement fermées.',
   email_address_invalid: 'Cette adresse email n’est pas acceptée.',
   captcha_failed: 'La vérification anti-robot a échoué. Réessaie.',
+  anonymous_provider_disabled: 'Le mode invité est momentanément indisponible. Crée un compte.',
+  over_anonymous_sign_in_rate_limit: 'Trop d’essais depuis ta connexion. Réessaie dans une heure.',
+  email_exists: 'Cette adresse a déjà un compte. Utilise une autre adresse.',
 }
 
 export const genericAuthError = 'Une erreur est survenue. Réessaie dans un instant.'
