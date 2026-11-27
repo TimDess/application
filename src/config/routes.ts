@@ -16,7 +16,13 @@ export const routes = {
   account: '/parametres/compte',
   terms: '/cgu',
   privacy: '/confidentialite',
+  courses: '/parcours',
+  lessons: '/lecon',
 } as const
+
+export const universePath = (slug: string) => `${routes.explore}/${slug}`
+export const coursePath = (slug: string) => `${routes.courses}/${slug}`
+export const lessonPath = (slug: string) => `${routes.lessons}/${slug}`
 
 /** Routes that require a signed-in user. */
 export const protectedPrefixes = [
@@ -27,6 +33,8 @@ export const protectedPrefixes = [
   routes.profile,
   routes.settings,
   routes.onboarding,
+  routes.courses,
+  routes.lessons,
 ] as const
 
 /** Routes a signed-in user has no reason to see (they are sent to the dashboard). */

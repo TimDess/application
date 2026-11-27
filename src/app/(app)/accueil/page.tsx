@@ -1,11 +1,16 @@
-import { CalendarCheck, Repeat2, Swords, Users } from 'lucide-react'
+import { CalendarCheck, Repeat2, Swords, Trophy, Users } from 'lucide-react'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Suspense } from 'react'
 import { PageHeader, SectionTitle } from '@/components/layout/page-header'
 import { PageSkeleton } from '@/components/layout/page-skeleton'
+import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { Progress } from '@/components/ui/progress'
 import { SoonBadge } from '@/components/ui/pill'
 import { dailyGoals, selfLevels } from '@/config/product'
+import { coursePath, lessonPath, routes } from '@/config/routes'
+import { getContinueCourse } from '@/features/learning/queries'
 import { UniverseCover, UniverseTile } from '@/features/universes/universe-tile'
 import { universeStyle } from '@/features/universes/universe-style'
 import { getViewer } from '@/lib/auth/session'
@@ -44,6 +49,7 @@ const upcoming = [
 
 async function Dashboard() {
   const viewer = await getViewer()
+  const continuing = await getContinueCourse(viewer.favorites.map((f) => f.slug))
   const goal = dailyGoals.find((g) => g.minutes === viewer.settings.dailyGoalMinutes)
   const first = viewer.favorites[0]
   const levelLabel = (level: string | null) =>
@@ -62,7 +68,9 @@ async function Dashboard() {
         <SectionTitle>
           <span id="continue">Continue ton aventure</span>
         </SectionTitle>
-        {first ? (
+        {continuing ? (
+          <ContinueCard data={continuing} />
+        ) : first ? (
           <div
             className="universe-scope flex flex-col gap-4 rounded-lg border border-[color-mix(in_srgb,var(--uni)_28%,var(--line))] bg-[color-mix(in_srgb,var(--uni)_9%,var(--surface))] p-4"
             style={universeStyle(first)}
@@ -76,12 +84,9 @@ async function Dashboard() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-body text-muted">
-                Les leçons et les mini-jeux arrivent avec la prochaine version.
-              </p>
-              <SoonBadge phase={2} />
-            </div>
+            <p className="text-body text-muted">
+              Les parcours de cet univers sont en cours d’écriture.
+            </p>
           </div>
         ) : null}
       </section>
@@ -121,6 +126,75 @@ async function Dashboard() {
           ))}
         </Card>
       </section>
+    </div>
+  )
+}
+
+type ContinueData = NonNullable<Awaited<ReturnType<typeof getContinueCourse>>>
+
+function ContinueCard({ data }: { data: ContinueData }) {
+  const { outline, reason } = data
+  const next = outline.nextLesson
+  const total = outline.lessons.length
+  const label =
+    reason === 'resume'
+      ? outline.chapters.find((c) => c.lessons.some((l) => l.id === next?.id))?.title
+      : reason === 'discover'
+        ? 'À découvrir'
+        : 'Pour commencer'
+  return (
+    <div
+      className="universe-scope flex flex-col gap-4 rounded-lg border border-[color-mix(in_srgb,var(--uni)_28%,var(--line))] bg-[color-mix(in_srgb,var(--uni)_9%,var(--surface))] p-4"
+      style={universeStyle(outline.universe)}
+    >
+      <div className="flex items-center gap-3">
+        <UniverseCover universe={outline.universe} size="lg" />
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <span className="text-caption font-semibold text-muted">
+            {outline.universe.name} · {outline.title}
+          </span>
+          <p className="font-display text-heading font-semibold text-ink">
+            {next ? next.title : 'Parcours terminé'}
+          </p>
+          {label && next ? <span className="text-caption text-muted">{label}</span> : null}
+        </div>
+      </div>
+      <div className="flex items-center gap-3">
+        <Progress
+          value={outline.completedCount}
+          max={total}
+          label="Progression du parcours"
+          barClassName="bg-(--uni)"
+        />
+        <span className="tabular shrink-0 text-caption text-muted">
+          {outline.completedCount}/{total}
+        </span>
+      </div>
+      {next ? (
+        <Button asChild size="lg">
+          <Link href={lessonPath(next.slug)}>
+            {outline.completedCount > 0 || reason === 'resume' ? 'Reprendre' : 'Commencer'}
+          </Link>
+        </Button>
+      ) : (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <span className="flex items-center gap-2 text-body font-semibold text-ink">
+            <Trophy className="size-5 text-accent-text" aria-hidden="true" />
+            Bravo, tout est fait.
+          </span>
+          <Button asChild variant="secondary" size="sm">
+            <Link href={coursePath(outline.slug)}>Revoir le parcours</Link>
+          </Button>
+        </div>
+      )}
+      {reason === 'discover' ? (
+        <Link
+          href={routes.explore}
+          className="text-caption font-medium text-muted underline-offset-2 hover:text-ink hover:underline"
+        >
+          Tes univers favoris n’ont pas encore de parcours. Voir tous les univers
+        </Link>
+      ) : null}
     </div>
   )
 }
