@@ -1,18 +1,18 @@
 # Roadmap et état du projet
 
-Dernière mise à jour : 27 novembre 2026.
+Dernière mise à jour : 28 novembre 2026.
 
-| Phase              | Contenu                                                                                         | État                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées) |
-| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                          |
-| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ⏭️ Prochaine                                         |
-| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | À venir                                              |
-| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                              |
-| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                              |
-| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                              |
-| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                              |
-| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                              |
+| Phase              | Contenu                                                                                         | État                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)                         |
+| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                                                  |
+| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                                      |
+| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | 🚧 Lot 3A livré ; 3B (révisions, défi du jour) puis 3C (badges, ADN, invité) |
+| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                                                      |
+| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                                      |
+| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                                      |
+| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                                      |
+| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                                      |
 
 ## Phase 1 — livré
 
@@ -37,11 +37,21 @@ Dernière mise à jour : 27 novembre 2026.
 - Pages univers et parcours, « Continue ton aventure » sur l'accueil.
 - Tests : 36 unitaires, 64 assertions pgTAP, 18 scénarios E2E (mobile + desktop).
 
+## Phase 3 — lot 3A livré
+
+- XP attribuée par `complete_lesson` dans la même transaction : bonne réponse +10 (au prorata pour une réponse partielle), leçon terminée +50, sans faute +20, épreuve réussie (score ≥ 70) +100, chapitre terminé +150. Chaque récompense n'est obtenue qu'une fois (contrainte unique) : rejouer ne rapporte que ce qui n'avait pas encore été gagné.
+- Niveaux global et par univers : XP cumulée pour le niveau L = 100 × (L − 1)^1,6.
+- Objectif du jour = minutes choisies × 20 XP. Série : une leçon terminée valide la journée (jour local de l'utilisateur), 1 protection gagnée tous les 7 jours (2 max), consommée automatiquement.
+- Valeurs réglables dans `game_config`, sans toucher au code.
+- Interface : récompenses en fin de leçon (lignes d'XP, barre de niveau, série, objectif), écran « Niveau supérieur » plein écran, carte « Ta journée » sur l'accueil (série, 7 derniers jours, objectif, niveau), flamme dans l'en-tête mobile, statistiques et niveaux par univers sur le profil, export RGPD complété (progression et gamification).
+- Les leçons terminées avant le lot 3A ne rapportent pas d'XP rétroactive.
+- Tests : 40 unitaires, 96 assertions pgTAP, 18 scénarios E2E.
+
 ## Écarts et points ouverts
 
-- **Mode invité** : reporté en phase 3 (conversion d'un compte anonyme en compte email à concevoir proprement).
+- **Mode invité** : lot 3C (conversion d'un compte anonyme en compte email à concevoir proprement).
 - **Mini-test de placement** de l'onboarding : phase 3.
-- **Indices** pendant les leçons : phase 3, avec l'XP (réduction de score).
+- **Indices** pendant les leçons : lot 3B, avec les révisions (réduction d'XP).
 - **Contenu F1** : à relire par Tim avant publication.
 - **Changement d'adresse email** : non inclus en phase 1 (le modèle d'email est prêt).
 - **Pages légales** : brouillons à faire valider juridiquement avant toute ouverture publique.

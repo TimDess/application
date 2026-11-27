@@ -2,6 +2,7 @@
 
 import { refresh } from 'next/cache'
 import { z } from 'zod'
+import { parseRewards } from '@/features/gamification/parse'
 import { requireUser } from '@/lib/auth/session'
 import { createClient } from '@/lib/supabase/server'
 import type { Answer, AnswerResult, LessonSummary, Solution } from './types'
@@ -106,10 +107,22 @@ export async function completeLessonAction(sessionId: string): Promise<Result<Le
   const supabase = await createClient()
   const { data, error } = await supabase.rpc('complete_lesson', { p_session: sessionId })
   if (error || !data) return failure(error)
-  const r = data as { total: number; correct: number; score: number; perfect: boolean }
+  const r = data as {
+    total: number
+    correct: number
+    score: number
+    perfect: boolean
+    rewards: unknown
+  }
   refresh()
   return {
     ok: true,
-    data: { total: r.total, correct: r.correct, score: r.score, perfect: r.perfect },
+    data: {
+      total: r.total,
+      correct: r.correct,
+      score: r.score,
+      perfect: r.perfect,
+      rewards: parseRewards(r.rewards),
+    },
   }
 }

@@ -39,7 +39,19 @@ Le score est calculé par `private.evaluate_answer()` et la forme de la réponse
 
 1. `start_lesson(lesson)` : vérifie que la leçon est visible et **débloquée** (première du parcours ou précédente terminée), reprend la session ouverte des dernières 24 h ou en crée une avec la liste figée des questions.
 2. `submit_answer(session, question, answer)` : une seule tentative par question (`UNIQUE (session_id, question_id)`) ; une nouvelle soumission renvoie le premier résultat. Renvoie correction et explication, jamais avant.
-3. `complete_lesson(session)` : exige toutes les réponses, calcule le score, met à jour `user_lesson_progress` (meilleur score, tentatives) et `user_course_progress`. Idempotent.
+3. `complete_lesson(session)` : exige toutes les réponses, calcule le score, met à jour `user_lesson_progress` (meilleur score, tentatives) et `user_course_progress`, puis attribue les récompenses (XP, niveaux, objectif du jour, série) et les renvoie dans `rewards`. Idempotent : un second appel renvoie le même résumé.
+
+## Récompenses (phase 3A)
+
+| Récompense       | XP                 | Source unique |
+| ---------------- | ------------------ | ------------- |
+| Bonne réponse    | 10 × score (0 à 1) | question      |
+| Leçon terminée   | 50                 | leçon         |
+| Sans faute       | 20                 | leçon         |
+| Épreuve réussie  | 100 (score ≥ 70)   | leçon         |
+| Chapitre terminé | 150                | chapitre      |
+
+Série : `private.register_activity` avance la série d'un jour si le dernier jour actif est la veille ; s'il manque des jours et qu'il reste assez de protections, elles sont consommées (jours marqués `frozen`) ; sinon la série repart à 1. Une protection est gagnée à chaque multiple de 7 jours, 2 au maximum.
 
 ## Interface
 
