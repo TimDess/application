@@ -7,7 +7,11 @@ import { isActive, primaryNav } from './nav-items'
 
 /** Mobile tab bar (hidden on large screens, where the sidebar takes over). */
 export function BottomNav() {
-  const pathname = usePathname()
+  return <BottomNavView pathname={usePathname()} />
+}
+
+/** Pure view, also used as the Suspense fallback (no active tab) on dynamic routes. */
+export function BottomNavView({ pathname }: { pathname: string }) {
   return (
     <nav
       aria-label="Navigation principale"

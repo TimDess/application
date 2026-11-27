@@ -28,6 +28,8 @@ pnpm db:reset         # réapplique migrations + seed en local
 pnpm db:test          # tests pgTAP via supabase (ou pnpm db:test:psql si l'image pg_prove est indisponible)
 pnpm db:types         # régénère src/types/database.ts après une migration
 pnpm format           # Prettier
+pnpm content:build    # valide content/*.json et génère supabase/content/*.sql
+pnpm content:local    # charge le contenu en local (statut forcé à published)
 ```
 
 ## Architecture (résumé, détail dans `docs/ARCHITECTURE.md`)
@@ -44,6 +46,8 @@ src/lib/auth         Data Access Layer (seul endroit qui lit la session)
 src/lib/supabase     clients serveur / admin
 src/lib/validation   schémas Zod partagés
 src/config           marque, routes, options produit (source unique)
+src/components/games mini-jeux (un composant par format) ; src/components/learning : lecteur de leçon
+content/             contenu pédagogique « as code » (JSON)
 supabase/migrations  schéma SQL versionné ; supabase/tests : pgTAP
 ```
 
@@ -52,13 +56,14 @@ supabase/migrations  schéma SQL versionné ; supabase/tests : pgTAP
 1. **Postgres est l'arbitre.** Tout ce qui attribue quelque chose (XP, points, badges, résultats, progression) passe par une fonction Postgres transactionnelle et idempotente. Jamais de valeur critique décidée par le client.
 2. **RLS partout.** Chaque table de `public` a RLS activée, des politiques explicites et des privilèges colonne par colonne. Toute nouvelle table arrive avec ses tests pgTAP (accès autorisé ET refusé).
 3. **Fonctions SECURITY DEFINER** : `set search_path = ''`, vérification explicite de `auth.uid()`, `revoke execute ... from public, anon`. Les helpers internes vont dans le schéma `private`.
-4. **Les bonnes réponses ne quittent jamais le serveur** (schéma `private` pour les solutions, dès la phase 2).
-5. **Secrets** : seul `SUPABASE_SECRET_KEY` est secret, uniquement dans `src/lib/supabase/admin.ts` (`server-only`). Jamais de `NEXT_PUBLIC_` sur un secret, jamais de secret dans le code, les logs ou le chat.
-6. **Session** : lue uniquement via `src/lib/auth/session.ts`. Chaque Server Action et Route Handler revérifie l'utilisateur (`requireUser`).
-7. **Nom de marque** : jamais en dur, toujours `brand` depuis `src/config/brand.ts`.
-8. **Pas de faux** : pas de bouton sans fonction (sinon `SoonBadge` avec la phase), pas de données fictives présentées comme réelles, pas de localStorage pour simuler le backend.
-9. **Accessibilité** : labels explicites, `id` uniques par champ, focus visibles, alternatives au glisser-déposer, couleur jamais seule porteuse d'information, `prefers-reduced-motion` et réglage in-app respectés.
-10. **Design** : direction 2 (voir `docs/DESIGN_SYSTEM.md`). Inter + Inter Tight, 4 tailles de texte, hiérarchie par la graisse et la couleur, une seule couleur vive par carte, rayon 14 px, aucun italique, aucune inclinaison.
+4. **Les bonnes réponses ne quittent jamais le serveur** : solutions et explications dans `private.question_solutions`, scoring dans `private.evaluate_answer()`.
+5. **Contenu** : toujours via `content/*.json` + `pnpm content:build`, jamais à la main en base. Le contenu rédigé par IA reste `in_review` jusqu'à validation humaine.
+6. **Secrets** : seul `SUPABASE_SECRET_KEY` est secret, uniquement dans `src/lib/supabase/admin.ts` (`server-only`). Jamais de `NEXT_PUBLIC_` sur un secret, jamais de secret dans le code, les logs ou le chat.
+7. **Session** : lue uniquement via `src/lib/auth/session.ts`. Chaque Server Action et Route Handler revérifie l'utilisateur (`requireUser`).
+8. **Nom de marque** : jamais en dur, toujours `brand` depuis `src/config/brand.ts`.
+9. **Pas de faux** : pas de bouton sans fonction (sinon `SoonBadge` avec la phase), pas de données fictives présentées comme réelles, pas de localStorage pour simuler le backend.
+10. **Accessibilité** : labels explicites, `id` uniques par champ, focus visibles, alternatives au glisser-déposer, couleur jamais seule porteuse d'information, `prefers-reduced-motion` et réglage in-app respectés.
+11. **Design** : direction 2 (voir `docs/DESIGN_SYSTEM.md`). Inter + Inter Tight, 4 tailles de texte, hiérarchie par la graisse et la couleur, une seule couleur vive par carte, rayon 14 px, aucun italique, aucune inclinaison.
 
 ## Conventions
 

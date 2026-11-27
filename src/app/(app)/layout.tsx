@@ -1,9 +1,9 @@
 import { redirect } from 'next/navigation'
 import { Suspense, type ReactNode } from 'react'
-import { BottomNav } from '@/components/layout/bottom-nav'
+import { BottomNav, BottomNavView } from '@/components/layout/bottom-nav'
 import { MobileHeader } from '@/components/layout/mobile-header'
 import { PageSkeleton } from '@/components/layout/page-skeleton'
-import { SideNav } from '@/components/layout/side-nav'
+import { SideNav, SideNavView } from '@/components/layout/side-nav'
 import { SidebarUser, SidebarUserSkeleton } from '@/components/layout/sidebar-user'
 import { PreferencesSync } from '@/components/theme/preferences-sync'
 import { routes } from '@/config/routes'
@@ -16,13 +16,15 @@ import { getViewer } from '@/lib/auth/session'
 export default function AppLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-dvh lg:pl-64">
-      <SideNav
-        userSlot={
-          <Suspense fallback={<SidebarUserSkeleton />}>
-            <SidebarUser />
-          </Suspense>
-        }
-      />
+      <Suspense fallback={<SideNavView pathname="" userSlot={<SidebarUserSkeleton />} />}>
+        <SideNav
+          userSlot={
+            <Suspense fallback={<SidebarUserSkeleton />}>
+              <SidebarUser />
+            </Suspense>
+          }
+        />
+      </Suspense>
       <MobileHeader />
       <main
         id="contenu"
@@ -32,7 +34,9 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           <AuthGate>{children}</AuthGate>
         </Suspense>
       </main>
-      <BottomNav />
+      <Suspense fallback={<BottomNavView pathname="" />}>
+        <BottomNav />
+      </Suspense>
     </div>
   )
 }

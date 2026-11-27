@@ -1,20 +1,53 @@
-# Moteur de mini-jeux (prévu en phase 2)
+# Moteur de jeu et contenu
 
-Statut : **conception**, rien n'est implémenté.
+Statut : **en place depuis la phase 2** (5 formats, lecteur de leçon, progression).
 
-## Principes
+## Chaîne du contenu
 
-- Chaque format est un module isolé qui implémente une interface commune : rendu de la question, saisie de la réponse, feedback, alternative accessible (clavier, sans glisser-déposer).
-- Un registre de formats associe `questions.format` à son module : ajouter un format revient à ajouter un dossier, sans toucher au lecteur de leçon.
-- **Les solutions ne sont jamais envoyées au client.** La question part sans indice de réponse ; la RPC de soumission renvoie correct / incorrect et l'explication.
-- Les données de chaque format sont en JSONB (`questions.payload` public, `private.question_solutions.solution` privé), validées par un schéma Zod par format à l'import.
+```
+content/<univers>/<parcours>.json   ← rédaction (relue en pull request)
+        │  pnpm content:build        validation Zod (src/features/content/schema.ts)
+        ▼
+supabase/content/<parcours>.sql     ← SQL idempotent, IDs déterministes
+        │  appliqué en local (pnpm content:local, statut forcé à published)
+        ▼  ou sur Supabase (Management API / SQL editor)
+Postgres : questions (public) + private.question_solutions (privé)
+```
 
-## Formats V1
+- Les IDs sont dérivés des slugs et clés : réappliquer le SQL met à jour sans casser la progression des joueurs.
+- Une leçon retirée du fichier est **archivée**, jamais supprimée.
+- La validation refuse : notion inconnue, fait évolutif sans `validAsOf`, question en double, leçon sans fiche, année hors bornes.
+- La CI vérifie que `supabase/content/*.sql` correspond bien aux fichiers JSON.
 
-Quiz (choix unique ou multiple), Vrai/Faux, Match (associations), Timeline (ordre chronologique), Guess The Year (score selon la proximité).
+### Statuts et relecture
+
+`draft` → `in_review` → `published`. Le contenu rédigé par IA arrive en `in_review` : il n'est visible que des comptes ayant le rôle `editor` ou `admin` (`private.is_reviewer()`), qui peuvent le jouer dans l'application réelle avant publication.
+
+## Formats
+
+| Format       | Payload public                          | Solution privée       | Réponse envoyée   | Score                                                                 |
+| ------------ | --------------------------------------- | --------------------- | ----------------- | --------------------------------------------------------------------- |
+| `quiz`       | options `{id,label}`, `multiple`        | `correct: [ids]`      | `selected: [ids]` | tout ou rien                                                          |
+| `true_false` | —                                       | `value`               | `value`           | tout ou rien                                                          |
+| `match`      | `left`, `right` (mélangé)               | `pairs {left: right}` | `pairs`           | proportion de paires justes                                           |
+| `timeline`   | `items` (mélangés, jamais dans l'ordre) | `order`, `dates`      | `order`           | proportion de positions justes                                        |
+| `guess_year` | `min`, `max`                            | `year`, `tolerance`   | `year`            | juste si écart ≤ tolérance ; score décroissant jusqu'à 10 ans d'écart |
+
+Le score est calculé par `private.evaluate_answer()` et la forme de la réponse est vérifiée par `private.answer_is_well_formed()` (testés avec pgTAP).
 
 ## Session de leçon
 
-`lesson_sessions` fige la liste des questions au démarrage ; `question_attempts` porte une contrainte `UNIQUE (session_id, question_id)` ; la clôture attribue l'XP une seule fois (`UNIQUE` sur `xp_transactions`).
+1. `start_lesson(lesson)` : vérifie que la leçon est visible et **débloquée** (première du parcours ou précédente terminée), reprend la session ouverte des dernières 24 h ou en crée une avec la liste figée des questions.
+2. `submit_answer(session, question, answer)` : une seule tentative par question (`UNIQUE (session_id, question_id)`) ; une nouvelle soumission renvoie le premier résultat. Renvoie correction et explication, jamais avant.
+3. `complete_lesson(session)` : exige toutes les réponses, calcule le score, met à jour `user_lesson_progress` (meilleur score, tentatives) et `user_course_progress`. Idempotent.
 
-Détails et règles chiffrées : `docs/PHASE_0_BRIEF.md`, sections 6.3 et 7.3.
+## Interface
+
+- `src/components/games/*` : un composant par format, branché dans le registre `question-view.tsx`. Tout est utilisable au clavier ; les frises se réordonnent avec des boutons (alternative au glisser-déposer), les associations se font par sélection successive.
+- `src/components/learning/lesson-player.tsx` : intro → fiches → questions (correction + explication) → résultat. La progression est sauvegardée à chaque réponse : quitter puis revenir reprend à la première question sans réponse.
+
+## Ajouter un format
+
+1. Ajouter la valeur à l'enum `question_format` (migration), et ses règles dans `answer_is_well_formed` / `evaluate_answer` + tests pgTAP.
+2. Ajouter son schéma dans `src/features/content/schema.ts` et sa compilation dans `scripts/content-build.mts`.
+3. Créer le composant dans `src/components/games/` et l'ajouter au registre.

@@ -30,6 +30,8 @@ jobs:
       - run: pnpm lint
       - run: pnpm format:check
       - run: pnpm test
+      - name: Validate course content
+        run: pnpm content:build && git diff --exit-code supabase/content
       - run: pnpm build
 
   database-e2e:
@@ -48,6 +50,8 @@ jobs:
         run: pnpm exec supabase start -x studio,imgproxy,edge-runtime,logflare,vector,realtime,storage-api,supavisor
       - name: Database tests (pgTAP)
         run: pnpm exec supabase test db
+      - name: Load course content (published, test database only)
+        run: pnpm content:local
       - name: Write local environment
         run: |
           pnpm exec supabase status -o json > /tmp/sb.json

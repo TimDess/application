@@ -31,7 +31,10 @@ function SideLink({ item, pathname }: { item: NavItem; pathname: string }) {
 
 /** Desktop sidebar. `userSlot` streams in the signed-in user's chip. */
 export function SideNav({ userSlot }: { userSlot: ReactNode }) {
-  const pathname = usePathname()
+  return <SideNavView pathname={usePathname()} userSlot={userSlot} />
+}
+
+export function SideNavView({ pathname, userSlot }: { pathname: string; userSlot: ReactNode }) {
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-line bg-surface px-4 py-6 lg:flex">
       <Link href={routes.dashboard} className="px-3" aria-label="Kulto, accueil">

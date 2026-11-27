@@ -57,3 +57,12 @@ export function isReservedUsername(username: string): boolean {
   const u = username.toLowerCase()
   return (reservedUsernames as readonly string[]).includes(u)
 }
+
+export const courseLevels: Record<string, string> = {
+  decouverte: 'Découverte',
+  debutant: 'Débutant',
+  intermediaire: 'Intermédiaire',
+  avance: 'Avancé',
+  expert: 'Expert',
+  maitre: 'Maître',
+}
