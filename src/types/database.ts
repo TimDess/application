@@ -23,6 +23,358 @@ export type Database = {
   }
   public: {
     Tables: {
+      categories: {
+        Row: {
+          created_at: string
+          description: string
+          id: string
+          name: string
+          slug: string
+          sort_order: number
+          status: Database['public']['Enums']['content_status']
+          universe_id: string
+          updated_at: string
+        }
+        ComputedFields: never
+        Insert: {
+          created_at?: string
+          description?: string
+          id?: string
+          name: string
+          slug: string
+          sort_order?: number
+          status?: Database['public']['Enums']['content_status']
+          universe_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          id?: string
+          name?: string
+          slug?: string
+          sort_order?: number
+          status?: Database['public']['Enums']['content_status']
+          universe_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'categories_universe_id_fkey'
+            columns: ['universe_id']
+            isOneToOne: false
+            referencedRelation: 'universes'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      chapters: {
+        Row: {
+          course_id: string
+          created_at: string
+          description: string
+          id: string
+          position: number
+          status: Database['public']['Enums']['content_status']
+          title: string
+          updated_at: string
+        }
+        ComputedFields: never
+        Insert: {
+          course_id: string
+          created_at?: string
+          description?: string
+          id?: string
+          position: number
+          status?: Database['public']['Enums']['content_status']
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          description?: string
+          id?: string
+          position?: number
+          status?: Database['public']['Enums']['content_status']
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'chapters_course_id_fkey'
+            columns: ['course_id']
+            isOneToOne: false
+            referencedRelation: 'courses'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      courses: {
+        Row: {
+          category_id: string
+          created_at: string
+          description: string
+          id: string
+          level: Database['public']['Enums']['course_level']
+          slug: string
+          sort_order: number
+          status: Database['public']['Enums']['content_status']
+          title: string
+          updated_at: string
+        }
+        ComputedFields: never
+        Insert: {
+          category_id: string
+          created_at?: string
+          description?: string
+          id?: string
+          level?: Database['public']['Enums']['course_level']
+          slug: string
+          sort_order?: number
+          status?: Database['public']['Enums']['content_status']
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category_id?: string
+          created_at?: string
+          description?: string
+          id?: string
+          level?: Database['public']['Enums']['course_level']
+          slug?: string
+          sort_order?: number
+          status?: Database['public']['Enums']['content_status']
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'courses_category_id_fkey'
+            columns: ['category_id']
+            isOneToOne: false
+            referencedRelation: 'categories'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      knowledge_items: {
+        Row: {
+          created_at: string
+          id: string
+          is_evolving: boolean
+          key: string
+          source_url: string | null
+          summary: string
+          title: string
+          universe_id: string
+          updated_at: string
+          valid_as_of: string | null
+          verified_at: string | null
+        }
+        ComputedFields: never
+        Insert: {
+          created_at?: string
+          id?: string
+          is_evolving?: boolean
+          key: string
+          source_url?: string | null
+          summary?: string
+          title: string
+          universe_id: string
+          updated_at?: string
+          valid_as_of?: string | null
+          verified_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_evolving?: boolean
+          key?: string
+          source_url?: string | null
+          summary?: string
+          title?: string
+          universe_id?: string
+          updated_at?: string
+          valid_as_of?: string | null
+          verified_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'knowledge_items_universe_id_fkey'
+            columns: ['universe_id']
+            isOneToOne: false
+            referencedRelation: 'universes'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      learning_cards: {
+        Row: {
+          blocks: NonNullable<Json>
+          created_at: string
+          id: string
+          lesson_id: string
+          position: number
+          title: string
+          updated_at: string
+        }
+        ComputedFields: never
+        Insert: {
+          blocks: NonNullable<Json>
+          created_at?: string
+          id?: string
+          lesson_id: string
+          position: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          blocks?: NonNullable<Json>
+          created_at?: string
+          id?: string
+          lesson_id?: string
+          position?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'learning_cards_lesson_id_fkey'
+            columns: ['lesson_id']
+            isOneToOne: false
+            referencedRelation: 'lessons'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      lesson_items: {
+        Row: {
+          lesson_id: string
+          position: number
+          question_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          lesson_id: string
+          position: number
+          question_id: string
+        }
+        Update: {
+          lesson_id?: string
+          position?: number
+          question_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'lesson_items_lesson_id_fkey'
+            columns: ['lesson_id']
+            isOneToOne: false
+            referencedRelation: 'lessons'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'lesson_items_question_id_fkey'
+            columns: ['question_id']
+            isOneToOne: false
+            referencedRelation: 'questions'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      lesson_sessions: {
+        Row: {
+          completed_at: string | null
+          correct_count: number | null
+          id: string
+          lesson_id: string
+          question_ids: string[]
+          score: number | null
+          started_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          completed_at?: string | null
+          correct_count?: number | null
+          id?: string
+          lesson_id: string
+          question_ids: string[]
+          score?: number | null
+          started_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          correct_count?: number | null
+          id?: string
+          lesson_id?: string
+          question_ids?: string[]
+          score?: number | null
+          started_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'lesson_sessions_lesson_id_fkey'
+            columns: ['lesson_id']
+            isOneToOne: false
+            referencedRelation: 'lessons'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      lessons: {
+        Row: {
+          chapter_id: string
+          created_at: string
+          estimated_minutes: number
+          id: string
+          kind: Database['public']['Enums']['lesson_kind']
+          objective: string
+          position: number
+          slug: string
+          status: Database['public']['Enums']['content_status']
+          title: string
+          updated_at: string
+        }
+        ComputedFields: never
+        Insert: {
+          chapter_id: string
+          created_at?: string
+          estimated_minutes?: number
+          id?: string
+          kind?: Database['public']['Enums']['lesson_kind']
+          objective?: string
+          position: number
+          slug: string
+          status?: Database['public']['Enums']['content_status']
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          chapter_id?: string
+          created_at?: string
+          estimated_minutes?: number
+          id?: string
+          kind?: Database['public']['Enums']['lesson_kind']
+          objective?: string
+          position?: number
+          slug?: string
+          status?: Database['public']['Enums']['content_status']
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'lessons_chapter_id_fkey'
+            columns: ['chapter_id']
+            isOneToOne: false
+            referencedRelation: 'chapters'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_key: string
@@ -50,6 +402,140 @@ export type Database = {
           visibility?: Database['public']['Enums']['profile_visibility']
         }
         Relationships: []
+      }
+      question_attempts: {
+        Row: {
+          answer: NonNullable<Json>
+          created_at: string
+          id: string
+          is_correct: boolean
+          question_id: string
+          score: number
+          session_id: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          answer: NonNullable<Json>
+          created_at?: string
+          id?: string
+          is_correct: boolean
+          question_id: string
+          score: number
+          session_id: string
+          user_id: string
+        }
+        Update: {
+          answer?: NonNullable<Json>
+          created_at?: string
+          id?: string
+          is_correct?: boolean
+          question_id?: string
+          score?: number
+          session_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'question_attempts_question_id_fkey'
+            columns: ['question_id']
+            isOneToOne: false
+            referencedRelation: 'questions'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'question_attempts_session_id_fkey'
+            columns: ['session_id']
+            isOneToOne: false
+            referencedRelation: 'lesson_sessions'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      question_knowledge_items: {
+        Row: {
+          knowledge_item_id: string
+          question_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          knowledge_item_id: string
+          question_id: string
+        }
+        Update: {
+          knowledge_item_id?: string
+          question_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'question_knowledge_items_knowledge_item_id_fkey'
+            columns: ['knowledge_item_id']
+            isOneToOne: false
+            referencedRelation: 'knowledge_items'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'question_knowledge_items_question_id_fkey'
+            columns: ['question_id']
+            isOneToOne: false
+            referencedRelation: 'questions'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      questions: {
+        Row: {
+          created_at: string
+          difficulty: number
+          format: Database['public']['Enums']['question_format']
+          id: string
+          is_evolving: boolean
+          key: string
+          payload: NonNullable<Json>
+          prompt: string
+          status: Database['public']['Enums']['content_status']
+          universe_id: string
+          updated_at: string
+          valid_as_of: string | null
+        }
+        ComputedFields: never
+        Insert: {
+          created_at?: string
+          difficulty?: number
+          format: Database['public']['Enums']['question_format']
+          id?: string
+          is_evolving?: boolean
+          key: string
+          payload?: NonNullable<Json>
+          prompt: string
+          status?: Database['public']['Enums']['content_status']
+          universe_id: string
+          updated_at?: string
+          valid_as_of?: string | null
+        }
+        Update: {
+          created_at?: string
+          difficulty?: number
+          format?: Database['public']['Enums']['question_format']
+          id?: string
+          is_evolving?: boolean
+          key?: string
+          payload?: NonNullable<Json>
+          prompt?: string
+          status?: Database['public']['Enums']['content_status']
+          universe_id?: string
+          updated_at?: string
+          valid_as_of?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'questions_universe_id_fkey'
+            columns: ['universe_id']
+            isOneToOne: false
+            referencedRelation: 'universes'
+            referencedColumns: ['id']
+          },
+        ]
       }
       universes: {
         Row: {
@@ -96,6 +582,94 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      user_course_progress: {
+        Row: {
+          completed_at: string | null
+          completed_lessons: number
+          course_id: string
+          last_lesson_id: string | null
+          started_at: string
+          updated_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          completed_at?: string | null
+          completed_lessons?: number
+          course_id: string
+          last_lesson_id?: string | null
+          started_at?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          completed_lessons?: number
+          course_id?: string
+          last_lesson_id?: string | null
+          started_at?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'user_course_progress_course_id_fkey'
+            columns: ['course_id']
+            isOneToOne: false
+            referencedRelation: 'courses'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'user_course_progress_last_lesson_id_fkey'
+            columns: ['last_lesson_id']
+            isOneToOne: false
+            referencedRelation: 'lessons'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      user_lesson_progress: {
+        Row: {
+          attempts: number
+          best_score: number | null
+          first_completed_at: string | null
+          last_completed_at: string | null
+          lesson_id: string
+          status: Database['public']['Enums']['lesson_progress_status']
+          updated_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          attempts?: number
+          best_score?: number | null
+          first_completed_at?: string | null
+          last_completed_at?: string | null
+          lesson_id: string
+          status?: Database['public']['Enums']['lesson_progress_status']
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          attempts?: number
+          best_score?: number | null
+          first_completed_at?: string | null
+          last_completed_at?: string | null
+          lesson_id?: string
+          status?: Database['public']['Enums']['lesson_progress_status']
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'user_lesson_progress_lesson_id_fkey'
+            columns: ['lesson_id']
+            isOneToOne: false
+            referencedRelation: 'lessons'
+            referencedColumns: ['id']
+          },
+        ]
       }
       user_onboarding: {
         Row: {
@@ -228,17 +802,27 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      complete_lesson: { Args: { p_session: string }; Returns: Json }
       complete_onboarding: {
         Args: { p_avatar_key: string; p_daily_goal: number; p_universes: Json; p_username: string }
         Returns: undefined
       }
       has_role: { Args: { p_role: Database['public']['Enums']['app_role'] }; Returns: boolean }
       set_universe_preferences: { Args: { p_universes: Json }; Returns: undefined }
+      start_lesson: { Args: { p_lesson: string }; Returns: Json }
+      submit_answer: {
+        Args: { p_answer: Json; p_question: string; p_session: string }
+        Returns: Json
+      }
     }
     Enums: {
       app_role: 'admin' | 'editor' | 'moderator'
       content_status: 'draft' | 'in_review' | 'published' | 'archived'
+      course_level: 'decouverte' | 'debutant' | 'intermediaire' | 'avance' | 'expert' | 'maitre'
+      lesson_kind: 'standard' | 'exam'
+      lesson_progress_status: 'in_progress' | 'completed'
       profile_visibility: 'public' | 'friends' | 'private'
+      question_format: 'quiz' | 'true_false' | 'match' | 'timeline' | 'guess_year'
       self_level: 'debutant' | 'intermediaire' | 'expert'
       theme_preference: 'system' | 'light' | 'dark'
     }
@@ -357,7 +941,11 @@ export const Constants = {
     Enums: {
       app_role: ['admin', 'editor', 'moderator'],
       content_status: ['draft', 'in_review', 'published', 'archived'],
+      course_level: ['decouverte', 'debutant', 'intermediaire', 'avance', 'expert', 'maitre'],
+      lesson_kind: ['standard', 'exam'],
+      lesson_progress_status: ['in_progress', 'completed'],
       profile_visibility: ['public', 'friends', 'private'],
+      question_format: ['quiz', 'true_false', 'match', 'timeline', 'guess_year'],
       self_level: ['debutant', 'intermediaire', 'expert'],
       theme_preference: ['system', 'light', 'dark'],
     },
