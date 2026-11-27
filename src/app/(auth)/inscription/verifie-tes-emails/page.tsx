@@ -17,7 +17,7 @@ export default function CheckEmailPage() {
         title="Vérifie tes emails"
         description="On vient de t’envoyer un lien de confirmation. Clique dessus pour activer ton compte. Pense à regarder dans les spams."
       />
-      <details className="rounded-lg border border-line bg-surface p-4">
+      <details className="glass rounded-card p-4">
         <summary className="cursor-pointer text-body font-medium text-ink">
           Tu n’as rien reçu ?
         </summary>

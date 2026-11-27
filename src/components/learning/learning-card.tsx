@@ -4,7 +4,7 @@ import type { PlayCard } from '@/features/learning/types'
 /** Renders a learning card ("fiche") from its blocks. */
 export function LearningCard({ card }: { card: PlayCard }) {
   return (
-    <article className="step-in flex flex-col gap-4 rounded-lg border border-line bg-surface p-5">
+    <article className="step-in glass flex flex-col gap-4 rounded-card p-5">
       <h2 className="text-title">{card.title}</h2>
       {card.blocks.map((block, i) => {
         switch (block.type) {

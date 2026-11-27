@@ -10,7 +10,7 @@ import { courseLevels } from '@/config/product'
 import { lessonPath, universePath } from '@/config/routes'
 import type { OutlineLesson } from '@/features/learning/queries'
 import { getCourseOutline } from '@/features/learning/queries'
-import { UniverseCover } from '@/features/universes/universe-tile'
+import { UniverseArt } from '@/features/universes/universe-art'
 import { universeStyle } from '@/features/universes/universe-style'
 import { cn } from '@/lib/utils/cn'
 
@@ -42,50 +42,62 @@ async function Course({ params }: { params: Promise<{ slug: string }> }) {
       </Link>
 
       <header
-        className="universe-scope flex flex-col gap-4 rounded-lg border border-[color-mix(in_srgb,var(--uni)_28%,var(--line))] bg-[color-mix(in_srgb,var(--uni)_9%,var(--surface))] p-5"
+        className="universe-scope glass flex flex-col overflow-hidden rounded-hero"
         style={universeStyle(course.universe)}
       >
-        <div className="flex items-start gap-4">
-          <UniverseCover universe={course.universe} size="lg" />
-          <div className="flex min-w-0 flex-col gap-1">
-            <p className="text-caption font-semibold text-muted">
-              {course.category} · {courseLevels[course.level]}
-            </p>
-            <h1 className="text-title lg:text-[1.75rem]">{course.title}</h1>
-          </div>
-        </div>
-        <p className="text-body text-muted">{course.description}</p>
-        {course.inReview ? (
-          <p className="rounded-md border border-accent/40 bg-accent/10 px-3 py-2 text-caption text-ink">
-            Contenu en vérification : visible seulement par les relecteurs avant publication.
-          </p>
-        ) : null}
-        <div className="flex flex-col gap-2">
-          <div className="tabular flex justify-between text-caption text-muted">
-            <span>Progression</span>
-            <span>
-              {course.completedCount}/{total} leçons
-            </span>
-          </div>
-          <Progress
-            value={course.completedCount}
-            max={total}
-            label="Progression du parcours"
-            barClassName="bg-(--uni)"
+        <div className="relative h-44">
+          <UniverseArt
+            iconKey={course.universe.icon_key}
+            color="var(--uni)"
+            className="absolute inset-0"
           />
+          <div
+            className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-b from-transparent to-(--glass-bg-strong)"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-x-5 bottom-4 flex flex-col gap-1">
+            <p className="text-caption font-semibold text-(--uni)">
+              {course.category} · {courseLevels[course.level]} · {total} leçons
+            </p>
+            <h1 className="font-display text-[2rem] leading-[1.02] font-bold tracking-[-0.03em]">
+              {course.title}
+            </h1>
+          </div>
         </div>
-        {course.nextLesson ? (
-          <Button asChild size="lg">
-            <Link href={lessonPath(course.nextLesson.slug)}>
-              {started ? 'Continuer' : 'Commencer'} : {course.nextLesson.title}
-            </Link>
-          </Button>
-        ) : (
-          <p className="flex items-center gap-2 text-body font-semibold text-ink">
-            <Trophy className="size-5 text-accent-text" aria-hidden="true" />
-            Parcours terminé. Tu peux rejouer chaque leçon.
-          </p>
-        )}
+        <div className="flex flex-col gap-4 p-5 pt-3">
+          <p className="text-body text-muted">{course.description}</p>
+          {course.inReview ? (
+            <p className="rounded-md border border-accent/40 bg-accent/10 px-3 py-2 text-caption text-ink">
+              Contenu en vérification : visible seulement par les relecteurs avant publication.
+            </p>
+          ) : null}
+          <div className="flex flex-col gap-2">
+            <div className="tabular flex justify-between text-caption text-muted">
+              <span>Progression</span>
+              <span>
+                {course.completedCount}/{total} leçons
+              </span>
+            </div>
+            <Progress
+              value={course.completedCount}
+              max={total}
+              label="Progression du parcours"
+              barClassName="bg-(--uni)"
+            />
+          </div>
+          {course.nextLesson ? (
+            <Button asChild size="lg">
+              <Link href={lessonPath(course.nextLesson.slug)}>
+                {started ? 'Continuer' : 'Commencer'} : {course.nextLesson.title}
+              </Link>
+            </Button>
+          ) : (
+            <p className="flex items-center gap-2 text-body font-semibold text-ink">
+              <Trophy className="size-5 text-accent-text" aria-hidden="true" />
+              Parcours terminé. Tu peux rejouer chaque leçon.
+            </p>
+          )}
+        </div>
       </header>
 
       {course.chapters.map((chapter) => (
@@ -163,7 +175,7 @@ function LessonRow({ lesson }: { lesson: OutlineLesson }) {
       </span>
     </>
   )
-  const base = 'flex items-center gap-3 rounded-lg border bg-surface p-3'
+  const base = 'glass flex items-center gap-3 rounded-card p-3.5'
   if (locked) return <div className={cn(base, 'border-line opacity-80')}>{content}</div>
   return (
     <Link

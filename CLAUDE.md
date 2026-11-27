@@ -63,7 +63,7 @@ supabase/migrations  schéma SQL versionné ; supabase/tests : pgTAP
 8. **Nom de marque** : jamais en dur, toujours `brand` depuis `src/config/brand.ts`.
 9. **Pas de faux** : pas de bouton sans fonction (sinon `SoonBadge` avec la phase), pas de données fictives présentées comme réelles, pas de localStorage pour simuler le backend.
 10. **Accessibilité** : labels explicites, `id` uniques par champ, focus visibles, alternatives au glisser-déposer, couleur jamais seule porteuse d'information, `prefers-reduced-motion` et réglage in-app respectés.
-11. **Design** : direction 2 (voir `docs/DESIGN_SYSTEM.md`). Inter + Inter Tight, 4 tailles de texte, hiérarchie par la graisse et la couleur, une seule couleur vive par carte, rayon 14 px, aucun italique, aucune inclinaison.
+11. **Design** : direction 2, version « Verre et lumière » (voir `docs/DESIGN_SYSTEM.md`). Surfaces `.glass` / `.glass-strong`, halos `AmbientBackground`, Inter + Inter Tight, une seule couleur vive par carte, rayons 22/16 px, aucun italique, aucune inclinaison.
 
 ## Conventions
 

@@ -25,11 +25,12 @@ export function OptionButton({
     <button
       type="button"
       className={cn(
-        'flex min-h-12 w-full items-center justify-between gap-3 rounded-md border px-4 py-3 text-left text-body font-medium text-ink',
+        'flex min-h-14 w-full items-center justify-between gap-3 rounded-[18px] border px-4 py-3 text-left text-heading font-medium text-ink',
         'transition-[background-color,border-color,transform] duration-(--duration-fast) active:translate-y-px disabled:active:translate-y-0',
-        state === 'idle' && 'border-line bg-surface hover:border-line-strong',
+        state === 'idle' && 'glass hover:border-line-strong',
         state === 'selected' && 'border-accent bg-accent/10',
-        state === 'correct' && 'anim-pop border-success bg-success/12',
+        state === 'correct' &&
+          'anim-pop border-success bg-success/14 shadow-[0_0_0_6px_color-mix(in_srgb,var(--success)_14%,transparent)]',
         state === 'missed' && 'border-dashed border-success bg-success/6',
         state === 'wrong' && 'anim-shake border-danger bg-danger/10',
         className,

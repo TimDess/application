@@ -2,9 +2,7 @@ import type { ComponentProps } from 'react'
 import { cn } from '@/lib/utils/cn'
 
 export function Card({ className, ...props }: ComponentProps<'div'>) {
-  return (
-    <div className={cn('rounded-lg border border-line bg-surface p-4', className)} {...props} />
-  )
+  return <div className={cn('glass rounded-card p-4', className)} {...props} />
 }
 
 export function CardTitle({ className, ...props }: ComponentProps<'h2'>) {

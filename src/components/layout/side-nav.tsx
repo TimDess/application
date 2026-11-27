@@ -17,7 +17,7 @@ function SideLink({ item, pathname }: { item: NavItem; pathname: string }) {
       href={item.href}
       aria-current={active ? 'page' : undefined}
       className={cn(
-        'flex h-10 items-center gap-3 rounded-md px-3 text-body transition-colors',
+        'flex h-11 items-center gap-3 rounded-[14px] px-3 text-body transition-colors',
         active
           ? 'bg-surface-2 font-semibold text-ink'
           : 'text-muted hover:bg-surface-2/60 hover:text-ink',
@@ -36,7 +36,7 @@ export function SideNav({ userSlot }: { userSlot: ReactNode }) {
 
 export function SideNavView({ pathname, userSlot }: { pathname: string; userSlot: ReactNode }) {
   return (
-    <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-line bg-surface px-4 py-6 lg:flex">
+    <aside className="glass-strong fixed inset-y-3 left-3 z-30 hidden w-60 flex-col rounded-[26px] px-3 py-6 lg:flex">
       <Link href={routes.dashboard} className="px-3" aria-label="Kulto, accueil">
         <Logo />
       </Link>

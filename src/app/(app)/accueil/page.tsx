@@ -11,6 +11,7 @@ import { SoonBadge } from '@/components/ui/pill'
 import { dailyGoals, selfLevels } from '@/config/product'
 import { coursePath, lessonPath, routes } from '@/config/routes'
 import { getContinueCourse } from '@/features/learning/queries'
+import { UniverseArt } from '@/features/universes/universe-art'
 import { UniverseCover, UniverseTile } from '@/features/universes/universe-tile'
 import { universeStyle } from '@/features/universes/universe-style'
 import { getViewer } from '@/lib/auth/session'
@@ -58,6 +59,12 @@ async function Dashboard() {
   return (
     <div className="flex flex-col gap-8">
       <PageHeader
+        eyebrow={new Intl.DateTimeFormat('fr-FR', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          timeZone: 'Europe/Paris',
+        }).format(new Date())}
         title={`Salut ${viewer.username ?? ''}`.trim()}
         description={
           goal ? `Objectif ${goal.label.toLowerCase()} : ${goal.minutes} min par jour.` : undefined
@@ -144,57 +151,65 @@ function ContinueCard({ data }: { data: ContinueData }) {
         : 'Pour commencer'
   return (
     <div
-      className="universe-scope flex flex-col gap-4 rounded-lg border border-[color-mix(in_srgb,var(--uni)_28%,var(--line))] bg-[color-mix(in_srgb,var(--uni)_9%,var(--surface))] p-4"
+      className="universe-scope glass overflow-hidden rounded-hero"
       style={universeStyle(outline.universe)}
     >
-      <div className="flex items-center gap-3">
-        <UniverseCover universe={outline.universe} size="lg" />
-        <div className="flex min-w-0 flex-col gap-0.5">
-          <span className="text-caption font-semibold text-muted">
-            {outline.universe.name} · {outline.title}
-          </span>
-          <p className="font-display text-heading font-semibold text-ink">
-            {next ? next.title : 'Parcours terminé'}
-          </p>
-          {label && next ? <span className="text-caption text-muted">{label}</span> : null}
-        </div>
-      </div>
-      <div className="flex items-center gap-3">
-        <Progress
-          value={outline.completedCount}
-          max={total}
-          label="Progression du parcours"
-          barClassName="bg-(--uni)"
+      <div className="relative h-36">
+        <UniverseArt
+          iconKey={outline.universe.icon_key}
+          color="var(--uni)"
+          className="absolute inset-0"
         />
-        <span className="tabular shrink-0 text-caption text-muted">
-          {outline.completedCount}/{total}
+        <span className="glass-strong absolute top-3.5 left-4 rounded-full px-3 py-1 text-caption font-semibold text-ink">
+          {label && next ? label : outline.universe.name}
         </span>
       </div>
-      {next ? (
-        <Button asChild size="lg">
-          <Link href={lessonPath(next.slug)}>
-            {outline.completedCount > 0 || reason === 'resume' ? 'Reprendre' : 'Commencer'}
-          </Link>
-        </Button>
-      ) : (
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="flex items-center gap-2 text-body font-semibold text-ink">
-            <Trophy className="size-5 text-accent-text" aria-hidden="true" />
-            Bravo, tout est fait.
+      <div className="flex flex-col gap-4 p-4 pt-4">
+        <div className="flex min-w-0 flex-col gap-1">
+          <span className="text-caption font-semibold text-(--uni)">
+            {outline.universe.name} · {outline.title}
           </span>
-          <Button asChild variant="secondary" size="sm">
-            <Link href={coursePath(outline.slug)}>Revoir le parcours</Link>
-          </Button>
+          <p className="font-display text-[1.375rem] leading-tight font-bold tracking-[-0.02em] text-ink">
+            {next ? next.title : 'Parcours terminé'}
+          </p>
         </div>
-      )}
-      {reason === 'discover' ? (
-        <Link
-          href={routes.explore}
-          className="text-caption font-medium text-muted underline-offset-2 hover:text-ink hover:underline"
-        >
-          Tes univers favoris n’ont pas encore de parcours. Voir tous les univers
-        </Link>
-      ) : null}
+        <div className="flex items-center gap-3">
+          <Progress
+            value={outline.completedCount}
+            max={total}
+            label="Progression du parcours"
+            barClassName="bg-(--uni)"
+          />
+          <span className="tabular shrink-0 text-caption text-muted">
+            {outline.completedCount}/{total}
+          </span>
+        </div>
+        {next ? (
+          <Button asChild size="lg">
+            <Link href={lessonPath(next.slug)}>
+              {outline.completedCount > 0 || reason === 'resume' ? 'Reprendre' : 'Commencer'}
+            </Link>
+          </Button>
+        ) : (
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <span className="flex items-center gap-2 text-body font-semibold text-ink">
+              <Trophy className="size-5 text-accent-text" aria-hidden="true" />
+              Bravo, tout est fait.
+            </span>
+            <Button asChild variant="secondary" size="sm">
+              <Link href={coursePath(outline.slug)}>Revoir le parcours</Link>
+            </Button>
+          </div>
+        )}
+        {reason === 'discover' ? (
+          <Link
+            href={routes.explore}
+            className="text-caption font-medium text-muted underline-offset-2 hover:text-ink hover:underline"
+          >
+            Tes univers favoris n’ont pas encore de parcours. Voir tous les univers
+          </Link>
+        ) : null}
+      </div>
     </div>
   )
 }

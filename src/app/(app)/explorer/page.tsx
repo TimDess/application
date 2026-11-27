@@ -44,7 +44,7 @@ async function Explore() {
           <li key={u.slug}>
             <Link
               href={universePath(u.slug)}
-              className="universe-scope flex h-full flex-col gap-3 rounded-lg border border-line bg-surface p-4 transition-colors hover:border-line-strong"
+              className="universe-scope glass flex h-full flex-col gap-3 rounded-card p-4 transition-colors hover:border-line-strong"
               style={universeStyle(u)}
             >
               <div className="flex items-start justify-between gap-3">

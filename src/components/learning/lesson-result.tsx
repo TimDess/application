@@ -80,7 +80,7 @@ export function LessonResult({
 
       <div className="stagger grid w-full grid-cols-2 gap-3">
         <div
-          className="flex flex-col gap-1 rounded-lg border border-line bg-surface p-4"
+          className="glass flex flex-col gap-1 rounded-card p-4"
           style={{ ['--i' as string]: 2 }}
         >
           <span className="text-caption text-muted">Précision</span>
@@ -90,7 +90,7 @@ export function LessonResult({
           </span>
         </div>
         <div
-          className="flex flex-col gap-1 rounded-lg border border-line bg-surface p-4"
+          className="glass flex flex-col gap-1 rounded-card p-4"
           style={{ ['--i' as string]: 3 }}
         >
           <span className="text-caption text-muted">Bonnes réponses</span>

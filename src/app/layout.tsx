@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Inter_Tight } from 'next/font/google'
+import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ThemeScript } from '@/components/theme/theme-script'
 import { ThemeWatcher } from '@/components/theme/theme-watcher'
 import { brand, siteUrl } from '@/config/brand'
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         >
           Aller au contenu
         </a>
+        <AmbientBackground />
         {children}
         <ThemeWatcher />
       </body>

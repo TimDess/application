@@ -15,7 +15,7 @@ import { getViewer } from '@/lib/auth/session'
  */
 export default function AppLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-dvh lg:pl-64">
+    <div className="min-h-dvh lg:pl-[17rem]">
       <Suspense fallback={<SideNavView pathname="" userSlot={<SidebarUserSkeleton />} />}>
         <SideNav
           userSlot={

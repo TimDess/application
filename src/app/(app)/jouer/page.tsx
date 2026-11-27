@@ -62,10 +62,7 @@ export default function PlayPage() {
         </h2>
         <ul className="flex flex-col gap-3">
           {upcoming.map(({ icon: Icon, title, text, phase }) => (
-            <li
-              key={title}
-              className="flex items-center gap-4 rounded-lg border border-line bg-surface p-4"
-            >
+            <li key={title} className="glass flex items-center gap-4 rounded-card p-4">
               <span className="grid size-11 shrink-0 place-items-center rounded-md bg-surface-2 text-muted">
                 <Icon className="size-5" aria-hidden="true" />
               </span>

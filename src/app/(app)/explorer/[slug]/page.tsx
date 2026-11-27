@@ -60,7 +60,7 @@ async function Universe({ params }: { params: Promise<{ slug: string }> }) {
               <li key={course.id}>
                 <Link
                   href={coursePath(course.slug)}
-                  className="flex flex-col gap-3 rounded-lg border border-line bg-surface p-4 transition-colors hover:border-line-strong"
+                  className="glass flex flex-col gap-3 rounded-card p-4 transition-colors hover:border-line-strong"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex min-w-0 flex-col gap-1">
