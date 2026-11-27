@@ -77,6 +77,12 @@ Dernière mise à jour : 28 novembre 2026.
 - Correction : dans les associations, toucher l’élément présélectionné le désélectionnait et faisait perdre le choix suivant.
 - Au total : 5 parcours, 60 leçons, 308 questions (51 publiées, 257 en relecture).
 
+## Correctif (28 novembre 2026) : lien de confirmation « expiré »
+
+- Avec le modèle d’email par défaut de Supabase (pas de SMTP personnalisé), le lien confirme l’adresse puis renvoie vers `/auth/callback` avec un code PKCE, utilisable seulement dans le navigateur où le compte a été créé. Ouvert ailleurs (app Mail de l’iPhone, autre appareil), l’app affichait « lien expiré » alors que l’adresse était confirmée.
+- Désormais : inscription confirmée depuis un autre navigateur → page de connexion avec « Ton adresse email est confirmée » ; autre lien (mot de passe oublié) → message expliquant d’ouvrir le lien dans le même navigateur. Test E2E qui reproduit le lien par défaut.
+- Solution définitive : SMTP personnalisé (Brevo) et nos modèles d’email, dont les liens `token_hash` ne dépendent pas du navigateur.
+
 ## Écarts et points ouverts
 
 - **Emails en production** : sans SMTP personnalisé (Brevo), Supabase n'envoie les emails qu'aux membres de l'équipe du projet et refuse la personnalisation des modèles. Indispensable avant d'ouvrir à d'autres joueurs (inscription, mot de passe oublié, sauvegarde d'un compte invité).

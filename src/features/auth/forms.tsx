@@ -81,10 +81,16 @@ export function SignUpForm() {
 export function SignInForm() {
   const searchParams = useSearchParams()
   const next = searchParams.get('next') ?? ''
+  const confirmed = searchParams.get('confirme') === '1'
   const [state, action, pending] = useActionState(signInAction, idle)
   return (
     <form action={action} className="flex flex-col gap-4" noValidate>
       <input type="hidden" name="next" value={next} />
+      {confirmed ? (
+        <FormMessage tone="success">
+          Ton adresse email est confirmée. Connecte-toi pour commencer.
+        </FormMessage>
+      ) : null}
       <TextField
         name="email"
         type="email"
