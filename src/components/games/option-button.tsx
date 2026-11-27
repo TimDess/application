@@ -29,9 +29,9 @@ export function OptionButton({
         'transition-[background-color,border-color,transform] duration-(--duration-fast) active:translate-y-px disabled:active:translate-y-0',
         state === 'idle' && 'border-line bg-surface hover:border-line-strong',
         state === 'selected' && 'border-accent bg-accent/10',
-        state === 'correct' && 'border-success bg-success/12',
+        state === 'correct' && 'anim-pop border-success bg-success/12',
         state === 'missed' && 'border-dashed border-success bg-success/6',
-        state === 'wrong' && 'border-danger bg-danger/10',
+        state === 'wrong' && 'anim-shake border-danger bg-danger/10',
         className,
       )}
       {...props}

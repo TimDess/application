@@ -49,6 +49,20 @@ Stockées en base (`universes.color_light`, `color_dark`). `universeStyle()` pos
 
 Durées `--duration-fast` (120 ms), `--duration-base` (200 ms), `--duration-slow` (360 ms) ; courbe `--ease-out`. Les animations sont neutralisées si l'OS demande moins de mouvement **ou** si l'utilisateur active « Réduire les animations » (`data-motion="reduced"` sur `<html>`).
 
+## Animations
+
+Uniquement CSS et View Transitions natives (aucune bibliothèque) ; tout est neutralisé si l'OS demande moins de mouvement ou si « Réduire les animations » est activé.
+
+| Moment                 | Animation                                                                             | Où                                        |
+| ---------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------- |
+| Chargement             | Logo animé : lettres en vague, point Soleil qui rebondit                              | `BrandLoader` (app, onboarding, leçon)    |
+| Navigation             | Fondu léger vers le haut à chaque page                                                | `src/app/(app)/template.tsx`              |
+| Lancement de leçon     | Écran « C'est parti ! » avec ondes, ~0,9 s (masque aussi le chargement de la session) | `LaunchScreen`                            |
+| Fiches et questions    | Glissement depuis la droite                                                           | `.slide-in-x`                             |
+| Bonne réponse / erreur | Rebond + halo vert / secousse                                                         | `.anim-pop`, `.anim-shake`                |
+| Résultat               | Rayons, trophée, anneau de précision, compteurs                                       | `LessonResult`, `CountUp`                 |
+| Jour / nuit            | Cercle qui s'ouvre depuis le point cliqué                                             | `applyThemePreference` (View Transitions) |
+
 ## Thèmes
 
 Clair, sombre, automatique. Préférence enregistrée dans un cookie (appliqué avant le premier rendu) et dans `user_settings` (resynchronisée sur un nouvel appareil par `PreferencesSync`).
