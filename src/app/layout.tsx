@@ -27,6 +27,8 @@ export const metadata: Metadata = {
     description: brand.tagline,
   },
   formatDetection: { telephone: false },
+  // Installed on the iPhone home screen: full screen, no Safari toolbars.
+  appleWebApp: { capable: true, title: brand.name, statusBarStyle: 'default' },
 }
 
 export const viewport: Viewport = {
