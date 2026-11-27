@@ -158,6 +158,62 @@ export type Database = {
           },
         ]
       }
+      daily_activity: {
+        Row: {
+          day: string
+          frozen: boolean
+          goal_met: boolean
+          goal_xp: number
+          lessons_completed: number
+          updated_at: string
+          user_id: string
+          xp: number
+        }
+        ComputedFields: never
+        Insert: {
+          day: string
+          frozen?: boolean
+          goal_met?: boolean
+          goal_xp?: number
+          lessons_completed?: number
+          updated_at?: string
+          user_id: string
+          xp?: number
+        }
+        Update: {
+          day?: string
+          frozen?: boolean
+          goal_met?: boolean
+          goal_xp?: number
+          lessons_completed?: number
+          updated_at?: string
+          user_id?: string
+          xp?: number
+        }
+        Relationships: []
+      }
+      game_config: {
+        Row: {
+          description: string
+          key: string
+          updated_at: string
+          value: NonNullable<Json>
+        }
+        ComputedFields: never
+        Insert: {
+          description?: string
+          key: string
+          updated_at?: string
+          value: NonNullable<Json>
+        }
+        Update: {
+          description?: string
+          key?: string
+          updated_at?: string
+          value?: NonNullable<Json>
+        }
+        Relationships: []
+      }
       knowledge_items: {
         Row: {
           created_at: string
@@ -289,6 +345,7 @@ export type Database = {
           id: string
           lesson_id: string
           question_ids: string[]
+          rewards: Json | null
           score: number | null
           started_at: string
           user_id: string
@@ -300,6 +357,7 @@ export type Database = {
           id?: string
           lesson_id: string
           question_ids: string[]
+          rewards?: Json | null
           score?: number | null
           started_at?: string
           user_id: string
@@ -310,6 +368,7 @@ export type Database = {
           id?: string
           lesson_id?: string
           question_ids?: string[]
+          rewards?: Json | null
           score?: number | null
           started_at?: string
           user_id?: string
@@ -761,6 +820,59 @@ export type Database = {
         }
         Relationships: []
       }
+      user_stats: {
+        Row: {
+          lessons_completed: number
+          level: number
+          total_xp: number
+          updated_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          lessons_completed?: number
+          level?: number
+          total_xp?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          lessons_completed?: number
+          level?: number
+          total_xp?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_streaks: {
+        Row: {
+          current: number
+          freezes: number
+          last_active_day: string | null
+          longest: number
+          updated_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          current?: number
+          freezes?: number
+          last_active_day?: string | null
+          longest?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          current?: number
+          freezes?: number
+          last_active_day?: string | null
+          longest?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_universe_preferences: {
         Row: {
           created_at: string
@@ -797,6 +909,91 @@ export type Database = {
           },
         ]
       }
+      user_universe_stats: {
+        Row: {
+          level: number
+          universe_id: string
+          updated_at: string
+          user_id: string
+          xp: number
+        }
+        ComputedFields: never
+        Insert: {
+          level?: number
+          universe_id: string
+          updated_at?: string
+          user_id: string
+          xp?: number
+        }
+        Update: {
+          level?: number
+          universe_id?: string
+          updated_at?: string
+          user_id?: string
+          xp?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'user_universe_stats_universe_id_fkey'
+            columns: ['universe_id']
+            isOneToOne: false
+            referencedRelation: 'universes'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      xp_transactions: {
+        Row: {
+          amount: number
+          created_at: string
+          id: string
+          reason: Database['public']['Enums']['xp_reason']
+          session_id: string | null
+          source_id: string
+          source_type: Database['public']['Enums']['xp_source']
+          universe_id: string | null
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          amount: number
+          created_at?: string
+          id?: string
+          reason: Database['public']['Enums']['xp_reason']
+          session_id?: string | null
+          source_id: string
+          source_type: Database['public']['Enums']['xp_source']
+          universe_id?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          id?: string
+          reason?: Database['public']['Enums']['xp_reason']
+          session_id?: string | null
+          source_id?: string
+          source_type?: Database['public']['Enums']['xp_source']
+          universe_id?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'xp_transactions_session_id_fkey'
+            columns: ['session_id']
+            isOneToOne: false
+            referencedRelation: 'lesson_sessions'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'xp_transactions_universe_id_fkey'
+            columns: ['universe_id']
+            isOneToOne: false
+            referencedRelation: 'universes'
+            referencedColumns: ['id']
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -807,6 +1004,7 @@ export type Database = {
         Args: { p_avatar_key: string; p_daily_goal: number; p_universes: Json; p_username: string }
         Returns: undefined
       }
+      get_my_progress: { Args: Record<PropertyKey, never>; Returns: Json }
       has_role: { Args: { p_role: Database['public']['Enums']['app_role'] }; Returns: boolean }
       set_universe_preferences: { Args: { p_universes: Json }; Returns: undefined }
       start_lesson: { Args: { p_lesson: string }; Returns: Json }
@@ -825,6 +1023,13 @@ export type Database = {
       question_format: 'quiz' | 'true_false' | 'match' | 'timeline' | 'guess_year'
       self_level: 'debutant' | 'intermediaire' | 'expert'
       theme_preference: 'system' | 'light' | 'dark'
+      xp_reason:
+        | 'correct_answer'
+        | 'lesson_completed'
+        | 'lesson_perfect'
+        | 'chapter_completed'
+        | 'exam_passed'
+      xp_source: 'question' | 'lesson' | 'chapter'
     }
     CompositeTypes: {
       [_ in never]: never
@@ -948,6 +1153,14 @@ export const Constants = {
       question_format: ['quiz', 'true_false', 'match', 'timeline', 'guess_year'],
       self_level: ['debutant', 'intermediaire', 'expert'],
       theme_preference: ['system', 'light', 'dark'],
+      xp_reason: [
+        'correct_answer',
+        'lesson_completed',
+        'lesson_perfect',
+        'chapter_completed',
+        'exam_passed',
+      ],
+      xp_source: ['question', 'lesson', 'chapter'],
     },
   },
 } as const

@@ -3,6 +3,7 @@ import {
   answerCurrentQuestion,
   completeOnboarding,
   confirmEmail,
+  dismissLevelUp,
   playToEnd,
   signUp,
   uniqueEmail,
@@ -24,6 +25,12 @@ test('play the first F1 lesson, then find the progress again', async ({ page }) 
   await expect(page.getByRole('heading', { name: 'Un championnat du monde' })).toBeVisible()
   await playToEnd(page)
   await expect(page.getByText(/bonnes? réponses? sur 6/)).toBeVisible()
+  await expect(page.getByText('XP gagnée')).toBeVisible()
+  await expect(
+    page.getByRole('listitem').filter({ hasText: /Leçon terminée\s*\+50/ }),
+  ).toBeVisible()
+  await expect(page.getByText('1 jour', { exact: true })).toBeVisible()
+  await dismissLevelUp(page)
 
   await page.getByRole('button', { name: /Leçon suivante : Le week-end de Grand Prix/ }).waitFor()
   await page.getByRole('link', { name: 'Retour au parcours' }).click()
@@ -34,6 +41,8 @@ test('play the first F1 lesson, then find the progress again', async ({ page }) 
   ).toBeVisible()
 
   await page.goto('/accueil')
+  await expect(page.getByRole('heading', { name: 'Ta journée' })).toBeAttached()
+  await expect(page.getByText('Série de 1 jour')).toBeVisible()
   await expect(continueRegion.getByText('Le week-end de Grand Prix')).toBeVisible()
   await expect(continueRegion.getByRole('link', { name: 'Reprendre' })).toBeVisible()
 })

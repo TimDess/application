@@ -32,7 +32,7 @@ Postgres 17 (Supabase). Migrations dans `supabase/migrations`, tests pgTAP dans 
 | `public.set_universe_preferences(universes)`                    | Remplace atomiquement les univers favoris (slugs publiés, sans doublon)                                                                                          |
 | `public.has_role(role)`                                         | Vrai si l'utilisateur courant a le rôle                                                                                                                          |
 
-## Tests pgTAP (64 assertions)
+## Tests pgTAP (96 assertions)
 
 RLS active partout ; univers publiés seulement pour les anonymes ; isolement entre utilisateurs ; impossibilité de forger le consentement, de changer de pseudo hors fonction, de s'attribuer un rôle ou d'écrire directement ses préférences ; unicité insensible à la casse ; pseudos réservés ; suppression en cascade.
 
@@ -50,6 +50,19 @@ pnpm db:test:psql   # même suite via psql (si l'image pg_prove ne peut pas êtr
 | Progression | `lesson_sessions`, `question_attempts`, `user_lesson_progress`, `user_course_progress`                                                       | Lecture par le propriétaire, écriture par les RPC uniquement                      |
 
 RPC : `start_lesson`, `submit_answer`, `complete_lesson` (détails dans `docs/GAME_ENGINE.md`).
+
+## Tables (phase 3A)
+
+| Table                 | Rôle                                                                         | Accès                                        |
+| --------------------- | ---------------------------------------------------------------------------- | -------------------------------------------- |
+| `game_config`         | Valeurs d'XP, courbe de niveaux, objectif, protections de série              | Lecture pour tous, aucune écriture via l'API |
+| `xp_transactions`     | Une ligne par récompense, `UNIQUE (user_id, reason, source_type, source_id)` | Lecture par le propriétaire                  |
+| `user_stats`          | XP totale, niveau, leçons terminées                                          | Lecture par le propriétaire                  |
+| `user_universe_stats` | XP et niveau par univers                                                     | Lecture par le propriétaire                  |
+| `daily_activity`      | XP et leçons par jour local, objectif atteint, jour protégé                  | Lecture par le propriétaire                  |
+| `user_streaks`        | Série actuelle, record, dernier jour actif, protections                      | Lecture par le propriétaire                  |
+
+Seul `complete_lesson` écrit ces tables (via `private.grant_xp` et `private.register_activity`). `lesson_sessions.rewards` garde les récompenses de la session pour qu'un second appel renvoie le même résumé. RPC de lecture : `get_my_progress()` (niveau, jour, série effective calculée sur le jour local, 7 derniers jours, niveaux par univers).
 
 ## Schéma cible
 

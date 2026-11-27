@@ -8,8 +8,10 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { SoonBadge } from '@/components/ui/pill'
-import { dailyGoals, selfLevels } from '@/config/product'
+import { selfLevels } from '@/config/product'
 import { coursePath, lessonPath, routes } from '@/config/routes'
+import { getMyProgress } from '@/features/gamification/queries'
+import { TodayCard } from '@/features/gamification/today-card'
 import { getContinueCourse } from '@/features/learning/queries'
 import { UniverseArt } from '@/features/universes/universe-art'
 import { UniverseCover, UniverseTile } from '@/features/universes/universe-tile'
@@ -50,8 +52,10 @@ const upcoming = [
 
 async function Dashboard() {
   const viewer = await getViewer()
-  const continuing = await getContinueCourse(viewer.favorites.map((f) => f.slug))
-  const goal = dailyGoals.find((g) => g.minutes === viewer.settings.dailyGoalMinutes)
+  const [continuing, progress] = await Promise.all([
+    getContinueCourse(viewer.favorites.map((f) => f.slug)),
+    getMyProgress(),
+  ])
   const first = viewer.favorites[0]
   const levelLabel = (level: string | null) =>
     selfLevels.find((l) => l.value === level)?.label ?? 'Niveau non précisé'
@@ -66,10 +70,9 @@ async function Dashboard() {
           timeZone: 'Europe/Paris',
         }).format(new Date())}
         title={`Salut ${viewer.username ?? ''}`.trim()}
-        description={
-          goal ? `Objectif ${goal.label.toLowerCase()} : ${goal.minutes} min par jour.` : undefined
-        }
       />
+
+      <TodayCard progress={progress} />
 
       <section aria-labelledby="continue" className="flex flex-col gap-3">
         <SectionTitle>

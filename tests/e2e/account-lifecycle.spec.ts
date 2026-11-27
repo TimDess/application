@@ -21,7 +21,7 @@ test.describe('Phase 1 acceptance: sign up, onboard, sign back in and find every
     await completeOnboarding(page, username)
 
     await expect(page.getByRole('heading', { name: `Salut ${username}` })).toBeVisible()
-    await expect(page.getByText('Objectif passionné : 15 min par jour.')).toBeVisible()
+    await expect(page.getByText('0 / 300 XP')).toBeVisible()
     const favorites = page.getByRole('region', { name: 'Tes univers' })
     await expect(favorites.getByText('Sport automobile')).toBeVisible()
     await expect(favorites.getByText('Expert')).toBeVisible()

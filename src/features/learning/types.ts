@@ -1,3 +1,4 @@
+import type { Rewards } from '@/features/gamification/types'
 import type { CardBlock } from '@/features/content/schema'
 
 export type QuestionFormat = 'quiz' | 'true_false' | 'match' | 'timeline' | 'guess_year'
@@ -41,6 +42,13 @@ export type AnswerResult = {
 
 export type PlayCard = { position: number; title: string; blocks: CardBlock[] }
 
-export type LessonSummary = { total: number; correct: number; score: number; perfect: boolean }
+export type LessonSummary = {
+  total: number
+  correct: number
+  score: number
+  perfect: boolean
+  /** Null when the server returned no rewards (should not happen after phase 3). */
+  rewards: Rewards | null
+}
 
 export type LessonStatus = 'completed' | 'available' | 'locked'

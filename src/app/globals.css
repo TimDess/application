@@ -328,28 +328,6 @@
   }
 }
 
-@keyframes launch-out {
-  to {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-}
-
-@keyframes launch-flash {
-  0% {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-  35% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.6);
-  }
-}
-
 .page-enter {
   animation: page-enter 280ms var(--ease-out) both;
 }
@@ -598,4 +576,59 @@
     transform: scale(2.6);
     opacity: 0;
   }
+}
+
+/* ===================== Rewards (phase 3A) ===================== */
+@keyframes flame-ignite {
+  0% {
+    transform: scale(0.6);
+    filter: saturate(0.2);
+  }
+  55% {
+    transform: scale(1.25);
+    filter: saturate(1.4);
+  }
+  100% {
+    transform: scale(1);
+    filter: none;
+  }
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.06);
+  }
+}
+
+.flame-lit {
+  transform-origin: 50% 90%;
+  animation: flame-flicker 1.6s var(--ease-in-out) infinite;
+}
+
+.flame-ignite {
+  transform-origin: 50% 90%;
+  animation: flame-ignite 700ms var(--ease-out) both;
+}
+
+@keyframes level-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.level-burst {
+  animation: level-burst 640ms var(--ease-out) both;
 }

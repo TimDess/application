@@ -30,6 +30,7 @@ import {
 import { universeStyle } from '@/features/universes/universe-style'
 import { LearningCard } from './learning-card'
 import { LessonResult } from './lesson-result'
+import { RewardsPanel } from '@/features/gamification/rewards-panel'
 
 type Step =
   | { kind: 'intro' }
@@ -317,15 +318,10 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
         {step.kind === 'result' ? (
           <div className="step-in flex flex-1 flex-col gap-6">
             <LessonResult summary={step.summary} headingRef={headingRef} />
-            <p
-              className="rise-in text-center text-caption text-muted"
-              style={{ animationDelay: '600ms' }}
-            >
-              L’XP, les séries et les révisions arrivent dans la prochaine version.
-            </p>
+            {step.summary.rewards ? <RewardsPanel rewards={step.summary.rewards} /> : null}
             <div
               className="rise-in mt-auto flex flex-col gap-3"
-              style={{ animationDelay: '700ms' }}
+              style={{ animationDelay: '1100ms' }}
             >
               {lesson.nextLesson ? (
                 <Button size="lg" onClick={goToNextLesson}>

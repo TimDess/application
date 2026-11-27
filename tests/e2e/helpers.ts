@@ -145,3 +145,15 @@ export async function playToEnd(page: Page) {
   }
   throw new Error('Lesson did not finish')
 }
+
+/** Closes the level-up moment if the lesson made the player level up (it appears after ~2 s). */
+export async function dismissLevelUp(page: Page) {
+  const dialog = page.getByRole('dialog', { name: /Tu passes au niveau/ })
+  try {
+    await dialog.waitFor({ state: 'visible', timeout: 3500 })
+  } catch {
+    return
+  }
+  await dialog.getByRole('button', { name: 'Continuer' }).click()
+  await expect(dialog).toBeHidden()
+}
