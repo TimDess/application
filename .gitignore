@@ -51,3 +51,4 @@ supabase/signing_keys.json
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+supabase/content/*.published.sql
