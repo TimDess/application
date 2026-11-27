@@ -4,16 +4,16 @@ import type { ComponentProps } from 'react'
 import { cn } from '@/lib/utils/cn'
 
 const variants = {
-  primary: 'bg-accent text-on-accent hover:bg-accent-hover',
-  secondary: 'border border-line bg-surface text-ink hover:border-line-strong hover:bg-surface-2',
+  primary: 'glow-accent bg-accent text-on-accent hover:bg-accent-hover',
+  secondary: 'glass text-ink hover:border-line-strong',
   ghost: 'text-ink hover:bg-surface-2',
   danger: 'border border-danger text-danger hover:bg-danger/10',
 } as const
 
 const sizes = {
-  sm: 'h-9 px-3 text-body rounded-md',
-  md: 'h-11 px-4 text-body rounded-md',
-  lg: 'h-12 px-5 text-heading rounded-lg',
+  sm: 'h-9 px-3.5 text-body rounded-[12px]',
+  md: 'h-11 px-4 text-body rounded-control',
+  lg: 'h-13 px-5 text-heading rounded-control',
 } as const
 
 export type ButtonProps = ComponentProps<'button'> & {

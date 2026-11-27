@@ -170,10 +170,7 @@ export function OnboardingFlow({ universes }: { universes: PublishedUniverse[] }
               { icon: Brain, title: 'Retiens', text: 'Ce que tu apprends revient au bon moment.' },
               { icon: Swords, title: 'Défie', text: 'Mesure-toi aux autres et monte de division.' },
             ].map(({ icon: Icon, title, text }) => (
-              <li
-                key={title}
-                className="flex items-center gap-3 rounded-lg border border-line bg-surface p-4"
-              >
+              <li key={title} className="glass flex items-center gap-3 rounded-card p-4">
                 <span className="grid size-10 shrink-0 place-items-center rounded-md bg-accent/15 text-accent-text">
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
@@ -314,7 +311,7 @@ export function OnboardingFlow({ universes }: { universes: PublishedUniverse[] }
           loading={pending}
           onSubmit={finish}
         >
-          <dl className="flex flex-col divide-y divide-line rounded-lg border border-line bg-surface">
+          <dl className="glass flex flex-col divide-y divide-line rounded-card">
             <div className="flex items-center justify-between gap-4 p-4">
               <dt className="text-body text-muted">Pseudo</dt>
               <dd className="flex items-center gap-2 text-body font-semibold text-ink">

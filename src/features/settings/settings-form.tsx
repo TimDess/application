@@ -245,7 +245,7 @@ export function SettingsForm({
 
       <Link
         href={routes.account}
-        className="flex items-center justify-between rounded-lg border border-line bg-surface p-4 hover:border-line-strong"
+        className="glass flex items-center justify-between rounded-card p-4 hover:border-line-strong"
       >
         <span className="flex flex-col gap-0.5">
           <span className="text-heading font-semibold text-ink">Compte</span>

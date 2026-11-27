@@ -1,12 +1,24 @@
-# Design system — direction 2
+# Design system — direction 2, version « Verre et lumière » (A)
 
 Construite à partir des retours sur les trois pistes de la phase 0 : le fond nuit et le caractère de la direction « Collection », la logique de couleur de « Pochette », la barre d'onglets de « Télémétrie », et une typographie simple.
+
+## Verre et lumière (refonte A, novembre 2026)
+
+Choisie parmi trois maquettes (A Verre et lumière, B Pochettes vivantes, C Arcade premium).
+
+- **Lumière** : `AmbientBackground` pose trois halos flous derrière l'interface ; les pages de parcours et de leçon ajoutent un halo teinté par l'univers.
+- **Verre** : `.glass` (cartes, listes, réponses) et `.glass-strong` (navigation, panneaux de correction) : fond translucide, flou d'arrière-plan, bordure fine et reflet en haut.
+- **Accent lumineux** : `.glow-accent` sur les boutons principaux.
+- **Rayons** : `rounded-card` 22 px, `rounded-hero` 26 px, `rounded-control` 16 px.
+- **Navigation mobile** : pilule flottante en verre ; desktop : sidebar en verre détachée du bord.
+- **Illustrations d'univers** : `UniverseArt` dessine une couverture générative (circuit, vinyle, pixels, pellicule…) à partir de l'icône et de la couleur de l'univers.
+- **Accessibilité** : `prefers-reduced-transparency` et `prefers-contrast: more` remplacent le verre par des surfaces pleines et masquent les halos.
 
 ## Principes
 
 - **Une seule couleur vive par carte** : celle de l'univers sur la carte de parcours, l'accent ailleurs.
 - **Quatre tailles de texte** sur mobile ; la hiérarchie vient de la graisse et de la couleur (texte principal ou secondaire).
-- **Formes droites** : rayon 14 px pour les cartes, 10 px pour les champs et boutons, bordures de 1 px.
+- **Formes droites** : rayon 22 px pour les cartes, 16 px pour les boutons, bordures de 1 px.
 - **Ni italique, ni inclinaison, ni grille de fond, ni effet 3D.**
 - **Vert et rouge réservés à la correction**, toujours avec une icône et un mot.
 - **Chiffres tabulaires** d'Inter (classe `tabular`), pas de police monospace.

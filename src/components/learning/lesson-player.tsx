@@ -19,6 +19,7 @@ import type { Answer, AnswerResult, LessonSummary } from '@/features/learning/ty
 import { cn } from '@/lib/utils/cn'
 import { motionReduced } from '@/components/theme/theme-client'
 import { LaunchScreen } from './launch-screen'
+import { universeStyle } from '@/features/universes/universe-style'
 import { LearningCard } from './learning-card'
 import { LessonResult } from './lesson-result'
 
@@ -111,7 +112,14 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
   }
 
   return (
-    <div className="mx-auto flex min-h-dvh w-full max-w-xl flex-col px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+    <div
+      className="universe-scope relative mx-auto flex min-h-dvh w-full max-w-xl flex-col px-4 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(1.5rem,env(safe-area-inset-bottom))]"
+      style={universeStyle(lesson.course.universe)}
+    >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none fixed -top-28 -right-32 -z-10 size-96 rounded-full bg-(--uni) opacity-25 blur-[90px]"
+      />
       <header className="flex h-14 items-center gap-3">
         <Link
           href={coursePath(lesson.course.slug)}
@@ -230,7 +238,7 @@ export function LessonPlayer({ lesson }: { lesson: PlayableLesson }) {
                     <div
                       role="status"
                       className={cn(
-                        'rise-in mt-auto flex flex-col gap-3 rounded-lg border p-4',
+                        'rise-in glass-strong mt-auto flex flex-col gap-3 rounded-hero border p-5',
                         result.isCorrect
                           ? 'border-success/50 bg-success/10'
                           : 'border-danger/40 bg-danger/8',

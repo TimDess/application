@@ -62,10 +62,7 @@ export default function LandingPage() {
         </h2>
         <ul className="grid gap-4 md:grid-cols-3">
           {pillars.map(({ icon: Icon, title, text }) => (
-            <li
-              key={title}
-              className="flex flex-col gap-3 rounded-lg border border-line bg-surface p-5"
-            >
+            <li key={title} className="glass flex flex-col gap-3 rounded-card p-5">
               <span className="grid size-10 place-items-center rounded-md bg-accent/15 text-accent-text">
                 <Icon className="size-5" aria-hidden="true" />
               </span>
@@ -87,10 +84,7 @@ export default function LandingPage() {
         </div>
         <ul className="grid gap-3 sm:grid-cols-3">
           {firstUniverses.map((u) => (
-            <li
-              key={u.name}
-              className="flex flex-col gap-1 rounded-lg border border-line bg-surface p-4"
-            >
+            <li key={u.name} className="glass flex flex-col gap-1 rounded-card p-4">
               <span className="font-display text-heading font-semibold text-ink">{u.name}</span>
               <span className="text-caption text-muted">{u.detail}</span>
             </li>
