@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import { LessonPlayer } from '@/components/learning/lesson-player'
-import { BrandLoaderScreen } from '@/components/ui/brand-loader'
+import { WaveHoldScreen } from '@/components/learning/wave-transition'
 import { Button } from '@/components/ui/button'
 import { coursePath } from '@/config/routes'
 import { getLessonForPlay } from '@/features/learning/queries'
@@ -14,7 +14,7 @@ export const metadata: Metadata = { title: 'Leçon' }
 
 export default function LessonPage({ params }: PageProps<'/lecon/[slug]'>) {
   return (
-    <Suspense fallback={<BrandLoaderScreen label="Préparation de la leçon" />}>
+    <Suspense fallback={<WaveHoldScreen label="Préparation de la leçon" />}>
       <Lesson params={params} />
     </Suspense>
   )
@@ -48,5 +48,5 @@ async function Lesson({ params }: { params: Promise<{ slug: string }> }) {
     )
   }
 
-  return <LessonPlayer lesson={lesson} />
+  return <LessonPlayer key={lesson.id} lesson={lesson} />
 }
