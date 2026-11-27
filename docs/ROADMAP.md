@@ -83,6 +83,13 @@ Dernière mise à jour : 28 novembre 2026.
 - Désormais : inscription confirmée depuis un autre navigateur → page de connexion avec « Ton adresse email est confirmée » ; autre lien (mot de passe oublié) → message expliquant d’ouvrir le lien dans le même navigateur. Test E2E qui reproduit le lien par défaut.
 - Solution définitive : SMTP personnalisé (Brevo) et nos modèles d’email, dont les liens `token_hash` ne dépendent pas du navigateur.
 
+## Application installable (PWA, 28 novembre 2026)
+
+- Manifeste (`src/app/manifest.ts`) : `scope: '/'`, `display: standalone`, démarrage sur l’accueil, icônes 192/512 et maskable (`public/icons`), icône iPhone (`src/app/apple-icon.png`), réglages `appleWebApp`.
+- Corrige l’affichage des barres de Safari dès qu’on changeait de page dans l’app installée (le périmètre était déduit de la page d’installation, faute de manifeste).
+- Après déploiement : supprimer l’icône de l’écran d’accueil et la réinstaller, iOS ne relisant le manifeste qu’à l’installation.
+- À venir : écran hors ligne (service worker), aide à l’installation, notifications.
+
 ## Écarts et points ouverts
 
 - **Emails en production** : sans SMTP personnalisé (Brevo), Supabase n'envoie les emails qu'aux membres de l'équipe du projet et refuse la personnalisation des modèles. Indispensable avant d'ouvrir à d'autres joueurs (inscription, mot de passe oublié, sauvegarde d'un compte invité).
