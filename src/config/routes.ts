@@ -18,6 +18,8 @@ export const routes = {
   privacy: '/confidentialite',
   courses: '/parcours',
   lessons: '/lecon',
+  reviews: '/revisions',
+  daily: '/defi',
 } as const
 
 export const universePath = (slug: string) => `${routes.explore}/${slug}`
@@ -35,6 +37,8 @@ export const protectedPrefixes = [
   routes.onboarding,
   routes.courses,
   routes.lessons,
+  routes.reviews,
+  routes.daily,
 ] as const
 
 /** Routes a signed-in user has no reason to see (they are sent to the dashboard). */

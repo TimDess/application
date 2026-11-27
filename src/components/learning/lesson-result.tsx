@@ -11,15 +11,20 @@ const LENGTH = 2 * Math.PI * RADIUS
 export function LessonResult({
   summary,
   headingRef,
+  title: customTitle,
 }: {
   summary: LessonSummary
   headingRef: React.RefObject<HTMLHeadingElement | null>
+  /** Overrides the default lesson wording (reviews, daily challenge). */
+  title?: string
 }) {
-  const title = summary.perfect
-    ? 'Sans faute !'
-    : summary.score >= 60
-      ? 'Leçon terminée'
-      : 'Leçon terminée, à revoir'
+  const title =
+    customTitle ??
+    (summary.perfect
+      ? 'Sans faute !'
+      : summary.score >= 60
+        ? 'Leçon terminée'
+        : 'Leçon terminée, à revoir')
   return (
     <div className="flex flex-col items-center gap-5 pt-4 text-center">
       <div className="relative grid size-44 place-items-center">

@@ -53,6 +53,14 @@ Le score est calculé par `private.evaluate_answer()` et la forme de la réponse
 
 Série : `private.register_activity` avance la série d'un jour si le dernier jour actif est la veille ; s'il manque des jours et qu'il reste assez de protections, elles sont consommées (jours marqués `frozen`) ; sinon la série repart à 1. Une protection est gagnée à chaque multiple de 7 jours, 2 au maximum.
 
+## Révisions et défi du jour (phase 3B)
+
+- **Leitner** : boîtes 1 à 7, intervalles dans `game_config.review_intervals`. Bonne réponse en révision → boîte suivante ; erreur → boîte 1. Une leçon terminée ajoute ses notions en boîte 1 (ou renvoie en boîte 1 une notion ratée).
+- **Choix de la question** : `private.notion_question` prend une question visible liée à la notion, en évitant la dernière posée.
+- **Défi du jour** : `private.ensure_daily_challenge(jour)` tire 5 questions publiées (graine = jour, réparties entre univers) et les fige dans `daily_challenges` ; tout le monde reçoit les mêmes. Une session de défi par joueur (index unique).
+- **Récompenses** : `complete_practice` (révision : 5 XP par bonne réponse + 30 ; défi : 50), objectif du jour et série comme pour une leçon. L'XP de pratique n'est pas rattachée à un univers.
+- **Interface** : `src/features/practice/practice-player.tsx`. Les pages rendent toujours le lecteur (avec un état `idle` quand il n'y a rien à jouer) pour que le rafraîchissement après la fin n'efface pas l'écran de résultat.
+
 ## Interface
 
 - `src/components/games/*` : un composant par format, branché dans le registre `question-view.tsx`. Tout est utilisable au clavier ; les frises se réordonnent avec des boutons (alternative au glisser-déposer), les associations se font par sélection successive.

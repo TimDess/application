@@ -7,7 +7,7 @@ import type { ReactNode } from 'react'
 import { Logo } from '@/components/ui/logo'
 import { routes } from '@/config/routes'
 import { cn } from '@/lib/utils/cn'
-import { isActive, primaryNav, type NavItem } from './nav-items'
+import { isActive, primaryNav, secondaryNav, type NavItem } from './nav-items'
 
 function SideLink({ item, pathname }: { item: NavItem; pathname: string }) {
   const active = isActive(pathname, item.href)
@@ -42,6 +42,10 @@ export function SideNavView({ pathname, userSlot }: { pathname: string; userSlot
       </Link>
       <nav aria-label="Navigation principale" className="mt-8 flex flex-1 flex-col gap-1">
         {primaryNav.map((item) => (
+          <SideLink key={item.href} item={item} pathname={pathname} />
+        ))}
+        <div className="my-3 h-px bg-line" />
+        {secondaryNav.map((item) => (
           <SideLink key={item.href} item={item} pathname={pathname} />
         ))}
         <div className="my-3 h-px bg-line" />

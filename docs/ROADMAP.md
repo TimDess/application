@@ -2,17 +2,17 @@
 
 Dernière mise à jour : 28 novembre 2026.
 
-| Phase              | Contenu                                                                                         | État                                                                         |
-| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)                         |
-| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                                                  |
-| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                                      |
-| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | 🚧 Lot 3A livré ; 3B (révisions, défi du jour) puis 3C (badges, ADN, invité) |
-| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                                                      |
-| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                                      |
-| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                                      |
-| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                                      |
-| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                                      |
+| Phase              | Contenu                                                                                         | État                                                     |
+| ------------------ | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)     |
+| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                              |
+| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                  |
+| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | 🚧 Lots 3A et 3B livrés ; reste 3C (badges, ADN, invité) |
+| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                                  |
+| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                  |
+| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                  |
+| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                  |
+| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                  |
 
 ## Phase 1 — livré
 
@@ -47,11 +47,22 @@ Dernière mise à jour : 28 novembre 2026.
 - Les leçons terminées avant le lot 3A ne rapportent pas d'XP rétroactive.
 - Tests : 40 unitaires, 96 assertions pgTAP, 18 scénarios E2E.
 
+## Phase 3 — lot 3B livré
+
+- Révisions espacées par notion (boîtes de Leitner 1 à 7, retours à 1, 3, 7, 16, 35, 90, 180 jours ; erreur → boîte 1). Les notions d'une leçon terminée entrent en boîte 1 (retour le lendemain) ; les leçons terminées avant le lot 3B ont été reprises (notions à revoir le jour même).
+- Une révision pose la notion avec une autre question que la dernière vue quand c'est possible ; jusqu'à 10 questions ; +5 XP par bonne réponse, +30 XP à la fin.
+- Défi du jour : 5 questions publiées, les mêmes pour tous, tirées une fois par jour (heure de Paris, réparties entre univers), une seule tentative, +50 XP, partage façon Wordle (cases, jamais les réponses).
+- Une révision ou le défi du jour valide aussi la série.
+- Pages `/defi` et `/revisions`, cartes « Au programme » sur l'accueil et sur Jouer, entrées dans la sidebar desktop.
+- Parcours F1 publié après relecture.
+- Indices reportés (décision du 28 novembre 2026).
+- Tests : 41 unitaires, 124 assertions pgTAP, 22 scénarios E2E.
+
 ## Écarts et points ouverts
 
 - **Mode invité** : lot 3C (conversion d'un compte anonyme en compte email à concevoir proprement).
 - **Mini-test de placement** de l'onboarding : phase 3.
-- **Indices** pendant les leçons : lot 3B, avec les révisions (réduction d'XP).
+- **Indices** pendant les leçons : reportés (non prioritaires, les révisions jouent le rôle de rattrapage).
 - **Contenu** : un seul parcours publié (F1, 51 questions) ; il en faut davantage pour varier le défi du jour et les révisions.
 - **Changement d'adresse email** : non inclus en phase 1 (le modèle d'email est prêt).
 - **Pages légales** : brouillons à faire valider juridiquement avant toute ouverture publique.

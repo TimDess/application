@@ -6,6 +6,9 @@ export const xpReasonLabels: Record<XpReason, string> = {
   lesson_perfect: 'Sans faute',
   chapter_completed: 'Chapitre terminé',
   exam_passed: 'Épreuve réussie',
+  review_answer: 'Bonnes réponses',
+  review_completed: 'Révision terminée',
+  daily_challenge: 'Défi du jour terminé',
 }
 
 export function streakDays(n: number) {

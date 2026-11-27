@@ -59,10 +59,21 @@ describe('parseProgress', () => {
       streak: { current: 2, longest: 5, freezes: 1, status: 'done' },
       week: [{ day: '2026-11-28', active: true, frozen: false }],
       universes: [{ slug: 'musique', xp: 420, level: 3, level_floor_xp: 303, next_level_xp: 580 }],
+      reviews: { due: 4, known: 12, mastered: 1 },
+      daily: {
+        day: '2026-11-28',
+        available: true,
+        started: true,
+        completed: true,
+        correct: 4,
+        total: 5,
+        results: [true, true, false, true, true],
+      },
     }
     const p = parseProgress(raw)
     expect(p.today.goalXp).toBe(200)
     expect(p.universes[0]?.floorXp).toBe(303)
+    expect(p.daily.results).toHaveLength(5)
     expect(() => parseProgress({ ...raw, streak: { ...raw.streak, status: 'lost' } })).toThrow()
   })
 })
