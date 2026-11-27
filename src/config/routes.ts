@@ -20,6 +20,8 @@ export const routes = {
   lessons: '/lecon',
   reviews: '/revisions',
   daily: '/defi',
+  trial: '/essai',
+  saveAccount: '/sauvegarder',
 } as const
 
 export const universePath = (slug: string) => `${routes.explore}/${slug}`
@@ -39,10 +41,16 @@ export const protectedPrefixes = [
   routes.lessons,
   routes.reviews,
   routes.daily,
+  routes.saveAccount,
 ] as const
 
 /** Routes a signed-in user has no reason to see (they are sent to the dashboard). */
-export const guestOnlyPaths = [routes.signIn, routes.signUp, routes.forgotPassword] as const
+export const guestOnlyPaths = [
+  routes.signIn,
+  routes.signUp,
+  routes.forgotPassword,
+  routes.trial,
+] as const
 
 export function isProtectedPath(pathname: string): boolean {
   return protectedPrefixes.some((p) => pathname === p || pathname.startsWith(`${p}/`))

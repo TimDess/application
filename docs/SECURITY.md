@@ -43,3 +43,10 @@ Collecte minimale (email, pseudo, préférences, consentement). Export JSON et s
 ## À venir
 
 CAPTCHA (Cloudflare Turnstile) sur l'inscription et le mode invité (phase 2), limitation de débit sur les actions de jeu, journal d'audit admin (phase 6), audit complet et CSP (phase 8).
+
+## Comptes invités (phase 3C)
+
+- Connexions anonymes Supabase : un invité est un vrai utilisateur `authenticated` (claim `is_anonymous`), soumis aux mêmes RLS et RPC ; il donne le même consentement (âge, CGU) qu'à l'inscription.
+- Anti-abus : limite intégrée de 30 créations par heure et par IP. Cloudflare Turnstile pourra être ajouté si des abus apparaissent.
+- Conversion : `updateUser({ email, password })` sur la session invitée ; le compte devient permanent après confirmation de l'email, sans changer d'identifiant.
+- Données : les invités inactifs depuis 30 jours sont supprimés (cascade sur toutes les tables). Les futurs classements devront exclure `is_anonymous`.

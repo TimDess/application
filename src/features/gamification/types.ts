@@ -46,8 +46,14 @@ export type Rewards = {
   goalXp: number
   todayXpBefore: number
   todayXpAfter: number
+  /** Badges earned by this session (evaluated by Postgres). */
+  badges: EarnedBadge[]
   streak: StreakChange
 }
+
+export type BadgeRarity = 'common' | 'rare' | 'epic' | 'legendary'
+
+export type EarnedBadge = { key: string; title: string; description: string; rarity: BadgeRarity }
 
 export type UniverseProgress = LevelProgress & { slug: string; xp: number }
 

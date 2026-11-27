@@ -45,14 +45,21 @@ export default function LandingPage() {
         <p className="max-w-xl text-heading font-normal text-muted">{brand.description}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button asChild size="lg">
-            <Link href={routes.signUp}>Créer mon compte</Link>
+            <Link href={routes.trial}>Essayer sans compte</Link>
           </Button>
           <Button asChild size="lg" variant="secondary">
-            <Link href={routes.signIn}>J’ai déjà un compte</Link>
+            <Link href={routes.signUp}>Créer mon compte</Link>
           </Button>
         </div>
+        <p className="text-body text-muted">
+          Déjà inscrit ?{' '}
+          <Link href={routes.signIn} className="font-semibold text-ink hover:underline">
+            Se connecter
+          </Link>
+        </p>
         <p className="text-caption text-muted">
-          Kulto est en construction : les premiers parcours arrivent bientôt.
+          {brand.name} grandit : premier parcours disponible, comprendre la Formule 1. D’autres
+          univers arrivent.
         </p>
       </section>
 

@@ -9,6 +9,7 @@ import { streakDays, xpReasonLabels } from './labels'
 import { LevelBar } from './level-bar'
 import { LevelUpOverlay } from './level-up-overlay'
 import { levelRatio } from './parse'
+import { BadgeMedal, familyOf, rarityLabels } from './badge-medal'
 import { StreakFlame } from './streak-flame'
 import type { Rewards } from './types'
 
@@ -138,6 +139,34 @@ export function RewardsPanel({ rewards }: { rewards: Rewards }) {
           ) : null}
         </div>
       </div>
+
+      {rewards.badges.length > 0 ? (
+        <div
+          className="glass flex flex-col gap-3 rounded-card p-4"
+          style={{ ['--i' as string]: 7 }}
+        >
+          <h3 className="text-heading font-semibold text-ink">
+            {rewards.badges.length > 1 ? 'Nouveaux badges' : 'Nouveau badge'}
+          </h3>
+          <ul className="flex flex-col gap-3">
+            {rewards.badges.map((badge) => (
+              <li key={badge.key} className="flex items-center gap-4">
+                <span className="level-burst" style={{ animationDelay: '1300ms' }}>
+                  <BadgeMedal family={familyOf(badge.key)} rarity={badge.rarity} earned />
+                </span>
+                <span className="flex min-w-0 flex-col">
+                  <span className="font-display text-heading font-semibold text-ink">
+                    {badge.title}
+                  </span>
+                  <span className="text-caption text-muted">
+                    {rarityLabels[badge.rarity]} · {badge.description}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
       {streak.freezes > 0 ? (
         <p className="flex items-center justify-center gap-1.5 text-caption text-muted">

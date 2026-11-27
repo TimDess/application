@@ -2,17 +2,17 @@
 
 Dernière mise à jour : 28 novembre 2026.
 
-| Phase              | Contenu                                                                                         | État                                                     |
-| ------------------ | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)     |
-| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                              |
-| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                  |
-| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | 🚧 Lots 3A et 3B livrés ; reste 3C (badges, ADN, invité) |
-| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                                  |
-| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                  |
-| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                  |
-| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                  |
-| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                  |
+| Phase              | Contenu                                                                                         | État                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées) |
+| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                          |
+| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)              |
+| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | ✅ Terminée (lots 3A, 3B, 3C)                        |
+| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                              |
+| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                              |
+| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                              |
+| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                              |
+| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                              |
 
 ## Phase 1 — livré
 
@@ -58,9 +58,16 @@ Dernière mise à jour : 28 novembre 2026.
 - Indices reportés (décision du 28 novembre 2026).
 - Tests : 41 unitaires, 124 assertions pgTAP, 22 scénarios E2E.
 
+## Phase 3 — lot 3C livré
+
+- 17 badges en 5 familles (progression, série, niveaux, révisions, défi du jour) et 4 raretés, attribués par Postgres à la fin d'une leçon ou d'une session (trigger sur `rewards`), renvoyés dans le résumé et révélés sur l'écran de résultat ; vitrine sur le profil (badges verrouillés avec leur condition). Rattrapage des badges déjà mérités.
+- ADN culturel : maîtrise par univers (notions retenues, boîte de Leitner plafonnée à 5) en radar à 9 branches, titre selon l'univers dominant (`src/config/dna.ts`) et qualificatif Spécialiste / Touche-à-tout.
+- Mode invité : connexions anonymes Supabase (limite intégrée de 30 par heure et par IP), page `/essai` avec le même consentement que l'inscription, bannière « Tu joues en invité », sauvegarde du compte (`/sauvegarder` : email + mot de passe, compte permanent après confirmation de l'email, même utilisateur donc progression conservée), suppression sans mot de passe pour les invités, purge quotidienne (pg_cron) des invités inactifs depuis 30 jours.
+- Tests : 45 unitaires, 138 assertions pgTAP, 26 scénarios E2E.
+
 ## Écarts et points ouverts
 
-- **Mode invité** : lot 3C (conversion d'un compte anonyme en compte email à concevoir proprement).
+- **Emails en production** : sans SMTP personnalisé (Brevo), Supabase n'envoie les emails qu'aux membres de l'équipe du projet et refuse la personnalisation des modèles. Indispensable avant d'ouvrir à d'autres joueurs (inscription, mot de passe oublié, sauvegarde d'un compte invité).
 - **Mini-test de placement** de l'onboarding : phase 3.
 - **Indices** pendant les leçons : reportés (non prioritaires, les révisions jouent le rôle de rattrapage).
 - **Contenu** : un seul parcours publié (F1, 51 questions) ; il en faut davantage pour varier le défi du jour et les révisions.

@@ -21,6 +21,20 @@ export const signUpSchema = z.object({
   termsAccepted: z.literal('on', 'Accepte les conditions pour créer ton compte.'),
 })
 
+/** Guests give the same consent as accounts before playing. */
+export const guestStartSchema = z.object({
+  ageConfirmed: z.literal('on', 'Kulto est réservé aux personnes de 15 ans ou plus.'),
+  termsAccepted: z.literal('on', 'Accepte les conditions pour commencer.'),
+})
+
+/** Turning a guest into an account: email + password (consent was given at the start). */
+export const saveGuestSchema = z.object({ email: emailSchema, password: passwordSchema })
+
+/** Guests have no password: deleting needs the confirmation word only. */
+export const guestDeleteSchema = z.object({
+  confirmation: z.literal('SUPPRIMER', 'Écris SUPPRIMER en majuscules pour confirmer.'),
+})
+
 export const signInSchema = z.object({
   email: emailSchema,
   password: z.string().min(1, 'Saisis ton mot de passe.'),

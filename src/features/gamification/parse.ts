@@ -28,6 +28,16 @@ const rewardsSchema = z.object({
   goal_xp: z.number().int(),
   today_xp_before: z.number().int(),
   today_xp_after: z.number().int(),
+  badges: z
+    .array(
+      z.object({
+        key: z.string(),
+        title: z.string(),
+        description: z.string(),
+        rarity: z.enum(['common', 'rare', 'epic', 'legendary']),
+      }),
+    )
+    .default([]),
   streak: z.object({
     before: z.number().int(),
     after: z.number().int(),
@@ -59,6 +69,7 @@ export function parseRewards(raw: unknown): Rewards | null {
     goalXp: d.goal_xp,
     todayXpBefore: d.today_xp_before,
     todayXpAfter: d.today_xp_after,
+    badges: d.badges,
     streak: {
       before: d.streak.before,
       after: d.streak.after,

@@ -32,7 +32,7 @@ Postgres 17 (Supabase). Migrations dans `supabase/migrations`, tests pgTAP dans 
 | `public.set_universe_preferences(universes)`                    | Remplace atomiquement les univers favoris (slugs publiés, sans doublon)                                                                                          |
 | `public.has_role(role)`                                         | Vrai si l'utilisateur courant a le rôle                                                                                                                          |
 
-## Tests pgTAP (124 assertions)
+## Tests pgTAP (138 assertions)
 
 RLS active partout ; univers publiés seulement pour les anonymes ; isolement entre utilisateurs ; impossibilité de forger le consentement, de changer de pseudo hors fonction, de s'attribuer un rôle ou d'écrire directement ses préférences ; unicité insensible à la casse ; pseudos réservés ; suppression en cascade.
 
@@ -74,6 +74,15 @@ Seul `complete_lesson` écrit ces tables (via `private.grant_xp` et `private.reg
 | `practice_attempts`    | Une tentative par question et par session                                                   | Lecture par le propriétaire |
 
 RPC : `start_review`, `start_daily_challenge`, `submit_practice_answer`, `complete_practice`. Un trigger sur `lesson_sessions` amorce les notions à la fin d'une leçon. `get_my_progress` renvoie aussi `reviews` (dues, connues, maîtrisées) et `daily` (fait, score, cases de partage).
+
+## Tables (phase 3C)
+
+| Table         | Rôle                                               | Accès                       |
+| ------------- | -------------------------------------------------- | --------------------------- |
+| `badges`      | Catalogue (clé, famille, rareté, titre, condition) | Lecture pour tous           |
+| `user_badges` | Badges obtenus, `PRIMARY KEY (user_id, badge_key)` | Lecture par le propriétaire |
+
+`private.award_badges(user)` évalue toutes les conditions et insère les nouveaux badges ; un trigger `BEFORE UPDATE OF rewards` sur `lesson_sessions` et `practice_sessions` l'appelle et ajoute `badges` au résumé. RPC `get_my_dna()` : maîtrise par univers (0-100). `private.purge_inactive_guests()` supprime les comptes anonymes inactifs depuis `guest_retention_days` (tâche pg_cron `kulto-purge-inactive-guests`, chaque nuit à 3 h 17 UTC).
 
 ## Schéma cible
 

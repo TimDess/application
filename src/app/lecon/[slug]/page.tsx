@@ -22,7 +22,7 @@ export default function LessonPage({ params }: PageProps<'/lecon/[slug]'>) {
 
 async function Lesson({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  await requireUser()
+  const user = await requireUser()
   const lesson = await getLessonForPlay(slug)
   if (!lesson) notFound()
 
@@ -48,5 +48,5 @@ async function Lesson({ params }: { params: Promise<{ slug: string }> }) {
     )
   }
 
-  return <LessonPlayer key={lesson.id} lesson={lesson} />
+  return <LessonPlayer key={lesson.id} lesson={lesson} isGuest={user.isAnonymous} />
 }
