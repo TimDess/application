@@ -99,7 +99,7 @@ Dernière mise à jour : 28 novembre 2026.
 - **Emails en production** : sans SMTP personnalisé (Brevo), Supabase n'envoie les emails qu'aux membres de l'équipe du projet et refuse la personnalisation des modèles. Indispensable avant d'ouvrir à d'autres joueurs (inscription, mot de passe oublié, sauvegarde d'un compte invité).
 - **Mini-test de placement** de l'onboarding : phase 3.
 - **Indices** pendant les leçons : reportés (non prioritaires, les révisions jouent le rôle de rattrapage).
-- **Contenu** : 4 parcours et 48 questions F1 à relire par Tim avant publication (passer `status` à `published` dans le JSON, ou retirer `status: "in_review"` des questions F1, puis `pnpm content:build` et appliquer le SQL).
+- **Contenu** : les 4 parcours de la session contenu sont publiés (validés par Tim le 28 novembre 2026). Restent en relecture les 48 questions supplémentaires du F1.
 - **Changement d'adresse email** : non inclus en phase 1 (le modèle d'email est prêt).
 - **Pages légales** : brouillons à faire valider juridiquement avant toute ouverture publique.
 - **Marque Kulto** : disponibilité (INPI, EUIPO, domaines) à vérifier.

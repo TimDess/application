@@ -2,11 +2,11 @@
 begin;
 do $$ begin if not exists (select 1 from public.universes where slug = 'sport') then raise exception 'unknown universe sport'; end if; end $$;
 insert into public.categories (id, universe_id, slug, name, description, sort_order, status)
-values ('b765cc81-7f1f-5ee6-b7e5-7a68ffeb1fd9', (select id from public.universes where slug = 'sport'), 'football', 'Football', 'Les compétitions, les légendes et les grands moments du football.', 10, 'in_review')
+values ('b765cc81-7f1f-5ee6-b7e5-7a68ffeb1fd9', (select id from public.universes where slug = 'sport'), 'football', 'Football', 'Les compétitions, les légendes et les grands moments du football.', 10, 'published')
 on conflict (id) do update set name = excluded.name, description = excluded.description,
   status = case when public.categories.status = 'published' then 'published'::public.content_status else excluded.status end;
 insert into public.courses (id, category_id, slug, title, description, level, sort_order, status)
-values ('7c81a775-05c9-5aa5-905a-e689a43d232b', 'b765cc81-7f1f-5ee6-b7e5-7a68ffeb1fd9', 'la-coupe-du-monde', 'La Coupe du monde de football', 'De l’Uruguay 1930 aux éditions à 48 équipes : l’histoire, les légendes et les grandes finales de la Coupe du monde, Bleus compris.', 'debutant', 10, 'in_review')
+values ('7c81a775-05c9-5aa5-905a-e689a43d232b', 'b765cc81-7f1f-5ee6-b7e5-7a68ffeb1fd9', 'la-coupe-du-monde', 'La Coupe du monde de football', 'De l’Uruguay 1930 aux éditions à 48 équipes : l’histoire, les légendes et les grandes finales de la Coupe du monde, Bleus compris.', 'debutant', 10, 'published')
 on conflict (id) do update set title = excluded.title, description = excluded.description, level = excluded.level, status = excluded.status;
 update public.chapters set position = position + 1000 where course_id = '7c81a775-05c9-5aa5-905a-e689a43d232b';
 update public.lessons set position = position + 1000 where chapter_id in (select id from public.chapters where course_id = '7c81a775-05c9-5aa5-905a-e689a43d232b');
@@ -115,336 +115,336 @@ values ('53e8eead-9b36-5fd8-a362-4a4995945d94', 'cdm-2034', (select id from publ
 on conflict (id) do update set title = excluded.title, summary = excluded.summary, is_evolving = excluded.is_evolving,
   valid_as_of = excluded.valid_as_of, verified_at = excluded.verified_at, source_url = excluded.source_url;
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('01fb2aef-30cc-5d40-a626-fa695aec496a', 'cdm-q-fifa', (select id from public.universes where slug = 'sport'), 'quiz', 'Dans quelle ville la FIFA est-elle fondée en 1904 ?', '{"options":[{"id":"a","label":"Paris"},{"id":"b","label":"Zurich"},{"id":"c","label":"Londres"},{"id":"d","label":"Montevideo"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('01fb2aef-30cc-5d40-a626-fa695aec496a', 'cdm-q-fifa', (select id from public.universes where slug = 'sport'), 'quiz', 'Dans quelle ville la FIFA est-elle fondée en 1904 ?', '{"options":[{"id":"a","label":"Paris"},{"id":"b","label":"Zurich"},{"id":"c","label":"Londres"},{"id":"d","label":"Montevideo"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('01fb2aef-30cc-5d40-a626-fa695aec496a', '{"correct":["a"]}'::jsonb, 'La FIFA naît à Paris en 1904. Son siège est aujourd’hui à Zurich.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e7b470a1-66d3-5ccc-8719-158ba003a58e', 'cdm-q-rimet', (select id from public.universes where slug = 'sport'), 'quiz', 'Qui est à l’origine de la Coupe du monde ?', '{"options":[{"id":"a","label":"Jules Rimet"},{"id":"b","label":"Pierre de Coubertin"},{"id":"c","label":"Henri Delaunay"},{"id":"d","label":"Gabriel Hanot"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('e7b470a1-66d3-5ccc-8719-158ba003a58e', 'cdm-q-rimet', (select id from public.universes where slug = 'sport'), 'quiz', 'Qui est à l’origine de la Coupe du monde ?', '{"options":[{"id":"a","label":"Jules Rimet"},{"id":"b","label":"Pierre de Coubertin"},{"id":"c","label":"Henri Delaunay"},{"id":"d","label":"Gabriel Hanot"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e7b470a1-66d3-5ccc-8719-158ba003a58e', '{"correct":["a"]}'::jsonb, 'Le Français Jules Rimet, président de la FIFA, lance la compétition.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('bd32d4a8-2314-58ca-9619-54977d44ee39', 'cdm-q-1930-pays', (select id from public.universes where slug = 'sport'), 'quiz', 'Où se joue la première Coupe du monde, en 1930 ?', '{"options":[{"id":"a","label":"En Uruguay"},{"id":"b","label":"En France"},{"id":"c","label":"Au Brésil"},{"id":"d","label":"En Italie"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('bd32d4a8-2314-58ca-9619-54977d44ee39', 'cdm-q-1930-pays', (select id from public.universes where slug = 'sport'), 'quiz', 'Où se joue la première Coupe du monde, en 1930 ?', '{"options":[{"id":"a","label":"En Uruguay"},{"id":"b","label":"En France"},{"id":"c","label":"Au Brésil"},{"id":"d","label":"En Italie"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('bd32d4a8-2314-58ca-9619-54977d44ee39', '{"correct":["a"]}'::jsonb, 'L’Uruguay organise et remporte la première édition.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('cf6492b6-6506-5773-a845-742307ecc688', 'cdm-q-1930-vainqueur', (select id from public.universes where slug = 'sport'), 'quiz', 'Qui remporte la première Coupe du monde ?', '{"options":[{"id":"a","label":"L’Uruguay"},{"id":"b","label":"L’Argentine"},{"id":"c","label":"Le Brésil"},{"id":"d","label":"L’Italie"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('cf6492b6-6506-5773-a845-742307ecc688', 'cdm-q-1930-vainqueur', (select id from public.universes where slug = 'sport'), 'quiz', 'Qui remporte la première Coupe du monde ?', '{"options":[{"id":"a","label":"L’Uruguay"},{"id":"b","label":"L’Argentine"},{"id":"c","label":"Le Brésil"},{"id":"d","label":"L’Italie"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('cf6492b6-6506-5773-a845-742307ecc688', '{"correct":["a"]}'::jsonb, 'L’Uruguay bat l’Argentine 4-2 en finale, à Montevideo.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a1ea8e50-9a2f-5f10-8ec5-2276404aa580', 'cdm-q-1942', (select id from public.universes where slug = 'sport'), 'true_false', 'La Coupe du monde a eu lieu en 1942 et 1946.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('a1ea8e50-9a2f-5f10-8ec5-2276404aa580', 'cdm-q-1942', (select id from public.universes where slug = 'sport'), 'true_false', 'La Coupe du monde a eu lieu en 1942 et 1946.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a1ea8e50-9a2f-5f10-8ec5-2276404aa580', '{"value":false}'::jsonb, 'Faux : ces deux éditions sont annulées à cause de la Seconde Guerre mondiale.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('2fec990a-d879-5702-993f-698e15ed8d81', 'cdm-q-rythme', (select id from public.universes where slug = 'sport'), 'quiz', 'À quel rythme la Coupe du monde a-t-elle lieu ?', '{"options":[{"id":"a","label":"Tous les deux ans"},{"id":"b","label":"Tous les quatre ans"},{"id":"c","label":"Tous les cinq ans"},{"id":"d","label":"Chaque année"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('2fec990a-d879-5702-993f-698e15ed8d81', 'cdm-q-rythme', (select id from public.universes where slug = 'sport'), 'quiz', 'À quel rythme la Coupe du monde a-t-elle lieu ?', '{"options":[{"id":"a","label":"Tous les deux ans"},{"id":"b","label":"Tous les quatre ans"},{"id":"c","label":"Tous les cinq ans"},{"id":"d","label":"Chaque année"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('2fec990a-d879-5702-993f-698e15ed8d81', '{"correct":["b"]}'::jsonb, 'Comme les Jeux olympiques, elle revient tous les quatre ans.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('0fc48910-d5aa-5d94-93e2-bc09ce0b008a', 'cdm-q-italie-30s', (select id from public.universes where slug = 'sport'), 'quiz', 'Quelle nation remporte les Coupes du monde 1934 et 1938 ?', '{"options":[{"id":"a","label":"L’Italie"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"L’Uruguay"},{"id":"d","label":"La Hongrie"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('0fc48910-d5aa-5d94-93e2-bc09ce0b008a', 'cdm-q-italie-30s', (select id from public.universes where slug = 'sport'), 'quiz', 'Quelle nation remporte les Coupes du monde 1934 et 1938 ?', '{"options":[{"id":"a","label":"L’Italie"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"L’Uruguay"},{"id":"d","label":"La Hongrie"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('0fc48910-d5aa-5d94-93e2-bc09ce0b008a', '{"correct":["a"]}'::jsonb, 'L’Italie gagne chez elle en 1934, puis en France en 1938.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ae3a5ae5-1d2a-5074-af6c-c4f7f02d8d45', 'cdm-q-maracanazo', (select id from public.universes where slug = 'sport'), 'quiz', 'Que désigne le « Maracanazo » ?', '{"options":[{"id":"a","label":"La victoire de l’Uruguay sur le Brésil en 1950"},{"id":"b","label":"La défaite du Brésil contre l’Allemagne en 2014"},{"id":"c","label":"La construction du Maracanã"},{"id":"d","label":"Le premier titre du Brésil"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('ae3a5ae5-1d2a-5074-af6c-c4f7f02d8d45', 'cdm-q-maracanazo', (select id from public.universes where slug = 'sport'), 'quiz', 'Que désigne le « Maracanazo » ?', '{"options":[{"id":"a","label":"La victoire de l’Uruguay sur le Brésil en 1950"},{"id":"b","label":"La défaite du Brésil contre l’Allemagne en 2014"},{"id":"c","label":"La construction du Maracanã"},{"id":"d","label":"Le premier titre du Brésil"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ae3a5ae5-1d2a-5074-af6c-c4f7f02d8d45', '{"correct":["a"]}'::jsonb, 'Au Maracanã, devant près de 200 000 spectateurs, l’Uruguay s’impose 2-1.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d0152798-746e-5fdb-b3fa-8a67fc8ec861', 'cdm-q-1950-hote', (select id from public.universes where slug = 'sport'), 'true_false', 'La Coupe du monde 1950 se joue au Brésil.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('d0152798-746e-5fdb-b3fa-8a67fc8ec861', 'cdm-q-1950-hote', (select id from public.universes where slug = 'sport'), 'true_false', 'La Coupe du monde 1950 se joue au Brésil.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d0152798-746e-5fdb-b3fa-8a67fc8ec861', '{"value":true}'::jsonb, 'Vrai : le match décisif a lieu au Maracanã, à Rio de Janeiro.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5e054311-da83-5fb5-ae48-0fe607b00fab', 'cdm-q-fontaine', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de buts Just Fontaine marque-t-il lors de la Coupe du monde 1958 ?', '{"options":[{"id":"a","label":"8"},{"id":"b","label":"10"},{"id":"c","label":"13"},{"id":"d","label":"16"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('5e054311-da83-5fb5-ae48-0fe607b00fab', 'cdm-q-fontaine', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de buts Just Fontaine marque-t-il lors de la Coupe du monde 1958 ?', '{"options":[{"id":"a","label":"8"},{"id":"b","label":"10"},{"id":"c","label":"13"},{"id":"d","label":"16"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5e054311-da83-5fb5-ae48-0fe607b00fab', '{"correct":["c"]}'::jsonb, '13 buts en une seule édition : un record jamais égalé.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5906fcaa-ce49-5fc6-9a69-9292439e421b', 'cdm-q-1958-france', (select id from public.universes where slug = 'sport'), 'true_false', 'La France termine troisième de la Coupe du monde 1958.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('5906fcaa-ce49-5fc6-9a69-9292439e421b', 'cdm-q-1958-france', (select id from public.universes where slug = 'sport'), 'true_false', 'La France termine troisième de la Coupe du monde 1958.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5906fcaa-ce49-5fc6-9a69-9292439e421b', '{"value":true}'::jsonb, 'Vrai : portée par Just Fontaine et Raymond Kopa.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a673abf5-f978-5160-aab8-9216c9480fcc', 'cdm-q-pele-titres', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de Coupes du monde Pelé a-t-il remportées ?', '{"options":[{"id":"a","label":"1"},{"id":"b","label":"2"},{"id":"c","label":"3"},{"id":"d","label":"4"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('a673abf5-f978-5160-aab8-9216c9480fcc', 'cdm-q-pele-titres', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de Coupes du monde Pelé a-t-il remportées ?', '{"options":[{"id":"a","label":"1"},{"id":"b","label":"2"},{"id":"c","label":"3"},{"id":"d","label":"4"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a673abf5-f978-5160-aab8-9216c9480fcc', '{"correct":["c"]}'::jsonb, 'En 1958, 1962 et 1970 : il est le seul triple champion du monde.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e7dd983c-bfca-5f3b-a65e-1f0258d7e93b', 'cdm-q-pele-17', (select id from public.universes where slug = 'sport'), 'guess_year', 'En quelle année Pelé devient-il champion du monde à 17 ans ?', '{"min":1950,"max":1970}'::jsonb, 3, false, null, 'in_review')
+values ('e7dd983c-bfca-5f3b-a65e-1f0258d7e93b', 'cdm-q-pele-17', (select id from public.universes where slug = 'sport'), 'guess_year', 'En quelle année Pelé devient-il champion du monde à 17 ans ?', '{"min":1950,"max":1970}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e7dd983c-bfca-5f3b-a65e-1f0258d7e93b', '{"year":1958,"tolerance":2}'::jsonb, 'En 1958, en Suède, le jeune Pelé brille en finale.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7b21ca7a-1882-5152-b418-f3aa45ba2b7a', 'cdm-q-trophee-vole', (select id from public.universes where slug = 'sport'), 'true_false', 'Le trophée Jules-Rimet a été volé et n’a jamais été retrouvé.', '{}'::jsonb, 3, false, null, 'in_review')
+values ('7b21ca7a-1882-5152-b418-f3aa45ba2b7a', 'cdm-q-trophee-vole', (select id from public.universes where slug = 'sport'), 'true_false', 'Le trophée Jules-Rimet a été volé et n’a jamais été retrouvé.', '{}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7b21ca7a-1882-5152-b418-f3aa45ba2b7a', '{"value":true}'::jsonb, 'Vrai : gardé par le Brésil après 1970, il est volé à Rio en 1983.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8b3b5b09-fb60-5f05-87e4-35f82b91b24e', 'cdm-q-trophee-garde', (select id from public.universes where slug = 'sport'), 'quiz', 'Pourquoi le Brésil garde-t-il définitivement le trophée Jules-Rimet ?', '{"options":[{"id":"a","label":"Grâce à son troisième titre, en 1970"},{"id":"b","label":"Parce qu’il l’a fabriqué"},{"id":"c","label":"Parce qu’il a organisé 1950"},{"id":"d","label":"Pour récompenser Pelé"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('8b3b5b09-fb60-5f05-87e4-35f82b91b24e', 'cdm-q-trophee-garde', (select id from public.universes where slug = 'sport'), 'quiz', 'Pourquoi le Brésil garde-t-il définitivement le trophée Jules-Rimet ?', '{"options":[{"id":"a","label":"Grâce à son troisième titre, en 1970"},{"id":"b","label":"Parce qu’il l’a fabriqué"},{"id":"c","label":"Parce qu’il a organisé 1950"},{"id":"d","label":"Pour récompenser Pelé"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8b3b5b09-fb60-5f05-87e4-35f82b91b24e', '{"correct":["a"]}'::jsonb, 'Le règlement prévoyait que le premier triple vainqueur le garderait.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('92e8ea06-3392-53ba-9c36-d172ae18936b', 'cdm-q-1966', (select id from public.universes where slug = 'sport'), 'quiz', 'Quelle nation est championne du monde en 1966, à domicile ?', '{"options":[{"id":"a","label":"L’Angleterre"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"Le Brésil"},{"id":"d","label":"Le Portugal"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('92e8ea06-3392-53ba-9c36-d172ae18936b', 'cdm-q-1966', (select id from public.universes where slug = 'sport'), 'quiz', 'Quelle nation est championne du monde en 1966, à domicile ?', '{"options":[{"id":"a","label":"L’Angleterre"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"Le Brésil"},{"id":"d","label":"Le Portugal"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('92e8ea06-3392-53ba-9c36-d172ae18936b', '{"correct":["a"]}'::jsonb, 'C’est le seul titre mondial de l’Angleterre.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('2c31c77a-d615-509b-b213-b6fcf39836eb', 'cdm-q-frise-origines', (select id from public.universes where slug = 'sport'), 'timeline', 'Remets ces moments dans l’ordre chronologique.', '{"items":[{"id":"t1","label":"Fondation de la FIFA"},{"id":"t3","label":"Le Maracanazo"},{"id":"t4","label":"Titre de l’Angleterre"},{"id":"t2","label":"Première Coupe du monde"}]}'::jsonb, 3, false, null, 'in_review')
+values ('2c31c77a-d615-509b-b213-b6fcf39836eb', 'cdm-q-frise-origines', (select id from public.universes where slug = 'sport'), 'timeline', 'Remets ces moments dans l’ordre chronologique.', '{"items":[{"id":"t1","label":"Fondation de la FIFA"},{"id":"t3","label":"Le Maracanazo"},{"id":"t4","label":"Titre de l’Angleterre"},{"id":"t2","label":"Première Coupe du monde"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('2c31c77a-d615-509b-b213-b6fcf39836eb', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"1904","t2":"1930","t3":"1950","t4":"1966"}}'::jsonb, '1904, 1930, 1950, 1966.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9204fa25-e018-594e-b49b-9af2bad7da35', 'cdm-q-hotes', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque édition à son pays organisateur.', '{"left":[{"id":"l1","label":"1930"},{"id":"l2","label":"1950"},{"id":"l3","label":"1966"}],"right":[{"id":"r3","label":"Angleterre"},{"id":"r1","label":"Uruguay"},{"id":"r2","label":"Brésil"}]}'::jsonb, 2, false, null, 'in_review')
+values ('9204fa25-e018-594e-b49b-9af2bad7da35', 'cdm-q-hotes', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque édition à son pays organisateur.', '{"left":[{"id":"l1","label":"1930"},{"id":"l2","label":"1950"},{"id":"l3","label":"1966"}],"right":[{"id":"r3","label":"Angleterre"},{"id":"r1","label":"Uruguay"},{"id":"r2","label":"Brésil"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9204fa25-e018-594e-b49b-9af2bad7da35', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Uruguay en 1930, Brésil en 1950, Angleterre en 1966.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8b5a17c2-a780-54f6-ad50-eba6859f9cf2', 'cdm-q-plus-titree', (select id from public.universes where slug = 'sport'), 'quiz', 'À l’issue de 2022, quelle est la nation la plus titrée en Coupe du monde ?', '{"options":[{"id":"a","label":"Le Brésil"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"L’Italie"},{"id":"d","label":"L’Argentine"}],"multiple":false}'::jsonb, 1, true, '2022-12-18', 'in_review')
+values ('8b5a17c2-a780-54f6-ad50-eba6859f9cf2', 'cdm-q-plus-titree', (select id from public.universes where slug = 'sport'), 'quiz', 'À l’issue de 2022, quelle est la nation la plus titrée en Coupe du monde ?', '{"options":[{"id":"a","label":"Le Brésil"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"L’Italie"},{"id":"d","label":"L’Argentine"}],"multiple":false}'::jsonb, 1, true, '2022-12-18', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8b5a17c2-a780-54f6-ad50-eba6859f9cf2', '{"correct":["a"]}'::jsonb, 'Cinq titres : 1958, 1962, 1970, 1994 et 2002.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7219595e-84f4-5d16-adba-acfec09b10bd', 'cdm-q-allemagne', (select id from public.universes where slug = 'sport'), 'quiz', 'À l’issue de 2022, combien de titres compte l’Allemagne ?', '{"options":[{"id":"a","label":"2"},{"id":"b","label":"3"},{"id":"c","label":"4"},{"id":"d","label":"5"}],"multiple":false}'::jsonb, 2, true, '2022-12-18', 'in_review')
+values ('7219595e-84f4-5d16-adba-acfec09b10bd', 'cdm-q-allemagne', (select id from public.universes where slug = 'sport'), 'quiz', 'À l’issue de 2022, combien de titres compte l’Allemagne ?', '{"options":[{"id":"a","label":"2"},{"id":"b","label":"3"},{"id":"c","label":"4"},{"id":"d","label":"5"}],"multiple":false}'::jsonb, 2, true, '2022-12-18', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7219595e-84f4-5d16-adba-acfec09b10bd', '{"correct":["c"]}'::jsonb, '1954, 1974, 1990 et 2014. L’Italie en compte autant.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8323af5a-fe66-5535-9347-b5253645bdb0', 'cdm-q-espagne', (select id from public.universes where slug = 'sport'), 'true_false', 'L’Espagne a remporté la Coupe du monde 2010.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('8323af5a-fe66-5535-9347-b5253645bdb0', 'cdm-q-espagne', (select id from public.universes where slug = 'sport'), 'true_false', 'L’Espagne a remporté la Coupe du monde 2010.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8323af5a-fe66-5535-9347-b5253645bdb0', '{"value":true}'::jsonb, 'Vrai : en Afrique du Sud, face aux Pays-Bas (1-0).')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5e89453e-9b72-582f-9f49-0141ee914a68', 'cdm-q-palmares', (select id from public.universes where slug = 'sport'), 'match', 'À l’issue de 2022, associe chaque nation à son nombre de titres.', '{"left":[{"id":"l1","label":"Brésil"},{"id":"l2","label":"Italie"},{"id":"l3","label":"Argentine"},{"id":"l4","label":"France"}],"right":[{"id":"r4","label":"2 titres"},{"id":"r3","label":"3 titres"},{"id":"r2","label":"4 titres"},{"id":"r1","label":"5 titres"}]}'::jsonb, 3, true, '2022-12-18', 'in_review')
+values ('5e89453e-9b72-582f-9f49-0141ee914a68', 'cdm-q-palmares', (select id from public.universes where slug = 'sport'), 'match', 'À l’issue de 2022, associe chaque nation à son nombre de titres.', '{"left":[{"id":"l1","label":"Brésil"},{"id":"l2","label":"Italie"},{"id":"l3","label":"Argentine"},{"id":"l4","label":"France"}],"right":[{"id":"r4","label":"2 titres"},{"id":"r3","label":"3 titres"},{"id":"r2","label":"4 titres"},{"id":"r1","label":"5 titres"}]}'::jsonb, 3, true, '2022-12-18', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5e89453e-9b72-582f-9f49-0141ee914a68', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'Le classement avant la Coupe du monde 2026.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c24cdc71-3d44-5d21-8452-46ca290b01ed', 'cdm-q-main-de-dieu', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre quelle équipe Maradona marque-t-il la « main de Dieu » ?', '{"options":[{"id":"a","label":"L’Angleterre"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"Le Brésil"},{"id":"d","label":"L’Italie"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('c24cdc71-3d44-5d21-8452-46ca290b01ed', 'cdm-q-main-de-dieu', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre quelle équipe Maradona marque-t-il la « main de Dieu » ?', '{"options":[{"id":"a","label":"L’Angleterre"},{"id":"b","label":"L’Allemagne"},{"id":"c","label":"Le Brésil"},{"id":"d","label":"L’Italie"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c24cdc71-3d44-5d21-8452-46ca290b01ed', '{"correct":["a"]}'::jsonb, 'En quart de finale du Mondial 1986, quelques minutes avant le « but du siècle ».')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('35bb638b-1a8a-5288-a1ca-3aadf8ba6f93', 'cdm-q-1986', (select id from public.universes where slug = 'sport'), 'guess_year', 'En quelle année l’Argentine de Maradona est-elle championne du monde ?', '{"min":1970,"max":2000}'::jsonb, 3, false, null, 'in_review')
+values ('35bb638b-1a8a-5288-a1ca-3aadf8ba6f93', 'cdm-q-1986', (select id from public.universes where slug = 'sport'), 'guess_year', 'En quelle année l’Argentine de Maradona est-elle championne du monde ?', '{"min":1970,"max":2000}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('35bb638b-1a8a-5288-a1ca-3aadf8ba6f93', '{"year":1986,"tolerance":2}'::jsonb, 'Au Mexique, en 1986.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('180fcda2-d5a2-51a6-ac2e-d616274927b7', 'cdm-q-finale-2022', (select id from public.universes where slug = 'sport'), 'quiz', 'Comment se termine la finale de 2022 entre l’Argentine et la France ?', '{"options":[{"id":"a","label":"3-3, puis victoire de l’Argentine aux tirs au but"},{"id":"b","label":"2-0 pour l’Argentine"},{"id":"c","label":"4-2 pour la France"},{"id":"d","label":"1-0 pour l’Argentine en prolongation"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('180fcda2-d5a2-51a6-ac2e-d616274927b7', 'cdm-q-finale-2022', (select id from public.universes where slug = 'sport'), 'quiz', 'Comment se termine la finale de 2022 entre l’Argentine et la France ?', '{"options":[{"id":"a","label":"3-3, puis victoire de l’Argentine aux tirs au but"},{"id":"b","label":"2-0 pour l’Argentine"},{"id":"c","label":"4-2 pour la France"},{"id":"d","label":"1-0 pour l’Argentine en prolongation"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('180fcda2-d5a2-51a6-ac2e-d616274927b7', '{"correct":["a"]}'::jsonb, 'Une finale folle, conclue 4-2 aux tirs au but.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8e409a95-1808-521b-942f-69eab740d8d0', 'cdm-q-messi', (select id from public.universes where slug = 'sport'), 'true_false', 'Lionel Messi a remporté la Coupe du monde.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('8e409a95-1808-521b-942f-69eab740d8d0', 'cdm-q-messi', (select id from public.universes where slug = 'sport'), 'true_false', 'Lionel Messi a remporté la Coupe du monde.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8e409a95-1808-521b-942f-69eab740d8d0', '{"value":true}'::jsonb, 'Vrai : en 2022, au Qatar.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c2c7cfa4-eff7-5b63-94b8-550fed7acb09', 'cdm-q-triple-finale', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de buts Kylian Mbappé marque-t-il en finale de 2022 ?', '{"options":[{"id":"a","label":"1"},{"id":"b","label":"2"},{"id":"c","label":"3"},{"id":"d","label":"4"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('c2c7cfa4-eff7-5b63-94b8-550fed7acb09', 'cdm-q-triple-finale', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de buts Kylian Mbappé marque-t-il en finale de 2022 ?', '{"options":[{"id":"a","label":"1"},{"id":"b","label":"2"},{"id":"c","label":"3"},{"id":"d","label":"4"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c2c7cfa4-eff7-5b63-94b8-550fed7acb09', '{"correct":["c"]}'::jsonb, 'Un triplé en finale, comme Geoff Hurst en 1966.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('debdbbf8-01b3-5fd4-afbf-9225eefac8b4', 'cdm-q-hurst', (select id from public.universes where slug = 'sport'), 'quiz', 'Avant Mbappé, qui avait réussi un triplé en finale de Coupe du monde ?', '{"options":[{"id":"a","label":"Geoff Hurst"},{"id":"b","label":"Pelé"},{"id":"c","label":"Gerd Müller"},{"id":"d","label":"Ronaldo"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('debdbbf8-01b3-5fd4-afbf-9225eefac8b4', 'cdm-q-hurst', (select id from public.universes where slug = 'sport'), 'quiz', 'Avant Mbappé, qui avait réussi un triplé en finale de Coupe du monde ?', '{"options":[{"id":"a","label":"Geoff Hurst"},{"id":"b","label":"Pelé"},{"id":"c","label":"Gerd Müller"},{"id":"d","label":"Ronaldo"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('debdbbf8-01b3-5fd4-afbf-9225eefac8b4', '{"correct":["a"]}'::jsonb, 'L’Anglais Geoff Hurst, en 1966.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('362e6199-b391-5163-86b2-af279a64eebd', 'cdm-q-klose', (select id from public.universes where slug = 'sport'), 'quiz', 'À l’issue de 2022, qui est le meilleur buteur de l’histoire de la Coupe du monde ?', '{"options":[{"id":"a","label":"Miroslav Klose"},{"id":"b","label":"Ronaldo"},{"id":"c","label":"Pelé"},{"id":"d","label":"Just Fontaine"}],"multiple":false}'::jsonb, 2, true, '2022-12-18', 'in_review')
+values ('362e6199-b391-5163-86b2-af279a64eebd', 'cdm-q-klose', (select id from public.universes where slug = 'sport'), 'quiz', 'À l’issue de 2022, qui est le meilleur buteur de l’histoire de la Coupe du monde ?', '{"options":[{"id":"a","label":"Miroslav Klose"},{"id":"b","label":"Ronaldo"},{"id":"c","label":"Pelé"},{"id":"d","label":"Just Fontaine"}],"multiple":false}'::jsonb, 2, true, '2022-12-18', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('362e6199-b391-5163-86b2-af279a64eebd', '{"correct":["a"]}'::jsonb, 'L’Allemand a marqué 16 buts entre 2002 et 2014.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('080e10b0-04c7-5e7b-b233-0e96ac60a62e', 'cdm-q-klose-buts', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de buts Miroslav Klose a-t-il marqués en Coupe du monde ?', '{"options":[{"id":"a","label":"13"},{"id":"b","label":"15"},{"id":"c","label":"16"},{"id":"d","label":"19"}],"multiple":false}'::jsonb, 3, true, '2022-12-18', 'in_review')
+values ('080e10b0-04c7-5e7b-b233-0e96ac60a62e', 'cdm-q-klose-buts', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien de buts Miroslav Klose a-t-il marqués en Coupe du monde ?', '{"options":[{"id":"a","label":"13"},{"id":"b","label":"15"},{"id":"c","label":"16"},{"id":"d","label":"19"}],"multiple":false}'::jsonb, 3, true, '2022-12-18', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('080e10b0-04c7-5e7b-b233-0e96ac60a62e', '{"correct":["c"]}'::jsonb, '16 buts en quatre éditions, de 2002 à 2014.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d888f10f-495d-5e04-adf2-c373b69464ee', 'cdm-q-records', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque record à son détenteur.', '{"left":[{"id":"l1","label":"16 buts au total (à l’issue de 2022)"},{"id":"l2","label":"13 buts en une édition"},{"id":"l3","label":"3 titres de champion"}],"right":[{"id":"r2","label":"Just Fontaine"},{"id":"r3","label":"Pelé"},{"id":"r1","label":"Miroslav Klose"}]}'::jsonb, 3, true, '2022-12-18', 'in_review')
+values ('d888f10f-495d-5e04-adf2-c373b69464ee', 'cdm-q-records', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque record à son détenteur.', '{"left":[{"id":"l1","label":"16 buts au total (à l’issue de 2022)"},{"id":"l2","label":"13 buts en une édition"},{"id":"l3","label":"3 titres de champion"}],"right":[{"id":"r2","label":"Just Fontaine"},{"id":"r3","label":"Pelé"},{"id":"r1","label":"Miroslav Klose"}]}'::jsonb, 3, true, '2022-12-18', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d888f10f-495d-5e04-adf2-c373b69464ee', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Trois records emblématiques de la compétition.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('22c9598f-a5e2-5b0b-916d-276b12b5b3c2', 'cdm-q-frise-titres', (select id from public.universes where slug = 'sport'), 'timeline', 'Remets ces titres dans l’ordre chronologique.', '{"items":[{"id":"t1","label":"Argentine de Maradona"},{"id":"t4","label":"Argentine de Messi"},{"id":"t3","label":"Espagne"},{"id":"t2","label":"Brésil, cinquième titre"}]}'::jsonb, 3, false, null, 'in_review')
+values ('22c9598f-a5e2-5b0b-916d-276b12b5b3c2', 'cdm-q-frise-titres', (select id from public.universes where slug = 'sport'), 'timeline', 'Remets ces titres dans l’ordre chronologique.', '{"items":[{"id":"t1","label":"Argentine de Maradona"},{"id":"t4","label":"Argentine de Messi"},{"id":"t3","label":"Espagne"},{"id":"t2","label":"Brésil, cinquième titre"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('22c9598f-a5e2-5b0b-916d-276b12b5b3c2', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"1986","t2":"2002","t3":"2010","t4":"2022"}}'::jsonb, '1986, 2002, 2010, 2022.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8a447f9e-6150-57fb-b76b-3c8e27eba081', 'cdm-q-1998-adversaire', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre qui la France gagne-t-elle la finale de 1998 ?', '{"options":[{"id":"a","label":"Le Brésil"},{"id":"b","label":"L’Italie"},{"id":"c","label":"L’Allemagne"},{"id":"d","label":"La Croatie"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('8a447f9e-6150-57fb-b76b-3c8e27eba081', 'cdm-q-1998-adversaire', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre qui la France gagne-t-elle la finale de 1998 ?', '{"options":[{"id":"a","label":"Le Brésil"},{"id":"b","label":"L’Italie"},{"id":"c","label":"L’Allemagne"},{"id":"d","label":"La Croatie"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8a447f9e-6150-57fb-b76b-3c8e27eba081', '{"correct":["a"]}'::jsonb, 'La France bat le Brésil 3-0 au Stade de France.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('3b846f93-2f94-5476-a053-1c0b05174b68', 'cdm-q-1998-score', (select id from public.universes where slug = 'sport'), 'quiz', 'Quel est le score de la finale de 1998 ?', '{"options":[{"id":"a","label":"3-0"},{"id":"b","label":"2-1"},{"id":"c","label":"1-0"},{"id":"d","label":"4-2"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('3b846f93-2f94-5476-a053-1c0b05174b68', 'cdm-q-1998-score', (select id from public.universes where slug = 'sport'), 'quiz', 'Quel est le score de la finale de 1998 ?', '{"options":[{"id":"a","label":"3-0"},{"id":"b","label":"2-1"},{"id":"c","label":"1-0"},{"id":"d","label":"4-2"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('3b846f93-2f94-5476-a053-1c0b05174b68', '{"correct":["a"]}'::jsonb, 'Deux buts de la tête de Zidane, puis un d’Emmanuel Petit.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ee037965-f3a9-5501-9432-71f524aaec15', 'cdm-q-zidane-tete', (select id from public.universes where slug = 'sport'), 'true_false', 'En finale de 1998, Zidane marque deux buts de la tête.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('ee037965-f3a9-5501-9432-71f524aaec15', 'cdm-q-zidane-tete', (select id from public.universes where slug = 'sport'), 'true_false', 'En finale de 1998, Zidane marque deux buts de la tête.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ee037965-f3a9-5501-9432-71f524aaec15', '{"value":true}'::jsonb, 'Vrai : sur deux corners, en première période.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7eb8dc63-e359-5699-bea2-9f494fccff45', 'cdm-q-jacquet', (select id from public.universes where slug = 'sport'), 'quiz', 'Qui est le sélectionneur des Bleus en 1998 ?', '{"options":[{"id":"a","label":"Aimé Jacquet"},{"id":"b","label":"Didier Deschamps"},{"id":"c","label":"Raymond Domenech"},{"id":"d","label":"Michel Hidalgo"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('7eb8dc63-e359-5699-bea2-9f494fccff45', 'cdm-q-jacquet', (select id from public.universes where slug = 'sport'), 'quiz', 'Qui est le sélectionneur des Bleus en 1998 ?', '{"options":[{"id":"a","label":"Aimé Jacquet"},{"id":"b","label":"Didier Deschamps"},{"id":"c","label":"Raymond Domenech"},{"id":"d","label":"Michel Hidalgo"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7eb8dc63-e359-5699-bea2-9f494fccff45', '{"correct":["a"]}'::jsonb, 'Didier Deschamps est alors le capitaine.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7e83fbcf-4c36-52e3-9c6b-16970e4ca1f6', 'cdm-q-1998-annee', (select id from public.universes where slug = 'sport'), 'guess_year', 'En quelle année la France remporte-t-elle sa première Coupe du monde ?', '{"min":1980,"max":2010}'::jsonb, 3, false, null, 'in_review')
+values ('7e83fbcf-4c36-52e3-9c6b-16970e4ca1f6', 'cdm-q-1998-annee', (select id from public.universes where slug = 'sport'), 'guess_year', 'En quelle année la France remporte-t-elle sa première Coupe du monde ?', '{"min":1980,"max":2010}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7e83fbcf-4c36-52e3-9c6b-16970e4ca1f6', '{"year":1998,"tolerance":1}'::jsonb, 'Le 12 juillet 1998, à domicile.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8a0d3e4e-d519-5ff8-a462-4d814758fa9c', 'cdm-q-2006', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre qui la France perd-elle la finale de 2006 ?', '{"options":[{"id":"a","label":"L’Italie"},{"id":"b","label":"Le Portugal"},{"id":"c","label":"L’Allemagne"},{"id":"d","label":"Le Brésil"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('8a0d3e4e-d519-5ff8-a462-4d814758fa9c', 'cdm-q-2006', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre qui la France perd-elle la finale de 2006 ?', '{"options":[{"id":"a","label":"L’Italie"},{"id":"b","label":"Le Portugal"},{"id":"c","label":"L’Allemagne"},{"id":"d","label":"Le Brésil"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8a0d3e4e-d519-5ff8-a462-4d814758fa9c', '{"correct":["a"]}'::jsonb, 'À Berlin, aux tirs au but, après le coup de tête de Zidane sur Materazzi.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('fbd26c87-1a51-59e2-9235-62cbb1e11301', 'cdm-q-zidane-rouge', (select id from public.universes where slug = 'sport'), 'true_false', 'Zidane a été expulsé lors de la finale de 2006.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('fbd26c87-1a51-59e2-9235-62cbb1e11301', 'cdm-q-zidane-rouge', (select id from public.universes where slug = 'sport'), 'true_false', 'Zidane a été expulsé lors de la finale de 2006.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('fbd26c87-1a51-59e2-9235-62cbb1e11301', '{"value":true}'::jsonb, 'Vrai : pour un coup de tête sur Marco Materazzi, en prolongation.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ee6061c1-96e9-58da-84c2-e5b0ff3de00c', 'cdm-q-2018', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre qui la France gagne-t-elle la finale de 2018 ?', '{"options":[{"id":"a","label":"La Croatie"},{"id":"b","label":"La Belgique"},{"id":"c","label":"L’Argentine"},{"id":"d","label":"L’Angleterre"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('ee6061c1-96e9-58da-84c2-e5b0ff3de00c', 'cdm-q-2018', (select id from public.universes where slug = 'sport'), 'quiz', 'Contre qui la France gagne-t-elle la finale de 2018 ?', '{"options":[{"id":"a","label":"La Croatie"},{"id":"b","label":"La Belgique"},{"id":"c","label":"L’Argentine"},{"id":"d","label":"L’Angleterre"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ee6061c1-96e9-58da-84c2-e5b0ff3de00c', '{"correct":["a"]}'::jsonb, 'Victoire 4-2 à Moscou : deuxième étoile pour les Bleus.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f826ae8e-8337-50fc-aa95-c0c9d7d5bca1', 'cdm-q-deschamps', (select id from public.universes where slug = 'sport'), 'quiz', 'Qu’a de particulier le titre de Didier Deschamps en 2018 ?', '{"options":[{"id":"a","label":"Il gagne comme sélectionneur après avoir gagné comme joueur"},{"id":"b","label":"Il marque en finale"},{"id":"c","label":"C’est son premier match comme sélectionneur"},{"id":"d","label":"Il est le plus jeune sélectionneur champion"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('f826ae8e-8337-50fc-aa95-c0c9d7d5bca1', 'cdm-q-deschamps', (select id from public.universes where slug = 'sport'), 'quiz', 'Qu’a de particulier le titre de Didier Deschamps en 2018 ?', '{"options":[{"id":"a","label":"Il gagne comme sélectionneur après avoir gagné comme joueur"},{"id":"b","label":"Il marque en finale"},{"id":"c","label":"C’est son premier match comme sélectionneur"},{"id":"d","label":"Il est le plus jeune sélectionneur champion"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f826ae8e-8337-50fc-aa95-c0c9d7d5bca1', '{"correct":["a"]}'::jsonb, 'Il rejoint Mário Zagallo et Franz Beckenbauer.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('fdcd67a6-90f9-5482-80ae-c4922ba9ee6f', 'cdm-q-bleus', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque Coupe du monde des Bleus à son issue.', '{"left":[{"id":"l1","label":"1998"},{"id":"l2","label":"2006"},{"id":"l3","label":"2018"},{"id":"l4","label":"2022"}],"right":[{"id":"r3","label":"Champions contre la Croatie"},{"id":"r1","label":"Champions contre le Brésil"},{"id":"r2","label":"Finalistes contre l’Italie"},{"id":"r4","label":"Finalistes contre l’Argentine"}]}'::jsonb, 3, false, null, 'in_review')
+values ('fdcd67a6-90f9-5482-80ae-c4922ba9ee6f', 'cdm-q-bleus', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque Coupe du monde des Bleus à son issue.', '{"left":[{"id":"l1","label":"1998"},{"id":"l2","label":"2006"},{"id":"l3","label":"2018"},{"id":"l4","label":"2022"}],"right":[{"id":"r3","label":"Champions contre la Croatie"},{"id":"r1","label":"Champions contre le Brésil"},{"id":"r2","label":"Finalistes contre l’Italie"},{"id":"r4","label":"Finalistes contre l’Argentine"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('fdcd67a6-90f9-5482-80ae-c4922ba9ee6f', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'Quatre finales en sept éditions, de 1998 à 2022.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('09e1ab5a-aa52-5b40-a7eb-492fbc94593a', 'cdm-q-qatar', (select id from public.universes where slug = 'sport'), 'quiz', 'Quelle est la particularité de la Coupe du monde 2022 au Qatar ?', '{"options":[{"id":"a","label":"Elle se joue en novembre et décembre"},{"id":"b","label":"Elle compte 48 équipes"},{"id":"c","label":"Elle se joue dans trois pays"},{"id":"d","label":"Elle n’a pas de finale"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('09e1ab5a-aa52-5b40-a7eb-492fbc94593a', 'cdm-q-qatar', (select id from public.universes where slug = 'sport'), 'quiz', 'Quelle est la particularité de la Coupe du monde 2022 au Qatar ?', '{"options":[{"id":"a","label":"Elle se joue en novembre et décembre"},{"id":"b","label":"Elle compte 48 équipes"},{"id":"c","label":"Elle se joue dans trois pays"},{"id":"d","label":"Elle n’a pas de finale"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('09e1ab5a-aa52-5b40-a7eb-492fbc94593a', '{"correct":["a"]}'::jsonb, 'Une première, pour éviter la chaleur de l’été dans le Golfe.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('2efa9c9b-ea08-564a-bdc8-7272ec6210a5', 'cdm-q-2026', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien d’équipes participent à la Coupe du monde 2026 ?', '{"options":[{"id":"a","label":"32"},{"id":"b","label":"40"},{"id":"c","label":"48"},{"id":"d","label":"64"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('2efa9c9b-ea08-564a-bdc8-7272ec6210a5', 'cdm-q-2026', (select id from public.universes where slug = 'sport'), 'quiz', 'Combien d’équipes participent à la Coupe du monde 2026 ?', '{"options":[{"id":"a","label":"32"},{"id":"b","label":"40"},{"id":"c","label":"48"},{"id":"d","label":"64"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('2efa9c9b-ea08-564a-bdc8-7272ec6210a5', '{"correct":["c"]}'::jsonb, 'C’est la première édition à 48 équipes, avec 104 matchs.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('4feeec94-bc8b-5dbd-bfca-0a132b095e20', 'cdm-q-hotes-modernes', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque édition à son ou ses pays organisateurs.', '{"left":[{"id":"l1","label":"2022"},{"id":"l2","label":"2026"},{"id":"l3","label":"2030"},{"id":"l4","label":"2034"}],"right":[{"id":"r4","label":"Arabie saoudite"},{"id":"r1","label":"Qatar"},{"id":"r2","label":"États-Unis, Canada, Mexique"},{"id":"r3","label":"Maroc, Espagne, Portugal"}]}'::jsonb, 3, false, null, 'in_review')
+values ('4feeec94-bc8b-5dbd-bfca-0a132b095e20', 'cdm-q-hotes-modernes', (select id from public.universes where slug = 'sport'), 'match', 'Associe chaque édition à son ou ses pays organisateurs.', '{"left":[{"id":"l1","label":"2022"},{"id":"l2","label":"2026"},{"id":"l3","label":"2030"},{"id":"l4","label":"2034"}],"right":[{"id":"r4","label":"Arabie saoudite"},{"id":"r1","label":"Qatar"},{"id":"r2","label":"États-Unis, Canada, Mexique"},{"id":"r3","label":"Maroc, Espagne, Portugal"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('4feeec94-bc8b-5dbd-bfca-0a132b095e20', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'Les pays hôtes de 2022 à 2034.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('6a11aa29-3bcd-5388-85d2-3608b7ace6c0', 'cdm-q-2030', (select id from public.universes where slug = 'sport'), 'true_false', 'Pour le centenaire, trois matchs de la Coupe du monde 2030 se jouent en Amérique du Sud.', '{}'::jsonb, 3, false, null, 'in_review')
+values ('6a11aa29-3bcd-5388-85d2-3608b7ace6c0', 'cdm-q-2030', (select id from public.universes where slug = 'sport'), 'true_false', 'Pour le centenaire, trois matchs de la Coupe du monde 2030 se jouent en Amérique du Sud.', '{}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('6a11aa29-3bcd-5388-85d2-3608b7ace6c0', '{"value":true}'::jsonb, 'Vrai : en Uruguay, en Argentine et au Paraguay, en souvenir de la première édition de 1930.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('83e98390-d8da-5b1e-a533-a3e1316629f9', 'cdm-q-2026-pays', (select id from public.universes where slug = 'sport'), 'quiz', 'Quels pays organisent la Coupe du monde 2026 ?', '{"options":[{"id":"a","label":"États-Unis, Canada et Mexique"},{"id":"b","label":"Maroc, Espagne et Portugal"},{"id":"c","label":"Brésil et Argentine"},{"id":"d","label":"Japon et Corée du Sud"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('83e98390-d8da-5b1e-a533-a3e1316629f9', 'cdm-q-2026-pays', (select id from public.universes where slug = 'sport'), 'quiz', 'Quels pays organisent la Coupe du monde 2026 ?', '{"options":[{"id":"a","label":"États-Unis, Canada et Mexique"},{"id":"b","label":"Maroc, Espagne et Portugal"},{"id":"c","label":"Brésil et Argentine"},{"id":"d","label":"Japon et Corée du Sud"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('83e98390-d8da-5b1e-a533-a3e1316629f9', '{"correct":["a"]}'::jsonb, 'Trois pays pour la première Coupe du monde à 48 équipes.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('601d95a8-2121-5664-9f4f-e74f624d3927', 'cdm-q-frise-bleus', (select id from public.universes where slug = 'sport'), 'timeline', 'Remets ces finales des Bleus dans l’ordre.', '{"items":[{"id":"t4","label":"Défaite contre l’Argentine"},{"id":"t1","label":"Victoire contre le Brésil"},{"id":"t2","label":"Défaite contre l’Italie"},{"id":"t3","label":"Victoire contre la Croatie"}]}'::jsonb, 3, false, null, 'in_review')
+values ('601d95a8-2121-5664-9f4f-e74f624d3927', 'cdm-q-frise-bleus', (select id from public.universes where slug = 'sport'), 'timeline', 'Remets ces finales des Bleus dans l’ordre.', '{"items":[{"id":"t4","label":"Défaite contre l’Argentine"},{"id":"t1","label":"Victoire contre le Brésil"},{"id":"t2","label":"Défaite contre l’Italie"},{"id":"t3","label":"Victoire contre la Croatie"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
@@ -522,10 +522,10 @@ insert into public.question_knowledge_items (question_id, knowledge_item_id) val
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('601d95a8-2121-5664-9f4f-e74f624d3927', '0cf09b5d-5324-5fd6-8b97-8809e85bb050');
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('601d95a8-2121-5664-9f4f-e74f624d3927', '54246f03-a317-57fc-8e30-bc752c7515c8');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('1a1048f0-88cf-5a75-8da4-01fe358d3116', '7c81a775-05c9-5aa5-905a-e689a43d232b', 1, 'Les origines', 'La naissance de la compétition, ses premières légendes et le roi Pelé.', 'in_review')
+values ('1a1048f0-88cf-5a75-8da4-01fe358d3116', '7c81a775-05c9-5aa5-905a-e689a43d232b', 1, 'Les origines', 'La naissance de la compétition, ses premières légendes et le roi Pelé.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('0dc2b2dd-7586-5695-9026-630629dfd837', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 1, 'cdm-naissance', 'La naissance de la Coupe du monde', 'Savoir comment et où tout a commencé.', 'standard', 3, 'in_review')
+values ('0dc2b2dd-7586-5695-9026-630629dfd837', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 1, 'cdm-naissance', 'La naissance de la Coupe du monde', 'Savoir comment et où tout a commencé.', 'standard', 3, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '0dc2b2dd-7586-5695-9026-630629dfd837';
@@ -540,7 +540,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('0dc2
 insert into public.lesson_items (lesson_id, position, question_id) values ('0dc2b2dd-7586-5695-9026-630629dfd837', 5, 'a1ea8e50-9a2f-5f10-8ec5-2276404aa580');
 insert into public.lesson_items (lesson_id, position, question_id) values ('0dc2b2dd-7586-5695-9026-630629dfd837', 6, '2fec990a-d879-5702-993f-698e15ed8d81');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('3c5f219d-d119-5b5e-ade4-54f56d21f61e', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 2, 'cdm-premieres-legendes', 'Les premières légendes', 'Connaître les grands moments des années 1930 à 1950.', 'standard', 4, 'in_review')
+values ('3c5f219d-d119-5b5e-ade4-54f56d21f61e', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 2, 'cdm-premieres-legendes', 'Les premières légendes', 'Connaître les grands moments des années 1930 à 1950.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '3c5f219d-d119-5b5e-ade4-54f56d21f61e';
@@ -554,7 +554,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('3c5f
 insert into public.lesson_items (lesson_id, position, question_id) values ('3c5f219d-d119-5b5e-ade4-54f56d21f61e', 4, '5e054311-da83-5fb5-ae48-0fe607b00fab');
 insert into public.lesson_items (lesson_id, position, question_id) values ('3c5f219d-d119-5b5e-ade4-54f56d21f61e', 5, '5906fcaa-ce49-5fc6-9a69-9292439e421b');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('15ed3b88-ce18-5cd5-bbb3-0ec04cb14875', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 3, 'cdm-le-roi-pele', 'Le roi Pelé', 'Connaître Pelé, le trophée et le titre anglais.', 'standard', 4, 'in_review')
+values ('15ed3b88-ce18-5cd5-bbb3-0ec04cb14875', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 3, 'cdm-le-roi-pele', 'Le roi Pelé', 'Connaître Pelé, le trophée et le titre anglais.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '15ed3b88-ce18-5cd5-bbb3-0ec04cb14875';
@@ -569,7 +569,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('15ed
 insert into public.lesson_items (lesson_id, position, question_id) values ('15ed3b88-ce18-5cd5-bbb3-0ec04cb14875', 5, '92e8ea06-3392-53ba-9c36-d172ae18936b');
 insert into public.lesson_items (lesson_id, position, question_id) values ('15ed3b88-ce18-5cd5-bbb3-0ec04cb14875', 6, '9204fa25-e018-594e-b49b-9af2bad7da35');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('f8bfca00-f97a-56aa-9bc3-b62755a0bd23', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 4, 'cdm-epreuve-origines', 'Épreuve : les origines', 'Valide tes connaissances sur les débuts de la compétition.', 'exam', 4, 'in_review')
+values ('f8bfca00-f97a-56aa-9bc3-b62755a0bd23', '1a1048f0-88cf-5a75-8da4-01fe358d3116', 4, 'cdm-epreuve-origines', 'Épreuve : les origines', 'Valide tes connaissances sur les débuts de la compétition.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'f8bfca00-f97a-56aa-9bc3-b62755a0bd23';
@@ -581,10 +581,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('f8bf
 insert into public.lesson_items (lesson_id, position, question_id) values ('f8bfca00-f97a-56aa-9bc3-b62755a0bd23', 5, '2c31c77a-d615-509b-b213-b6fcf39836eb');
 insert into public.lesson_items (lesson_id, position, question_id) values ('f8bfca00-f97a-56aa-9bc3-b62755a0bd23', 6, '9204fa25-e018-594e-b49b-9af2bad7da35');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('671ce4a3-89d2-52b3-9eae-883419281a73', '7c81a775-05c9-5aa5-905a-e689a43d232b', 2, 'Les grandes nations', 'Le palmarès, l’Argentine de Maradona à Messi et les records (à l’issue de 2022).', 'in_review')
+values ('671ce4a3-89d2-52b3-9eae-883419281a73', '7c81a775-05c9-5aa5-905a-e689a43d232b', 2, 'Les grandes nations', 'Le palmarès, l’Argentine de Maradona à Messi et les records (à l’issue de 2022).', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('998386e1-549e-5015-95e0-5e48660a1f37', '671ce4a3-89d2-52b3-9eae-883419281a73', 1, 'cdm-palmares', 'Le palmarès', 'Connaître les nations championnes du monde (à l’issue de 2022).', 'standard', 4, 'in_review')
+values ('998386e1-549e-5015-95e0-5e48660a1f37', '671ce4a3-89d2-52b3-9eae-883419281a73', 1, 'cdm-palmares', 'Le palmarès', 'Connaître les nations championnes du monde (à l’issue de 2022).', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '998386e1-549e-5015-95e0-5e48660a1f37';
@@ -596,7 +596,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('9983
 insert into public.lesson_items (lesson_id, position, question_id) values ('998386e1-549e-5015-95e0-5e48660a1f37', 3, '8323af5a-fe66-5535-9347-b5253645bdb0');
 insert into public.lesson_items (lesson_id, position, question_id) values ('998386e1-549e-5015-95e0-5e48660a1f37', 4, '5e89453e-9b72-582f-9f49-0141ee914a68');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('2f7b0039-953a-59b5-a908-109f64a45899', '671ce4a3-89d2-52b3-9eae-883419281a73', 2, 'cdm-argentine', 'De Maradona à Messi', 'Connaître les deux Argentine championnes de l’ère moderne.', 'standard', 4, 'in_review')
+values ('2f7b0039-953a-59b5-a908-109f64a45899', '671ce4a3-89d2-52b3-9eae-883419281a73', 2, 'cdm-argentine', 'De Maradona à Messi', 'Connaître les deux Argentine championnes de l’ère moderne.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '2f7b0039-953a-59b5-a908-109f64a45899';
@@ -609,7 +609,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('2f7b
 insert into public.lesson_items (lesson_id, position, question_id) values ('2f7b0039-953a-59b5-a908-109f64a45899', 4, '8e409a95-1808-521b-942f-69eab740d8d0');
 insert into public.lesson_items (lesson_id, position, question_id) values ('2f7b0039-953a-59b5-a908-109f64a45899', 5, 'c2c7cfa4-eff7-5b63-94b8-550fed7acb09');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('cb50a3a6-ae27-5597-9bad-5fb617da3b35', '671ce4a3-89d2-52b3-9eae-883419281a73', 3, 'cdm-records', 'Les records', 'Connaître les grands records de la compétition.', 'standard', 4, 'in_review')
+values ('cb50a3a6-ae27-5597-9bad-5fb617da3b35', '671ce4a3-89d2-52b3-9eae-883419281a73', 3, 'cdm-records', 'Les records', 'Connaître les grands records de la compétition.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'cb50a3a6-ae27-5597-9bad-5fb617da3b35';
@@ -622,7 +622,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('cb50
 insert into public.lesson_items (lesson_id, position, question_id) values ('cb50a3a6-ae27-5597-9bad-5fb617da3b35', 4, 'd888f10f-495d-5e04-adf2-c373b69464ee');
 insert into public.lesson_items (lesson_id, position, question_id) values ('cb50a3a6-ae27-5597-9bad-5fb617da3b35', 5, '22c9598f-a5e2-5b0b-916d-276b12b5b3c2');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('5bcc2f2b-c7fa-517a-8010-d038891ee5f9', '671ce4a3-89d2-52b3-9eae-883419281a73', 4, 'cdm-epreuve-nations', 'Épreuve : les grandes nations', 'Valide tes connaissances sur le palmarès et les records.', 'exam', 4, 'in_review')
+values ('5bcc2f2b-c7fa-517a-8010-d038891ee5f9', '671ce4a3-89d2-52b3-9eae-883419281a73', 4, 'cdm-epreuve-nations', 'Épreuve : les grandes nations', 'Valide tes connaissances sur le palmarès et les records.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '5bcc2f2b-c7fa-517a-8010-d038891ee5f9';
@@ -634,10 +634,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('5bcc
 insert into public.lesson_items (lesson_id, position, question_id) values ('5bcc2f2b-c7fa-517a-8010-d038891ee5f9', 5, '5e89453e-9b72-582f-9f49-0141ee914a68');
 insert into public.lesson_items (lesson_id, position, question_id) values ('5bcc2f2b-c7fa-517a-8010-d038891ee5f9', 6, '22c9598f-a5e2-5b0b-916d-276b12b5b3c2');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', '7c81a775-05c9-5aa5-905a-e689a43d232b', 3, 'Les Bleus et la Coupe d’aujourd’hui', 'Les finales de la France et la Coupe du monde moderne.', 'in_review')
+values ('ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', '7c81a775-05c9-5aa5-905a-e689a43d232b', 3, 'Les Bleus et la Coupe d’aujourd’hui', 'Les finales de la France et la Coupe du monde moderne.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('5ecd9ba0-1068-5344-8b61-60b026c9c23a', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 1, 'cdm-1998', '1998, la France championne', 'Connaître le premier titre des Bleus.', 'standard', 4, 'in_review')
+values ('5ecd9ba0-1068-5344-8b61-60b026c9c23a', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 1, 'cdm-1998', '1998, la France championne', 'Connaître le premier titre des Bleus.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '5ecd9ba0-1068-5344-8b61-60b026c9c23a';
@@ -650,7 +650,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('5ecd
 insert into public.lesson_items (lesson_id, position, question_id) values ('5ecd9ba0-1068-5344-8b61-60b026c9c23a', 4, '7eb8dc63-e359-5699-bea2-9f494fccff45');
 insert into public.lesson_items (lesson_id, position, question_id) values ('5ecd9ba0-1068-5344-8b61-60b026c9c23a', 5, '7e83fbcf-4c36-52e3-9c6b-16970e4ca1f6');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('b964d58f-3885-5dea-8a8b-6b26a8b39385', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 2, 'cdm-2006-2018', 'De 2006 à 2018', 'Connaître la finale perdue de 2006 et le titre de 2018.', 'standard', 4, 'in_review')
+values ('b964d58f-3885-5dea-8a8b-6b26a8b39385', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 2, 'cdm-2006-2018', 'De 2006 à 2018', 'Connaître la finale perdue de 2006 et le titre de 2018.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'b964d58f-3885-5dea-8a8b-6b26a8b39385';
@@ -663,7 +663,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('b964
 insert into public.lesson_items (lesson_id, position, question_id) values ('b964d58f-3885-5dea-8a8b-6b26a8b39385', 4, 'f826ae8e-8337-50fc-aa95-c0c9d7d5bca1');
 insert into public.lesson_items (lesson_id, position, question_id) values ('b964d58f-3885-5dea-8a8b-6b26a8b39385', 5, 'fdcd67a6-90f9-5482-80ae-c4922ba9ee6f');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('226e7bfe-11de-51f3-acc3-97855042ca52', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 3, 'cdm-aujourdhui', 'La Coupe du monde aujourd’hui', 'Connaître les éditions récentes et à venir.', 'standard', 4, 'in_review')
+values ('226e7bfe-11de-51f3-acc3-97855042ca52', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 3, 'cdm-aujourdhui', 'La Coupe du monde aujourd’hui', 'Connaître les éditions récentes et à venir.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '226e7bfe-11de-51f3-acc3-97855042ca52';
@@ -676,7 +676,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('226e
 insert into public.lesson_items (lesson_id, position, question_id) values ('226e7bfe-11de-51f3-acc3-97855042ca52', 4, '6a11aa29-3bcd-5388-85d2-3608b7ace6c0');
 insert into public.lesson_items (lesson_id, position, question_id) values ('226e7bfe-11de-51f3-acc3-97855042ca52', 5, '4feeec94-bc8b-5dbd-bfca-0a132b095e20');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('e6af9f0a-43c2-512a-9c38-36a96681b165', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 4, 'cdm-epreuve-bleus', 'Épreuve : les Bleus et la Coupe d’aujourd’hui', 'Valide tes connaissances sur les Bleus et les éditions récentes.', 'exam', 4, 'in_review')
+values ('e6af9f0a-43c2-512a-9c38-36a96681b165', 'ee6e884e-dd8c-5ec8-8246-7c5dd6813c5f', 4, 'cdm-epreuve-bleus', 'Épreuve : les Bleus et la Coupe d’aujourd’hui', 'Valide tes connaissances sur les Bleus et les éditions récentes.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'e6af9f0a-43c2-512a-9c38-36a96681b165';

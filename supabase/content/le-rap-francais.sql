@@ -2,11 +2,11 @@
 begin;
 do $$ begin if not exists (select 1 from public.universes where slug = 'musique') then raise exception 'unknown universe musique'; end if; end $$;
 insert into public.categories (id, universe_id, slug, name, description, sort_order, status)
-values ('7db32dc1-3943-5bc5-ac48-d0cb4a70b15f', (select id from public.universes where slug = 'musique'), 'rap-hip-hop', 'Rap et hip-hop', 'L’histoire, les artistes et les codes du rap.', 10, 'in_review')
+values ('7db32dc1-3943-5bc5-ac48-d0cb4a70b15f', (select id from public.universes where slug = 'musique'), 'rap-hip-hop', 'Rap et hip-hop', 'L’histoire, les artistes et les codes du rap.', 10, 'published')
 on conflict (id) do update set name = excluded.name, description = excluded.description,
   status = case when public.categories.status = 'published' then 'published'::public.content_status else excluded.status end;
 insert into public.courses (id, category_id, slug, title, description, level, sort_order, status)
-values ('b46560de-ab1b-5e34-b1c3-478994a08eb9', '7db32dc1-3943-5bc5-ac48-d0cb4a70b15f', 'le-rap-francais', 'Le rap français', 'De l’émission H.I.P. H.O.P. à l’ère du streaming : les pionniers, les classiques et les têtes d’affiche du rap français.', 'debutant', 10, 'in_review')
+values ('b46560de-ab1b-5e34-b1c3-478994a08eb9', '7db32dc1-3943-5bc5-ac48-d0cb4a70b15f', 'le-rap-francais', 'Le rap français', 'De l’émission H.I.P. H.O.P. à l’ère du streaming : les pionniers, les classiques et les têtes d’affiche du rap français.', 'debutant', 10, 'published')
 on conflict (id) do update set title = excluded.title, description = excluded.description, level = excluded.level, status = excluded.status;
 update public.chapters set position = position + 1000 where course_id = 'b46560de-ab1b-5e34-b1c3-478994a08eb9';
 update public.lessons set position = position + 1000 where chapter_id in (select id from public.chapters where course_id = 'b46560de-ab1b-5e34-b1c3-478994a08eb9');
@@ -131,392 +131,392 @@ values ('a7cd6001-1139-5081-9801-22cc464ac9ad', 'rap-drill', (select id from pub
 on conflict (id) do update set title = excluded.title, summary = excluded.summary, is_evolving = excluded.is_evolving,
   valid_as_of = excluded.valid_as_of, verified_at = excluded.verified_at, source_url = excluded.source_url;
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('19341a58-41fb-5447-b6af-82e7d779650f', 'rap-q-bronx', (select id from public.universes where slug = 'musique'), 'quiz', 'Où naît la culture hip-hop ?', '{"options":[{"id":"a","label":"À Paris"},{"id":"b","label":"Dans le Bronx, à New York"},{"id":"c","label":"À Londres"},{"id":"d","label":"À Los Angeles"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('19341a58-41fb-5447-b6af-82e7d779650f', 'rap-q-bronx', (select id from public.universes where slug = 'musique'), 'quiz', 'Où naît la culture hip-hop ?', '{"options":[{"id":"a","label":"À Paris"},{"id":"b","label":"Dans le Bronx, à New York"},{"id":"c","label":"À Londres"},{"id":"d","label":"À Los Angeles"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('19341a58-41fb-5447-b6af-82e7d779650f', '{"correct":["b"]}'::jsonb, 'Le hip-hop naît dans les années 1970 dans le Bronx.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a95fb19a-d6a2-5bf9-b3bd-ed3487ae51e8', 'rap-q-disciplines', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque discipline du hip-hop à ce qu’elle désigne.', '{"left":[{"id":"l1","label":"Rap"},{"id":"l2","label":"DJing"},{"id":"l3","label":"Breakdance"},{"id":"l4","label":"Graffiti"}],"right":[{"id":"r1","label":"Le chant parlé et rythmé"},{"id":"r4","label":"L’art sur les murs"},{"id":"r3","label":"La danse"},{"id":"r2","label":"Le travail des platines"}]}'::jsonb, 2, false, null, 'in_review')
+values ('a95fb19a-d6a2-5bf9-b3bd-ed3487ae51e8', 'rap-q-disciplines', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque discipline du hip-hop à ce qu’elle désigne.', '{"left":[{"id":"l1","label":"Rap"},{"id":"l2","label":"DJing"},{"id":"l3","label":"Breakdance"},{"id":"l4","label":"Graffiti"}],"right":[{"id":"r1","label":"Le chant parlé et rythmé"},{"id":"r4","label":"L’art sur les murs"},{"id":"r3","label":"La danse"},{"id":"r2","label":"Le travail des platines"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a95fb19a-d6a2-5bf9-b3bd-ed3487ae51e8', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'Le hip-hop réunit le rap, le DJing, la danse et le graffiti.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e7b669f6-28b7-5d5b-b4bc-dca7ccf6c371', 'rap-q-emission', (select id from public.universes where slug = 'musique'), 'quiz', 'Sur quelle chaîne est diffusée l’émission H.I.P. H.O.P. en 1984 ?', '{"options":[{"id":"a","label":"TF1"},{"id":"b","label":"Canal+"},{"id":"c","label":"M6"},{"id":"d","label":"France 3"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('e7b669f6-28b7-5d5b-b4bc-dca7ccf6c371', 'rap-q-emission', (select id from public.universes where slug = 'musique'), 'quiz', 'Sur quelle chaîne est diffusée l’émission H.I.P. H.O.P. en 1984 ?', '{"options":[{"id":"a","label":"TF1"},{"id":"b","label":"Canal+"},{"id":"c","label":"M6"},{"id":"d","label":"France 3"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e7b669f6-28b7-5d5b-b4bc-dca7ccf6c371', '{"correct":["a"]}'::jsonb, 'L’émission, présentée par Sidney, passe sur TF1 en 1984.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('1d2077de-df4f-5da8-948b-c305700e44e6', 'rap-q-sidney', (select id from public.universes where slug = 'musique'), 'true_false', 'Sidney est le premier animateur noir à présenter une émission nationale à la télévision française.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('1d2077de-df4f-5da8-948b-c305700e44e6', 'rap-q-sidney', (select id from public.universes where slug = 'musique'), 'true_false', 'Sidney est le premier animateur noir à présenter une émission nationale à la télévision française.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('1d2077de-df4f-5da8-948b-c305700e44e6', '{"value":true}'::jsonb, 'Vrai : avec H.I.P. H.O.P., en 1984, il marque l’histoire de la télévision.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e68d57c4-e465-5b3d-9df2-36a24ca066ce', 'rap-q-dee-nasty', (select id from public.universes where slug = 'musique'), 'quiz', 'Qui sort Paname City Rappin’, considéré comme le premier album de rap français ?', '{"options":[{"id":"a","label":"Dee Nasty"},{"id":"b","label":"MC Solaar"},{"id":"c","label":"Booba"},{"id":"d","label":"Akhenaton"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('e68d57c4-e465-5b3d-9df2-36a24ca066ce', 'rap-q-dee-nasty', (select id from public.universes where slug = 'musique'), 'quiz', 'Qui sort Paname City Rappin’, considéré comme le premier album de rap français ?', '{"options":[{"id":"a","label":"Dee Nasty"},{"id":"b","label":"MC Solaar"},{"id":"c","label":"Booba"},{"id":"d","label":"Akhenaton"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e68d57c4-e465-5b3d-9df2-36a24ca066ce', '{"correct":["a"]}'::jsonb, 'Le DJ Dee Nasty sort ce disque en 1984.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f89d70d0-f64f-525d-a722-71808fa0d01f', 'rap-q-rapattitude', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort la compilation Rapattitude ?', '{"min":1980,"max":2000}'::jsonb, 3, false, null, 'in_review')
+values ('f89d70d0-f64f-525d-a722-71808fa0d01f', 'rap-q-rapattitude', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort la compilation Rapattitude ?', '{"min":1980,"max":2000}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f89d70d0-f64f-525d-a722-71808fa0d01f', '{"year":1990,"tolerance":2}'::jsonb, 'Rapattitude sort en 1990 et fait connaître de nombreux groupes.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c0d84b85-49c3-51c1-a1de-6176f6f8dd76', 'rap-q-solaar', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel titre révèle MC Solaar au grand public ?', '{"options":[{"id":"a","label":"Bouge de là"},{"id":"b","label":"La Boulette"},{"id":"c","label":"Je danse le Mia"},{"id":"d","label":"Petit frère"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('c0d84b85-49c3-51c1-a1de-6176f6f8dd76', 'rap-q-solaar', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel titre révèle MC Solaar au grand public ?', '{"options":[{"id":"a","label":"Bouge de là"},{"id":"b","label":"La Boulette"},{"id":"c","label":"Je danse le Mia"},{"id":"d","label":"Petit frère"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c0d84b85-49c3-51c1-a1de-6176f6f8dd76', '{"correct":["a"]}'::jsonb, 'Bouge de là sort en 1990, avant l’album Qui sème le vent récolte le tempo.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('4115737f-2e34-5ca7-bd5d-49cfd7308ebf', 'rap-q-solaar-album', (select id from public.universes where slug = 'musique'), 'true_false', 'Qui sème le vent récolte le tempo est un album de MC Solaar.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('4115737f-2e34-5ca7-bd5d-49cfd7308ebf', 'rap-q-solaar-album', (select id from public.universes where slug = 'musique'), 'true_false', 'Qui sème le vent récolte le tempo est un album de MC Solaar.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('4115737f-2e34-5ca7-bd5d-49cfd7308ebf', '{"value":true}'::jsonb, 'Vrai : c’est son premier album, sorti en 1991.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('93d7e6d9-c7ff-5251-9201-50658711343e', 'rap-q-iam-ville', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle ville vient le groupe IAM ?', '{"options":[{"id":"a","label":"Marseille"},{"id":"b","label":"Paris"},{"id":"c","label":"Lyon"},{"id":"d","label":"Toulouse"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('93d7e6d9-c7ff-5251-9201-50658711343e', 'rap-q-iam-ville', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle ville vient le groupe IAM ?', '{"options":[{"id":"a","label":"Marseille"},{"id":"b","label":"Paris"},{"id":"c","label":"Lyon"},{"id":"d","label":"Toulouse"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('93d7e6d9-c7ff-5251-9201-50658711343e', '{"correct":["a"]}'::jsonb, 'IAM est le grand groupe marseillais, mené par Akhenaton et Shurik’n.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ef6aa858-d5b4-5a7c-9b1e-bb537c192750', 'rap-q-ecole-micro', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel album d’IAM dépasse le million d’exemplaires ?', '{"options":[{"id":"a","label":"L’École du micro d’argent"},{"id":"b","label":"Paris sous les bombes"},{"id":"c","label":"Première consultation"},{"id":"d","label":"Mauvais œil"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('ef6aa858-d5b4-5a7c-9b1e-bb537c192750', 'rap-q-ecole-micro', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel album d’IAM dépasse le million d’exemplaires ?', '{"options":[{"id":"a","label":"L’École du micro d’argent"},{"id":"b","label":"Paris sous les bombes"},{"id":"c","label":"Première consultation"},{"id":"d","label":"Mauvais œil"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ef6aa858-d5b4-5a7c-9b1e-bb537c192750', '{"correct":["a"]}'::jsonb, 'Sorti en 1997, il est souvent cité comme l’un des plus grands albums de rap français.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('04917607-247d-5b6b-8701-5614b09478b8', 'rap-q-duo-ntm', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque titre à son groupe ou artiste.', '{"left":[{"id":"l1","label":"Je danse le Mia"},{"id":"l2","label":"Laisse pas traîner ton fils"},{"id":"l3","label":"Bouge de là"}],"right":[{"id":"r1","label":"IAM"},{"id":"r3","label":"MC Solaar"},{"id":"r2","label":"NTM"}]}'::jsonb, 2, false, null, 'in_review')
+values ('04917607-247d-5b6b-8701-5614b09478b8', 'rap-q-duo-ntm', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque titre à son groupe ou artiste.', '{"left":[{"id":"l1","label":"Je danse le Mia"},{"id":"l2","label":"Laisse pas traîner ton fils"},{"id":"l3","label":"Bouge de là"}],"right":[{"id":"r1","label":"IAM"},{"id":"r3","label":"MC Solaar"},{"id":"r2","label":"NTM"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('04917607-247d-5b6b-8701-5614b09478b8', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Je danse le Mia (1994) est d’IAM, Laisse pas traîner ton fils (1998) de NTM, Bouge de là (1990) de MC Solaar.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5f626719-93e9-5b08-81ae-f01f369dec29', 'rap-q-ntm-membres', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel duo forme NTM ?', '{"options":[{"id":"a","label":"JoeyStarr et Kool Shen"},{"id":"b","label":"Booba et Ali"},{"id":"c","label":"Ademo et N.O.S"},{"id":"d","label":"Orelsan et Gringe"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('5f626719-93e9-5b08-81ae-f01f369dec29', 'rap-q-ntm-membres', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel duo forme NTM ?', '{"options":[{"id":"a","label":"JoeyStarr et Kool Shen"},{"id":"b","label":"Booba et Ali"},{"id":"c","label":"Ademo et N.O.S"},{"id":"d","label":"Orelsan et Gringe"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5f626719-93e9-5b08-81ae-f01f369dec29', '{"correct":["a"]}'::jsonb, 'NTM, c’est JoeyStarr et Kool Shen, originaires de Seine-Saint-Denis.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9274f78d-2097-5d3a-b855-4d28c93c6570', 'rap-q-secteur-a', (select id from public.universes where slug = 'musique'), 'true_false', 'Doc Gynéco faisait partie du collectif Secteur Ä.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('9274f78d-2097-5d3a-b855-4d28c93c6570', 'rap-q-secteur-a', (select id from public.universes where slug = 'musique'), 'true_false', 'Doc Gynéco faisait partie du collectif Secteur Ä.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9274f78d-2097-5d3a-b855-4d28c93c6570', '{"value":true}'::jsonb, 'Vrai : avec Ministère A.M.E.R., Passi, Stomy Bugsy ou Arsenik.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('1a62ebc5-48ab-5525-8013-faf5907b6e34', 'rap-q-gyneco', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel est le premier album de Doc Gynéco ?', '{"options":[{"id":"a","label":"Première consultation"},{"id":"b","label":"Temps mort"},{"id":"c","label":"Opéra Puccino"},{"id":"d","label":"Feu"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('1a62ebc5-48ab-5525-8013-faf5907b6e34', 'rap-q-gyneco', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel est le premier album de Doc Gynéco ?', '{"options":[{"id":"a","label":"Première consultation"},{"id":"b","label":"Temps mort"},{"id":"c","label":"Opéra Puccino"},{"id":"d","label":"Feu"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('1a62ebc5-48ab-5525-8013-faf5907b6e34', '{"correct":["a"]}'::jsonb, 'Première consultation sort en 1996 et connaît un énorme succès.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a7328366-091f-5719-9f6f-24045d8e20cd', 'rap-q-quotas', (select id from public.universes where slug = 'musique'), 'quiz', 'Quelle part de chansons francophones les radios doivent-elles diffuser à partir de 1996 ?', '{"options":[{"id":"a","label":"10 %"},{"id":"b","label":"25 %"},{"id":"c","label":"40 %"},{"id":"d","label":"60 %"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('a7328366-091f-5719-9f6f-24045d8e20cd', 'rap-q-quotas', (select id from public.universes where slug = 'musique'), 'quiz', 'Quelle part de chansons francophones les radios doivent-elles diffuser à partir de 1996 ?', '{"options":[{"id":"a","label":"10 %"},{"id":"b","label":"25 %"},{"id":"c","label":"40 %"},{"id":"d","label":"60 %"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a7328366-091f-5719-9f6f-24045d8e20cd', '{"correct":["c"]}'::jsonb, 'La loi impose 40 % de chansons d’expression française : le rap français gagne beaucoup d’antenne.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ac90476b-7cfe-5f77-8234-0514ee834e11', 'rap-q-quotas-annee', (select id from public.universes where slug = 'musique'), 'guess_year', 'À partir de quelle année les radios doivent-elles diffuser 40 % de chansons francophones ?', '{"min":1985,"max":2005}'::jsonb, 3, false, null, 'in_review')
+values ('ac90476b-7cfe-5f77-8234-0514ee834e11', 'rap-q-quotas-annee', (select id from public.universes where slug = 'musique'), 'guess_year', 'À partir de quelle année les radios doivent-elles diffuser 40 % de chansons francophones ?', '{"min":1985,"max":2005}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ac90476b-7cfe-5f77-8234-0514ee834e11', '{"year":1996,"tolerance":1}'::jsonb, 'Votée en 1994, la règle s’applique à partir de 1996.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c5f25dd6-c79b-5efe-9ff5-6bbcfc5ef820', 'rap-q-skyrock', (select id from public.universes where slug = 'musique'), 'true_false', 'Le slogan de Skyrock est « premier sur le rap ».', '{}'::jsonb, 1, false, null, 'in_review')
+values ('c5f25dd6-c79b-5efe-9ff5-6bbcfc5ef820', 'rap-q-skyrock', (select id from public.universes where slug = 'musique'), 'true_false', 'Le slogan de Skyrock est « premier sur le rap ».', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c5f25dd6-c79b-5efe-9ff5-6bbcfc5ef820', '{"value":true}'::jsonb, 'Vrai : la radio fait du rap sa marque de fabrique dès la fin des années 1990.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f889421f-eeb0-5089-ba7a-aebc6f846474', 'rap-q-frise-origines', (select id from public.universes where slug = 'musique'), 'timeline', 'Remets ces moments dans l’ordre chronologique.', '{"items":[{"id":"t2","label":"Bouge de là, de MC Solaar"},{"id":"t4","label":"L’École du micro d’argent, d’IAM"},{"id":"t3","label":"Paris sous les bombes, de NTM"},{"id":"t1","label":"Émission H.I.P. H.O.P. sur TF1"}]}'::jsonb, 3, false, null, 'in_review')
+values ('f889421f-eeb0-5089-ba7a-aebc6f846474', 'rap-q-frise-origines', (select id from public.universes where slug = 'musique'), 'timeline', 'Remets ces moments dans l’ordre chronologique.', '{"items":[{"id":"t2","label":"Bouge de là, de MC Solaar"},{"id":"t4","label":"L’École du micro d’argent, d’IAM"},{"id":"t3","label":"Paris sous les bombes, de NTM"},{"id":"t1","label":"Émission H.I.P. H.O.P. sur TF1"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f889421f-eeb0-5089-ba7a-aebc6f846474', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"1984","t2":"1990","t3":"1995","t4":"1997"}}'::jsonb, '1984 : H.I.P. H.O.P. 1990 : Bouge de là. 1995 : Paris sous les bombes. 1997 : L’École du micro d’argent.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5c683199-6294-5be5-9295-4d0c35fc297f', 'rap-q-ecole-annee', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort L’École du micro d’argent ?', '{"min":1985,"max":2005}'::jsonb, 3, false, null, 'in_review')
+values ('5c683199-6294-5be5-9295-4d0c35fc297f', 'rap-q-ecole-annee', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort L’École du micro d’argent ?', '{"min":1985,"max":2005}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5c683199-6294-5be5-9295-4d0c35fc297f', '{"year":1997,"tolerance":2}'::jsonb, 'L’album d’IAM sort en 1997.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('04db11bc-d6f6-5047-a2df-8f1a1640f39a', 'rap-q-lunatic', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel duo forment Booba et Ali ?', '{"options":[{"id":"a","label":"Lunatic"},{"id":"b","label":"NTM"},{"id":"c","label":"PNL"},{"id":"d","label":"Casseurs Flowters"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('04db11bc-d6f6-5047-a2df-8f1a1640f39a', 'rap-q-lunatic', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel duo forment Booba et Ali ?', '{"options":[{"id":"a","label":"Lunatic"},{"id":"b","label":"NTM"},{"id":"c","label":"PNL"},{"id":"d","label":"Casseurs Flowters"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('04db11bc-d6f6-5047-a2df-8f1a1640f39a', '{"correct":["a"]}'::jsonb, 'Lunatic sort Mauvais œil en 2000.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5230652d-9a12-50a5-87ca-8bf18235ca6f', 'rap-q-mauvais-oeil', (select id from public.universes where slug = 'musique'), 'true_false', 'Mauvais œil a été produit en indépendant.', '{}'::jsonb, 3, false, null, 'in_review')
+values ('5230652d-9a12-50a5-87ca-8bf18235ca6f', 'rap-q-mauvais-oeil', (select id from public.universes where slug = 'musique'), 'true_false', 'Mauvais œil a été produit en indépendant.', '{}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5230652d-9a12-50a5-87ca-8bf18235ca6f', '{"value":true}'::jsonb, 'Vrai : sans grande maison de disques, il devient pourtant disque d’or.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('caed1c02-b499-5e93-89ad-1a970657dfff', 'rap-q-booba-ville', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle ville vient Booba ?', '{"options":[{"id":"a","label":"Boulogne-Billancourt"},{"id":"b","label":"Marseille"},{"id":"c","label":"Sevran"},{"id":"d","label":"Caen"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('caed1c02-b499-5e93-89ad-1a970657dfff', 'rap-q-booba-ville', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle ville vient Booba ?', '{"options":[{"id":"a","label":"Boulogne-Billancourt"},{"id":"b","label":"Marseille"},{"id":"c","label":"Sevran"},{"id":"d","label":"Caen"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('caed1c02-b499-5e93-89ad-1a970657dfff', '{"correct":["a"]}'::jsonb, 'Booba vient de Boulogne-Billancourt, dans les Hauts-de-Seine (92).')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e71cb831-1ca5-5d3f-9e07-d95ddc0e22be', 'rap-q-92i', (select id from public.universes where slug = 'musique'), 'quiz', 'Comment s’appelle le label fondé par Booba ?', '{"options":[{"id":"a","label":"92i"},{"id":"b","label":"QLF"},{"id":"c","label":"D’or et de platine"},{"id":"d","label":"45 Scientific"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('e71cb831-1ca5-5d3f-9e07-d95ddc0e22be', 'rap-q-92i', (select id from public.universes where slug = 'musique'), 'quiz', 'Comment s’appelle le label fondé par Booba ?', '{"options":[{"id":"a","label":"92i"},{"id":"b","label":"QLF"},{"id":"c","label":"D’or et de platine"},{"id":"d","label":"45 Scientific"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e71cb831-1ca5-5d3f-9e07-d95ddc0e22be', '{"correct":["a"]}'::jsonb, 'Le nom renvoie aux Hauts-de-Seine, le 92.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('1ac9a208-c98f-5fa5-afd4-2a6f37562f2e', 'rap-q-boulette', (select id from public.universes where slug = 'musique'), 'quiz', 'Quelle artiste chante La Boulette ?', '{"options":[{"id":"a","label":"Diam’s"},{"id":"b","label":"Aya Nakamura"},{"id":"c","label":"Keny Arkana"},{"id":"d","label":"Shay"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('1ac9a208-c98f-5fa5-afd4-2a6f37562f2e', 'rap-q-boulette', (select id from public.universes where slug = 'musique'), 'quiz', 'Quelle artiste chante La Boulette ?', '{"options":[{"id":"a","label":"Diam’s"},{"id":"b","label":"Aya Nakamura"},{"id":"c","label":"Keny Arkana"},{"id":"d","label":"Shay"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('1ac9a208-c98f-5fa5-afd4-2a6f37562f2e', '{"correct":["a"]}'::jsonb, 'La Boulette figure sur Dans ma bulle (2006), énorme succès de Diam’s.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('3a4ce915-4951-5fd1-afd3-6ceadcc7931c', 'rap-q-dans-ma-bulle', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort l’album Dans ma bulle ?', '{"min":1995,"max":2015}'::jsonb, 3, false, null, 'in_review')
+values ('3a4ce915-4951-5fd1-afd3-6ceadcc7931c', 'rap-q-dans-ma-bulle', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort l’album Dans ma bulle ?', '{"min":1995,"max":2015}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('3a4ce915-4951-5fd1-afd3-6ceadcc7931c', '{"year":2006,"tolerance":2}'::jsonb, 'Dans ma bulle sort en 2006.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('843fdf86-0bbd-5956-b6ce-83615e6c051a', 'rap-q-oxmo', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel rappeur est surnommé le Black Desperado ?', '{"options":[{"id":"a","label":"Oxmo Puccino"},{"id":"b","label":"Kery James"},{"id":"c","label":"Rohff"},{"id":"d","label":"Youssoupha"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('843fdf86-0bbd-5956-b6ce-83615e6c051a', 'rap-q-oxmo', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel rappeur est surnommé le Black Desperado ?', '{"options":[{"id":"a","label":"Oxmo Puccino"},{"id":"b","label":"Kery James"},{"id":"c","label":"Rohff"},{"id":"d","label":"Youssoupha"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('843fdf86-0bbd-5956-b6ce-83615e6c051a', '{"correct":["a"]}'::jsonb, 'Oxmo Puccino, auteur d’Opéra Puccino (1998).')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('91bc9b9f-991a-528e-b439-3ffaaf3cdba4', 'rap-q-kery', (select id from public.universes where slug = 'musique'), 'true_false', 'Kery James a écrit Lettre à la République.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('91bc9b9f-991a-528e-b439-3ffaaf3cdba4', 'rap-q-kery', (select id from public.universes where slug = 'musique'), 'true_false', 'Kery James a écrit Lettre à la République.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('91bc9b9f-991a-528e-b439-3ffaaf3cdba4', '{"value":true}'::jsonb, 'Vrai : un texte engagé sorti en 2012.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5dde19a6-64fe-5b63-ae43-aa19ed09b659', 'rap-q-opera-annee', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort Opéra Puccino ?', '{"min":1990,"max":2010}'::jsonb, 3, false, null, 'in_review')
+values ('5dde19a6-64fe-5b63-ae43-aa19ed09b659', 'rap-q-opera-annee', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort Opéra Puccino ?', '{"min":1990,"max":2010}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5dde19a6-64fe-5b63-ae43-aa19ed09b659', '{"year":1998,"tolerance":2}'::jsonb, 'Le premier album d’Oxmo Puccino sort en 1998.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('bbb29898-cc50-5cbc-baef-c7f3de861106', 'rap-q-kery-festif', (select id from public.universes where slug = 'musique'), 'true_false', 'Le rap de Kery James est surtout festif et léger.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('bbb29898-cc50-5cbc-baef-c7f3de861106', 'rap-q-kery-festif', (select id from public.universes where slug = 'musique'), 'true_false', 'Le rap de Kery James est surtout festif et léger.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('bbb29898-cc50-5cbc-baef-c7f3de861106', '{"value":false}'::jsonb, 'Faux : Kery James est connu pour son rap engagé et ses textes sur la société.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('6ee6d6c6-af21-5a16-9448-ebc2e080cc89', 'rap-q-ideal-j', (select id from public.universes where slug = 'musique'), 'quiz', 'De quel groupe Kery James a-t-il fait partie ?', '{"options":[{"id":"a","label":"Idéal J"},{"id":"b","label":"Lunatic"},{"id":"c","label":"IAM"},{"id":"d","label":"1995"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('6ee6d6c6-af21-5a16-9448-ebc2e080cc89', 'rap-q-ideal-j', (select id from public.universes where slug = 'musique'), 'quiz', 'De quel groupe Kery James a-t-il fait partie ?', '{"options":[{"id":"a","label":"Idéal J"},{"id":"b","label":"Lunatic"},{"id":"c","label":"IAM"},{"id":"d","label":"1995"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('6ee6d6c6-af21-5a16-9448-ebc2e080cc89', '{"correct":["a"]}'::jsonb, 'Avant sa carrière solo, il était membre d’Idéal J.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5506a92b-b1d9-5a3f-8adf-5c8c4b77563e', 'rap-q-sexion', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel album de Sexion d’Assaut triomphe en 2010 ?', '{"options":[{"id":"a","label":"L’École des points vitaux"},{"id":"b","label":"Dans la légende"},{"id":"c","label":"Feu"},{"id":"d","label":"Civilisation"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('5506a92b-b1d9-5a3f-8adf-5c8c4b77563e', 'rap-q-sexion', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel album de Sexion d’Assaut triomphe en 2010 ?', '{"options":[{"id":"a","label":"L’École des points vitaux"},{"id":"b","label":"Dans la légende"},{"id":"c","label":"Feu"},{"id":"d","label":"Civilisation"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5506a92b-b1d9-5a3f-8adf-5c8c4b77563e', '{"correct":["a"]}'::jsonb, 'L’album fait de Sexion d’Assaut un phénomène national.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('98d13b3f-f824-53df-9ac3-3af2d3dc1c6a', 'rap-q-gims-sexion', (select id from public.universes where slug = 'musique'), 'true_false', 'GIMS faisait partie de Sexion d’Assaut.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('98d13b3f-f824-53df-9ac3-3af2d3dc1c6a', 'rap-q-gims-sexion', (select id from public.universes where slug = 'musique'), 'true_false', 'GIMS faisait partie de Sexion d’Assaut.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('98d13b3f-f824-53df-9ac3-3af2d3dc1c6a', '{"value":true}'::jsonb, 'Vrai : sous le nom de Maître Gims, avec notamment Black M.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ede3c75a-adad-5fce-8b87-21aea4da12ff', 'rap-q-subliminal', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel est le premier album solo de GIMS ?', '{"options":[{"id":"a","label":"Subliminal"},{"id":"b","label":"Feu"},{"id":"c","label":"Ipséité"},{"id":"d","label":"Temps mort"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('ede3c75a-adad-5fce-8b87-21aea4da12ff', 'rap-q-subliminal', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel est le premier album solo de GIMS ?', '{"options":[{"id":"a","label":"Subliminal"},{"id":"b","label":"Feu"},{"id":"c","label":"Ipséité"},{"id":"d","label":"Temps mort"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ede3c75a-adad-5fce-8b87-21aea4da12ff', '{"correct":["a"]}'::jsonb, 'Subliminal sort en 2013.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9a1527c7-b9ea-5480-90b0-66dd5160d121', 'rap-q-nekfeu', (select id from public.universes where slug = 'musique'), 'quiz', 'De quel collectif Nekfeu est-il issu ?', '{"options":[{"id":"a","label":"1995"},{"id":"b","label":"Secteur Ä"},{"id":"c","label":"Sexion d’Assaut"},{"id":"d","label":"Mafia K’1 Fry"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('9a1527c7-b9ea-5480-90b0-66dd5160d121', 'rap-q-nekfeu', (select id from public.universes where slug = 'musique'), 'quiz', 'De quel collectif Nekfeu est-il issu ?', '{"options":[{"id":"a","label":"1995"},{"id":"b","label":"Secteur Ä"},{"id":"c","label":"Sexion d’Assaut"},{"id":"d","label":"Mafia K’1 Fry"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9a1527c7-b9ea-5480-90b0-66dd5160d121', '{"correct":["a"]}'::jsonb, 'Le collectif 1995 se fait connaître au début des années 2010.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('26528f77-d32f-5601-a272-280a308e9628', 'rap-q-orelsan-ville', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle ville vient Orelsan ?', '{"options":[{"id":"a","label":"Caen"},{"id":"b","label":"Rennes"},{"id":"c","label":"Lille"},{"id":"d","label":"Bordeaux"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('26528f77-d32f-5601-a272-280a308e9628', 'rap-q-orelsan-ville', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle ville vient Orelsan ?', '{"options":[{"id":"a","label":"Caen"},{"id":"b","label":"Rennes"},{"id":"c","label":"Lille"},{"id":"d","label":"Bordeaux"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('26528f77-d32f-5601-a272-280a308e9628', '{"correct":["a"]}'::jsonb, 'Orelsan est originaire de Caen, en Normandie.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('970c7691-fc9c-5d53-be1c-cdb26f11f7bb', 'rap-q-albums-2000', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque album à son artiste.', '{"left":[{"id":"l1","label":"Le Chant des sirènes"},{"id":"l2","label":"Feu"},{"id":"l3","label":"Temps mort"},{"id":"l4","label":"Opéra Puccino"}],"right":[{"id":"r2","label":"Nekfeu"},{"id":"r1","label":"Orelsan"},{"id":"r3","label":"Booba"},{"id":"r4","label":"Oxmo Puccino"}]}'::jsonb, 2, false, null, 'in_review')
+values ('970c7691-fc9c-5d53-be1c-cdb26f11f7bb', 'rap-q-albums-2000', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque album à son artiste.', '{"left":[{"id":"l1","label":"Le Chant des sirènes"},{"id":"l2","label":"Feu"},{"id":"l3","label":"Temps mort"},{"id":"l4","label":"Opéra Puccino"}],"right":[{"id":"r2","label":"Nekfeu"},{"id":"r1","label":"Orelsan"},{"id":"r3","label":"Booba"},{"id":"r4","label":"Oxmo Puccino"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('970c7691-fc9c-5d53-be1c-cdb26f11f7bb', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'Orelsan (2011), Nekfeu (2015), Booba (2002), Oxmo Puccino (1998).')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e8a1434d-8c46-5264-a3e3-fba639976bcf', 'rap-q-casseurs', (select id from public.universes where slug = 'musique'), 'true_false', 'Orelsan et Gringe forment les Casseurs Flowters.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('e8a1434d-8c46-5264-a3e3-fba639976bcf', 'rap-q-casseurs', (select id from public.universes where slug = 'musique'), 'true_false', 'Orelsan et Gringe forment les Casseurs Flowters.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e8a1434d-8c46-5264-a3e3-fba639976bcf', '{"value":true}'::jsonb, 'Vrai : un duo qui a aussi donné la série Bloqués et le film Comment c’est loin.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b5bf7b14-d750-56a6-867a-26568a6d8127', 'rap-q-frise-2000', (select id from public.universes where slug = 'musique'), 'timeline', 'Remets ces albums dans l’ordre de sortie.', '{"items":[{"id":"t3","label":"L’École des points vitaux, de Sexion d’Assaut"},{"id":"t4","label":"Feu, de Nekfeu"},{"id":"t2","label":"Dans ma bulle, de Diam’s"},{"id":"t1","label":"Mauvais œil, de Lunatic"}]}'::jsonb, 3, false, null, 'in_review')
+values ('b5bf7b14-d750-56a6-867a-26568a6d8127', 'rap-q-frise-2000', (select id from public.universes where slug = 'musique'), 'timeline', 'Remets ces albums dans l’ordre de sortie.', '{"items":[{"id":"t3","label":"L’École des points vitaux, de Sexion d’Assaut"},{"id":"t4","label":"Feu, de Nekfeu"},{"id":"t2","label":"Dans ma bulle, de Diam’s"},{"id":"t1","label":"Mauvais œil, de Lunatic"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b5bf7b14-d750-56a6-867a-26568a6d8127', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"2000","t2":"2006","t3":"2010","t4":"2015"}}'::jsonb, '2000, 2006, 2010, 2015.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9e6c26bb-24bf-5b7a-a792-f9c669115e73', 'rap-q-streaming', (select id from public.universes where slug = 'musique'), 'quiz', 'Que change le SNEP en 2016 ?', '{"options":[{"id":"a","label":"Il compte le streaming dans les certifications"},{"id":"b","label":"Il interdit les CD"},{"id":"c","label":"Il crée les Victoires de la musique"},{"id":"d","label":"Il impose des quotas"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('9e6c26bb-24bf-5b7a-a792-f9c669115e73', 'rap-q-streaming', (select id from public.universes where slug = 'musique'), 'quiz', 'Que change le SNEP en 2016 ?', '{"options":[{"id":"a","label":"Il compte le streaming dans les certifications"},{"id":"b","label":"Il interdit les CD"},{"id":"c","label":"Il crée les Victoires de la musique"},{"id":"d","label":"Il impose des quotas"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9e6c26bb-24bf-5b7a-a792-f9c669115e73', '{"correct":["a"]}'::jsonb, 'Les écoutes en streaming comptent désormais pour les disques d’or et de platine.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f8350e7c-e729-5ae9-a1a0-d337a1ba9bfe', 'rap-q-streaming-rap', (select id from public.universes where slug = 'musique'), 'true_false', 'L’intégration du streaming a fait exploser les certifications du rap.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('f8350e7c-e729-5ae9-a1a0-d337a1ba9bfe', 'rap-q-streaming-rap', (select id from public.universes where slug = 'musique'), 'true_false', 'L’intégration du streaming a fait exploser les certifications du rap.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f8350e7c-e729-5ae9-a1a0-d337a1ba9bfe', '{"value":true}'::jsonb, 'Vrai : le rap, très écouté en streaming, enchaîne les disques d’or.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('4b43cb24-e807-5f11-a0d3-0957f83572e3', 'rap-q-pnl-membres', (select id from public.universes where slug = 'musique'), 'quiz', 'Qui forme le groupe PNL ?', '{"options":[{"id":"a","label":"Deux frères, Ademo et N.O.S"},{"id":"b","label":"Booba et Ali"},{"id":"c","label":"JoeyStarr et Kool Shen"},{"id":"d","label":"Orelsan et Gringe"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('4b43cb24-e807-5f11-a0d3-0957f83572e3', 'rap-q-pnl-membres', (select id from public.universes where slug = 'musique'), 'quiz', 'Qui forme le groupe PNL ?', '{"options":[{"id":"a","label":"Deux frères, Ademo et N.O.S"},{"id":"b","label":"Booba et Ali"},{"id":"c","label":"JoeyStarr et Kool Shen"},{"id":"d","label":"Orelsan et Gringe"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('4b43cb24-e807-5f11-a0d3-0957f83572e3', '{"correct":["a"]}'::jsonb, 'PNL réunit les frères Ademo et N.O.S.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('63e975db-2298-5acf-8beb-a613c65261e1', 'rap-q-pnl-cite', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle cité vient PNL ?', '{"options":[{"id":"a","label":"Les Tarterêts, à Corbeil-Essonnes"},{"id":"b","label":"Les Quartiers Nord, à Marseille"},{"id":"c","label":"La Courneuve"},{"id":"d","label":"Sarcelles"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('63e975db-2298-5acf-8beb-a613c65261e1', 'rap-q-pnl-cite', (select id from public.universes where slug = 'musique'), 'quiz', 'De quelle cité vient PNL ?', '{"options":[{"id":"a","label":"Les Tarterêts, à Corbeil-Essonnes"},{"id":"b","label":"Les Quartiers Nord, à Marseille"},{"id":"c","label":"La Courneuve"},{"id":"d","label":"Sarcelles"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('63e975db-2298-5acf-8beb-a613c65261e1', '{"correct":["a"]}'::jsonb, 'Les frères ont grandi aux Tarterêts, dans l’Essonne.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('445c8a1c-b9aa-5d34-a494-9d6885faa3f7', 'rap-q-pnl-interviews', (select id from public.universes where slug = 'musique'), 'true_false', 'PNL est connu pour donner très peu d’interviews.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('445c8a1c-b9aa-5d34-a494-9d6885faa3f7', 'rap-q-pnl-interviews', (select id from public.universes where slug = 'musique'), 'true_false', 'PNL est connu pour donner très peu d’interviews.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('445c8a1c-b9aa-5d34-a494-9d6885faa3f7', '{"value":true}'::jsonb, 'Vrai : le groupe a construit son succès presque sans passer par les médias.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('74c00071-eef6-51a4-a024-05591a176628', 'rap-q-au-dd', (select id from public.universes where slug = 'musique'), 'quiz', 'Où est tourné le clip d’Au DD ?', '{"options":[{"id":"a","label":"Au sommet de la tour Eiffel"},{"id":"b","label":"Sur le Vieux-Port de Marseille"},{"id":"c","label":"Au Stade de France"},{"id":"d","label":"Dans le métro parisien"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('74c00071-eef6-51a4-a024-05591a176628', 'rap-q-au-dd', (select id from public.universes where slug = 'musique'), 'quiz', 'Où est tourné le clip d’Au DD ?', '{"options":[{"id":"a","label":"Au sommet de la tour Eiffel"},{"id":"b","label":"Sur le Vieux-Port de Marseille"},{"id":"c","label":"Au Stade de France"},{"id":"d","label":"Dans le métro parisien"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('74c00071-eef6-51a4-a024-05591a176628', '{"correct":["a"]}'::jsonb, 'Le clip, tourné en 2019, a marqué les esprits.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('3c5c94c3-c6dd-5900-99d8-de0aec5cda34', 'rap-q-jul-label', (select id from public.universes where slug = 'musique'), 'quiz', 'Comment s’appelle le label de Jul ?', '{"options":[{"id":"a","label":"D’or et de platine"},{"id":"b","label":"92i"},{"id":"c","label":"QLF"},{"id":"d","label":"Def Jam"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('3c5c94c3-c6dd-5900-99d8-de0aec5cda34', 'rap-q-jul-label', (select id from public.universes where slug = 'musique'), 'quiz', 'Comment s’appelle le label de Jul ?', '{"options":[{"id":"a","label":"D’or et de platine"},{"id":"b","label":"92i"},{"id":"c","label":"QLF"},{"id":"d","label":"Def Jam"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('3c5c94c3-c6dd-5900-99d8-de0aec5cda34', '{"correct":["a"]}'::jsonb, 'Jul sort ses disques sur son propre label, en indépendant.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a8eb1321-6754-5ac7-827d-24b1ce090145', 'rap-q-13-organise', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel projet réunit en 2020 des dizaines de rappeurs marseillais ?', '{"options":[{"id":"a","label":"13’Organisé"},{"id":"b","label":"Secteur Ä"},{"id":"c","label":"Rapattitude"},{"id":"d","label":"Mafia K’1 Fry"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('a8eb1321-6754-5ac7-827d-24b1ce090145', 'rap-q-13-organise', (select id from public.universes where slug = 'musique'), 'quiz', 'Quel projet réunit en 2020 des dizaines de rappeurs marseillais ?', '{"options":[{"id":"a","label":"13’Organisé"},{"id":"b","label":"Secteur Ä"},{"id":"c","label":"Rapattitude"},{"id":"d","label":"Mafia K’1 Fry"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a8eb1321-6754-5ac7-827d-24b1ce090145', '{"correct":["a"]}'::jsonb, 'Porté par Jul, avec le titre Bande organisée.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('92575d04-7d4a-5dec-ad5b-8a70c32e2d7d', 'rap-q-damso', (select id from public.universes where slug = 'musique'), 'quiz', 'De quel pays vient Damso ?', '{"options":[{"id":"a","label":"La Belgique"},{"id":"b","label":"La Suisse"},{"id":"c","label":"Le Canada"},{"id":"d","label":"La France"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('92575d04-7d4a-5dec-ad5b-8a70c32e2d7d', 'rap-q-damso', (select id from public.universes where slug = 'musique'), 'quiz', 'De quel pays vient Damso ?', '{"options":[{"id":"a","label":"La Belgique"},{"id":"b","label":"La Suisse"},{"id":"c","label":"Le Canada"},{"id":"d","label":"La France"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('92575d04-7d4a-5dec-ad5b-8a70c32e2d7d', '{"correct":["a"]}'::jsonb, 'Damso est bruxellois. La Belgique est devenue une place forte du rap francophone.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('6ff5e354-a375-5c9f-8079-f853103db1d5', 'rap-q-damso-92i', (select id from public.universes where slug = 'musique'), 'true_false', 'Damso a été révélé sur le label 92i de Booba.', '{}'::jsonb, 3, false, null, 'in_review')
+values ('6ff5e354-a375-5c9f-8079-f853103db1d5', 'rap-q-damso-92i', (select id from public.universes where slug = 'musique'), 'true_false', 'Damso a été révélé sur le label 92i de Booba.', '{}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('6ff5e354-a375-5c9f-8079-f853103db1d5', '{"value":true}'::jsonb, 'Vrai : avant de voler de ses propres ailes.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('40ad0563-7ca7-50b6-a4bf-d05b3d31be8c', 'rap-q-aya-jo', (select id from public.universes where slug = 'musique'), 'quiz', 'Lors de quel événement Aya Nakamura chante-t-elle avec la Garde républicaine ?', '{"options":[{"id":"a","label":"La cérémonie d’ouverture des JO de Paris 2024"},{"id":"b","label":"La finale de la Coupe du monde 2018"},{"id":"c","label":"Le 14 Juillet 2019"},{"id":"d","label":"Les Victoires de la musique 2020"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('40ad0563-7ca7-50b6-a4bf-d05b3d31be8c', 'rap-q-aya-jo', (select id from public.universes where slug = 'musique'), 'quiz', 'Lors de quel événement Aya Nakamura chante-t-elle avec la Garde républicaine ?', '{"options":[{"id":"a","label":"La cérémonie d’ouverture des JO de Paris 2024"},{"id":"b","label":"La finale de la Coupe du monde 2018"},{"id":"c","label":"Le 14 Juillet 2019"},{"id":"d","label":"Les Victoires de la musique 2020"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('40ad0563-7ca7-50b6-a4bf-d05b3d31be8c', '{"correct":["a"]}'::jsonb, 'Une prestation devant l’Académie française, vue dans le monde entier.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e9996022-c8a4-5891-8a92-4d74b99eb3f9', 'rap-q-djadja', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort Djadja, d’Aya Nakamura ?', '{"min":2010,"max":2024}'::jsonb, 3, false, null, 'in_review')
+values ('e9996022-c8a4-5891-8a92-4d74b99eb3f9', 'rap-q-djadja', (select id from public.universes where slug = 'musique'), 'guess_year', 'En quelle année sort Djadja, d’Aya Nakamura ?', '{"min":2010,"max":2024}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e9996022-c8a4-5891-8a92-4d74b99eb3f9', '{"year":2018,"tolerance":2}'::jsonb, 'Djadja sort en 2018 et devient un tube international.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7b47cf5f-caa1-5b7c-9510-65ca04aec3cd', 'rap-q-vocabulaire', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque mot du rap à sa définition.', '{"left":[{"id":"l1","label":"Featuring"},{"id":"l2","label":"Punchline"},{"id":"l3","label":"Freestyle"},{"id":"l4","label":"Beatmaker"}],"right":[{"id":"r3","label":"Une improvisation"},{"id":"r1","label":"Un morceau en invité"},{"id":"r4","label":"Celui qui compose la musique"},{"id":"r2","label":"Une phrase choc"}]}'::jsonb, 2, false, null, 'in_review')
+values ('7b47cf5f-caa1-5b7c-9510-65ca04aec3cd', 'rap-q-vocabulaire', (select id from public.universes where slug = 'musique'), 'match', 'Associe chaque mot du rap à sa définition.', '{"left":[{"id":"l1","label":"Featuring"},{"id":"l2","label":"Punchline"},{"id":"l3","label":"Freestyle"},{"id":"l4","label":"Beatmaker"}],"right":[{"id":"r3","label":"Une improvisation"},{"id":"r1","label":"Un morceau en invité"},{"id":"r4","label":"Celui qui compose la musique"},{"id":"r2","label":"Une phrase choc"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7b47cf5f-caa1-5b7c-9510-65ca04aec3cd', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'Le vocabulaire du rap emprunte beaucoup à l’anglais.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d3b3e198-c1c8-52ca-8ca5-e13fa9bf34a3', 'rap-q-egotrip', (select id from public.universes where slug = 'musique'), 'quiz', 'Que désigne un « egotrip » dans le rap ?', '{"options":[{"id":"a","label":"Un morceau où le rappeur se met en valeur"},{"id":"b","label":"Une tournée à l’étranger"},{"id":"c","label":"Un clip tourné à l’étranger"},{"id":"d","label":"Un album sans invités"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('d3b3e198-c1c8-52ca-8ca5-e13fa9bf34a3', 'rap-q-egotrip', (select id from public.universes where slug = 'musique'), 'quiz', 'Que désigne un « egotrip » dans le rap ?', '{"options":[{"id":"a","label":"Un morceau où le rappeur se met en valeur"},{"id":"b","label":"Une tournée à l’étranger"},{"id":"c","label":"Un clip tourné à l’étranger"},{"id":"d","label":"Un album sans invités"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d3b3e198-c1c8-52ca-8ca5-e13fa9bf34a3', '{"correct":["a"]}'::jsonb, 'L’egotrip consiste à vanter son talent et sa réussite.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7cfd9c4b-1779-5f07-a777-db37f3808e7b', 'rap-q-verlan', (select id from public.universes where slug = 'musique'), 'quiz', 'Que désigne le verlan ?', '{"options":[{"id":"a","label":"L’inversion des syllabes d’un mot"},{"id":"b","label":"Un rythme très lent"},{"id":"c","label":"Un morceau sans refrain"},{"id":"d","label":"Une danse hip-hop"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('7cfd9c4b-1779-5f07-a777-db37f3808e7b', 'rap-q-verlan', (select id from public.universes where slug = 'musique'), 'quiz', 'Que désigne le verlan ?', '{"options":[{"id":"a","label":"L’inversion des syllabes d’un mot"},{"id":"b","label":"Un rythme très lent"},{"id":"c","label":"Un morceau sans refrain"},{"id":"d","label":"Une danse hip-hop"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7cfd9c4b-1779-5f07-a777-db37f3808e7b', '{"correct":["a"]}'::jsonb, '« Relou » pour « lourd », « vénère » pour « énervé » : le verlan est partout dans le rap.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('33aebb95-c912-572e-846a-f3a5834df972', 'rap-q-clash', (select id from public.universes where slug = 'musique'), 'true_false', 'Un clash est un morceau où un rappeur en attaque un autre.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('33aebb95-c912-572e-846a-f3a5834df972', 'rap-q-clash', (select id from public.universes where slug = 'musique'), 'true_false', 'Un clash est un morceau où un rappeur en attaque un autre.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('33aebb95-c912-572e-846a-f3a5834df972', '{"value":true}'::jsonb, 'Vrai : le clash fait partie de la culture rap depuis ses débuts.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8c9b5a93-ce6f-5e5d-b80a-27944f0fd3e5', 'rap-q-drill', (select id from public.universes where slug = 'musique'), 'quiz', 'Où est née la drill ?', '{"options":[{"id":"a","label":"À Chicago"},{"id":"b","label":"À Marseille"},{"id":"c","label":"À Bruxelles"},{"id":"d","label":"À Atlanta"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('8c9b5a93-ce6f-5e5d-b80a-27944f0fd3e5', 'rap-q-drill', (select id from public.universes where slug = 'musique'), 'quiz', 'Où est née la drill ?', '{"options":[{"id":"a","label":"À Chicago"},{"id":"b","label":"À Marseille"},{"id":"c","label":"À Bruxelles"},{"id":"d","label":"À Atlanta"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8c9b5a93-ce6f-5e5d-b80a-27944f0fd3e5', '{"correct":["a"]}'::jsonb, 'Née à Chicago, popularisée à Londres, elle arrive en France à la fin des années 2010.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('db530045-cc01-5c1b-a9cc-7c1242618168', 'rap-q-frise-streaming', (select id from public.universes where slug = 'musique'), 'timeline', 'Remets ces moments dans l’ordre chronologique.', '{"items":[{"id":"t2","label":"Djadja, d’Aya Nakamura"},{"id":"t1","label":"Dans la légende, de PNL"},{"id":"t4","label":"Civilisation, d’Orelsan"},{"id":"t3","label":"13’Organisé"}]}'::jsonb, 3, false, null, 'in_review')
+values ('db530045-cc01-5c1b-a9cc-7c1242618168', 'rap-q-frise-streaming', (select id from public.universes where slug = 'musique'), 'timeline', 'Remets ces moments dans l’ordre chronologique.', '{"items":[{"id":"t2","label":"Djadja, d’Aya Nakamura"},{"id":"t1","label":"Dans la légende, de PNL"},{"id":"t4","label":"Civilisation, d’Orelsan"},{"id":"t3","label":"13’Organisé"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
@@ -597,10 +597,10 @@ insert into public.question_knowledge_items (question_id, knowledge_item_id) val
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('db530045-cc01-5c1b-a9cc-7c1242618168', '3e9066e5-2beb-5381-a3ce-7653f7ada937');
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('db530045-cc01-5c1b-a9cc-7c1242618168', 'ca817baa-337f-575f-87da-712d3a9fbc79');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 'b46560de-ab1b-5e34-b1c3-478994a08eb9', 1, 'Les origines', 'L’arrivée du hip-hop en France et les pionniers des années 1990.', 'in_review')
+values ('0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 'b46560de-ab1b-5e34-b1c3-478994a08eb9', 1, 'Les origines', 'L’arrivée du hip-hop en France et les pionniers des années 1990.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('008c32e8-3a1f-52c1-93d3-a5c6264102d7', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 1, 'rap-le-hip-hop-arrive', 'Le hip-hop débarque', 'Savoir d’où vient le hip-hop et comment il arrive en France.', 'standard', 3, 'in_review')
+values ('008c32e8-3a1f-52c1-93d3-a5c6264102d7', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 1, 'rap-le-hip-hop-arrive', 'Le hip-hop débarque', 'Savoir d’où vient le hip-hop et comment il arrive en France.', 'standard', 3, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '008c32e8-3a1f-52c1-93d3-a5c6264102d7';
@@ -614,7 +614,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('008c
 insert into public.lesson_items (lesson_id, position, question_id) values ('008c32e8-3a1f-52c1-93d3-a5c6264102d7', 4, '1d2077de-df4f-5da8-948b-c305700e44e6');
 insert into public.lesson_items (lesson_id, position, question_id) values ('008c32e8-3a1f-52c1-93d3-a5c6264102d7', 5, 'e68d57c4-e465-5b3d-9df2-36a24ca066ce');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('87f08a60-b41f-5450-a1ed-7b19eac38602', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 2, 'rap-les-pionniers', 'Les pionniers', 'Connaître MC Solaar, IAM et NTM.', 'standard', 4, 'in_review')
+values ('87f08a60-b41f-5450-a1ed-7b19eac38602', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 2, 'rap-les-pionniers', 'Les pionniers', 'Connaître MC Solaar, IAM et NTM.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '87f08a60-b41f-5450-a1ed-7b19eac38602';
@@ -629,7 +629,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('87f0
 insert into public.lesson_items (lesson_id, position, question_id) values ('87f08a60-b41f-5450-a1ed-7b19eac38602', 5, '04917607-247d-5b6b-8701-5614b09478b8');
 insert into public.lesson_items (lesson_id, position, question_id) values ('87f08a60-b41f-5450-a1ed-7b19eac38602', 6, '5f626719-93e9-5b08-81ae-f01f369dec29');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('791aac9c-9ed3-53e3-b4fc-4d7113383e19', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 3, 'rap-l-age-d-or', 'L’âge d’or', 'Comprendre l’explosion du rap à la fin des années 1990.', 'standard', 4, 'in_review')
+values ('791aac9c-9ed3-53e3-b4fc-4d7113383e19', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 3, 'rap-l-age-d-or', 'L’âge d’or', 'Comprendre l’explosion du rap à la fin des années 1990.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '791aac9c-9ed3-53e3-b4fc-4d7113383e19';
@@ -642,7 +642,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('791a
 insert into public.lesson_items (lesson_id, position, question_id) values ('791aac9c-9ed3-53e3-b4fc-4d7113383e19', 4, 'ac90476b-7cfe-5f77-8234-0514ee834e11');
 insert into public.lesson_items (lesson_id, position, question_id) values ('791aac9c-9ed3-53e3-b4fc-4d7113383e19', 5, 'c5f25dd6-c79b-5efe-9ff5-6bbcfc5ef820');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('2d665239-d71d-5e77-9525-38a1abbb1665', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 4, 'rap-epreuve-origines', 'Épreuve : les origines', 'Valide tes connaissances sur les débuts du rap français.', 'exam', 4, 'in_review')
+values ('2d665239-d71d-5e77-9525-38a1abbb1665', '0bfa96c1-dc26-5bc6-8fbe-19b3fa9ec30a', 4, 'rap-epreuve-origines', 'Épreuve : les origines', 'Valide tes connaissances sur les débuts du rap français.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '2d665239-d71d-5e77-9525-38a1abbb1665';
@@ -654,10 +654,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('2d66
 insert into public.lesson_items (lesson_id, position, question_id) values ('2d665239-d71d-5e77-9525-38a1abbb1665', 5, 'f889421f-eeb0-5089-ba7a-aebc6f846474');
 insert into public.lesson_items (lesson_id, position, question_id) values ('2d665239-d71d-5e77-9525-38a1abbb1665', 6, '5c683199-6294-5be5-9295-4d0c35fc297f');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 'b46560de-ab1b-5e34-b1c3-478994a08eb9', 2, 'Les années 2000 et 2010', 'Les poids lourds, le rap qui raconte et la nouvelle vague.', 'in_review')
+values ('87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 'b46560de-ab1b-5e34-b1c3-478994a08eb9', 2, 'Les années 2000 et 2010', 'Les poids lourds, le rap qui raconte et la nouvelle vague.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('a3117a91-550c-583d-b2e1-83d2db4b14d2', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 1, 'rap-les-poids-lourds', 'Les poids lourds', 'Connaître Lunatic, Booba et Diam’s.', 'standard', 4, 'in_review')
+values ('a3117a91-550c-583d-b2e1-83d2db4b14d2', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 1, 'rap-les-poids-lourds', 'Les poids lourds', 'Connaître Lunatic, Booba et Diam’s.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'a3117a91-550c-583d-b2e1-83d2db4b14d2';
@@ -672,7 +672,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('a311
 insert into public.lesson_items (lesson_id, position, question_id) values ('a3117a91-550c-583d-b2e1-83d2db4b14d2', 5, '1ac9a208-c98f-5fa5-afd4-2a6f37562f2e');
 insert into public.lesson_items (lesson_id, position, question_id) values ('a3117a91-550c-583d-b2e1-83d2db4b14d2', 6, '3a4ce915-4951-5fd1-afd3-6ceadcc7931c');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('fa6806f9-615b-5fff-a593-d0e58280d32c', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 2, 'rap-le-rap-qui-raconte', 'Le rap qui raconte', 'Connaître des plumes majeures du rap français.', 'standard', 4, 'in_review')
+values ('fa6806f9-615b-5fff-a593-d0e58280d32c', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 2, 'rap-le-rap-qui-raconte', 'Le rap qui raconte', 'Connaître des plumes majeures du rap français.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'fa6806f9-615b-5fff-a593-d0e58280d32c';
@@ -685,7 +685,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('fa68
 insert into public.lesson_items (lesson_id, position, question_id) values ('fa6806f9-615b-5fff-a593-d0e58280d32c', 4, 'bbb29898-cc50-5cbc-baef-c7f3de861106');
 insert into public.lesson_items (lesson_id, position, question_id) values ('fa6806f9-615b-5fff-a593-d0e58280d32c', 5, '6ee6d6c6-af21-5a16-9448-ebc2e080cc89');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('5210eaeb-abf8-55e3-bd90-3fba3b42e1af', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 3, 'rap-la-nouvelle-vague', 'La nouvelle vague', 'Connaître Sexion d’Assaut, Nekfeu et Orelsan.', 'standard', 4, 'in_review')
+values ('5210eaeb-abf8-55e3-bd90-3fba3b42e1af', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 3, 'rap-la-nouvelle-vague', 'La nouvelle vague', 'Connaître Sexion d’Assaut, Nekfeu et Orelsan.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '5210eaeb-abf8-55e3-bd90-3fba3b42e1af';
@@ -699,7 +699,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('5210
 insert into public.lesson_items (lesson_id, position, question_id) values ('5210eaeb-abf8-55e3-bd90-3fba3b42e1af', 5, '26528f77-d32f-5601-a272-280a308e9628');
 insert into public.lesson_items (lesson_id, position, question_id) values ('5210eaeb-abf8-55e3-bd90-3fba3b42e1af', 6, 'e8a1434d-8c46-5264-a3e3-fba639976bcf');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('73a58e62-e49b-5678-b3f9-5bd7e43b8f4c', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 4, 'rap-epreuve-2000', 'Épreuve : les années 2000 et 2010', 'Valide tes connaissances sur cette période.', 'exam', 4, 'in_review')
+values ('73a58e62-e49b-5678-b3f9-5bd7e43b8f4c', '87d72a3c-90fe-57f7-89c8-343ddc5c1f3e', 4, 'rap-epreuve-2000', 'Épreuve : les années 2000 et 2010', 'Valide tes connaissances sur cette période.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '73a58e62-e49b-5678-b3f9-5bd7e43b8f4c';
@@ -711,10 +711,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('73a5
 insert into public.lesson_items (lesson_id, position, question_id) values ('73a58e62-e49b-5678-b3f9-5bd7e43b8f4c', 5, 'b5bf7b14-d750-56a6-867a-26568a6d8127');
 insert into public.lesson_items (lesson_id, position, question_id) values ('73a58e62-e49b-5678-b3f9-5bd7e43b8f4c', 6, '970c7691-fc9c-5d53-be1c-cdb26f11f7bb');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 'b46560de-ab1b-5e34-b1c3-478994a08eb9', 3, 'L’ère du streaming', 'Le streaming, les têtes d’affiche et les codes du rap.', 'in_review')
+values ('8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 'b46560de-ab1b-5e34-b1c3-478994a08eb9', 3, 'L’ère du streaming', 'Le streaming, les têtes d’affiche et les codes du rap.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('1fa86e65-ef27-5653-b01d-2c85f6c1c8a3', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 1, 'rap-le-streaming', 'Le streaming change tout', 'Comprendre comment le streaming a porté le rap.', 'standard', 4, 'in_review')
+values ('1fa86e65-ef27-5653-b01d-2c85f6c1c8a3', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 1, 'rap-le-streaming', 'Le streaming change tout', 'Comprendre comment le streaming a porté le rap.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '1fa86e65-ef27-5653-b01d-2c85f6c1c8a3';
@@ -728,7 +728,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('1fa8
 insert into public.lesson_items (lesson_id, position, question_id) values ('1fa86e65-ef27-5653-b01d-2c85f6c1c8a3', 5, '74c00071-eef6-51a4-a024-05591a176628');
 insert into public.lesson_items (lesson_id, position, question_id) values ('1fa86e65-ef27-5653-b01d-2c85f6c1c8a3', 6, '445c8a1c-b9aa-5d34-a494-9d6885faa3f7');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('f7ca68e2-7e0a-5427-8c8b-f68d0c6d31f4', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 2, 'rap-les-tetes-d-affiche', 'Les têtes d’affiche', 'Connaître des artistes majeurs d’aujourd’hui.', 'standard', 4, 'in_review')
+values ('f7ca68e2-7e0a-5427-8c8b-f68d0c6d31f4', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 2, 'rap-les-tetes-d-affiche', 'Les têtes d’affiche', 'Connaître des artistes majeurs d’aujourd’hui.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'f7ca68e2-7e0a-5427-8c8b-f68d0c6d31f4';
@@ -742,7 +742,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('f7ca
 insert into public.lesson_items (lesson_id, position, question_id) values ('f7ca68e2-7e0a-5427-8c8b-f68d0c6d31f4', 4, '6ff5e354-a375-5c9f-8079-f853103db1d5');
 insert into public.lesson_items (lesson_id, position, question_id) values ('f7ca68e2-7e0a-5427-8c8b-f68d0c6d31f4', 5, '40ad0563-7ca7-50b6-a4bf-d05b3d31be8c');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('98c59e1c-2dc5-503c-8a73-0efbce64315b', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 3, 'rap-les-codes-du-rap', 'Les codes du rap', 'Maîtriser le vocabulaire du rap.', 'standard', 4, 'in_review')
+values ('98c59e1c-2dc5-503c-8a73-0efbce64315b', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 3, 'rap-les-codes-du-rap', 'Les codes du rap', 'Maîtriser le vocabulaire du rap.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '98c59e1c-2dc5-503c-8a73-0efbce64315b';
@@ -755,7 +755,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('98c5
 insert into public.lesson_items (lesson_id, position, question_id) values ('98c59e1c-2dc5-503c-8a73-0efbce64315b', 4, '33aebb95-c912-572e-846a-f3a5834df972');
 insert into public.lesson_items (lesson_id, position, question_id) values ('98c59e1c-2dc5-503c-8a73-0efbce64315b', 5, '8c9b5a93-ce6f-5e5d-b80a-27944f0fd3e5');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('57733e2c-4a19-5bdb-bfb7-9886181d0cc8', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 4, 'rap-epreuve-streaming', 'Épreuve : l’ère du streaming', 'Valide tes connaissances sur le rap d’aujourd’hui.', 'exam', 4, 'in_review')
+values ('57733e2c-4a19-5bdb-bfb7-9886181d0cc8', '8bc5e594-c70f-5d5a-9879-d184ba83d9a7', 4, 'rap-epreuve-streaming', 'Épreuve : l’ère du streaming', 'Valide tes connaissances sur le rap d’aujourd’hui.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '57733e2c-4a19-5bdb-bfb7-9886181d0cc8';

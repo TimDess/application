@@ -16,13 +16,21 @@ describe('course content', () => {
     expect(parsed.success ? [] : parsed.error.issues.map((i) => i.message)).toEqual([])
   })
 
-  it('keeps AI-written courses in review unless validated', () => {
+  it('keeps AI-written courses in review until a human validates them', () => {
+    // Add a course here only once it has been reviewed and approved.
+    const validated = new Set([
+      'comprendre-la-f1',
+      'histoire-des-consoles',
+      'le-rap-francais',
+      'les-sagas-cultes',
+      'la-coupe-du-monde',
+    ])
     for (const path of files(CONTENT)) {
       const file = JSON.parse(readFileSync(path, 'utf8')) as {
         status: string
         course: { slug: string }
       }
-      if (file.course.slug !== 'comprendre-la-f1') expect(file.status, path).not.toBe('published')
+      if (!validated.has(file.course.slug)) expect(file.status, path).not.toBe('published')
     }
   })
 
