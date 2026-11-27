@@ -60,7 +60,7 @@ export default function LandingPage() {
         <h2 id="piliers" className="sr-only">
           Ce que tu fais sur {brand.name}
         </h2>
-        <ul className="grid gap-4 md:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {pillars.map(({ icon: Icon, title, text }) => (
             <li key={title} className="glass flex flex-col gap-3 rounded-card p-5">
               <span className="grid size-10 place-items-center rounded-md bg-accent/15 text-accent-text">
@@ -82,7 +82,7 @@ export default function LandingPage() {
             Neuf univers au total, du cinéma à la géographie. On commence par ceux-là.
           </p>
         </div>
-        <ul className="grid gap-3 sm:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {firstUniverses.map((u) => (
             <li key={u.name} className="glass flex flex-col gap-1 rounded-card p-4">
               <span className="font-display text-heading font-semibold text-ink">{u.name}</span>

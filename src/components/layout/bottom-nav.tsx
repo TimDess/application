@@ -17,7 +17,11 @@ export function BottomNavView({ pathname }: { pathname: string }) {
       aria-label="Navigation principale"
       className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-40 lg:hidden"
     >
-      <ul className="glass-strong mx-auto grid h-[68px] max-w-lg grid-cols-5 items-center rounded-[26px] px-1.5">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-x-0 bottom-0 -z-10 h-36 bg-linear-to-t from-(--bg-deep) via-(--bg-deep)/85 to-transparent"
+      />
+      <ul className="glass-nav mx-auto grid h-[68px] max-w-lg grid-cols-5 items-center rounded-[26px] px-1.5">
         {primaryNav.map(({ href, label, icon: Icon }) => {
           const active = isActive(pathname, href)
           return (
