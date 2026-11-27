@@ -22,7 +22,7 @@
     "check": "pnpm typecheck && pnpm lint && pnpm test",
     "db:test:psql": "bash scripts/db-test.sh",
     "content:build": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/content-build.mts",
-    "content:local": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/content-build.mts --publish && psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -X -q -v ON_ERROR_STOP=1 -f supabase/content/comprendre-la-f1.published.sql"
+    "content:local": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/content-build.mts --publish && for f in supabase/content/*.published.sql; do psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -X -q -v ON_ERROR_STOP=1 -f \"$f\" || exit 1; done"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.5.0",

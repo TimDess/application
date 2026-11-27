@@ -1,0 +1,1601 @@
+{
+  "universe": "sport",
+  "status": "in_review",
+  "category": {
+    "slug": "football",
+    "name": "Football",
+    "description": "Les compétitions, les légendes et les grands moments du football."
+  },
+  "course": {
+    "slug": "la-coupe-du-monde",
+    "title": "La Coupe du monde de football",
+    "description": "De l’Uruguay 1930 aux éditions à 48 équipes : l’histoire, les légendes et les grandes finales de la Coupe du monde, Bleus compris.",
+    "level": "debutant"
+  },
+  "knowledge": [
+    {
+      "key": "cdm-fifa-1904",
+      "title": "La FIFA, fondée à Paris en 1904",
+      "summary": "La Fédération internationale de football association (FIFA) est fondée à Paris le 21 mai 1904.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-rimet",
+      "title": "Jules Rimet, père de la Coupe du monde",
+      "summary": "Le Français Jules Rimet, président de la FIFA de 1921 à 1954, est à l’origine de la Coupe du monde. Le premier trophée porte son nom.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-1930",
+      "title": "La première Coupe du monde, en Uruguay",
+      "summary": "La première Coupe du monde se joue en 1930 en Uruguay, avec 13 équipes. L’Uruguay bat l’Argentine en finale (4-2).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-rythme",
+      "title": "Une compétition tous les quatre ans",
+      "summary": "La Coupe du monde a lieu tous les quatre ans. Les éditions de 1942 et 1946 n’ont pas eu lieu à cause de la Seconde Guerre mondiale.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-italie-30s",
+      "title": "L’Italie championne en 1934 et 1938",
+      "summary": "L’Italie remporte les éditions de 1934, chez elle, et de 1938, en France.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-maracanazo",
+      "title": "Le Maracanazo de 1950",
+      "summary": "En 1950, au Maracanã, l’Uruguay bat le Brésil 2-1 lors du match décisif et remporte la Coupe du monde : un traumatisme national au Brésil.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-fontaine",
+      "title": "Just Fontaine et ses 13 buts",
+      "summary": "En 1958, le Français Just Fontaine marque 13 buts lors d’une seule Coupe du monde, un record toujours d’actualité. La France termine troisième.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-pele",
+      "title": "Pelé, triple champion du monde",
+      "summary": "Pelé remporte la Coupe du monde en 1958 (à 17 ans), 1962 et 1970 : il est le seul joueur triple champion du monde.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-trophee",
+      "title": "Le trophée Jules-Rimet et le trophée actuel",
+      "summary": "Avec son troisième titre en 1970, le Brésil garde définitivement le trophée Jules-Rimet, volé en 1983 et jamais retrouvé. Le trophée actuel est remis depuis 1974.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-1966",
+      "title": "L’Angleterre championne en 1966",
+      "summary": "L’Angleterre remporte sa seule Coupe du monde en 1966, à domicile. En finale, Geoff Hurst réussit un triplé.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-palmares-bresil",
+      "title": "Le Brésil, nation la plus titrée",
+      "summary": "À l’issue de 2022, le Brésil est la nation la plus titrée avec cinq Coupes du monde : 1958, 1962, 1970, 1994 et 2002.",
+      "verifiedAt": "2026-11-28",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-palmares-europe",
+      "title": "Allemagne et Italie, quatre titres chacune",
+      "summary": "À l’issue de 2022, l’Allemagne (1954, 1974, 1990, 2014) et l’Italie (1934, 1938, 1982, 2006) comptent quatre titres chacune.",
+      "verifiedAt": "2026-11-28",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-palmares-autres",
+      "title": "Les autres champions du monde",
+      "summary": "À l’issue de 2022 : Argentine 3 titres, France 2, Uruguay 2, Angleterre 1, Espagne 1 (2010).",
+      "verifiedAt": "2026-11-28",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-maradona-1986",
+      "title": "Maradona et le Mondial 1986",
+      "summary": "Au Mexique en 1986, Diego Maradona marque contre l’Angleterre la « main de Dieu » puis le « but du siècle », et mène l’Argentine au titre.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-finale-2022",
+      "title": "La finale de 2022",
+      "summary": "Le 18 décembre 2022, l’Argentine de Lionel Messi bat la France aux tirs au but (3-3, puis 4-2) dans une finale historique.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-mbappe-triple",
+      "title": "Le triplé de Mbappé en finale",
+      "summary": "En 2022, Kylian Mbappé marque trois buts en finale. Seul Geoff Hurst, en 1966, avait réussi un triplé en finale.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-klose",
+      "title": "Miroslav Klose, meilleur buteur de l’histoire",
+      "summary": "À l’issue de 2022, l’Allemand Miroslav Klose détient le record de buts en Coupe du monde, avec 16 réalisations (2002-2014).",
+      "verifiedAt": "2026-11-28",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-1998",
+      "title": "La France championne du monde en 1998",
+      "summary": "Le 12 juillet 1998, au Stade de France, la France bat le Brésil 3-0 en finale. Zinédine Zidane marque deux buts de la tête.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-jacquet-deschamps",
+      "title": "Aimé Jacquet et Didier Deschamps",
+      "summary": "En 1998, Aimé Jacquet est le sélectionneur des Bleus et Didier Deschamps leur capitaine.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-2006",
+      "title": "La finale de 2006",
+      "summary": "En 2006, à Berlin, la France perd la finale contre l’Italie aux tirs au but. Zidane est expulsé pour un coup de tête sur Marco Materazzi.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-2018",
+      "title": "La France championne du monde en 2018",
+      "summary": "Le 15 juillet 2018, à Moscou, la France bat la Croatie 4-2 en finale et décroche sa deuxième étoile.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-deschamps-double",
+      "title": "Deschamps, champion joueur et sélectionneur",
+      "summary": "En 2018, Didier Deschamps devient le troisième à gagner la Coupe du monde comme joueur et comme sélectionneur, après Mário Zagallo et Franz Beckenbauer.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-qatar-hiver",
+      "title": "Le Qatar 2022, première Coupe du monde en hiver",
+      "summary": "La Coupe du monde 2022 au Qatar se joue en novembre et décembre, une première, pour éviter la chaleur de l’été.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-2026-48",
+      "title": "La Coupe du monde 2026 à 48 équipes",
+      "summary": "La Coupe du monde 2026, organisée par les États-Unis, le Canada et le Mexique, est la première à 48 équipes, avec 104 matchs.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-2030",
+      "title": "La Coupe du monde 2030, édition du centenaire",
+      "summary": "En 2030, la Coupe du monde se joue au Maroc, en Espagne et au Portugal. Pour fêter le centenaire, trois matchs ont lieu en Uruguay, en Argentine et au Paraguay.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "cdm-2034",
+      "title": "La Coupe du monde 2034 en Arabie saoudite",
+      "summary": "La FIFA a attribué la Coupe du monde 2034 à l’Arabie saoudite.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "cdm-q-fifa",
+      "format": "quiz",
+      "prompt": "Dans quelle ville la FIFA est-elle fondée en 1904 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-fifa-1904"],
+      "options": [
+        {
+          "label": "Paris",
+          "correct": true
+        },
+        {
+          "label": "Zurich"
+        },
+        {
+          "label": "Londres"
+        },
+        {
+          "label": "Montevideo"
+        }
+      ],
+      "explanation": "La FIFA naît à Paris en 1904. Son siège est aujourd’hui à Zurich."
+    },
+    {
+      "key": "cdm-q-rimet",
+      "format": "quiz",
+      "prompt": "Qui est à l’origine de la Coupe du monde ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-rimet"],
+      "options": [
+        {
+          "label": "Jules Rimet",
+          "correct": true
+        },
+        {
+          "label": "Pierre de Coubertin"
+        },
+        {
+          "label": "Henri Delaunay"
+        },
+        {
+          "label": "Gabriel Hanot"
+        }
+      ],
+      "explanation": "Le Français Jules Rimet, président de la FIFA, lance la compétition."
+    },
+    {
+      "key": "cdm-q-1930-pays",
+      "format": "quiz",
+      "prompt": "Où se joue la première Coupe du monde, en 1930 ?",
+      "difficulty": 1,
+      "knowledge": ["cdm-1930"],
+      "options": [
+        {
+          "label": "En Uruguay",
+          "correct": true
+        },
+        {
+          "label": "En France"
+        },
+        {
+          "label": "Au Brésil"
+        },
+        {
+          "label": "En Italie"
+        }
+      ],
+      "explanation": "L’Uruguay organise et remporte la première édition."
+    },
+    {
+      "key": "cdm-q-1930-vainqueur",
+      "format": "quiz",
+      "prompt": "Qui remporte la première Coupe du monde ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-1930"],
+      "options": [
+        {
+          "label": "L’Uruguay",
+          "correct": true
+        },
+        {
+          "label": "L’Argentine"
+        },
+        {
+          "label": "Le Brésil"
+        },
+        {
+          "label": "L’Italie"
+        }
+      ],
+      "explanation": "L’Uruguay bat l’Argentine 4-2 en finale, à Montevideo."
+    },
+    {
+      "key": "cdm-q-1942",
+      "format": "true_false",
+      "prompt": "La Coupe du monde a eu lieu en 1942 et 1946.",
+      "difficulty": 1,
+      "knowledge": ["cdm-rythme"],
+      "answer": false,
+      "explanation": "Faux : ces deux éditions sont annulées à cause de la Seconde Guerre mondiale."
+    },
+    {
+      "key": "cdm-q-rythme",
+      "format": "quiz",
+      "prompt": "À quel rythme la Coupe du monde a-t-elle lieu ?",
+      "difficulty": 1,
+      "knowledge": ["cdm-rythme"],
+      "options": [
+        {
+          "label": "Tous les deux ans"
+        },
+        {
+          "label": "Tous les quatre ans",
+          "correct": true
+        },
+        {
+          "label": "Tous les cinq ans"
+        },
+        {
+          "label": "Chaque année"
+        }
+      ],
+      "explanation": "Comme les Jeux olympiques, elle revient tous les quatre ans."
+    },
+    {
+      "key": "cdm-q-italie-30s",
+      "format": "quiz",
+      "prompt": "Quelle nation remporte les Coupes du monde 1934 et 1938 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-italie-30s"],
+      "options": [
+        {
+          "label": "L’Italie",
+          "correct": true
+        },
+        {
+          "label": "L’Allemagne"
+        },
+        {
+          "label": "L’Uruguay"
+        },
+        {
+          "label": "La Hongrie"
+        }
+      ],
+      "explanation": "L’Italie gagne chez elle en 1934, puis en France en 1938."
+    },
+    {
+      "key": "cdm-q-maracanazo",
+      "format": "quiz",
+      "prompt": "Que désigne le « Maracanazo » ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-maracanazo"],
+      "options": [
+        {
+          "label": "La victoire de l’Uruguay sur le Brésil en 1950",
+          "correct": true
+        },
+        {
+          "label": "La défaite du Brésil contre l’Allemagne en 2014"
+        },
+        {
+          "label": "La construction du Maracanã"
+        },
+        {
+          "label": "Le premier titre du Brésil"
+        }
+      ],
+      "explanation": "Au Maracanã, devant près de 200 000 spectateurs, l’Uruguay s’impose 2-1."
+    },
+    {
+      "key": "cdm-q-1950-hote",
+      "format": "true_false",
+      "prompt": "La Coupe du monde 1950 se joue au Brésil.",
+      "difficulty": 1,
+      "knowledge": ["cdm-maracanazo"],
+      "answer": true,
+      "explanation": "Vrai : le match décisif a lieu au Maracanã, à Rio de Janeiro."
+    },
+    {
+      "key": "cdm-q-fontaine",
+      "format": "quiz",
+      "prompt": "Combien de buts Just Fontaine marque-t-il lors de la Coupe du monde 1958 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-fontaine"],
+      "options": [
+        {
+          "label": "8"
+        },
+        {
+          "label": "10"
+        },
+        {
+          "label": "13",
+          "correct": true
+        },
+        {
+          "label": "16"
+        }
+      ],
+      "explanation": "13 buts en une seule édition : un record jamais égalé."
+    },
+    {
+      "key": "cdm-q-1958-france",
+      "format": "true_false",
+      "prompt": "La France termine troisième de la Coupe du monde 1958.",
+      "difficulty": 2,
+      "knowledge": ["cdm-fontaine"],
+      "answer": true,
+      "explanation": "Vrai : portée par Just Fontaine et Raymond Kopa."
+    },
+    {
+      "key": "cdm-q-pele-titres",
+      "format": "quiz",
+      "prompt": "Combien de Coupes du monde Pelé a-t-il remportées ?",
+      "difficulty": 1,
+      "knowledge": ["cdm-pele"],
+      "options": [
+        {
+          "label": "1"
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "3",
+          "correct": true
+        },
+        {
+          "label": "4"
+        }
+      ],
+      "explanation": "En 1958, 1962 et 1970 : il est le seul triple champion du monde."
+    },
+    {
+      "key": "cdm-q-pele-17",
+      "format": "guess_year",
+      "prompt": "En quelle année Pelé devient-il champion du monde à 17 ans ?",
+      "difficulty": 3,
+      "knowledge": ["cdm-pele"],
+      "year": 1958,
+      "tolerance": 2,
+      "min": 1950,
+      "max": 1970,
+      "explanation": "En 1958, en Suède, le jeune Pelé brille en finale."
+    },
+    {
+      "key": "cdm-q-trophee-vole",
+      "format": "true_false",
+      "prompt": "Le trophée Jules-Rimet a été volé et n’a jamais été retrouvé.",
+      "difficulty": 3,
+      "knowledge": ["cdm-trophee"],
+      "answer": true,
+      "explanation": "Vrai : gardé par le Brésil après 1970, il est volé à Rio en 1983."
+    },
+    {
+      "key": "cdm-q-trophee-garde",
+      "format": "quiz",
+      "prompt": "Pourquoi le Brésil garde-t-il définitivement le trophée Jules-Rimet ?",
+      "difficulty": 3,
+      "knowledge": ["cdm-trophee"],
+      "options": [
+        {
+          "label": "Grâce à son troisième titre, en 1970",
+          "correct": true
+        },
+        {
+          "label": "Parce qu’il l’a fabriqué"
+        },
+        {
+          "label": "Parce qu’il a organisé 1950"
+        },
+        {
+          "label": "Pour récompenser Pelé"
+        }
+      ],
+      "explanation": "Le règlement prévoyait que le premier triple vainqueur le garderait."
+    },
+    {
+      "key": "cdm-q-1966",
+      "format": "quiz",
+      "prompt": "Quelle nation est championne du monde en 1966, à domicile ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-1966"],
+      "options": [
+        {
+          "label": "L’Angleterre",
+          "correct": true
+        },
+        {
+          "label": "L’Allemagne"
+        },
+        {
+          "label": "Le Brésil"
+        },
+        {
+          "label": "Le Portugal"
+        }
+      ],
+      "explanation": "C’est le seul titre mondial de l’Angleterre."
+    },
+    {
+      "key": "cdm-q-frise-origines",
+      "format": "timeline",
+      "prompt": "Remets ces moments dans l’ordre chronologique.",
+      "difficulty": 3,
+      "knowledge": ["cdm-fifa-1904", "cdm-1930", "cdm-maracanazo", "cdm-1966"],
+      "items": [
+        {
+          "label": "Fondation de la FIFA",
+          "date": "1904"
+        },
+        {
+          "label": "Première Coupe du monde",
+          "date": "1930"
+        },
+        {
+          "label": "Le Maracanazo",
+          "date": "1950"
+        },
+        {
+          "label": "Titre de l’Angleterre",
+          "date": "1966"
+        }
+      ],
+      "explanation": "1904, 1930, 1950, 1966."
+    },
+    {
+      "key": "cdm-q-hotes",
+      "format": "match",
+      "prompt": "Associe chaque édition à son pays organisateur.",
+      "difficulty": 2,
+      "knowledge": ["cdm-1930", "cdm-maracanazo", "cdm-1966"],
+      "pairs": [
+        {
+          "left": "1930",
+          "right": "Uruguay"
+        },
+        {
+          "left": "1950",
+          "right": "Brésil"
+        },
+        {
+          "left": "1966",
+          "right": "Angleterre"
+        }
+      ],
+      "explanation": "Uruguay en 1930, Brésil en 1950, Angleterre en 1966."
+    },
+    {
+      "key": "cdm-q-plus-titree",
+      "format": "quiz",
+      "prompt": "À l’issue de 2022, quelle est la nation la plus titrée en Coupe du monde ?",
+      "difficulty": 1,
+      "knowledge": ["cdm-palmares-bresil"],
+      "options": [
+        {
+          "label": "Le Brésil",
+          "correct": true
+        },
+        {
+          "label": "L’Allemagne"
+        },
+        {
+          "label": "L’Italie"
+        },
+        {
+          "label": "L’Argentine"
+        }
+      ],
+      "explanation": "Cinq titres : 1958, 1962, 1970, 1994 et 2002.",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-q-allemagne",
+      "format": "quiz",
+      "prompt": "À l’issue de 2022, combien de titres compte l’Allemagne ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-palmares-europe"],
+      "options": [
+        {
+          "label": "2"
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "4",
+          "correct": true
+        },
+        {
+          "label": "5"
+        }
+      ],
+      "explanation": "1954, 1974, 1990 et 2014. L’Italie en compte autant.",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-q-espagne",
+      "format": "true_false",
+      "prompt": "L’Espagne a remporté la Coupe du monde 2010.",
+      "difficulty": 1,
+      "knowledge": ["cdm-palmares-autres"],
+      "answer": true,
+      "explanation": "Vrai : en Afrique du Sud, face aux Pays-Bas (1-0)."
+    },
+    {
+      "key": "cdm-q-palmares",
+      "format": "match",
+      "prompt": "À l’issue de 2022, associe chaque nation à son nombre de titres.",
+      "difficulty": 3,
+      "knowledge": ["cdm-palmares-bresil", "cdm-palmares-europe", "cdm-palmares-autres"],
+      "pairs": [
+        {
+          "left": "Brésil",
+          "right": "5 titres"
+        },
+        {
+          "left": "Italie",
+          "right": "4 titres"
+        },
+        {
+          "left": "Argentine",
+          "right": "3 titres"
+        },
+        {
+          "left": "France",
+          "right": "2 titres"
+        }
+      ],
+      "explanation": "Le classement avant la Coupe du monde 2026.",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-q-main-de-dieu",
+      "format": "quiz",
+      "prompt": "Contre quelle équipe Maradona marque-t-il la « main de Dieu » ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-maradona-1986"],
+      "options": [
+        {
+          "label": "L’Angleterre",
+          "correct": true
+        },
+        {
+          "label": "L’Allemagne"
+        },
+        {
+          "label": "Le Brésil"
+        },
+        {
+          "label": "L’Italie"
+        }
+      ],
+      "explanation": "En quart de finale du Mondial 1986, quelques minutes avant le « but du siècle »."
+    },
+    {
+      "key": "cdm-q-1986",
+      "format": "guess_year",
+      "prompt": "En quelle année l’Argentine de Maradona est-elle championne du monde ?",
+      "difficulty": 3,
+      "knowledge": ["cdm-maradona-1986"],
+      "year": 1986,
+      "tolerance": 2,
+      "min": 1970,
+      "max": 2000,
+      "explanation": "Au Mexique, en 1986."
+    },
+    {
+      "key": "cdm-q-finale-2022",
+      "format": "quiz",
+      "prompt": "Comment se termine la finale de 2022 entre l’Argentine et la France ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-finale-2022"],
+      "options": [
+        {
+          "label": "3-3, puis victoire de l’Argentine aux tirs au but",
+          "correct": true
+        },
+        {
+          "label": "2-0 pour l’Argentine"
+        },
+        {
+          "label": "4-2 pour la France"
+        },
+        {
+          "label": "1-0 pour l’Argentine en prolongation"
+        }
+      ],
+      "explanation": "Une finale folle, conclue 4-2 aux tirs au but."
+    },
+    {
+      "key": "cdm-q-messi",
+      "format": "true_false",
+      "prompt": "Lionel Messi a remporté la Coupe du monde.",
+      "difficulty": 1,
+      "knowledge": ["cdm-finale-2022"],
+      "answer": true,
+      "explanation": "Vrai : en 2022, au Qatar."
+    },
+    {
+      "key": "cdm-q-triple-finale",
+      "format": "quiz",
+      "prompt": "Combien de buts Kylian Mbappé marque-t-il en finale de 2022 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-mbappe-triple"],
+      "options": [
+        {
+          "label": "1"
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "3",
+          "correct": true
+        },
+        {
+          "label": "4"
+        }
+      ],
+      "explanation": "Un triplé en finale, comme Geoff Hurst en 1966."
+    },
+    {
+      "key": "cdm-q-hurst",
+      "format": "quiz",
+      "prompt": "Avant Mbappé, qui avait réussi un triplé en finale de Coupe du monde ?",
+      "difficulty": 3,
+      "knowledge": ["cdm-mbappe-triple", "cdm-1966"],
+      "options": [
+        {
+          "label": "Geoff Hurst",
+          "correct": true
+        },
+        {
+          "label": "Pelé"
+        },
+        {
+          "label": "Gerd Müller"
+        },
+        {
+          "label": "Ronaldo"
+        }
+      ],
+      "explanation": "L’Anglais Geoff Hurst, en 1966."
+    },
+    {
+      "key": "cdm-q-klose",
+      "format": "quiz",
+      "prompt": "À l’issue de 2022, qui est le meilleur buteur de l’histoire de la Coupe du monde ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-klose"],
+      "options": [
+        {
+          "label": "Miroslav Klose",
+          "correct": true
+        },
+        {
+          "label": "Ronaldo"
+        },
+        {
+          "label": "Pelé"
+        },
+        {
+          "label": "Just Fontaine"
+        }
+      ],
+      "explanation": "L’Allemand a marqué 16 buts entre 2002 et 2014.",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-q-klose-buts",
+      "format": "quiz",
+      "prompt": "Combien de buts Miroslav Klose a-t-il marqués en Coupe du monde ?",
+      "difficulty": 3,
+      "knowledge": ["cdm-klose"],
+      "options": [
+        {
+          "label": "13"
+        },
+        {
+          "label": "15"
+        },
+        {
+          "label": "16",
+          "correct": true
+        },
+        {
+          "label": "19"
+        }
+      ],
+      "explanation": "16 buts en quatre éditions, de 2002 à 2014.",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-q-records",
+      "format": "match",
+      "prompt": "Associe chaque record à son détenteur.",
+      "difficulty": 3,
+      "knowledge": ["cdm-klose", "cdm-fontaine", "cdm-pele"],
+      "pairs": [
+        {
+          "left": "16 buts au total (à l’issue de 2022)",
+          "right": "Miroslav Klose"
+        },
+        {
+          "left": "13 buts en une édition",
+          "right": "Just Fontaine"
+        },
+        {
+          "left": "3 titres de champion",
+          "right": "Pelé"
+        }
+      ],
+      "explanation": "Trois records emblématiques de la compétition.",
+      "isEvolving": true,
+      "validAsOf": "2022-12-18"
+    },
+    {
+      "key": "cdm-q-frise-titres",
+      "format": "timeline",
+      "prompt": "Remets ces titres dans l’ordre chronologique.",
+      "difficulty": 3,
+      "knowledge": [
+        "cdm-maradona-1986",
+        "cdm-palmares-bresil",
+        "cdm-palmares-autres",
+        "cdm-finale-2022"
+      ],
+      "items": [
+        {
+          "label": "Argentine de Maradona",
+          "date": "1986"
+        },
+        {
+          "label": "Brésil, cinquième titre",
+          "date": "2002"
+        },
+        {
+          "label": "Espagne",
+          "date": "2010"
+        },
+        {
+          "label": "Argentine de Messi",
+          "date": "2022"
+        }
+      ],
+      "explanation": "1986, 2002, 2010, 2022."
+    },
+    {
+      "key": "cdm-q-1998-adversaire",
+      "format": "quiz",
+      "prompt": "Contre qui la France gagne-t-elle la finale de 1998 ?",
+      "difficulty": 1,
+      "knowledge": ["cdm-1998"],
+      "options": [
+        {
+          "label": "Le Brésil",
+          "correct": true
+        },
+        {
+          "label": "L’Italie"
+        },
+        {
+          "label": "L’Allemagne"
+        },
+        {
+          "label": "La Croatie"
+        }
+      ],
+      "explanation": "La France bat le Brésil 3-0 au Stade de France."
+    },
+    {
+      "key": "cdm-q-1998-score",
+      "format": "quiz",
+      "prompt": "Quel est le score de la finale de 1998 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-1998"],
+      "options": [
+        {
+          "label": "3-0",
+          "correct": true
+        },
+        {
+          "label": "2-1"
+        },
+        {
+          "label": "1-0"
+        },
+        {
+          "label": "4-2"
+        }
+      ],
+      "explanation": "Deux buts de la tête de Zidane, puis un d’Emmanuel Petit."
+    },
+    {
+      "key": "cdm-q-zidane-tete",
+      "format": "true_false",
+      "prompt": "En finale de 1998, Zidane marque deux buts de la tête.",
+      "difficulty": 1,
+      "knowledge": ["cdm-1998"],
+      "answer": true,
+      "explanation": "Vrai : sur deux corners, en première période."
+    },
+    {
+      "key": "cdm-q-jacquet",
+      "format": "quiz",
+      "prompt": "Qui est le sélectionneur des Bleus en 1998 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-jacquet-deschamps"],
+      "options": [
+        {
+          "label": "Aimé Jacquet",
+          "correct": true
+        },
+        {
+          "label": "Didier Deschamps"
+        },
+        {
+          "label": "Raymond Domenech"
+        },
+        {
+          "label": "Michel Hidalgo"
+        }
+      ],
+      "explanation": "Didier Deschamps est alors le capitaine."
+    },
+    {
+      "key": "cdm-q-1998-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année la France remporte-t-elle sa première Coupe du monde ?",
+      "difficulty": 3,
+      "knowledge": ["cdm-1998"],
+      "year": 1998,
+      "tolerance": 1,
+      "min": 1980,
+      "max": 2010,
+      "explanation": "Le 12 juillet 1998, à domicile."
+    },
+    {
+      "key": "cdm-q-2006",
+      "format": "quiz",
+      "prompt": "Contre qui la France perd-elle la finale de 2006 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-2006"],
+      "options": [
+        {
+          "label": "L’Italie",
+          "correct": true
+        },
+        {
+          "label": "Le Portugal"
+        },
+        {
+          "label": "L’Allemagne"
+        },
+        {
+          "label": "Le Brésil"
+        }
+      ],
+      "explanation": "À Berlin, aux tirs au but, après le coup de tête de Zidane sur Materazzi."
+    },
+    {
+      "key": "cdm-q-zidane-rouge",
+      "format": "true_false",
+      "prompt": "Zidane a été expulsé lors de la finale de 2006.",
+      "difficulty": 1,
+      "knowledge": ["cdm-2006"],
+      "answer": true,
+      "explanation": "Vrai : pour un coup de tête sur Marco Materazzi, en prolongation."
+    },
+    {
+      "key": "cdm-q-2018",
+      "format": "quiz",
+      "prompt": "Contre qui la France gagne-t-elle la finale de 2018 ?",
+      "difficulty": 1,
+      "knowledge": ["cdm-2018"],
+      "options": [
+        {
+          "label": "La Croatie",
+          "correct": true
+        },
+        {
+          "label": "La Belgique"
+        },
+        {
+          "label": "L’Argentine"
+        },
+        {
+          "label": "L’Angleterre"
+        }
+      ],
+      "explanation": "Victoire 4-2 à Moscou : deuxième étoile pour les Bleus."
+    },
+    {
+      "key": "cdm-q-deschamps",
+      "format": "quiz",
+      "prompt": "Qu’a de particulier le titre de Didier Deschamps en 2018 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-deschamps-double"],
+      "options": [
+        {
+          "label": "Il gagne comme sélectionneur après avoir gagné comme joueur",
+          "correct": true
+        },
+        {
+          "label": "Il marque en finale"
+        },
+        {
+          "label": "C’est son premier match comme sélectionneur"
+        },
+        {
+          "label": "Il est le plus jeune sélectionneur champion"
+        }
+      ],
+      "explanation": "Il rejoint Mário Zagallo et Franz Beckenbauer."
+    },
+    {
+      "key": "cdm-q-bleus",
+      "format": "match",
+      "prompt": "Associe chaque Coupe du monde des Bleus à son issue.",
+      "difficulty": 3,
+      "knowledge": ["cdm-1998", "cdm-2006", "cdm-2018", "cdm-finale-2022"],
+      "pairs": [
+        {
+          "left": "1998",
+          "right": "Champions contre le Brésil"
+        },
+        {
+          "left": "2006",
+          "right": "Finalistes contre l’Italie"
+        },
+        {
+          "left": "2018",
+          "right": "Champions contre la Croatie"
+        },
+        {
+          "left": "2022",
+          "right": "Finalistes contre l’Argentine"
+        }
+      ],
+      "explanation": "Quatre finales en sept éditions, de 1998 à 2022."
+    },
+    {
+      "key": "cdm-q-qatar",
+      "format": "quiz",
+      "prompt": "Quelle est la particularité de la Coupe du monde 2022 au Qatar ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-qatar-hiver"],
+      "options": [
+        {
+          "label": "Elle se joue en novembre et décembre",
+          "correct": true
+        },
+        {
+          "label": "Elle compte 48 équipes"
+        },
+        {
+          "label": "Elle se joue dans trois pays"
+        },
+        {
+          "label": "Elle n’a pas de finale"
+        }
+      ],
+      "explanation": "Une première, pour éviter la chaleur de l’été dans le Golfe."
+    },
+    {
+      "key": "cdm-q-2026",
+      "format": "quiz",
+      "prompt": "Combien d’équipes participent à la Coupe du monde 2026 ?",
+      "difficulty": 2,
+      "knowledge": ["cdm-2026-48"],
+      "options": [
+        {
+          "label": "32"
+        },
+        {
+          "label": "40"
+        },
+        {
+          "label": "48",
+          "correct": true
+        },
+        {
+          "label": "64"
+        }
+      ],
+      "explanation": "C’est la première édition à 48 équipes, avec 104 matchs."
+    },
+    {
+      "key": "cdm-q-hotes-modernes",
+      "format": "match",
+      "prompt": "Associe chaque édition à son ou ses pays organisateurs.",
+      "difficulty": 3,
+      "knowledge": ["cdm-qatar-hiver", "cdm-2026-48", "cdm-2030", "cdm-2034"],
+      "pairs": [
+        {
+          "left": "2022",
+          "right": "Qatar"
+        },
+        {
+          "left": "2026",
+          "right": "États-Unis, Canada, Mexique"
+        },
+        {
+          "left": "2030",
+          "right": "Maroc, Espagne, Portugal"
+        },
+        {
+          "left": "2034",
+          "right": "Arabie saoudite"
+        }
+      ],
+      "explanation": "Les pays hôtes de 2022 à 2034."
+    },
+    {
+      "key": "cdm-q-2030",
+      "format": "true_false",
+      "prompt": "Pour le centenaire, trois matchs de la Coupe du monde 2030 se jouent en Amérique du Sud.",
+      "difficulty": 3,
+      "knowledge": ["cdm-2030"],
+      "answer": true,
+      "explanation": "Vrai : en Uruguay, en Argentine et au Paraguay, en souvenir de la première édition de 1930."
+    },
+    {
+      "key": "cdm-q-2026-pays",
+      "format": "quiz",
+      "prompt": "Quels pays organisent la Coupe du monde 2026 ?",
+      "difficulty": 1,
+      "knowledge": ["cdm-2026-48"],
+      "options": [
+        {
+          "label": "États-Unis, Canada et Mexique",
+          "correct": true
+        },
+        {
+          "label": "Maroc, Espagne et Portugal"
+        },
+        {
+          "label": "Brésil et Argentine"
+        },
+        {
+          "label": "Japon et Corée du Sud"
+        }
+      ],
+      "explanation": "Trois pays pour la première Coupe du monde à 48 équipes."
+    },
+    {
+      "key": "cdm-q-frise-bleus",
+      "format": "timeline",
+      "prompt": "Remets ces finales des Bleus dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["cdm-1998", "cdm-2006", "cdm-2018", "cdm-finale-2022"],
+      "items": [
+        {
+          "label": "Victoire contre le Brésil",
+          "date": "1998"
+        },
+        {
+          "label": "Défaite contre l’Italie",
+          "date": "2006"
+        },
+        {
+          "label": "Victoire contre la Croatie",
+          "date": "2018"
+        },
+        {
+          "label": "Défaite contre l’Argentine",
+          "date": "2022"
+        }
+      ],
+      "explanation": "1998, 2006, 2018, 2022."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les origines",
+      "description": "La naissance de la compétition, ses premières légendes et le roi Pelé.",
+      "lessons": [
+        {
+          "slug": "cdm-naissance",
+          "title": "La naissance de la Coupe du monde",
+          "objective": "Savoir comment et où tout a commencé.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Une idée française",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La FIFA est fondée à Paris en 1904. Son président français Jules Rimet lance la Coupe du monde, dont le premier trophée portera son nom."
+                }
+              ]
+            },
+            {
+              "title": "Uruguay 1930",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1930",
+                  "label": "Première Coupe du monde, en Uruguay"
+                },
+                {
+                  "type": "text",
+                  "text": "Treize équipes y participent. L’Uruguay bat l’Argentine 4-2 en finale."
+                }
+              ]
+            },
+            {
+              "title": "Tous les quatre ans",
+              "blocks": [
+                {
+                  "type": "fact",
+                  "text": "La compétition revient tous les quatre ans. Les éditions de 1942 et 1946 sont annulées à cause de la Seconde Guerre mondiale."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-fifa",
+            "cdm-q-rimet",
+            "cdm-q-1930-pays",
+            "cdm-q-1930-vainqueur",
+            "cdm-q-1942",
+            "cdm-q-rythme"
+          ]
+        },
+        {
+          "slug": "cdm-premieres-legendes",
+          "title": "Les premières légendes",
+          "objective": "Connaître les grands moments des années 1930 à 1950.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "L’Italie double la mise",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "L’Italie gagne en 1934, chez elle, puis en 1938, en France."
+                }
+              ]
+            },
+            {
+              "title": "Le Maracanazo",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1950, au Maracanã, l’Uruguay bat le Brésil 2-1 dans le match décisif : un traumatisme national au Brésil."
+                }
+              ]
+            },
+            {
+              "title": "Just Fontaine",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "13",
+                  "label": "buts de Just Fontaine en 1958, record sur une édition"
+                },
+                {
+                  "type": "text",
+                  "text": "La France termine troisième en Suède."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-italie-30s",
+            "cdm-q-maracanazo",
+            "cdm-q-1950-hote",
+            "cdm-q-fontaine",
+            "cdm-q-1958-france"
+          ]
+        },
+        {
+          "slug": "cdm-le-roi-pele",
+          "title": "Le roi Pelé",
+          "objective": "Connaître Pelé, le trophée et le titre anglais.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Triple champion",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Pelé gagne en 1958, à 17 ans, puis en 1962 et 1970. Il reste le seul joueur triple champion du monde."
+                }
+              ]
+            },
+            {
+              "title": "Le trophée",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Avec ce troisième titre, le Brésil garde définitivement le trophée Jules-Rimet, volé en 1983 et jamais retrouvé. Le trophée actuel est remis depuis 1974."
+                }
+              ]
+            },
+            {
+              "title": "1966",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "L’Angleterre remporte sa seule Coupe du monde, chez elle. Geoff Hurst réussit un triplé en finale."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-pele-titres",
+            "cdm-q-pele-17",
+            "cdm-q-trophee-vole",
+            "cdm-q-trophee-garde",
+            "cdm-q-1966",
+            "cdm-q-hotes"
+          ]
+        },
+        {
+          "slug": "cdm-epreuve-origines",
+          "title": "Épreuve : les origines",
+          "objective": "Valide tes connaissances sur les débuts de la compétition.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "cdm-q-rimet",
+            "cdm-q-1930-vainqueur",
+            "cdm-q-fontaine",
+            "cdm-q-pele-titres",
+            "cdm-q-frise-origines",
+            "cdm-q-hotes"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les grandes nations",
+      "description": "Le palmarès, l’Argentine de Maradona à Messi et les records (à l’issue de 2022).",
+      "lessons": [
+        {
+          "slug": "cdm-palmares",
+          "title": "Le palmarès",
+          "objective": "Connaître les nations championnes du monde (à l’issue de 2022).",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Le Brésil devant",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "5",
+                  "label": "titres pour le Brésil à l’issue de 2022"
+                },
+                {
+                  "type": "text",
+                  "text": "1958, 1962, 1970, 1994 et 2002."
+                }
+              ]
+            },
+            {
+              "title": "Les autres champions",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Allemagne : 4 titres (1954, 1974, 1990, 2014).",
+                    "Italie : 4 titres (1934, 1938, 1982, 2006).",
+                    "Argentine : 3 titres. France : 2. Uruguay : 2.",
+                    "Angleterre : 1 (1966). Espagne : 1 (2010)."
+                  ]
+                },
+                {
+                  "type": "fact",
+                  "text": "Ces chiffres datent d’avant la Coupe du monde 2026."
+                }
+              ]
+            }
+          ],
+          "questions": ["cdm-q-plus-titree", "cdm-q-allemagne", "cdm-q-espagne", "cdm-q-palmares"]
+        },
+        {
+          "slug": "cdm-argentine",
+          "title": "De Maradona à Messi",
+          "objective": "Connaître les deux Argentine championnes de l’ère moderne.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Mexique 1986",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Contre l’Angleterre, Maradona marque la « main de Dieu » puis le « but du siècle ». L’Argentine est championne."
+                }
+              ]
+            },
+            {
+              "title": "Qatar 2022",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le 18 décembre 2022, l’Argentine de Messi bat la France aux tirs au but (3-3, puis 4-2)."
+                },
+                {
+                  "type": "fact",
+                  "text": "Kylian Mbappé marque un triplé en finale, comme Geoff Hurst en 1966."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-main-de-dieu",
+            "cdm-q-1986",
+            "cdm-q-finale-2022",
+            "cdm-q-messi",
+            "cdm-q-triple-finale"
+          ]
+        },
+        {
+          "slug": "cdm-records",
+          "title": "Les records",
+          "objective": "Connaître les grands records de la compétition.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Les buteurs",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Miroslav Klose : 16 buts au total (à l’issue de 2022).",
+                    "Just Fontaine : 13 buts en une seule édition (1958)."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Les autres records",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Pelé : seul triple champion du monde.",
+                    "Geoff Hurst (1966) et Kylian Mbappé (2022) : triplés en finale."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-klose",
+            "cdm-q-klose-buts",
+            "cdm-q-hurst",
+            "cdm-q-records",
+            "cdm-q-frise-titres"
+          ]
+        },
+        {
+          "slug": "cdm-epreuve-nations",
+          "title": "Épreuve : les grandes nations",
+          "objective": "Valide tes connaissances sur le palmarès et les records.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "cdm-q-plus-titree",
+            "cdm-q-main-de-dieu",
+            "cdm-q-finale-2022",
+            "cdm-q-klose",
+            "cdm-q-palmares",
+            "cdm-q-frise-titres"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les Bleus et la Coupe d’aujourd’hui",
+      "description": "Les finales de la France et la Coupe du monde moderne.",
+      "lessons": [
+        {
+          "slug": "cdm-1998",
+          "title": "1998, la France championne",
+          "objective": "Connaître le premier titre des Bleus.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Le 12 juillet 1998",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "3-0",
+                  "label": "France-Brésil, finale au Stade de France"
+                },
+                {
+                  "type": "text",
+                  "text": "Zidane marque deux buts de la tête, Emmanuel Petit ajoute le troisième."
+                }
+              ]
+            },
+            {
+              "title": "Les hommes clés",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Aimé Jacquet, sélectionneur.",
+                    "Didier Deschamps, capitaine.",
+                    "Zinédine Zidane, double buteur en finale."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-1998-adversaire",
+            "cdm-q-1998-score",
+            "cdm-q-zidane-tete",
+            "cdm-q-jacquet",
+            "cdm-q-1998-annee"
+          ]
+        },
+        {
+          "slug": "cdm-2006-2018",
+          "title": "De 2006 à 2018",
+          "objective": "Connaître la finale perdue de 2006 et le titre de 2018.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Berlin 2006",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La France perd la finale contre l’Italie aux tirs au but. Zidane est expulsé pour un coup de tête sur Marco Materazzi."
+                }
+              ]
+            },
+            {
+              "title": "Moscou 2018",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "4-2",
+                  "label": "France-Croatie, finale de 2018"
+                },
+                {
+                  "type": "text",
+                  "text": "Deuxième étoile pour les Bleus. Didier Deschamps gagne comme sélectionneur après avoir gagné comme joueur, comme Zagallo et Beckenbauer avant lui."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-2006",
+            "cdm-q-zidane-rouge",
+            "cdm-q-2018",
+            "cdm-q-deschamps",
+            "cdm-q-bleus"
+          ]
+        },
+        {
+          "slug": "cdm-aujourdhui",
+          "title": "La Coupe du monde aujourd’hui",
+          "objective": "Connaître les éditions récentes et à venir.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Qatar 2022",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Pour la première fois, la Coupe du monde se joue en novembre et décembre, pour éviter la chaleur de l’été."
+                }
+              ]
+            },
+            {
+              "title": "2026 et après",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "2026 : États-Unis, Canada et Mexique, première édition à 48 équipes et 104 matchs.",
+                    "2030 : Maroc, Espagne et Portugal, avec trois matchs en Amérique du Sud pour le centenaire.",
+                    "2034 : Arabie saoudite."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "cdm-q-qatar",
+            "cdm-q-2026",
+            "cdm-q-2026-pays",
+            "cdm-q-2030",
+            "cdm-q-hotes-modernes"
+          ]
+        },
+        {
+          "slug": "cdm-epreuve-bleus",
+          "title": "Épreuve : les Bleus et la Coupe d’aujourd’hui",
+          "objective": "Valide tes connaissances sur les Bleus et les éditions récentes.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "cdm-q-1998-adversaire",
+            "cdm-q-jacquet",
+            "cdm-q-2018",
+            "cdm-q-2026",
+            "cdm-q-bleus",
+            "cdm-q-frise-bleus"
+          ]
+        }
+      ]
+    }
+  ]
+}

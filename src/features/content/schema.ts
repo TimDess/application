@@ -43,6 +43,12 @@ const questionBase = {
   difficulty: z.number().int().min(1).max(5).default(2),
   knowledge: z.array(slug).min(1),
   explanation: z.string().min(5).max(600),
+  /**
+   * Keeps one question in review inside an already published course (new AI-written
+   * questions). Such questions feed reviews and the daily challenge once published, and
+   * may not appear in a lesson of a published course (sessions would reference hidden rows).
+   */
+  status: z.literal('in_review').optional(),
   ...evolving,
 }
 
@@ -143,6 +149,7 @@ export const courseFileSchema = z
   .superRefine((file, ctx) => {
     const knowledge = new Set(file.knowledge.map((k) => k.key))
     const questions = new Set<string>()
+    const reviewOnly = new Set(file.questions.filter((q) => q.status).map((q) => q.key))
     for (const k of file.knowledge) {
       if (k.isEvolving && !k.validAsOf)
         ctx.addIssue({ code: 'custom', message: `notion ${k.key} : fait évolutif sans validAsOf` })
@@ -177,6 +184,11 @@ export const courseFileSchema = z
         for (const q of l.questions) {
           if (!questions.has(q))
             ctx.addIssue({ code: 'custom', message: `leçon ${l.slug} : question inconnue ${q}` })
+          if (file.status === 'published' && reviewOnly.has(q))
+            ctx.addIssue({
+              code: 'custom',
+              message: `leçon ${l.slug} : la question ${q} est en relecture dans un parcours publié`,
+            })
         }
       }
     }

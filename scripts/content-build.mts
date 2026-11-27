@@ -158,8 +158,9 @@ on conflict (id) do update set title = excluded.title, summary = excluded.summar
   for (const question of file.questions) {
     const id = stableUuid('question', question.key)
     const { payload, solution } = compileQuestion(question)
+    const questionStatus = forcePublish ? 'published' : (question.status ?? status)
     push(`insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values (${q(id)}, ${q(question.key)}, ${universe}, ${q(question.format)}, ${q(question.prompt)}, ${json(payload)}, ${question.difficulty}, ${question.isEvolving}, ${nullable(question.validAsOf)}, ${q(status)})
+values (${q(id)}, ${q(question.key)}, ${universe}, ${q(question.format)}, ${q(question.prompt)}, ${json(payload)}, ${question.difficulty}, ${question.isEvolving}, ${nullable(question.validAsOf)}, ${q(questionStatus)})
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;`)
     push(`insert into private.question_solutions (question_id, solution, explanation)
@@ -242,8 +243,9 @@ function main() {
     const out = join(OUT_DIR, `${parsed.data.course.slug}${publish ? '.published' : ''}.sql`)
     writeFileSync(out, compileCourse(parsed.data, publish))
     const lessons = parsed.data.chapters.reduce((n, c) => n + c.lessons.length, 0)
+    const inReview = parsed.data.questions.filter((qq) => qq.status === 'in_review').length
     console.log(
-      `✓ ${relative(ROOT, path)} → ${relative(ROOT, out)} (${lessons} leçons, ${parsed.data.questions.length} questions, statut ${publish ? 'published' : parsed.data.status})`,
+      `✓ ${relative(ROOT, path)} → ${relative(ROOT, out)} (${lessons} leçons, ${parsed.data.questions.length} questions, statut ${publish ? 'published' : parsed.data.status}${!publish && inReview ? `, dont ${inReview} questions en relecture` : ''})`,
     )
   }
   if (failed) process.exit(1)

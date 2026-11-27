@@ -1,0 +1,1703 @@
+{
+  "universe": "musique",
+  "status": "in_review",
+  "category": {
+    "slug": "rap-hip-hop",
+    "name": "Rap et hip-hop",
+    "description": "L’histoire, les artistes et les codes du rap."
+  },
+  "course": {
+    "slug": "le-rap-francais",
+    "title": "Le rap français",
+    "description": "De l’émission H.I.P. H.O.P. à l’ère du streaming : les pionniers, les classiques et les têtes d’affiche du rap français.",
+    "level": "debutant"
+  },
+  "knowledge": [
+    {
+      "key": "rap-bronx",
+      "title": "Le hip-hop naît dans le Bronx",
+      "summary": "Le hip-hop naît dans les années 1970 dans le Bronx, à New York. Il réunit quatre disciplines : le rap, le DJing, la danse (breakdance) et le graffiti.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-hip-hop-tf1",
+      "title": "L’émission H.I.P. H.O.P. sur TF1",
+      "summary": "En 1984, TF1 diffuse l’émission H.I.P. H.O.P., présentée par Sidney. Elle fait découvrir la culture hip-hop à toute une génération en France.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-sidney",
+      "title": "Sidney, pionnier à la télévision",
+      "summary": "Sidney est le premier animateur noir à présenter une émission nationale à la télévision française.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-dee-nasty",
+      "title": "Dee Nasty et les premiers disques",
+      "summary": "Le DJ Dee Nasty sort en 1984 Paname City Rappin’, considéré comme le premier album de rap français.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-rapattitude",
+      "title": "La compilation Rapattitude",
+      "summary": "En 1990, la compilation Rapattitude réunit des groupes de rap français et marque l’arrivée du genre dans les bacs.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-mc-solaar",
+      "title": "MC Solaar, premier succès populaire",
+      "summary": "MC Solaar perce avec Bouge de là (1990) puis l’album Qui sème le vent récolte le tempo (1991). Ses textes jouent avec la langue.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-iam",
+      "title": "IAM, le rap marseillais",
+      "summary": "IAM, groupe marseillais mené par Akhenaton et Shurik’n, signe Je danse le Mia (1994) et l’album L’École du micro d’argent (1997), vendu à plus d’un million d’exemplaires.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-ntm",
+      "title": "Suprême NTM",
+      "summary": "Le duo NTM, formé par JoeyStarr et Kool Shen en Seine-Saint-Denis, signe Paris sous les bombes (1995) et Laisse pas traîner ton fils (1998).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-secteur-a",
+      "title": "Le collectif Secteur Ä",
+      "summary": "Secteur Ä réunit dans les années 1990 Ministère A.M.E.R., Doc Gynéco, Passi, Stomy Bugsy ou encore Arsenik.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-doc-gyneco",
+      "title": "Doc Gynéco, Première consultation",
+      "summary": "L’album Première consultation (1996) de Doc Gynéco connaît un énorme succès grâce à son ton décontracté.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-quotas-radio",
+      "title": "Les quotas de chanson francophone",
+      "summary": "Une loi de 1994 impose aux radios, à partir de 1996, de diffuser 40 % de chansons d’expression française. Le rap français en profite largement.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-skyrock",
+      "title": "Skyrock, « premier sur le rap »",
+      "summary": "Dans la seconde moitié des années 1990, la radio Skyrock fait du rap sa marque de fabrique avec le slogan « premier sur le rap ».",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-lunatic",
+      "title": "Lunatic et l’indépendance",
+      "summary": "Le duo Lunatic (Booba et Ali) sort en 2000 Mauvais œil, en indépendant, qui devient disque d’or.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-booba",
+      "title": "Booba, figure incontournable",
+      "summary": "Originaire de Boulogne-Billancourt, Booba lance sa carrière solo avec Temps mort (2002) et fonde le label 92i.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-diams",
+      "title": "Diam’s, Dans ma bulle",
+      "summary": "Diam’s triomphe en 2006 avec l’album Dans ma bulle et le titre La Boulette.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-oxmo",
+      "title": "Oxmo Puccino, le Black Desperado",
+      "summary": "Oxmo Puccino sort Opéra Puccino en 1998. Surnommé le Black Desperado, il est salué pour son écriture.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-kery-james",
+      "title": "Kery James, le rap engagé",
+      "summary": "Ancien membre d’Idéal J, Kery James porte un rap engagé, comme dans Lettre à la République (2012).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-sexion",
+      "title": "Sexion d’Assaut",
+      "summary": "Le collectif Sexion d’Assaut, avec Maître Gims et Black M, triomphe avec L’École des points vitaux (2010).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-gims",
+      "title": "GIMS, du rap à la pop",
+      "summary": "Après Sexion d’Assaut, Maître Gims (aujourd’hui GIMS) lance sa carrière solo avec Subliminal (2013).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-nekfeu-1995",
+      "title": "Nekfeu et le collectif 1995",
+      "summary": "Révélé avec le collectif 1995 au début des années 2010, Nekfeu sort son premier album solo, Feu, en 2015.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-orelsan",
+      "title": "Orelsan, le rappeur de Caen",
+      "summary": "Orelsan sort Perdu d’avance (2009), Le Chant des sirènes (2011) puis Civilisation (2021). Il forme aussi les Casseurs Flowters avec Gringe.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-streaming-2016",
+      "title": "Le streaming compte dans les certifications",
+      "summary": "En 2016, le SNEP intègre les écoutes en streaming dans les certifications d’albums : les disques d’or se multiplient pour le rap.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-pnl",
+      "title": "PNL, le succès sans médias",
+      "summary": "Les frères Ademo et N.O.S, originaires des Tarterêts à Corbeil-Essonnes, forment PNL. Indépendants et presque sans interviews, ils sortent Dans la légende (2016) et Deux frères (2019).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-au-dd",
+      "title": "Le clip Au DD sur la tour Eiffel",
+      "summary": "En 2019, PNL tourne le clip d’Au DD au sommet de la tour Eiffel.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-jul",
+      "title": "Jul, le phénomène marseillais",
+      "summary": "Jul, rappeur marseillais très prolifique, sort ses disques sur son propre label, D’or et de platine.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-13-organise",
+      "title": "Le projet 13’Organisé",
+      "summary": "En 2020, Jul réunit des dizaines de rappeurs marseillais sur le projet 13’Organisé et son titre Bande organisée.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-damso",
+      "title": "Damso, le rap belge",
+      "summary": "Le Bruxellois Damso, révélé sur le label 92i, sort Ipséité en 2017. La Belgique devient une place forte du rap francophone.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-aya",
+      "title": "Aya Nakamura, star mondiale",
+      "summary": "Aya Nakamura explose avec Djadja (2018). En 2024, elle chante lors de la cérémonie d’ouverture des Jeux olympiques de Paris avec la Garde républicaine.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-vocabulaire",
+      "title": "Le vocabulaire du rap",
+      "summary": "Featuring, punchline, freestyle, egotrip, clash, beatmaker : le rap a ses propres mots.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "rap-drill",
+      "title": "La drill",
+      "summary": "Née à Chicago puis popularisée à Londres, la drill est un sous-genre au tempo et aux basses très reconnaissables, arrivé en France à la fin des années 2010.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "rap-q-bronx",
+      "format": "quiz",
+      "prompt": "Où naît la culture hip-hop ?",
+      "difficulty": 1,
+      "knowledge": ["rap-bronx"],
+      "options": [
+        {
+          "label": "À Paris"
+        },
+        {
+          "label": "Dans le Bronx, à New York",
+          "correct": true
+        },
+        {
+          "label": "À Londres"
+        },
+        {
+          "label": "À Los Angeles"
+        }
+      ],
+      "explanation": "Le hip-hop naît dans les années 1970 dans le Bronx."
+    },
+    {
+      "key": "rap-q-disciplines",
+      "format": "match",
+      "prompt": "Associe chaque discipline du hip-hop à ce qu’elle désigne.",
+      "difficulty": 2,
+      "knowledge": ["rap-bronx"],
+      "pairs": [
+        {
+          "left": "Rap",
+          "right": "Le chant parlé et rythmé"
+        },
+        {
+          "left": "DJing",
+          "right": "Le travail des platines"
+        },
+        {
+          "left": "Breakdance",
+          "right": "La danse"
+        },
+        {
+          "left": "Graffiti",
+          "right": "L’art sur les murs"
+        }
+      ],
+      "explanation": "Le hip-hop réunit le rap, le DJing, la danse et le graffiti."
+    },
+    {
+      "key": "rap-q-emission",
+      "format": "quiz",
+      "prompt": "Sur quelle chaîne est diffusée l’émission H.I.P. H.O.P. en 1984 ?",
+      "difficulty": 2,
+      "knowledge": ["rap-hip-hop-tf1"],
+      "options": [
+        {
+          "label": "TF1",
+          "correct": true
+        },
+        {
+          "label": "Canal+"
+        },
+        {
+          "label": "M6"
+        },
+        {
+          "label": "France 3"
+        }
+      ],
+      "explanation": "L’émission, présentée par Sidney, passe sur TF1 en 1984."
+    },
+    {
+      "key": "rap-q-sidney",
+      "format": "true_false",
+      "prompt": "Sidney est le premier animateur noir à présenter une émission nationale à la télévision française.",
+      "difficulty": 2,
+      "knowledge": ["rap-sidney"],
+      "answer": true,
+      "explanation": "Vrai : avec H.I.P. H.O.P., en 1984, il marque l’histoire de la télévision."
+    },
+    {
+      "key": "rap-q-dee-nasty",
+      "format": "quiz",
+      "prompt": "Qui sort Paname City Rappin’, considéré comme le premier album de rap français ?",
+      "difficulty": 3,
+      "knowledge": ["rap-dee-nasty"],
+      "options": [
+        {
+          "label": "Dee Nasty",
+          "correct": true
+        },
+        {
+          "label": "MC Solaar"
+        },
+        {
+          "label": "Booba"
+        },
+        {
+          "label": "Akhenaton"
+        }
+      ],
+      "explanation": "Le DJ Dee Nasty sort ce disque en 1984."
+    },
+    {
+      "key": "rap-q-rapattitude",
+      "format": "guess_year",
+      "prompt": "En quelle année sort la compilation Rapattitude ?",
+      "difficulty": 3,
+      "knowledge": ["rap-rapattitude"],
+      "year": 1990,
+      "tolerance": 2,
+      "min": 1980,
+      "max": 2000,
+      "explanation": "Rapattitude sort en 1990 et fait connaître de nombreux groupes."
+    },
+    {
+      "key": "rap-q-solaar",
+      "format": "quiz",
+      "prompt": "Quel titre révèle MC Solaar au grand public ?",
+      "difficulty": 1,
+      "knowledge": ["rap-mc-solaar"],
+      "options": [
+        {
+          "label": "Bouge de là",
+          "correct": true
+        },
+        {
+          "label": "La Boulette"
+        },
+        {
+          "label": "Je danse le Mia"
+        },
+        {
+          "label": "Petit frère"
+        }
+      ],
+      "explanation": "Bouge de là sort en 1990, avant l’album Qui sème le vent récolte le tempo."
+    },
+    {
+      "key": "rap-q-solaar-album",
+      "format": "true_false",
+      "prompt": "Qui sème le vent récolte le tempo est un album de MC Solaar.",
+      "difficulty": 1,
+      "knowledge": ["rap-mc-solaar"],
+      "answer": true,
+      "explanation": "Vrai : c’est son premier album, sorti en 1991."
+    },
+    {
+      "key": "rap-q-iam-ville",
+      "format": "quiz",
+      "prompt": "De quelle ville vient le groupe IAM ?",
+      "difficulty": 1,
+      "knowledge": ["rap-iam"],
+      "options": [
+        {
+          "label": "Marseille",
+          "correct": true
+        },
+        {
+          "label": "Paris"
+        },
+        {
+          "label": "Lyon"
+        },
+        {
+          "label": "Toulouse"
+        }
+      ],
+      "explanation": "IAM est le grand groupe marseillais, mené par Akhenaton et Shurik’n."
+    },
+    {
+      "key": "rap-q-ecole-micro",
+      "format": "quiz",
+      "prompt": "Quel album d’IAM dépasse le million d’exemplaires ?",
+      "difficulty": 2,
+      "knowledge": ["rap-iam"],
+      "options": [
+        {
+          "label": "L’École du micro d’argent",
+          "correct": true
+        },
+        {
+          "label": "Paris sous les bombes"
+        },
+        {
+          "label": "Première consultation"
+        },
+        {
+          "label": "Mauvais œil"
+        }
+      ],
+      "explanation": "Sorti en 1997, il est souvent cité comme l’un des plus grands albums de rap français."
+    },
+    {
+      "key": "rap-q-duo-ntm",
+      "format": "match",
+      "prompt": "Associe chaque titre à son groupe ou artiste.",
+      "difficulty": 2,
+      "knowledge": ["rap-iam", "rap-ntm", "rap-mc-solaar"],
+      "pairs": [
+        {
+          "left": "Je danse le Mia",
+          "right": "IAM"
+        },
+        {
+          "left": "Laisse pas traîner ton fils",
+          "right": "NTM"
+        },
+        {
+          "left": "Bouge de là",
+          "right": "MC Solaar"
+        }
+      ],
+      "explanation": "Je danse le Mia (1994) est d’IAM, Laisse pas traîner ton fils (1998) de NTM, Bouge de là (1990) de MC Solaar."
+    },
+    {
+      "key": "rap-q-ntm-membres",
+      "format": "quiz",
+      "prompt": "Quel duo forme NTM ?",
+      "difficulty": 2,
+      "knowledge": ["rap-ntm"],
+      "options": [
+        {
+          "label": "JoeyStarr et Kool Shen",
+          "correct": true
+        },
+        {
+          "label": "Booba et Ali"
+        },
+        {
+          "label": "Ademo et N.O.S"
+        },
+        {
+          "label": "Orelsan et Gringe"
+        }
+      ],
+      "explanation": "NTM, c’est JoeyStarr et Kool Shen, originaires de Seine-Saint-Denis."
+    },
+    {
+      "key": "rap-q-secteur-a",
+      "format": "true_false",
+      "prompt": "Doc Gynéco faisait partie du collectif Secteur Ä.",
+      "difficulty": 2,
+      "knowledge": ["rap-secteur-a", "rap-doc-gyneco"],
+      "answer": true,
+      "explanation": "Vrai : avec Ministère A.M.E.R., Passi, Stomy Bugsy ou Arsenik."
+    },
+    {
+      "key": "rap-q-gyneco",
+      "format": "quiz",
+      "prompt": "Quel est le premier album de Doc Gynéco ?",
+      "difficulty": 2,
+      "knowledge": ["rap-doc-gyneco"],
+      "options": [
+        {
+          "label": "Première consultation",
+          "correct": true
+        },
+        {
+          "label": "Temps mort"
+        },
+        {
+          "label": "Opéra Puccino"
+        },
+        {
+          "label": "Feu"
+        }
+      ],
+      "explanation": "Première consultation sort en 1996 et connaît un énorme succès."
+    },
+    {
+      "key": "rap-q-quotas",
+      "format": "quiz",
+      "prompt": "Quelle part de chansons francophones les radios doivent-elles diffuser à partir de 1996 ?",
+      "difficulty": 3,
+      "knowledge": ["rap-quotas-radio"],
+      "options": [
+        {
+          "label": "10 %"
+        },
+        {
+          "label": "25 %"
+        },
+        {
+          "label": "40 %",
+          "correct": true
+        },
+        {
+          "label": "60 %"
+        }
+      ],
+      "explanation": "La loi impose 40 % de chansons d’expression française : le rap français gagne beaucoup d’antenne."
+    },
+    {
+      "key": "rap-q-quotas-annee",
+      "format": "guess_year",
+      "prompt": "À partir de quelle année les radios doivent-elles diffuser 40 % de chansons francophones ?",
+      "difficulty": 3,
+      "knowledge": ["rap-quotas-radio"],
+      "year": 1996,
+      "tolerance": 1,
+      "min": 1985,
+      "max": 2005,
+      "explanation": "Votée en 1994, la règle s’applique à partir de 1996."
+    },
+    {
+      "key": "rap-q-skyrock",
+      "format": "true_false",
+      "prompt": "Le slogan de Skyrock est « premier sur le rap ».",
+      "difficulty": 1,
+      "knowledge": ["rap-skyrock"],
+      "answer": true,
+      "explanation": "Vrai : la radio fait du rap sa marque de fabrique dès la fin des années 1990."
+    },
+    {
+      "key": "rap-q-frise-origines",
+      "format": "timeline",
+      "prompt": "Remets ces moments dans l’ordre chronologique.",
+      "difficulty": 3,
+      "knowledge": ["rap-hip-hop-tf1", "rap-mc-solaar", "rap-ntm", "rap-iam"],
+      "items": [
+        {
+          "label": "Émission H.I.P. H.O.P. sur TF1",
+          "date": "1984"
+        },
+        {
+          "label": "Bouge de là, de MC Solaar",
+          "date": "1990"
+        },
+        {
+          "label": "Paris sous les bombes, de NTM",
+          "date": "1995"
+        },
+        {
+          "label": "L’École du micro d’argent, d’IAM",
+          "date": "1997"
+        }
+      ],
+      "explanation": "1984 : H.I.P. H.O.P. 1990 : Bouge de là. 1995 : Paris sous les bombes. 1997 : L’École du micro d’argent."
+    },
+    {
+      "key": "rap-q-ecole-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort L’École du micro d’argent ?",
+      "difficulty": 3,
+      "knowledge": ["rap-iam"],
+      "year": 1997,
+      "tolerance": 2,
+      "min": 1985,
+      "max": 2005,
+      "explanation": "L’album d’IAM sort en 1997."
+    },
+    {
+      "key": "rap-q-lunatic",
+      "format": "quiz",
+      "prompt": "Quel duo forment Booba et Ali ?",
+      "difficulty": 1,
+      "knowledge": ["rap-lunatic"],
+      "options": [
+        {
+          "label": "Lunatic",
+          "correct": true
+        },
+        {
+          "label": "NTM"
+        },
+        {
+          "label": "PNL"
+        },
+        {
+          "label": "Casseurs Flowters"
+        }
+      ],
+      "explanation": "Lunatic sort Mauvais œil en 2000."
+    },
+    {
+      "key": "rap-q-mauvais-oeil",
+      "format": "true_false",
+      "prompt": "Mauvais œil a été produit en indépendant.",
+      "difficulty": 3,
+      "knowledge": ["rap-lunatic"],
+      "answer": true,
+      "explanation": "Vrai : sans grande maison de disques, il devient pourtant disque d’or."
+    },
+    {
+      "key": "rap-q-booba-ville",
+      "format": "quiz",
+      "prompt": "De quelle ville vient Booba ?",
+      "difficulty": 2,
+      "knowledge": ["rap-booba"],
+      "options": [
+        {
+          "label": "Boulogne-Billancourt",
+          "correct": true
+        },
+        {
+          "label": "Marseille"
+        },
+        {
+          "label": "Sevran"
+        },
+        {
+          "label": "Caen"
+        }
+      ],
+      "explanation": "Booba vient de Boulogne-Billancourt, dans les Hauts-de-Seine (92)."
+    },
+    {
+      "key": "rap-q-92i",
+      "format": "quiz",
+      "prompt": "Comment s’appelle le label fondé par Booba ?",
+      "difficulty": 2,
+      "knowledge": ["rap-booba"],
+      "options": [
+        {
+          "label": "92i",
+          "correct": true
+        },
+        {
+          "label": "QLF"
+        },
+        {
+          "label": "D’or et de platine"
+        },
+        {
+          "label": "45 Scientific"
+        }
+      ],
+      "explanation": "Le nom renvoie aux Hauts-de-Seine, le 92."
+    },
+    {
+      "key": "rap-q-boulette",
+      "format": "quiz",
+      "prompt": "Quelle artiste chante La Boulette ?",
+      "difficulty": 1,
+      "knowledge": ["rap-diams"],
+      "options": [
+        {
+          "label": "Diam’s",
+          "correct": true
+        },
+        {
+          "label": "Aya Nakamura"
+        },
+        {
+          "label": "Keny Arkana"
+        },
+        {
+          "label": "Shay"
+        }
+      ],
+      "explanation": "La Boulette figure sur Dans ma bulle (2006), énorme succès de Diam’s."
+    },
+    {
+      "key": "rap-q-dans-ma-bulle",
+      "format": "guess_year",
+      "prompt": "En quelle année sort l’album Dans ma bulle ?",
+      "difficulty": 3,
+      "knowledge": ["rap-diams"],
+      "year": 2006,
+      "tolerance": 2,
+      "min": 1995,
+      "max": 2015,
+      "explanation": "Dans ma bulle sort en 2006."
+    },
+    {
+      "key": "rap-q-oxmo",
+      "format": "quiz",
+      "prompt": "Quel rappeur est surnommé le Black Desperado ?",
+      "difficulty": 2,
+      "knowledge": ["rap-oxmo"],
+      "options": [
+        {
+          "label": "Oxmo Puccino",
+          "correct": true
+        },
+        {
+          "label": "Kery James"
+        },
+        {
+          "label": "Rohff"
+        },
+        {
+          "label": "Youssoupha"
+        }
+      ],
+      "explanation": "Oxmo Puccino, auteur d’Opéra Puccino (1998)."
+    },
+    {
+      "key": "rap-q-kery",
+      "format": "true_false",
+      "prompt": "Kery James a écrit Lettre à la République.",
+      "difficulty": 1,
+      "knowledge": ["rap-kery-james"],
+      "answer": true,
+      "explanation": "Vrai : un texte engagé sorti en 2012."
+    },
+    {
+      "key": "rap-q-opera-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort Opéra Puccino ?",
+      "difficulty": 3,
+      "knowledge": ["rap-oxmo"],
+      "year": 1998,
+      "tolerance": 2,
+      "min": 1990,
+      "max": 2010,
+      "explanation": "Le premier album d’Oxmo Puccino sort en 1998."
+    },
+    {
+      "key": "rap-q-kery-festif",
+      "format": "true_false",
+      "prompt": "Le rap de Kery James est surtout festif et léger.",
+      "difficulty": 1,
+      "knowledge": ["rap-kery-james"],
+      "answer": false,
+      "explanation": "Faux : Kery James est connu pour son rap engagé et ses textes sur la société."
+    },
+    {
+      "key": "rap-q-ideal-j",
+      "format": "quiz",
+      "prompt": "De quel groupe Kery James a-t-il fait partie ?",
+      "difficulty": 3,
+      "knowledge": ["rap-kery-james"],
+      "options": [
+        {
+          "label": "Idéal J",
+          "correct": true
+        },
+        {
+          "label": "Lunatic"
+        },
+        {
+          "label": "IAM"
+        },
+        {
+          "label": "1995"
+        }
+      ],
+      "explanation": "Avant sa carrière solo, il était membre d’Idéal J."
+    },
+    {
+      "key": "rap-q-sexion",
+      "format": "quiz",
+      "prompt": "Quel album de Sexion d’Assaut triomphe en 2010 ?",
+      "difficulty": 2,
+      "knowledge": ["rap-sexion"],
+      "options": [
+        {
+          "label": "L’École des points vitaux",
+          "correct": true
+        },
+        {
+          "label": "Dans la légende"
+        },
+        {
+          "label": "Feu"
+        },
+        {
+          "label": "Civilisation"
+        }
+      ],
+      "explanation": "L’album fait de Sexion d’Assaut un phénomène national."
+    },
+    {
+      "key": "rap-q-gims-sexion",
+      "format": "true_false",
+      "prompt": "GIMS faisait partie de Sexion d’Assaut.",
+      "difficulty": 1,
+      "knowledge": ["rap-sexion", "rap-gims"],
+      "answer": true,
+      "explanation": "Vrai : sous le nom de Maître Gims, avec notamment Black M."
+    },
+    {
+      "key": "rap-q-subliminal",
+      "format": "quiz",
+      "prompt": "Quel est le premier album solo de GIMS ?",
+      "difficulty": 2,
+      "knowledge": ["rap-gims"],
+      "options": [
+        {
+          "label": "Subliminal",
+          "correct": true
+        },
+        {
+          "label": "Feu"
+        },
+        {
+          "label": "Ipséité"
+        },
+        {
+          "label": "Temps mort"
+        }
+      ],
+      "explanation": "Subliminal sort en 2013."
+    },
+    {
+      "key": "rap-q-nekfeu",
+      "format": "quiz",
+      "prompt": "De quel collectif Nekfeu est-il issu ?",
+      "difficulty": 2,
+      "knowledge": ["rap-nekfeu-1995"],
+      "options": [
+        {
+          "label": "1995",
+          "correct": true
+        },
+        {
+          "label": "Secteur Ä"
+        },
+        {
+          "label": "Sexion d’Assaut"
+        },
+        {
+          "label": "Mafia K’1 Fry"
+        }
+      ],
+      "explanation": "Le collectif 1995 se fait connaître au début des années 2010."
+    },
+    {
+      "key": "rap-q-orelsan-ville",
+      "format": "quiz",
+      "prompt": "De quelle ville vient Orelsan ?",
+      "difficulty": 1,
+      "knowledge": ["rap-orelsan"],
+      "options": [
+        {
+          "label": "Caen",
+          "correct": true
+        },
+        {
+          "label": "Rennes"
+        },
+        {
+          "label": "Lille"
+        },
+        {
+          "label": "Bordeaux"
+        }
+      ],
+      "explanation": "Orelsan est originaire de Caen, en Normandie."
+    },
+    {
+      "key": "rap-q-albums-2000",
+      "format": "match",
+      "prompt": "Associe chaque album à son artiste.",
+      "difficulty": 2,
+      "knowledge": ["rap-orelsan", "rap-nekfeu-1995", "rap-booba", "rap-oxmo"],
+      "pairs": [
+        {
+          "left": "Le Chant des sirènes",
+          "right": "Orelsan"
+        },
+        {
+          "left": "Feu",
+          "right": "Nekfeu"
+        },
+        {
+          "left": "Temps mort",
+          "right": "Booba"
+        },
+        {
+          "left": "Opéra Puccino",
+          "right": "Oxmo Puccino"
+        }
+      ],
+      "explanation": "Orelsan (2011), Nekfeu (2015), Booba (2002), Oxmo Puccino (1998)."
+    },
+    {
+      "key": "rap-q-casseurs",
+      "format": "true_false",
+      "prompt": "Orelsan et Gringe forment les Casseurs Flowters.",
+      "difficulty": 2,
+      "knowledge": ["rap-orelsan"],
+      "answer": true,
+      "explanation": "Vrai : un duo qui a aussi donné la série Bloqués et le film Comment c’est loin."
+    },
+    {
+      "key": "rap-q-frise-2000",
+      "format": "timeline",
+      "prompt": "Remets ces albums dans l’ordre de sortie.",
+      "difficulty": 3,
+      "knowledge": ["rap-lunatic", "rap-diams", "rap-sexion", "rap-nekfeu-1995"],
+      "items": [
+        {
+          "label": "Mauvais œil, de Lunatic",
+          "date": "2000"
+        },
+        {
+          "label": "Dans ma bulle, de Diam’s",
+          "date": "2006"
+        },
+        {
+          "label": "L’École des points vitaux, de Sexion d’Assaut",
+          "date": "2010"
+        },
+        {
+          "label": "Feu, de Nekfeu",
+          "date": "2015"
+        }
+      ],
+      "explanation": "2000, 2006, 2010, 2015."
+    },
+    {
+      "key": "rap-q-streaming",
+      "format": "quiz",
+      "prompt": "Que change le SNEP en 2016 ?",
+      "difficulty": 2,
+      "knowledge": ["rap-streaming-2016"],
+      "options": [
+        {
+          "label": "Il compte le streaming dans les certifications",
+          "correct": true
+        },
+        {
+          "label": "Il interdit les CD"
+        },
+        {
+          "label": "Il crée les Victoires de la musique"
+        },
+        {
+          "label": "Il impose des quotas"
+        }
+      ],
+      "explanation": "Les écoutes en streaming comptent désormais pour les disques d’or et de platine."
+    },
+    {
+      "key": "rap-q-streaming-rap",
+      "format": "true_false",
+      "prompt": "L’intégration du streaming a fait exploser les certifications du rap.",
+      "difficulty": 1,
+      "knowledge": ["rap-streaming-2016"],
+      "answer": true,
+      "explanation": "Vrai : le rap, très écouté en streaming, enchaîne les disques d’or."
+    },
+    {
+      "key": "rap-q-pnl-membres",
+      "format": "quiz",
+      "prompt": "Qui forme le groupe PNL ?",
+      "difficulty": 1,
+      "knowledge": ["rap-pnl"],
+      "options": [
+        {
+          "label": "Deux frères, Ademo et N.O.S",
+          "correct": true
+        },
+        {
+          "label": "Booba et Ali"
+        },
+        {
+          "label": "JoeyStarr et Kool Shen"
+        },
+        {
+          "label": "Orelsan et Gringe"
+        }
+      ],
+      "explanation": "PNL réunit les frères Ademo et N.O.S."
+    },
+    {
+      "key": "rap-q-pnl-cite",
+      "format": "quiz",
+      "prompt": "De quelle cité vient PNL ?",
+      "difficulty": 3,
+      "knowledge": ["rap-pnl"],
+      "options": [
+        {
+          "label": "Les Tarterêts, à Corbeil-Essonnes",
+          "correct": true
+        },
+        {
+          "label": "Les Quartiers Nord, à Marseille"
+        },
+        {
+          "label": "La Courneuve"
+        },
+        {
+          "label": "Sarcelles"
+        }
+      ],
+      "explanation": "Les frères ont grandi aux Tarterêts, dans l’Essonne."
+    },
+    {
+      "key": "rap-q-pnl-interviews",
+      "format": "true_false",
+      "prompt": "PNL est connu pour donner très peu d’interviews.",
+      "difficulty": 1,
+      "knowledge": ["rap-pnl"],
+      "answer": true,
+      "explanation": "Vrai : le groupe a construit son succès presque sans passer par les médias."
+    },
+    {
+      "key": "rap-q-au-dd",
+      "format": "quiz",
+      "prompt": "Où est tourné le clip d’Au DD ?",
+      "difficulty": 2,
+      "knowledge": ["rap-au-dd"],
+      "options": [
+        {
+          "label": "Au sommet de la tour Eiffel",
+          "correct": true
+        },
+        {
+          "label": "Sur le Vieux-Port de Marseille"
+        },
+        {
+          "label": "Au Stade de France"
+        },
+        {
+          "label": "Dans le métro parisien"
+        }
+      ],
+      "explanation": "Le clip, tourné en 2019, a marqué les esprits."
+    },
+    {
+      "key": "rap-q-jul-label",
+      "format": "quiz",
+      "prompt": "Comment s’appelle le label de Jul ?",
+      "difficulty": 2,
+      "knowledge": ["rap-jul"],
+      "options": [
+        {
+          "label": "D’or et de platine",
+          "correct": true
+        },
+        {
+          "label": "92i"
+        },
+        {
+          "label": "QLF"
+        },
+        {
+          "label": "Def Jam"
+        }
+      ],
+      "explanation": "Jul sort ses disques sur son propre label, en indépendant."
+    },
+    {
+      "key": "rap-q-13-organise",
+      "format": "quiz",
+      "prompt": "Quel projet réunit en 2020 des dizaines de rappeurs marseillais ?",
+      "difficulty": 2,
+      "knowledge": ["rap-13-organise"],
+      "options": [
+        {
+          "label": "13’Organisé",
+          "correct": true
+        },
+        {
+          "label": "Secteur Ä"
+        },
+        {
+          "label": "Rapattitude"
+        },
+        {
+          "label": "Mafia K’1 Fry"
+        }
+      ],
+      "explanation": "Porté par Jul, avec le titre Bande organisée."
+    },
+    {
+      "key": "rap-q-damso",
+      "format": "quiz",
+      "prompt": "De quel pays vient Damso ?",
+      "difficulty": 1,
+      "knowledge": ["rap-damso"],
+      "options": [
+        {
+          "label": "La Belgique",
+          "correct": true
+        },
+        {
+          "label": "La Suisse"
+        },
+        {
+          "label": "Le Canada"
+        },
+        {
+          "label": "La France"
+        }
+      ],
+      "explanation": "Damso est bruxellois. La Belgique est devenue une place forte du rap francophone."
+    },
+    {
+      "key": "rap-q-damso-92i",
+      "format": "true_false",
+      "prompt": "Damso a été révélé sur le label 92i de Booba.",
+      "difficulty": 3,
+      "knowledge": ["rap-damso", "rap-booba"],
+      "answer": true,
+      "explanation": "Vrai : avant de voler de ses propres ailes."
+    },
+    {
+      "key": "rap-q-aya-jo",
+      "format": "quiz",
+      "prompt": "Lors de quel événement Aya Nakamura chante-t-elle avec la Garde républicaine ?",
+      "difficulty": 2,
+      "knowledge": ["rap-aya"],
+      "options": [
+        {
+          "label": "La cérémonie d’ouverture des JO de Paris 2024",
+          "correct": true
+        },
+        {
+          "label": "La finale de la Coupe du monde 2018"
+        },
+        {
+          "label": "Le 14 Juillet 2019"
+        },
+        {
+          "label": "Les Victoires de la musique 2020"
+        }
+      ],
+      "explanation": "Une prestation devant l’Académie française, vue dans le monde entier."
+    },
+    {
+      "key": "rap-q-djadja",
+      "format": "guess_year",
+      "prompt": "En quelle année sort Djadja, d’Aya Nakamura ?",
+      "difficulty": 3,
+      "knowledge": ["rap-aya"],
+      "year": 2018,
+      "tolerance": 2,
+      "min": 2010,
+      "max": 2024,
+      "explanation": "Djadja sort en 2018 et devient un tube international."
+    },
+    {
+      "key": "rap-q-vocabulaire",
+      "format": "match",
+      "prompt": "Associe chaque mot du rap à sa définition.",
+      "difficulty": 2,
+      "knowledge": ["rap-vocabulaire"],
+      "pairs": [
+        {
+          "left": "Featuring",
+          "right": "Un morceau en invité"
+        },
+        {
+          "left": "Punchline",
+          "right": "Une phrase choc"
+        },
+        {
+          "left": "Freestyle",
+          "right": "Une improvisation"
+        },
+        {
+          "left": "Beatmaker",
+          "right": "Celui qui compose la musique"
+        }
+      ],
+      "explanation": "Le vocabulaire du rap emprunte beaucoup à l’anglais."
+    },
+    {
+      "key": "rap-q-egotrip",
+      "format": "quiz",
+      "prompt": "Que désigne un « egotrip » dans le rap ?",
+      "difficulty": 2,
+      "knowledge": ["rap-vocabulaire"],
+      "options": [
+        {
+          "label": "Un morceau où le rappeur se met en valeur",
+          "correct": true
+        },
+        {
+          "label": "Une tournée à l’étranger"
+        },
+        {
+          "label": "Un clip tourné à l’étranger"
+        },
+        {
+          "label": "Un album sans invités"
+        }
+      ],
+      "explanation": "L’egotrip consiste à vanter son talent et sa réussite."
+    },
+    {
+      "key": "rap-q-verlan",
+      "format": "quiz",
+      "prompt": "Que désigne le verlan ?",
+      "difficulty": 2,
+      "knowledge": ["rap-vocabulaire"],
+      "options": [
+        {
+          "label": "L’inversion des syllabes d’un mot",
+          "correct": true
+        },
+        {
+          "label": "Un rythme très lent"
+        },
+        {
+          "label": "Un morceau sans refrain"
+        },
+        {
+          "label": "Une danse hip-hop"
+        }
+      ],
+      "explanation": "« Relou » pour « lourd », « vénère » pour « énervé » : le verlan est partout dans le rap."
+    },
+    {
+      "key": "rap-q-clash",
+      "format": "true_false",
+      "prompt": "Un clash est un morceau où un rappeur en attaque un autre.",
+      "difficulty": 1,
+      "knowledge": ["rap-vocabulaire"],
+      "answer": true,
+      "explanation": "Vrai : le clash fait partie de la culture rap depuis ses débuts."
+    },
+    {
+      "key": "rap-q-drill",
+      "format": "quiz",
+      "prompt": "Où est née la drill ?",
+      "difficulty": 3,
+      "knowledge": ["rap-drill"],
+      "options": [
+        {
+          "label": "À Chicago",
+          "correct": true
+        },
+        {
+          "label": "À Marseille"
+        },
+        {
+          "label": "À Bruxelles"
+        },
+        {
+          "label": "À Atlanta"
+        }
+      ],
+      "explanation": "Née à Chicago, popularisée à Londres, elle arrive en France à la fin des années 2010."
+    },
+    {
+      "key": "rap-q-frise-streaming",
+      "format": "timeline",
+      "prompt": "Remets ces moments dans l’ordre chronologique.",
+      "difficulty": 3,
+      "knowledge": ["rap-pnl", "rap-aya", "rap-13-organise", "rap-orelsan"],
+      "items": [
+        {
+          "label": "Dans la légende, de PNL",
+          "date": "2016"
+        },
+        {
+          "label": "Djadja, d’Aya Nakamura",
+          "date": "2018"
+        },
+        {
+          "label": "13’Organisé",
+          "date": "2020"
+        },
+        {
+          "label": "Civilisation, d’Orelsan",
+          "date": "2021"
+        }
+      ],
+      "explanation": "2016, 2018, 2020, 2021."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les origines",
+      "description": "L’arrivée du hip-hop en France et les pionniers des années 1990.",
+      "lessons": [
+        {
+          "slug": "rap-le-hip-hop-arrive",
+          "title": "Le hip-hop débarque",
+          "objective": "Savoir d’où vient le hip-hop et comment il arrive en France.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Une culture née à New York",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le hip-hop naît dans les années 1970 dans le Bronx. Il réunit quatre disciplines : le rap, le DJing, la danse et le graffiti."
+                }
+              ]
+            },
+            {
+              "title": "H.I.P. H.O.P. sur TF1",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1984",
+                  "label": "Diffusion de l’émission H.I.P. H.O.P. sur TF1"
+                },
+                {
+                  "type": "text",
+                  "text": "Présentée par Sidney, premier animateur noir d’une émission nationale, elle fait découvrir le breakdance à toute une génération."
+                }
+              ]
+            },
+            {
+              "title": "Les premiers disques",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "1984 : Paname City Rappin’, du DJ Dee Nasty, premier album de rap français.",
+                    "1990 : la compilation Rapattitude fait entendre une nouvelle scène."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-bronx",
+            "rap-q-disciplines",
+            "rap-q-emission",
+            "rap-q-sidney",
+            "rap-q-dee-nasty"
+          ]
+        },
+        {
+          "slug": "rap-les-pionniers",
+          "title": "Les pionniers",
+          "objective": "Connaître MC Solaar, IAM et NTM.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "MC Solaar",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Avec Bouge de là (1990) puis Qui sème le vent récolte le tempo (1991), MC Solaar séduit un très large public par ses jeux de mots."
+                }
+              ]
+            },
+            {
+              "title": "IAM",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le groupe marseillais d’Akhenaton et Shurik’n signe Je danse le Mia (1994), puis L’École du micro d’argent (1997), vendu à plus d’un million d’exemplaires."
+                }
+              ]
+            },
+            {
+              "title": "NTM",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "JoeyStarr et Kool Shen, venus de Seine-Saint-Denis, imposent un rap brut : Paris sous les bombes (1995), Laisse pas traîner ton fils (1998)."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-solaar",
+            "rap-q-solaar-album",
+            "rap-q-iam-ville",
+            "rap-q-ecole-micro",
+            "rap-q-duo-ntm",
+            "rap-q-ntm-membres"
+          ]
+        },
+        {
+          "slug": "rap-l-age-d-or",
+          "title": "L’âge d’or",
+          "objective": "Comprendre l’explosion du rap à la fin des années 1990.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Secteur Ä",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le collectif réunit Ministère A.M.E.R., Doc Gynéco, Passi, Stomy Bugsy ou Arsenik. En 1996, Première consultation de Doc Gynéco cartonne."
+                }
+              ]
+            },
+            {
+              "title": "La radio s’ouvre au rap",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Une loi de 1994 impose, à partir de 1996, 40 % de chansons francophones à la radio. Skyrock se proclame « premier sur le rap »."
+                },
+                {
+                  "type": "fact",
+                  "text": "Le rap français devient l’un des genres les plus diffusés à la radio."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-secteur-a",
+            "rap-q-gyneco",
+            "rap-q-quotas",
+            "rap-q-quotas-annee",
+            "rap-q-skyrock"
+          ]
+        },
+        {
+          "slug": "rap-epreuve-origines",
+          "title": "Épreuve : les origines",
+          "objective": "Valide tes connaissances sur les débuts du rap français.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "rap-q-bronx",
+            "rap-q-solaar",
+            "rap-q-ecole-micro",
+            "rap-q-rapattitude",
+            "rap-q-frise-origines",
+            "rap-q-ecole-annee"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les années 2000 et 2010",
+      "description": "Les poids lourds, le rap qui raconte et la nouvelle vague.",
+      "lessons": [
+        {
+          "slug": "rap-les-poids-lourds",
+          "title": "Les poids lourds",
+          "objective": "Connaître Lunatic, Booba et Diam’s.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Lunatic",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "2000",
+                  "label": "Sortie de Mauvais œil, de Lunatic"
+                },
+                {
+                  "type": "text",
+                  "text": "Booba et Ali sortent un album en indépendant, qui devient disque d’or."
+                }
+              ]
+            },
+            {
+              "title": "Booba",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Originaire de Boulogne-Billancourt, Booba lance sa carrière solo avec Temps mort (2002) et fonde le label 92i."
+                }
+              ]
+            },
+            {
+              "title": "Diam’s",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2006, Dans ma bulle et La Boulette font de Diam’s l’une des artistes les plus populaires de France."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-lunatic",
+            "rap-q-mauvais-oeil",
+            "rap-q-booba-ville",
+            "rap-q-92i",
+            "rap-q-boulette",
+            "rap-q-dans-ma-bulle"
+          ]
+        },
+        {
+          "slug": "rap-le-rap-qui-raconte",
+          "title": "Le rap qui raconte",
+          "objective": "Connaître des plumes majeures du rap français.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Oxmo Puccino",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Surnommé le Black Desperado, Oxmo Puccino sort Opéra Puccino en 1998. Son écriture cinématographique fait école."
+                }
+              ]
+            },
+            {
+              "title": "Kery James",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Ancien membre d’Idéal J, Kery James porte un rap engagé. En 2012, il signe Lettre à la République."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-oxmo",
+            "rap-q-opera-annee",
+            "rap-q-kery",
+            "rap-q-kery-festif",
+            "rap-q-ideal-j"
+          ]
+        },
+        {
+          "slug": "rap-la-nouvelle-vague",
+          "title": "La nouvelle vague",
+          "objective": "Connaître Sexion d’Assaut, Nekfeu et Orelsan.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Sexion d’Assaut",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "2010",
+                  "label": "L’École des points vitaux"
+                },
+                {
+                  "type": "text",
+                  "text": "Avec Maître Gims et Black M, le collectif devient un phénomène. GIMS lance ensuite sa carrière solo avec Subliminal (2013)."
+                }
+              ]
+            },
+            {
+              "title": "Nekfeu et Orelsan",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Nekfeu, révélé avec le collectif 1995, sort Feu en 2015.",
+                    "Orelsan, de Caen, enchaîne Perdu d’avance (2009) et Le Chant des sirènes (2011).",
+                    "Avec Gringe, Orelsan forme les Casseurs Flowters."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-sexion",
+            "rap-q-gims-sexion",
+            "rap-q-subliminal",
+            "rap-q-nekfeu",
+            "rap-q-orelsan-ville",
+            "rap-q-casseurs"
+          ]
+        },
+        {
+          "slug": "rap-epreuve-2000",
+          "title": "Épreuve : les années 2000 et 2010",
+          "objective": "Valide tes connaissances sur cette période.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "rap-q-lunatic",
+            "rap-q-boulette",
+            "rap-q-sexion",
+            "rap-q-casseurs",
+            "rap-q-frise-2000",
+            "rap-q-albums-2000"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "L’ère du streaming",
+      "description": "Le streaming, les têtes d’affiche et les codes du rap.",
+      "lessons": [
+        {
+          "slug": "rap-le-streaming",
+          "title": "Le streaming change tout",
+          "objective": "Comprendre comment le streaming a porté le rap.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Les certifications",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "2016",
+                  "label": "Le streaming compte dans les certifications"
+                },
+                {
+                  "type": "text",
+                  "text": "Le SNEP intègre les écoutes en streaming. Le rap, genre le plus écouté en ligne, enchaîne les disques d’or et de platine."
+                }
+              ]
+            },
+            {
+              "title": "PNL",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Les frères Ademo et N.O.S, des Tarterêts à Corbeil-Essonnes, réussissent en indépendant et presque sans interviews : Dans la légende (2016), Deux frères (2019)."
+                },
+                {
+                  "type": "fact",
+                  "text": "En 2019, PNL tourne le clip d’Au DD au sommet de la tour Eiffel."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-streaming",
+            "rap-q-streaming-rap",
+            "rap-q-pnl-membres",
+            "rap-q-pnl-cite",
+            "rap-q-au-dd",
+            "rap-q-pnl-interviews"
+          ]
+        },
+        {
+          "slug": "rap-les-tetes-d-affiche",
+          "title": "Les têtes d’affiche",
+          "objective": "Connaître des artistes majeurs d’aujourd’hui.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Jul",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le Marseillais Jul sort ses disques sur son label, D’or et de platine. En 2020, il fédère des dizaines de rappeurs sur 13’Organisé."
+                }
+              ]
+            },
+            {
+              "title": "La Belgique",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Damso, révélé sur le label 92i, sort Ipséité en 2017. Bruxelles devient une place forte du rap francophone."
+                }
+              ]
+            },
+            {
+              "title": "Aya Nakamura",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Djadja (2018) la propulse dans le monde entier. En 2024, elle chante à la cérémonie d’ouverture des JO de Paris avec la Garde républicaine."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-jul-label",
+            "rap-q-13-organise",
+            "rap-q-damso",
+            "rap-q-damso-92i",
+            "rap-q-aya-jo"
+          ]
+        },
+        {
+          "slug": "rap-les-codes-du-rap",
+          "title": "Les codes du rap",
+          "objective": "Maîtriser le vocabulaire du rap.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Les mots du rap",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Featuring : un morceau avec un artiste invité.",
+                    "Punchline : une phrase choc.",
+                    "Freestyle : une improvisation.",
+                    "Beatmaker : celui qui compose la musique.",
+                    "Egotrip : le rappeur vante sa réussite.",
+                    "Verlan : l’inversion des syllabes (« relou » pour « lourd »)."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Clash et drill",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le clash, morceau où un rappeur en attaque un autre, existe depuis les débuts. La drill, née à Chicago et popularisée à Londres, arrive en France à la fin des années 2010."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "rap-q-vocabulaire",
+            "rap-q-egotrip",
+            "rap-q-verlan",
+            "rap-q-clash",
+            "rap-q-drill"
+          ]
+        },
+        {
+          "slug": "rap-epreuve-streaming",
+          "title": "Épreuve : l’ère du streaming",
+          "objective": "Valide tes connaissances sur le rap d’aujourd’hui.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "rap-q-streaming",
+            "rap-q-pnl-membres",
+            "rap-q-damso",
+            "rap-q-djadja",
+            "rap-q-frise-streaming",
+            "rap-q-vocabulaire"
+          ]
+        }
+      ]
+    }
+  ]
+}

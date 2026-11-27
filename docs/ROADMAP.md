@@ -65,12 +65,24 @@ Dernière mise à jour : 28 novembre 2026.
 - Mode invité : connexions anonymes Supabase (limite intégrée de 30 par heure et par IP), page `/essai` avec le même consentement que l'inscription, bannière « Tu joues en invité », sauvegarde du compte (`/sauvegarder` : email + mot de passe, compte permanent après confirmation de l'email, même utilisateur donc progression conservée), suppression sans mot de passe pour les invités, purge quotidienne (pg_cron) des invités inactifs depuis 30 jours.
 - Tests : 45 unitaires, 138 assertions pgTAP, 26 scénarios E2E.
 
+## Session contenu (28 novembre 2026)
+
+- Quatre nouveaux parcours de 12 leçons (3 chapitres de 3 leçons + 1 épreuve), **en relecture** :
+  - Jeux vidéo, « Histoire des consoles » : 26 notions, 54 questions.
+  - Musique, « Le rap français » : 30 notions, 56 questions.
+  - Cinéma & séries, « Les sagas cultes » : 29 notions, 51 questions.
+  - Sport, « La Coupe du monde de football » : 26 notions, 48 questions. Palmarès et records arrêtés à l’issue de 2022 (faits évolutifs) : à mettre à jour avec la Coupe du monde 2026.
+- F1 : 48 questions supplémentaires (1 à 2 par notion), en relecture. Elles ne sont dans aucune leçon et serviront aux révisions et au défi du jour une fois publiées.
+- Outillage : statut `in_review` possible par question dans un parcours publié (refusé dans une leçon), chargement local de tous les parcours, tests du contenu (`src/features/content/schema.test.ts`).
+- Correction : dans les associations, toucher l’élément présélectionné le désélectionnait et faisait perdre le choix suivant.
+- Au total : 5 parcours, 60 leçons, 308 questions (51 publiées, 257 en relecture).
+
 ## Écarts et points ouverts
 
 - **Emails en production** : sans SMTP personnalisé (Brevo), Supabase n'envoie les emails qu'aux membres de l'équipe du projet et refuse la personnalisation des modèles. Indispensable avant d'ouvrir à d'autres joueurs (inscription, mot de passe oublié, sauvegarde d'un compte invité).
 - **Mini-test de placement** de l'onboarding : phase 3.
 - **Indices** pendant les leçons : reportés (non prioritaires, les révisions jouent le rôle de rattrapage).
-- **Contenu** : un seul parcours publié (F1, 51 questions) ; il en faut davantage pour varier le défi du jour et les révisions.
+- **Contenu** : 4 parcours et 48 questions F1 à relire par Tim avant publication (passer `status` à `published` dans le JSON, ou retirer `status: "in_review"` des questions F1, puis `pnpm content:build` et appliquer le SQL).
 - **Changement d'adresse email** : non inclus en phase 1 (le modèle d'email est prêt).
 - **Pages légales** : brouillons à faire valider juridiquement avant toute ouverture publique.
 - **Marque Kulto** : disponibilité (INPI, EUIPO, domaines) à vérifier.

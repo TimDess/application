@@ -1,0 +1,1582 @@
+{
+  "universe": "jeux-video",
+  "status": "in_review",
+  "category": {
+    "slug": "consoles",
+    "name": "Consoles et machines",
+    "description": "L’histoire des machines qui ont fait le jeu vidéo, de l’arcade aux consoles hybrides."
+  },
+  "course": {
+    "slug": "histoire-des-consoles",
+    "title": "Histoire des consoles",
+    "description": "De Pong à la Switch 2 : les machines, les rivalités et les révolutions qui ont façonné le jeu vidéo.",
+    "level": "debutant"
+  },
+  "knowledge": [
+    {
+      "key": "jv-odyssey-1972",
+      "title": "La Magnavox Odyssey, première console de salon",
+      "summary": "Conçue par Ralph Baer, la Magnavox Odyssey sort aux États-Unis en 1972 : c’est la première console de jeu vidéo vendue au grand public.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-pong-atari",
+      "title": "Pong et la naissance d’Atari",
+      "summary": "Atari est fondée en 1972 par Nolan Bushnell et Ted Dabney. Son premier grand succès, Pong, est une borne d’arcade programmée par Allan Alcorn.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-atari-2600",
+      "title": "L’Atari 2600 popularise les cartouches",
+      "summary": "Sortie en 1977, l’Atari 2600 (ou VCS) installe le jeu vidéo dans les salons grâce à ses cartouches interchangeables.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-space-invaders",
+      "title": "Space Invaders, phénomène de l’arcade",
+      "summary": "Créé par Tomohiro Nishikado chez Taito en 1978, Space Invaders déclenche un engouement mondial pour les salles d’arcade.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-krach-1983",
+      "title": "Le krach du jeu vidéo de 1983",
+      "summary": "En 1983, le marché nord-américain s’effondre sous l’effet d’une surproduction de jeux médiocres. Les cartouches invendues du jeu E.T. ont même été enfouies dans le désert du Nouveau-Mexique.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-famicom-nes",
+      "title": "La Famicom / NES de Nintendo",
+      "summary": "Nintendo lance la Famicom au Japon en 1983, puis la NES aux États-Unis en 1985. Elle relance le marché après le krach.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-mario-miyamoto",
+      "title": "Mario, créé par Shigeru Miyamoto",
+      "summary": "Mario apparaît pour la première fois dans Donkey Kong (1981). Super Mario Bros. (1985), imaginé par Shigeru Miyamoto, devient un monument de la NES.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-game-boy-tetris",
+      "title": "Le Game Boy et Tetris",
+      "summary": "Le Game Boy sort en 1989. Vendu avec Tetris en Occident, il popularise le jeu vidéo portable. Tetris a été créé en 1984 à Moscou par Alexeï Pajitnov.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-game-and-watch",
+      "title": "Gunpei Yokoi et les Game & Watch",
+      "summary": "Gunpei Yokoi conçoit les Game & Watch (1980), puis le Game Boy. Il défend l’idée d’utiliser des technologies éprouvées de façon inventive.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-mega-drive",
+      "title": "La Mega Drive de Sega",
+      "summary": "Sega lance la Mega Drive en 1988 au Japon (Genesis aux États-Unis en 1989). Elle affronte Nintendo de front.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-sonic",
+      "title": "Sonic, la mascotte de Sega",
+      "summary": "Sonic the Hedgehog sort en 1991 sur Mega Drive. Rapide et insolent, il est conçu pour rivaliser avec Mario.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-super-nintendo",
+      "title": "La Super Nintendo",
+      "summary": "La Super Famicom sort au Japon en 1990, puis devient la Super Nintendo en Occident. Elle est la grande rivale de la Mega Drive.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-guerre-consoles",
+      "title": "La guerre des consoles",
+      "summary": "Au début des années 1990, Sega et Nintendo se livrent une bataille commerciale acharnée, à coups de publicités comparatives.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-playstation-1994",
+      "title": "La PlayStation de Sony",
+      "summary": "Sony lance la PlayStation au Japon le 3 décembre 1994. Elle lit des CD-ROM et devient la première console de salon à dépasser les 100 millions d’exemplaires.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-playstation-origine",
+      "title": "Une console née d’un projet avec Nintendo",
+      "summary": "La PlayStation naît d’un projet de lecteur CD pour la Super Nintendo, abandonné par Nintendo. Ken Kutaragi est considéré comme le père de la console.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-n64-3d",
+      "title": "La Nintendo 64 et la 3D",
+      "summary": "La Nintendo 64 sort en 1996 avec Super Mario 64, qui pose les bases du jeu de plateforme en 3D. Elle reste fidèle aux cartouches.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-saturn",
+      "title": "La Sega Saturn",
+      "summary": "Sortie en 1994 au Japon, la Saturn peine face à la PlayStation, notamment hors du Japon.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-dreamcast",
+      "title": "La Dreamcast, dernière console de Sega",
+      "summary": "La Dreamcast sort en 1998 avec un modem intégré pour jouer en ligne. En 2001, Sega arrête la fabrication de consoles pour devenir éditeur.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-ps2",
+      "title": "La PlayStation 2",
+      "summary": "Sortie en 2000, la PlayStation 2 lit aussi les DVD. Avec plus de 155 millions d’exemplaires, elle est l’une des consoles les plus vendues de l’histoire.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-xbox",
+      "title": "Microsoft entre dans la course avec la Xbox",
+      "summary": "Microsoft lance sa première console, la Xbox, en 2001 avec Halo. Son service en ligne, Xbox Live, ouvre en 2002.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-nintendo-ds",
+      "title": "La Nintendo DS et ses deux écrans",
+      "summary": "La Nintendo DS sort en 2004 : deux écrans, dont un tactile. La même année, Sony lance sa portable, la PSP.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-wii",
+      "title": "La Wii et le jeu par le mouvement",
+      "summary": "Lancée en 2006, la Wii mise sur la détection de mouvement avec la Wiimote et attire un public très large grâce à Wii Sports.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-switch",
+      "title": "La Nintendo Switch, console hybride",
+      "summary": "Sortie le 3 mars 2017, la Switch se joue aussi bien sur la télévision qu’en mode portable, avec ses manettes Joy-Con détachables.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-ps5-series",
+      "title": "PS5 et Xbox Series",
+      "summary": "Sony et Microsoft lancent la PlayStation 5 et les Xbox Series X et S en novembre 2020.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-steam-deck",
+      "title": "Le Steam Deck de Valve",
+      "summary": "Valve sort en 2022 le Steam Deck, un PC portable conçu pour jouer à sa bibliothèque Steam.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jv-switch-2",
+      "title": "La Nintendo Switch 2",
+      "summary": "La Nintendo Switch 2 sort le 5 juin 2025 et succède à la Switch.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "jv-q-odyssey",
+      "format": "quiz",
+      "prompt": "Quelle est la première console de salon commercialisée ?",
+      "difficulty": 1,
+      "knowledge": ["jv-odyssey-1972"],
+      "options": [
+        {
+          "label": "Atari 2600"
+        },
+        {
+          "label": "Magnavox Odyssey",
+          "correct": true
+        },
+        {
+          "label": "NES"
+        },
+        {
+          "label": "Intellivision"
+        }
+      ],
+      "explanation": "La Magnavox Odyssey, conçue par Ralph Baer, sort en 1972 aux États-Unis."
+    },
+    {
+      "key": "jv-q-baer",
+      "format": "true_false",
+      "prompt": "Ralph Baer est considéré comme l’un des pères de la console de salon.",
+      "difficulty": 1,
+      "knowledge": ["jv-odyssey-1972"],
+      "answer": true,
+      "explanation": "Vrai : il a conçu la Magnavox Odyssey, sortie en 1972."
+    },
+    {
+      "key": "jv-q-pong",
+      "format": "quiz",
+      "prompt": "Quel jeu fait le premier grand succès d’Atari ?",
+      "difficulty": 1,
+      "knowledge": ["jv-pong-atari"],
+      "options": [
+        {
+          "label": "Pac-Man"
+        },
+        {
+          "label": "Pong",
+          "correct": true
+        },
+        {
+          "label": "Tetris"
+        },
+        {
+          "label": "Space Invaders"
+        }
+      ],
+      "explanation": "Pong, un tennis de table minimaliste, est programmé par Allan Alcorn en 1972."
+    },
+    {
+      "key": "jv-q-atari-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année Atari est-elle fondée ?",
+      "difficulty": 3,
+      "knowledge": ["jv-pong-atari"],
+      "year": 1972,
+      "tolerance": 2,
+      "min": 1960,
+      "max": 1990,
+      "explanation": "Atari est fondée en 1972 par Nolan Bushnell et Ted Dabney."
+    },
+    {
+      "key": "jv-q-pionniers",
+      "format": "match",
+      "prompt": "Associe chaque pionnier à ce qu’il a créé.",
+      "difficulty": 2,
+      "knowledge": ["jv-odyssey-1972", "jv-pong-atari", "jv-space-invaders"],
+      "pairs": [
+        {
+          "left": "Ralph Baer",
+          "right": "Magnavox Odyssey"
+        },
+        {
+          "left": "Allan Alcorn",
+          "right": "Pong"
+        },
+        {
+          "left": "Tomohiro Nishikado",
+          "right": "Space Invaders"
+        }
+      ],
+      "explanation": "Baer conçoit l’Odyssey, Alcorn programme Pong pour Atari, Nishikado crée Space Invaders chez Taito."
+    },
+    {
+      "key": "jv-q-2600",
+      "format": "quiz",
+      "prompt": "Qu’est-ce qui fait le succès de l’Atari 2600 ?",
+      "difficulty": 2,
+      "knowledge": ["jv-atari-2600"],
+      "options": [
+        {
+          "label": "Ses cartouches interchangeables",
+          "correct": true
+        },
+        {
+          "label": "Son lecteur de CD"
+        },
+        {
+          "label": "Son écran tactile"
+        },
+        {
+          "label": "Sa connexion à Internet"
+        }
+      ],
+      "explanation": "Ses cartouches permettent de changer de jeu facilement : le jeu vidéo s’installe dans les salons."
+    },
+    {
+      "key": "jv-q-2600-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort l’Atari 2600 ?",
+      "difficulty": 3,
+      "knowledge": ["jv-atari-2600"],
+      "year": 1977,
+      "tolerance": 2,
+      "min": 1965,
+      "max": 1990,
+      "explanation": "L’Atari 2600, aussi appelée VCS, sort en 1977."
+    },
+    {
+      "key": "jv-q-space-invaders",
+      "format": "true_false",
+      "prompt": "Space Invaders a été créé par Nintendo.",
+      "difficulty": 1,
+      "knowledge": ["jv-space-invaders"],
+      "answer": false,
+      "explanation": "Faux : Space Invaders est un jeu de Taito, créé par Tomohiro Nishikado en 1978."
+    },
+    {
+      "key": "jv-q-krach",
+      "format": "quiz",
+      "prompt": "Quelle est la principale cause du krach du jeu vidéo de 1983 ?",
+      "difficulty": 2,
+      "knowledge": ["jv-krach-1983"],
+      "options": [
+        {
+          "label": "Une surproduction de jeux médiocres",
+          "correct": true
+        },
+        {
+          "label": "L’arrivée d’Internet"
+        },
+        {
+          "label": "Une pénurie de puces"
+        },
+        {
+          "label": "L’interdiction des salles d’arcade"
+        }
+      ],
+      "explanation": "Le marché nord-américain s’effondre, saturé de consoles et de jeux de piètre qualité."
+    },
+    {
+      "key": "jv-q-et",
+      "format": "true_false",
+      "prompt": "Des cartouches invendues du jeu E.T. ont été enfouies dans un désert.",
+      "difficulty": 2,
+      "knowledge": ["jv-krach-1983"],
+      "answer": true,
+      "explanation": "Vrai : elles ont été enterrées au Nouveau-Mexique, puis exhumées lors de fouilles en 2014."
+    },
+    {
+      "key": "jv-q-famicom",
+      "format": "quiz",
+      "prompt": "Sous quel nom la NES sort-elle d’abord au Japon ?",
+      "difficulty": 2,
+      "knowledge": ["jv-famicom-nes"],
+      "options": [
+        {
+          "label": "Famicom",
+          "correct": true
+        },
+        {
+          "label": "Mega Drive"
+        },
+        {
+          "label": "Super Famicom"
+        },
+        {
+          "label": "Game & Watch"
+        }
+      ],
+      "explanation": "La Famicom (Family Computer) sort au Japon en 1983, avant de devenir la NES en Occident."
+    },
+    {
+      "key": "jv-q-premier-mario",
+      "format": "quiz",
+      "prompt": "Dans quel jeu Mario apparaît-il pour la première fois ?",
+      "difficulty": 2,
+      "knowledge": ["jv-mario-miyamoto"],
+      "options": [
+        {
+          "label": "Super Mario Bros."
+        },
+        {
+          "label": "Donkey Kong",
+          "correct": true
+        },
+        {
+          "label": "Mario Kart"
+        },
+        {
+          "label": "Tetris"
+        }
+      ],
+      "explanation": "Mario fait ses débuts en 1981 dans Donkey Kong, où il s’appelle encore Jumpman."
+    },
+    {
+      "key": "jv-q-miyamoto",
+      "format": "true_false",
+      "prompt": "Shigeru Miyamoto est le créateur de Mario.",
+      "difficulty": 1,
+      "knowledge": ["jv-mario-miyamoto"],
+      "answer": true,
+      "explanation": "Vrai : il imagine Donkey Kong puis Super Mario Bros. chez Nintendo."
+    },
+    {
+      "key": "jv-q-tetris",
+      "format": "quiz",
+      "prompt": "Quel jeu est vendu avec le Game Boy en Occident ?",
+      "difficulty": 2,
+      "knowledge": ["jv-game-boy-tetris"],
+      "options": [
+        {
+          "label": "Tetris",
+          "correct": true
+        },
+        {
+          "label": "Pokémon"
+        },
+        {
+          "label": "Zelda"
+        },
+        {
+          "label": "Pac-Man"
+        }
+      ],
+      "explanation": "Tetris accompagne le Game Boy et contribue énormément à son succès."
+    },
+    {
+      "key": "jv-q-pajitnov",
+      "format": "quiz",
+      "prompt": "Où Tetris a-t-il été créé ?",
+      "difficulty": 2,
+      "knowledge": ["jv-game-boy-tetris"],
+      "options": [
+        {
+          "label": "À Tokyo"
+        },
+        {
+          "label": "À Moscou",
+          "correct": true
+        },
+        {
+          "label": "À Seattle"
+        },
+        {
+          "label": "À Londres"
+        }
+      ],
+      "explanation": "Alexeï Pajitnov crée Tetris en 1984 à Moscou, alors en Union soviétique."
+    },
+    {
+      "key": "jv-q-yokoi",
+      "format": "true_false",
+      "prompt": "Gunpei Yokoi a conçu le Game Boy.",
+      "difficulty": 2,
+      "knowledge": ["jv-game-and-watch"],
+      "answer": true,
+      "explanation": "Vrai : après les Game & Watch, il conçoit le Game Boy, sorti en 1989."
+    },
+    {
+      "key": "jv-q-frise-pionniers",
+      "format": "timeline",
+      "prompt": "Remets ces étapes dans l’ordre chronologique.",
+      "difficulty": 3,
+      "knowledge": ["jv-odyssey-1972", "jv-atari-2600", "jv-krach-1983", "jv-game-boy-tetris"],
+      "items": [
+        {
+          "label": "Sortie de la Magnavox Odyssey",
+          "date": "1972"
+        },
+        {
+          "label": "Sortie de l’Atari 2600",
+          "date": "1977"
+        },
+        {
+          "label": "Krach du jeu vidéo",
+          "date": "1983"
+        },
+        {
+          "label": "Sortie du Game Boy",
+          "date": "1989"
+        }
+      ],
+      "explanation": "1972 : Odyssey. 1977 : Atari 2600. 1983 : krach. 1989 : Game Boy."
+    },
+    {
+      "key": "jv-q-nes-us",
+      "format": "guess_year",
+      "prompt": "En quelle année la NES sort-elle aux États-Unis ?",
+      "difficulty": 3,
+      "knowledge": ["jv-famicom-nes"],
+      "year": 1985,
+      "tolerance": 2,
+      "min": 1975,
+      "max": 1995,
+      "explanation": "La NES arrive aux États-Unis en 1985, deux ans après la Famicom au Japon."
+    },
+    {
+      "key": "jv-q-mega-drive",
+      "format": "quiz",
+      "prompt": "Quelle console de Sega affronte la Super Nintendo ?",
+      "difficulty": 2,
+      "knowledge": ["jv-mega-drive", "jv-guerre-consoles"],
+      "options": [
+        {
+          "label": "Master System"
+        },
+        {
+          "label": "Mega Drive",
+          "correct": true
+        },
+        {
+          "label": "Dreamcast"
+        },
+        {
+          "label": "Saturn"
+        }
+      ],
+      "explanation": "La Mega Drive (Genesis aux États-Unis) est la grande rivale de la Super Nintendo."
+    },
+    {
+      "key": "jv-q-genesis",
+      "format": "true_false",
+      "prompt": "Aux États-Unis, la Mega Drive s’appelle Genesis.",
+      "difficulty": 1,
+      "knowledge": ["jv-mega-drive"],
+      "answer": true,
+      "explanation": "Vrai : elle y sort en 1989 sous le nom de Genesis."
+    },
+    {
+      "key": "jv-q-sonic",
+      "format": "quiz",
+      "prompt": "Quelle mascotte Sega crée-t-elle pour rivaliser avec Mario ?",
+      "difficulty": 1,
+      "knowledge": ["jv-sonic"],
+      "options": [
+        {
+          "label": "Crash Bandicoot"
+        },
+        {
+          "label": "Sonic",
+          "correct": true
+        },
+        {
+          "label": "Spyro"
+        },
+        {
+          "label": "Rayman"
+        }
+      ],
+      "explanation": "Sonic the Hedgehog sort en 1991 sur Mega Drive."
+    },
+    {
+      "key": "jv-q-sonic-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort le premier Sonic the Hedgehog ?",
+      "difficulty": 3,
+      "knowledge": ["jv-sonic"],
+      "year": 1991,
+      "tolerance": 2,
+      "min": 1980,
+      "max": 2000,
+      "explanation": "Sonic the Hedgehog sort en 1991 sur Mega Drive."
+    },
+    {
+      "key": "jv-q-super-famicom",
+      "format": "quiz",
+      "prompt": "Comment s’appelle la Super Nintendo au Japon ?",
+      "difficulty": 2,
+      "knowledge": ["jv-super-nintendo"],
+      "options": [
+        {
+          "label": "Super Famicom",
+          "correct": true
+        },
+        {
+          "label": "Famicom"
+        },
+        {
+          "label": "Nintendo 64"
+        },
+        {
+          "label": "Virtual Boy"
+        }
+      ],
+      "explanation": "Elle sort au Japon en 1990 sous le nom de Super Famicom."
+    },
+    {
+      "key": "jv-q-guerre",
+      "format": "true_false",
+      "prompt": "Au début des années 1990, Sega et Nintendo se livrent une guerre commerciale acharnée.",
+      "difficulty": 1,
+      "knowledge": ["jv-guerre-consoles"],
+      "answer": true,
+      "explanation": "Vrai : publicités comparatives, mascottes rivales… c’est la « guerre des consoles »."
+    },
+    {
+      "key": "jv-q-ps1-date",
+      "format": "quiz",
+      "prompt": "Quand la première PlayStation sort-elle au Japon ?",
+      "difficulty": 2,
+      "knowledge": ["jv-playstation-1994"],
+      "options": [
+        {
+          "label": "Décembre 1994",
+          "correct": true
+        },
+        {
+          "label": "Mars 2000"
+        },
+        {
+          "label": "Juin 1996"
+        },
+        {
+          "label": "Novembre 1989"
+        }
+      ],
+      "explanation": "La PlayStation sort le 3 décembre 1994 au Japon."
+    },
+    {
+      "key": "jv-q-ps1-support",
+      "format": "quiz",
+      "prompt": "Sur quel support sont vendus les jeux de la première PlayStation ?",
+      "difficulty": 2,
+      "knowledge": ["jv-playstation-1994"],
+      "options": [
+        {
+          "label": "Cartouche"
+        },
+        {
+          "label": "CD-ROM",
+          "correct": true
+        },
+        {
+          "label": "Disquette"
+        },
+        {
+          "label": "Blu-ray"
+        }
+      ],
+      "explanation": "Le CD-ROM offre beaucoup plus de place que les cartouches, pour un coût de fabrication plus faible."
+    },
+    {
+      "key": "jv-q-ps1-nintendo",
+      "format": "true_false",
+      "prompt": "La PlayStation est née d’un projet abandonné entre Sony et Nintendo.",
+      "difficulty": 2,
+      "knowledge": ["jv-playstation-origine"],
+      "answer": true,
+      "explanation": "Vrai : Sony devait concevoir un lecteur CD pour la Super Nintendo avant que Nintendo ne renonce au projet."
+    },
+    {
+      "key": "jv-q-kutaragi",
+      "format": "quiz",
+      "prompt": "Qui est considéré comme le père de la PlayStation ?",
+      "difficulty": 3,
+      "knowledge": ["jv-playstation-origine"],
+      "options": [
+        {
+          "label": "Ken Kutaragi",
+          "correct": true
+        },
+        {
+          "label": "Satoru Iwata"
+        },
+        {
+          "label": "Hideo Kojima"
+        },
+        {
+          "label": "Shigeru Miyamoto"
+        }
+      ],
+      "explanation": "Ken Kutaragi, ingénieur chez Sony, porte le projet PlayStation."
+    },
+    {
+      "key": "jv-q-ps1-100m",
+      "format": "true_false",
+      "prompt": "La PlayStation est la première console de salon à dépasser les 100 millions d’exemplaires.",
+      "difficulty": 2,
+      "knowledge": ["jv-playstation-1994"],
+      "answer": true,
+      "explanation": "Vrai : elle franchit ce cap au début des années 2000."
+    },
+    {
+      "key": "jv-q-mario64",
+      "format": "quiz",
+      "prompt": "Quel jeu accompagne la sortie de la Nintendo 64 ?",
+      "difficulty": 2,
+      "knowledge": ["jv-n64-3d"],
+      "options": [
+        {
+          "label": "Super Mario 64",
+          "correct": true
+        },
+        {
+          "label": "The Legend of Zelda"
+        },
+        {
+          "label": "GoldenEye 007"
+        },
+        {
+          "label": "Mario Kart 64"
+        }
+      ],
+      "explanation": "Super Mario 64 pose les bases de la plateforme en 3D."
+    },
+    {
+      "key": "jv-q-n64-cd",
+      "format": "true_false",
+      "prompt": "La Nintendo 64 utilise des CD-ROM, comme la PlayStation.",
+      "difficulty": 1,
+      "knowledge": ["jv-n64-3d"],
+      "answer": false,
+      "explanation": "Faux : Nintendo reste fidèle aux cartouches avec la Nintendo 64."
+    },
+    {
+      "key": "jv-q-dreamcast",
+      "format": "quiz",
+      "prompt": "Quelle est la dernière console de Sega ?",
+      "difficulty": 2,
+      "knowledge": ["jv-dreamcast"],
+      "options": [
+        {
+          "label": "Saturn"
+        },
+        {
+          "label": "Dreamcast",
+          "correct": true
+        },
+        {
+          "label": "Mega Drive"
+        },
+        {
+          "label": "Game Gear"
+        }
+      ],
+      "explanation": "Après la Dreamcast, Sega arrête les consoles en 2001 pour se consacrer aux jeux."
+    },
+    {
+      "key": "jv-q-dreamcast-modem",
+      "format": "true_false",
+      "prompt": "La Dreamcast intégrait un modem pour jouer en ligne.",
+      "difficulty": 2,
+      "knowledge": ["jv-dreamcast"],
+      "answer": true,
+      "explanation": "Vrai : c’est l’une des premières consoles pensées pour le jeu en ligne."
+    },
+    {
+      "key": "jv-q-consoles-90",
+      "format": "match",
+      "prompt": "Associe chaque console à son fabricant.",
+      "difficulty": 2,
+      "knowledge": ["jv-saturn", "jv-n64-3d", "jv-playstation-1994", "jv-mega-drive"],
+      "pairs": [
+        {
+          "left": "Saturn",
+          "right": "Sega"
+        },
+        {
+          "left": "Nintendo 64",
+          "right": "Nintendo"
+        },
+        {
+          "left": "PlayStation",
+          "right": "Sony"
+        },
+        {
+          "left": "Genesis",
+          "right": "Sega"
+        }
+      ],
+      "explanation": "La Saturn et la Genesis (Mega Drive) sont de Sega, la Nintendo 64 de Nintendo, la PlayStation de Sony."
+    },
+    {
+      "key": "jv-q-frise-90",
+      "format": "timeline",
+      "prompt": "Remets ces sorties dans l’ordre chronologique.",
+      "difficulty": 3,
+      "knowledge": ["jv-mega-drive", "jv-super-nintendo", "jv-playstation-1994", "jv-n64-3d"],
+      "items": [
+        {
+          "label": "Mega Drive (Japon)",
+          "date": "1988"
+        },
+        {
+          "label": "Super Famicom (Japon)",
+          "date": "1990"
+        },
+        {
+          "label": "PlayStation (Japon)",
+          "date": "1994"
+        },
+        {
+          "label": "Nintendo 64 (Japon)",
+          "date": "1996"
+        }
+      ],
+      "explanation": "1988 : Mega Drive. 1990 : Super Famicom. 1994 : PlayStation. 1996 : Nintendo 64."
+    },
+    {
+      "key": "jv-q-sega-stop",
+      "format": "guess_year",
+      "prompt": "En quelle année Sega arrête-t-il de fabriquer des consoles ?",
+      "difficulty": 3,
+      "knowledge": ["jv-dreamcast"],
+      "year": 2001,
+      "tolerance": 2,
+      "min": 1990,
+      "max": 2010,
+      "explanation": "Sega annonce l’arrêt de la Dreamcast en 2001 et devient éditeur."
+    },
+    {
+      "key": "jv-q-ps2-dvd",
+      "format": "quiz",
+      "prompt": "Quel atout supplémentaire la PlayStation 2 offre-t-elle à sa sortie ?",
+      "difficulty": 2,
+      "knowledge": ["jv-ps2"],
+      "options": [
+        {
+          "label": "Elle lit les DVD",
+          "correct": true
+        },
+        {
+          "label": "Elle a un écran tactile"
+        },
+        {
+          "label": "Elle détecte les mouvements"
+        },
+        {
+          "label": "Elle est portable"
+        }
+      ],
+      "explanation": "Lecteur DVD bon marché, la PS2 séduit bien au-delà des joueurs."
+    },
+    {
+      "key": "jv-q-ps2-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort la PlayStation 2 ?",
+      "difficulty": 3,
+      "knowledge": ["jv-ps2"],
+      "year": 2000,
+      "tolerance": 2,
+      "min": 1990,
+      "max": 2010,
+      "explanation": "La PlayStation 2 sort en 2000 au Japon."
+    },
+    {
+      "key": "jv-q-xbox",
+      "format": "quiz",
+      "prompt": "Quelle est la première console de Microsoft ?",
+      "difficulty": 1,
+      "knowledge": ["jv-xbox"],
+      "options": [
+        {
+          "label": "Xbox",
+          "correct": true
+        },
+        {
+          "label": "Xbox 360"
+        },
+        {
+          "label": "Xbox One"
+        },
+        {
+          "label": "Xbox Series X"
+        }
+      ],
+      "explanation": "La Xbox sort en 2001 avec Halo: Combat Evolved."
+    },
+    {
+      "key": "jv-q-xbox-live",
+      "format": "true_false",
+      "prompt": "Xbox Live est le service de jeu en ligne de Microsoft.",
+      "difficulty": 1,
+      "knowledge": ["jv-xbox"],
+      "answer": true,
+      "explanation": "Vrai : il ouvre en 2002 sur la première Xbox."
+    },
+    {
+      "key": "jv-q-halo",
+      "format": "quiz",
+      "prompt": "Quel jeu phare accompagne la sortie de la Xbox ?",
+      "difficulty": 3,
+      "knowledge": ["jv-xbox"],
+      "options": [
+        {
+          "label": "Halo: Combat Evolved",
+          "correct": true
+        },
+        {
+          "label": "Gears of War"
+        },
+        {
+          "label": "Forza Motorsport"
+        },
+        {
+          "label": "Fable"
+        }
+      ],
+      "explanation": "Halo devient la licence emblématique de la Xbox."
+    },
+    {
+      "key": "jv-q-ds",
+      "format": "quiz",
+      "prompt": "Quelle est la particularité de la Nintendo DS ?",
+      "difficulty": 2,
+      "knowledge": ["jv-nintendo-ds"],
+      "options": [
+        {
+          "label": "Deux écrans, dont un tactile",
+          "correct": true
+        },
+        {
+          "label": "Un lecteur Blu-ray"
+        },
+        {
+          "label": "Une manette sans fil détachable"
+        },
+        {
+          "label": "La réalité virtuelle"
+        }
+      ],
+      "explanation": "DS veut d’ailleurs dire « Dual Screen »."
+    },
+    {
+      "key": "jv-q-psp",
+      "format": "true_false",
+      "prompt": "La PSP est une console portable de Sony.",
+      "difficulty": 1,
+      "knowledge": ["jv-nintendo-ds"],
+      "answer": true,
+      "explanation": "Vrai : la PlayStation Portable sort en 2004, la même année que la DS."
+    },
+    {
+      "key": "jv-q-wii",
+      "format": "quiz",
+      "prompt": "Quelle innovation fait le succès de la Wii ?",
+      "difficulty": 2,
+      "knowledge": ["jv-wii"],
+      "options": [
+        {
+          "label": "La détection de mouvement",
+          "correct": true
+        },
+        {
+          "label": "La 4K"
+        },
+        {
+          "label": "Le jeu en nuage"
+        },
+        {
+          "label": "Le double écran"
+        }
+      ],
+      "explanation": "Avec la Wiimote, on joue en bougeant : bowling, tennis, golf dans Wii Sports."
+    },
+    {
+      "key": "jv-q-wiimote",
+      "format": "quiz",
+      "prompt": "Comment s’appelle la manette de la Wii ?",
+      "difficulty": 1,
+      "knowledge": ["jv-wii"],
+      "options": [
+        {
+          "label": "La Wiimote",
+          "correct": true
+        },
+        {
+          "label": "La DualShock"
+        },
+        {
+          "label": "Le Joy-Con"
+        },
+        {
+          "label": "Le Kinect"
+        }
+      ],
+      "explanation": "La Wiimote détecte les gestes du joueur."
+    },
+    {
+      "key": "jv-q-wii-sports",
+      "format": "true_false",
+      "prompt": "Wii Sports a attiré vers le jeu vidéo un public qui ne jouait pas.",
+      "difficulty": 1,
+      "knowledge": ["jv-wii"],
+      "answer": true,
+      "explanation": "Vrai : la Wii a séduit les familles et les seniors."
+    },
+    {
+      "key": "jv-q-switch",
+      "format": "quiz",
+      "prompt": "Pourquoi dit-on que la Switch est une console hybride ?",
+      "difficulty": 2,
+      "knowledge": ["jv-switch"],
+      "options": [
+        {
+          "label": "Elle se joue sur la télé et en portable",
+          "correct": true
+        },
+        {
+          "label": "Elle lit les CD et les cartouches"
+        },
+        {
+          "label": "Elle fonctionne sur batterie et sur secteur"
+        },
+        {
+          "label": "Elle mélange jeux et films"
+        }
+      ],
+      "explanation": "On la sort de sa station pour continuer à jouer en mode portable."
+    },
+    {
+      "key": "jv-q-switch-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort la Nintendo Switch ?",
+      "difficulty": 3,
+      "knowledge": ["jv-switch"],
+      "year": 2017,
+      "tolerance": 1,
+      "min": 2010,
+      "max": 2025,
+      "explanation": "La Switch sort le 3 mars 2017."
+    },
+    {
+      "key": "jv-q-ps5",
+      "format": "quiz",
+      "prompt": "Quand sortent la PS5 et les Xbox Series X et S ?",
+      "difficulty": 2,
+      "knowledge": ["jv-ps5-series"],
+      "options": [
+        {
+          "label": "En novembre 2020",
+          "correct": true
+        },
+        {
+          "label": "En mars 2017"
+        },
+        {
+          "label": "En juin 2025"
+        },
+        {
+          "label": "En décembre 2013"
+        }
+      ],
+      "explanation": "Les deux nouvelles générations arrivent à quelques jours d’intervalle, en novembre 2020."
+    },
+    {
+      "key": "jv-q-steam-deck",
+      "format": "quiz",
+      "prompt": "Qui fabrique le Steam Deck ?",
+      "difficulty": 2,
+      "knowledge": ["jv-steam-deck"],
+      "options": [
+        {
+          "label": "Valve",
+          "correct": true
+        },
+        {
+          "label": "Sony"
+        },
+        {
+          "label": "Nintendo"
+        },
+        {
+          "label": "Microsoft"
+        }
+      ],
+      "explanation": "Valve, l’entreprise derrière la boutique Steam, sort le Steam Deck en 2022."
+    },
+    {
+      "key": "jv-q-switch-2",
+      "format": "true_false",
+      "prompt": "La Nintendo Switch 2 est sortie en 2025.",
+      "difficulty": 1,
+      "knowledge": ["jv-switch-2"],
+      "answer": true,
+      "explanation": "Vrai : elle sort le 5 juin 2025."
+    },
+    {
+      "key": "jv-q-modernes",
+      "format": "match",
+      "prompt": "Associe chaque console à son année de sortie.",
+      "difficulty": 2,
+      "knowledge": ["jv-ps2", "jv-wii", "jv-switch", "jv-ps5-series"],
+      "pairs": [
+        {
+          "left": "PlayStation 2",
+          "right": "2000"
+        },
+        {
+          "left": "Wii",
+          "right": "2006"
+        },
+        {
+          "left": "Switch",
+          "right": "2017"
+        },
+        {
+          "left": "PlayStation 5",
+          "right": "2020"
+        }
+      ],
+      "explanation": "PS2 en 2000, Wii en 2006, Switch en 2017, PS5 en 2020."
+    },
+    {
+      "key": "jv-q-frise-modernes",
+      "format": "timeline",
+      "prompt": "Remets ces consoles dans l’ordre de sortie.",
+      "difficulty": 3,
+      "knowledge": ["jv-xbox", "jv-nintendo-ds", "jv-steam-deck", "jv-switch-2"],
+      "items": [
+        {
+          "label": "Xbox",
+          "date": "2001"
+        },
+        {
+          "label": "Nintendo DS",
+          "date": "2004"
+        },
+        {
+          "label": "Steam Deck",
+          "date": "2022"
+        },
+        {
+          "label": "Nintendo Switch 2",
+          "date": "2025"
+        }
+      ],
+      "explanation": "2001 : Xbox. 2004 : DS. 2022 : Steam Deck. 2025 : Switch 2."
+    },
+    {
+      "key": "jv-q-joycon",
+      "format": "true_false",
+      "prompt": "Les manettes de la Switch s’appellent les Joy-Con.",
+      "difficulty": 1,
+      "knowledge": ["jv-switch"],
+      "answer": true,
+      "explanation": "Vrai : elles se détachent de la console et peuvent se partager à deux."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les pionniers",
+      "description": "Des premières consoles au krach de 1983, puis au retour de Nintendo.",
+      "lessons": [
+        {
+          "slug": "jv-les-debuts",
+          "title": "Les débuts du jeu vidéo",
+          "objective": "Savoir qui a lancé les premières consoles et bornes.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La première console",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1972",
+                  "label": "Sortie de la Magnavox Odyssey, première console de salon"
+                },
+                {
+                  "type": "text",
+                  "text": "Conçue par l’ingénieur Ralph Baer, l’Odyssey se branche sur la télévision. Les joueurs posent même des calques sur l’écran pour habiller les jeux."
+                }
+              ]
+            },
+            {
+              "title": "Pong et Atari",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La même année, Nolan Bushnell et Ted Dabney fondent Atari. Leur borne d’arcade Pong, programmée par Allan Alcorn, fait un tabac dans les bars."
+                },
+                {
+                  "type": "fact",
+                  "text": "Pong imite le tennis de table : deux raquettes, une balle, et c’est tout."
+                }
+              ]
+            },
+            {
+              "title": "Space Invaders",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1978, Space Invaders de Taito, créé par Tomohiro Nishikado, remplit les salles d’arcade du monde entier."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-odyssey",
+            "jv-q-baer",
+            "jv-q-pong",
+            "jv-q-atari-annee",
+            "jv-q-pionniers"
+          ]
+        },
+        {
+          "slug": "jv-atari-et-le-krach",
+          "title": "L’ère Atari et le krach",
+          "objective": "Comprendre le succès d’Atari puis l’effondrement de 1983.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "L’Atari 2600",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1977",
+                  "label": "Sortie de l’Atari 2600 (ou VCS)"
+                },
+                {
+                  "type": "text",
+                  "text": "Ses cartouches interchangeables permettent d’acheter de nouveaux jeux : le jeu vidéo s’installe dans les foyers."
+                }
+              ]
+            },
+            {
+              "title": "Le krach de 1983",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Trop de consoles, trop de jeux bâclés : en 1983, le marché nord-américain s’effondre."
+                },
+                {
+                  "type": "fact",
+                  "text": "Des cartouches invendues du jeu E.T. ont été enfouies dans le désert du Nouveau-Mexique, puis exhumées en 2014."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-2600",
+            "jv-q-2600-annee",
+            "jv-q-space-invaders",
+            "jv-q-krach",
+            "jv-q-et"
+          ]
+        },
+        {
+          "slug": "jv-nintendo-relance-tout",
+          "title": "Nintendo relance tout",
+          "objective": "Connaître la NES, Mario et le Game Boy.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Famicom et NES",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Nintendo sort la Famicom au Japon en 1983, puis la NES aux États-Unis en 1985. Elle redonne confiance au marché."
+                }
+              ]
+            },
+            {
+              "title": "Mario",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Mario apparaît dans Donkey Kong en 1981. En 1985, Super Mario Bros., imaginé par Shigeru Miyamoto, devient une référence."
+                }
+              ]
+            },
+            {
+              "title": "Le Game Boy",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1989",
+                  "label": "Sortie du Game Boy"
+                },
+                {
+                  "type": "text",
+                  "text": "Conçu par l’équipe de Gunpei Yokoi, il est vendu avec Tetris, créé en 1984 à Moscou par Alexeï Pajitnov."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-famicom",
+            "jv-q-premier-mario",
+            "jv-q-miyamoto",
+            "jv-q-tetris",
+            "jv-q-pajitnov"
+          ]
+        },
+        {
+          "slug": "jv-epreuve-pionniers",
+          "title": "Épreuve : les pionniers",
+          "objective": "Valide tes connaissances sur les débuts du jeu vidéo.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "jv-q-odyssey",
+            "jv-q-2600",
+            "jv-q-krach",
+            "jv-q-yokoi",
+            "jv-q-frise-pionniers",
+            "jv-q-nes-us"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La guerre des consoles",
+      "description": "Sega contre Nintendo, l’arrivée de Sony et le passage à la 3D.",
+      "lessons": [
+        {
+          "slug": "jv-sega-contre-nintendo",
+          "title": "Sega contre Nintendo",
+          "objective": "Connaître les deux rivales du début des années 1990.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "La Mega Drive",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1988",
+                  "label": "Sortie de la Mega Drive au Japon"
+                },
+                {
+                  "type": "text",
+                  "text": "Aux États-Unis, elle s’appelle Genesis. Sega l’affiche comme la console des joueurs exigeants."
+                }
+              ]
+            },
+            {
+              "title": "Sonic contre Mario",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1991, Sega lance Sonic, hérisson bleu ultra-rapide pensé pour rivaliser avec Mario."
+                },
+                {
+                  "type": "fact",
+                  "text": "La Super Nintendo, sortie au Japon en 1990 sous le nom de Super Famicom, répond coup pour coup."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-mega-drive",
+            "jv-q-genesis",
+            "jv-q-sonic",
+            "jv-q-super-famicom",
+            "jv-q-guerre"
+          ]
+        },
+        {
+          "slug": "jv-arrivee-de-sony",
+          "title": "L’arrivée de Sony",
+          "objective": "Savoir comment la PlayStation a bousculé le marché.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "Une origine surprenante",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Sony devait concevoir un lecteur CD pour la Super Nintendo. Nintendo abandonne le projet : Sony décide de faire sa propre console."
+                }
+              ]
+            },
+            {
+              "title": "La PlayStation",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1994",
+                  "label": "Sortie de la PlayStation au Japon, le 3 décembre"
+                },
+                {
+                  "type": "text",
+                  "text": "Ses jeux sur CD-ROM coûtent moins cher à produire. Ken Kutaragi, chez Sony, est considéré comme son père."
+                }
+              ]
+            },
+            {
+              "title": "Un record",
+              "blocks": [
+                {
+                  "type": "fact",
+                  "text": "La PlayStation est la première console de salon à dépasser les 100 millions d’exemplaires vendus."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-ps1-date",
+            "jv-q-ps1-support",
+            "jv-q-ps1-nintendo",
+            "jv-q-kutaragi",
+            "jv-q-ps1-100m"
+          ]
+        },
+        {
+          "slug": "jv-la-3d",
+          "title": "Le passage à la 3D",
+          "objective": "Connaître la Nintendo 64, la Saturn et la Dreamcast.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "La Nintendo 64",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1996",
+                  "label": "Sortie de la Nintendo 64 avec Super Mario 64"
+                },
+                {
+                  "type": "text",
+                  "text": "Super Mario 64 invente une manière de jouer en 3D. Nintendo garde les cartouches."
+                }
+              ]
+            },
+            {
+              "title": "Les dernières consoles de Sega",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "La Saturn (1994) souffre face à la PlayStation.",
+                    "La Dreamcast (1998) intègre un modem pour jouer en ligne.",
+                    "En 2001, Sega arrête les consoles et devient éditeur."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-mario64",
+            "jv-q-n64-cd",
+            "jv-q-dreamcast",
+            "jv-q-dreamcast-modem",
+            "jv-q-consoles-90"
+          ]
+        },
+        {
+          "slug": "jv-epreuve-guerre",
+          "title": "Épreuve : la guerre des consoles",
+          "objective": "Valide tes connaissances sur les années 1990.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "jv-q-sonic",
+            "jv-q-ps1-support",
+            "jv-q-mario64",
+            "jv-q-frise-90",
+            "jv-q-sonic-annee",
+            "jv-q-sega-stop"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "L’ère moderne",
+      "description": "Des années 2000 à aujourd’hui : salon connecté, nouveaux publics et consoles hybrides.",
+      "lessons": [
+        {
+          "slug": "jv-le-salon-connecte",
+          "title": "Le salon connecté",
+          "objective": "Connaître la PS2 et l’arrivée de Microsoft.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "La PlayStation 2",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "2000",
+                  "label": "Sortie de la PlayStation 2"
+                },
+                {
+                  "type": "text",
+                  "text": "Elle lit aussi les DVD. Avec plus de 155 millions d’exemplaires, c’est l’une des consoles les plus vendues de l’histoire."
+                }
+              ]
+            },
+            {
+              "title": "La Xbox",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Microsoft lance sa première console en 2001, avec Halo. Son service Xbox Live ouvre en 2002 et popularise le jeu en ligne sur console."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-ps2-dvd",
+            "jv-q-ps2-annee",
+            "jv-q-xbox",
+            "jv-q-xbox-live",
+            "jv-q-halo"
+          ]
+        },
+        {
+          "slug": "jv-nouveaux-publics",
+          "title": "De nouveaux publics",
+          "objective": "Comprendre comment Nintendo a élargi le jeu vidéo.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "La Nintendo DS",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "2004",
+                  "label": "Sortie de la Nintendo DS et de la PSP"
+                },
+                {
+                  "type": "text",
+                  "text": "La DS a deux écrans, dont un tactile. Sony répond avec la PSP, sa première portable."
+                }
+              ]
+            },
+            {
+              "title": "La Wii",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2006, la Wii fait bouger les joueurs avec la Wiimote. Wii Sports conquiert les familles et les seniors."
+                }
+              ]
+            }
+          ],
+          "questions": ["jv-q-ds", "jv-q-psp", "jv-q-wii", "jv-q-wii-sports", "jv-q-wiimote"]
+        },
+        {
+          "slug": "jv-consoles-aujourdhui",
+          "title": "Les consoles d’aujourd’hui",
+          "objective": "Connaître les machines actuelles.",
+          "minutes": 4,
+          "cards": [
+            {
+              "title": "La Switch",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "2017",
+                  "label": "Sortie de la Nintendo Switch, le 3 mars"
+                },
+                {
+                  "type": "text",
+                  "text": "Console hybride, elle passe de la télévision au mode portable. Ses Joy-Con se détachent et se partagent."
+                }
+              ]
+            },
+            {
+              "title": "La génération actuelle",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "PlayStation 5 et Xbox Series X et S : novembre 2020.",
+                    "Steam Deck de Valve : 2022.",
+                    "Nintendo Switch 2 : 5 juin 2025."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jv-q-switch",
+            "jv-q-switch-annee",
+            "jv-q-joycon",
+            "jv-q-ps5",
+            "jv-q-steam-deck",
+            "jv-q-switch-2"
+          ]
+        },
+        {
+          "slug": "jv-epreuve-moderne",
+          "title": "Épreuve : l’ère moderne",
+          "objective": "Valide tes connaissances sur les consoles récentes.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "jv-q-ps2-dvd",
+            "jv-q-wii",
+            "jv-q-switch",
+            "jv-q-modernes",
+            "jv-q-frise-modernes",
+            "jv-q-steam-deck"
+          ]
+        }
+      ]
+    }
+  ]
+}
