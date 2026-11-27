@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { routes } from '@/config/routes'
 import { AuthHeading } from '@/features/auth/auth-heading'
+import { TryWithoutAccount } from '@/features/guest/try-link'
 import { SignUpForm } from '@/features/auth/forms'
 
 export const metadata: Metadata = { title: 'Créer un compte' }
@@ -14,6 +15,7 @@ export default function SignUpPage() {
         description="Gratuit. Seulement un email et un mot de passe."
       />
       <SignUpForm />
+      <TryWithoutAccount />
       <p className="text-center text-body text-muted">
         Déjà inscrit ?{' '}
         <Link href={routes.signIn} className="font-semibold text-ink hover:underline">
