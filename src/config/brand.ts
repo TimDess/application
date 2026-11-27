@@ -41,7 +41,7 @@ export function siteUrl(): string {
   const vercelHost =
     process.env.VERCEL_ENV === 'production'
       ? process.env.VERCEL_PROJECT_PRODUCTION_URL
-      : (process.env.VERCEL_BRANCH_URL || process.env.VERCEL_URL)
+      : process.env.VERCEL_BRANCH_URL || process.env.VERCEL_URL
   if (vercelHost) return `https://${vercelHost}`
   return 'http://localhost:3000'
 }
