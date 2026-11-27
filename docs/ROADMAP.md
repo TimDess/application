@@ -32,7 +32,7 @@ Dernière mise à jour : 28 novembre 2026.
 - Schéma contenu (catégories, parcours, chapitres, leçons, notions, fiches, questions) et progression (sessions, tentatives, progression par leçon et par parcours).
 - Solutions et explications dans le schéma privé ; scoring côté serveur ; une tentative par question ; déblocage séquentiel des leçons.
 - Contenu « as code » : `content/*.json` validé par Zod, compilé en SQL idempotent.
-- Parcours « Comprendre la F1 » : 3 chapitres, 9 leçons, 3 épreuves, 33 notions, 51 questions. **Statut : en relecture** (visible des relecteurs uniquement).
+- Parcours « Comprendre la F1 » : 3 chapitres, 9 leçons, 3 épreuves, 33 notions, 51 questions. **Publié** le 28 novembre 2026 après relecture par Tim.
 - Lecteur de leçon : fiches, 5 mini-jeux (quiz, vrai/faux, associations, frise, devine l'année), correction expliquée, résultat, reprise.
 - Pages univers et parcours, « Continue ton aventure » sur l'accueil.
 - Tests : 36 unitaires, 64 assertions pgTAP, 18 scénarios E2E (mobile + desktop).
@@ -52,7 +52,7 @@ Dernière mise à jour : 28 novembre 2026.
 - **Mode invité** : lot 3C (conversion d'un compte anonyme en compte email à concevoir proprement).
 - **Mini-test de placement** de l'onboarding : phase 3.
 - **Indices** pendant les leçons : lot 3B, avec les révisions (réduction d'XP).
-- **Contenu F1** : à relire par Tim avant publication.
+- **Contenu** : un seul parcours publié (F1, 51 questions) ; il en faut davantage pour varier le défi du jour et les révisions.
 - **Changement d'adresse email** : non inclus en phase 1 (le modèle d'email est prêt).
 - **Pages légales** : brouillons à faire valider juridiquement avant toute ouverture publique.
 - **Marque Kulto** : disponibilité (INPI, EUIPO, domaines) à vérifier.
