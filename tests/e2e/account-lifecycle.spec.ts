@@ -80,7 +80,7 @@ test.describe('Phase 1 acceptance: sign up, onboard, sign back in and find every
     await page.getByRole('button', { name: 'Envoyer le lien' }).click()
     await expect(page.getByRole('main').getByRole('status')).toContainText('Si un compte existe')
 
-    await page.goto(await readAuthLink(email, 'Réinitialise'))
+    await page.goto(await readAuthLink(email, /Réinitialise|Reset/))
     await expect(page).toHaveURL(/\/reinitialiser-mot-de-passe$/)
     await page.getByLabel('Nouveau mot de passe').fill('nouveau2026mdp')
     await page.getByLabel('Confirme le mot de passe').fill('nouveau2026mdp')

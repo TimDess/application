@@ -9,7 +9,7 @@ Workflow : développement local → Git → GitHub (pull request, CI) → Vercel
    - Site URL : l'URL de l'application (par exemple l'URL de production Vercel).
    - Redirect URLs : `http://localhost:3000/**` et `https://*-<équipe>.vercel.app/**` pour les previews.
 3. **Authentication → Providers → Email** : activer « Confirm email », longueur minimale 8, exigence « lettres et chiffres ».
-4. **Authentication → Email Templates** : reprendre le contenu de `supabase/templates/*.html` (confirmation, recovery, email_change). Les liens pointent vers `/auth/confirm?token_hash=…`.
+4. **Authentication → Email Templates** : sur l'offre gratuite, Supabase n'autorise la personnalisation des modèles qu'avec un SMTP configuré (étape 5). Sans SMTP, les emails standards (en anglais) fonctionnent : leurs liens passent par `/auth/callback` (PKCE), testé de bout en bout. Avec SMTP, reprendre `supabase/templates/*.html` (liens vers `/auth/confirm?token_hash=…`).
 5. **SMTP** : depuis 2024, l'envoi d'emails par défaut de Supabase est réservé aux membres de l'équipe et très limité. Pour de vrais utilisateurs, configurer un SMTP (Brevo ou Resend) dans **Project Settings → Authentication → SMTP**.
 6. Appliquer les migrations (environnement autorisé uniquement) :
 

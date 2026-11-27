@@ -13,16 +13,16 @@ export function uniqueUsername() {
 export const PASSWORD = 'kulto2026test'
 
 /** Waits for the latest email sent to `to` and returns the first auth link it contains. */
-export async function readAuthLink(to: string, subjectPart?: string): Promise<string> {
+export async function readAuthLink(to: string, subject?: RegExp): Promise<string> {
   for (let attempt = 0; attempt < 30; attempt++) {
     const res = await fetch(`${MAILPIT}/api/v1/search?query=${encodeURIComponent(`to:"${to}"`)}`)
     const data = (await res.json()) as { messages?: { ID: string; Subject: string }[] }
-    const msg = data.messages?.find((m) => !subjectPart || m.Subject.includes(subjectPart))
+    const msg = data.messages?.find((m) => !subject || subject.test(m.Subject))
     if (msg) {
       const full = (await (await fetch(`${MAILPIT}/api/v1/message/${msg.ID}`)).json()) as {
         HTML: string
       }
-      const href = /href="([^"]*\/auth\/(?:confirm|callback)[^"]*)"/.exec(full.HTML)?.[1]
+      const href = /href="([^"]*\/auth\/(?:confirm|callback|v1\/verify)[^"]*)"/.exec(full.HTML)?.[1]
       if (href) return href.replaceAll('&amp;', '&')
     }
     await new Promise((r) => setTimeout(r, 500))
@@ -41,7 +41,7 @@ export async function signUp(page: Page, email: string, password = PASSWORD) {
 }
 
 export async function confirmEmail(page: Page, email: string) {
-  const link = await readAuthLink(email, 'Confirme')
+  const link = await readAuthLink(email, /Confirm/)
   await page.goto(link)
 }
 
