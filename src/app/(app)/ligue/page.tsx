@@ -10,7 +10,6 @@ import { Card } from '@/components/ui/card'
 import { divisionOf, divisions, timeLeft } from '@/config/divisions'
 import { routes } from '@/config/routes'
 import { voice } from '@/config/voice'
-import { Mascot } from '@/components/brand/mascot'
 import { DuelLauncher } from '@/features/duels/duel-launcher'
 import { DivisionBadge } from '@/features/leagues/division-badge'
 import { getMyLeague, type League } from '@/features/leagues/queries'
@@ -46,11 +45,7 @@ async function LeagueView() {
 
   return (
     <div className="flex flex-col gap-6">
-      <PageHeader
-        title="Ligue"
-        eyebrow="Ta division"
-        action={<Mascot mood={leading ? 'party' : 'duel'} size={72} />}
-      />
+      <PageHeader title="Ligue" eyebrow="Ta division" />
 
       <Card className="flex flex-col gap-4">
         <div className="flex items-center justify-between gap-3">

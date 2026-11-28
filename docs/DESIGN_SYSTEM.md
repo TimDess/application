@@ -109,10 +109,8 @@ Identité sonore choisie par Tim dans le labo (https://claude.ai/artifact/WE34e3
 - Interface : appui élastique (écrasement à 0,96 à l’appui, retour avec léger dépassement) sur les boutons et réponses ; pastille de la barre du bas qui glisse avec un ressort, icône qui rebondit ; boutons icônes portés à 44 px ; libellés de la barre à 12 px.
 - Tout effet visuel est coupé en mouvement réduit (OS ou réglage) ; les sons restent pilotés par leur propre réglage.
 
-## Identité : le Point, illustrations, voix (28 novembre 2026)
+## Identité : voix et titres (28 novembre 2026)
 
-Choix de Tim dans le labo identité (artifact) : mascotte « Pastille », titres en Bricolage Grotesque, boutons Verre conservés, illustrations validées, voix plus directe avec de l'humour.
+Choix de Tim dans le labo identité (artifact) : titres en Bricolage Grotesque avec le point jaune, boutons Verre conservés, voix plus directe avec de l'humour. Une mascotte (« le Point ») et des illustrations figuratives d'univers ont été essayées puis retirées le même jour : trop enfantines pour la cible. Les bannières d'univers (`UniverseArt`) restent abstraites ; pas de personnage dans l'interface.
 
-- **Mascotte « le Point »** : `src/components/brand/mascot.tsx`, SVG + animations CSS (neutralisées par le mouvement réduit), décorative par défaut. Sept humeurs : `neutral`, `happy`, `oops`, `streak`, `sleep`, `duel`, `party`. Placements : en-tête de l'accueil (selon la série), ligue, panneau de réponse (`AnswerHeading`), résultat de leçon et de révision, résultat de duel, défi et révisions sans contenu, états vides (`EmptyState mascot=`). Jamais sur fond jaune (le level-up garde son chiffre).
-- **Illustrations d'univers** : `UniverseArt`, formes rondes, deux tons issus de la couleur de l'univers, point jaune caché dans chaque dessin.
-- **Voix** : `src/config/voice.ts` centralise les phrases à personnalité (réponses variées par question, titres de résultat, duel « Clutch ! » quand l'écart est inférieur à 60 points, « Pole position ! » en tête de ligue, bilans de division). Ton direct, proche, tutoiement, une touche d'humour, jamais culpabilisant.
+- **Voix** : `src/config/voice.ts` centralise les phrases à personnalité (réponses variées par question via `AnswerHeading`, titres de résultat, duel « Clutch ! » quand l'écart est inférieur à 60 points, « Pole position ! » en tête de ligue, bilans de division). Ton direct, proche, tutoiement, une touche d'humour, jamais culpabilisant.

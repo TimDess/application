@@ -1,4 +1,4 @@
-import { Mascot } from '@/components/brand/mascot'
+import { CalendarCheck, CalendarClock } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -34,7 +34,10 @@ async function Daily() {
   const date = dayLabel.format(new Date(`${daily.day}T00:00:00Z`))
 
   const idle = !daily.available ? (
-    <PracticeNotice icon={<Mascot mood="sleep" size={96} />} title="Pas encore de défi">
+    <PracticeNotice
+      icon={<CalendarClock className="size-7" aria-hidden="true" />}
+      title="Pas encore de défi"
+    >
       <p className="text-body text-muted">
         Le défi du jour arrive dès que les premiers parcours sont publiés.
       </p>
@@ -43,7 +46,10 @@ async function Daily() {
       </Button>
     </PracticeNotice>
   ) : daily.completed ? (
-    <PracticeNotice icon={<Mascot mood="party" size={96} />} title="Défi du jour terminé">
+    <PracticeNotice
+      icon={<CalendarCheck className="size-7" aria-hidden="true" />}
+      title="Défi du jour terminé"
+    >
       <p className="font-display text-[3rem] leading-none font-bold text-ink">
         {daily.correct}/{daily.total}
       </p>
