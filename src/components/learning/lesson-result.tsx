@@ -1,6 +1,6 @@
 'use client'
 
-import { Mascot } from '@/components/brand/mascot'
+import { Trophy } from 'lucide-react'
 import { voice } from '@/config/voice'
 import type { LessonSummary } from '@/features/learning/types'
 import { CountUp } from './count-up'
@@ -8,7 +8,7 @@ import { CountUp } from './count-up'
 const RADIUS = 52
 const LENGTH = 2 * Math.PI * RADIUS
 
-/** Celebration screen: rays, the Point popping in, accuracy ring filling up, counters. */
+/** Celebration screen: rays, trophy pop, accuracy ring filling up, counters. */
 export function LessonResult({
   summary,
   headingRef,
@@ -26,7 +26,6 @@ export function LessonResult({
       : summary.score >= 60
         ? voice.lesson.done
         : voice.lesson.rough)
-  const mood = summary.perfect ? 'party' : summary.score >= 60 ? 'happy' : 'oops'
   return (
     <div className="flex flex-col items-center gap-5 pt-4 text-center">
       <div className="relative grid size-44 place-items-center">
@@ -65,8 +64,8 @@ export function LessonResult({
             }}
           />
         </svg>
-        <span className="relative grid [animation:trophy-in_620ms_var(--ease-out)_both] place-items-center">
-          <Mascot mood={mood} size={108} />
+        <span className="relative grid size-20 [animation:trophy-in_620ms_var(--ease-out)_both] place-items-center rounded-full bg-accent text-on-accent shadow-(--shadow-pop)">
+          <Trophy className="size-9" aria-hidden="true" />
         </span>
       </div>
 

@@ -32,7 +32,9 @@ export function PracticeNotice({
         id="contenu"
         className="step-in flex flex-1 flex-col items-center justify-center gap-5 text-center"
       >
-        {icon}
+        <span className="grid size-16 place-items-center rounded-full bg-accent/15 text-accent-text">
+          {icon}
+        </span>
         <h1 className="text-title">{title}</h1>
         {children}
       </main>

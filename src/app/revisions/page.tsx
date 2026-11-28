@@ -1,4 +1,4 @@
-import { Mascot } from '@/components/brand/mascot'
+import { Repeat2 } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -26,7 +26,10 @@ async function Reviews() {
 
   const idle =
     reviews.due === 0 ? (
-      <PracticeNotice icon={<Mascot mood="happy" size={96} />} title="Rien à réviser">
+      <PracticeNotice
+        icon={<Repeat2 className="size-7" aria-hidden="true" />}
+        title="Rien à réviser"
+      >
         <p className="text-body text-muted">
           {reviews.known === 0
             ? 'Termine une leçon : ses notions reviendront ici au bon moment pour que tu ne les oublies pas.'

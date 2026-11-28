@@ -1,9 +1,8 @@
 import { CircleCheck, CircleX } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { Mascot } from '@/components/brand/mascot'
 import { answerTitle, voice } from '@/config/voice'
 
-/** Feedback panel title after an answer: the Point reacts, the icon and words say it. */
+/** Feedback panel title after an answer, in the Kulto voice. */
 export function AnswerHeading({
   result,
   seed,
@@ -17,7 +16,6 @@ export function AnswerHeading({
 }) {
   return (
     <div className="flex items-center gap-3">
-      <Mascot mood={result.isCorrect ? 'happy' : 'oops'} size={52} className="-my-2" />
       <p className="flex min-w-0 flex-1 items-center gap-2 font-display text-heading font-semibold text-ink">
         {result.isCorrect ? (
           <CircleCheck className="size-5 shrink-0 text-success" aria-hidden="true" />

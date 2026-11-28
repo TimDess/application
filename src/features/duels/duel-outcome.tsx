@@ -1,11 +1,10 @@
 'use client'
 
-import { Check, Copy, RotateCcw, Share2, X as Cross } from 'lucide-react'
+import { Check, Copy, Hourglass, RotateCcw, Share2, Trophy, X as Cross } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState, useTransition } from 'react'
 import { confetti, feedback } from '@/lib/sensations'
-import { Mascot } from '@/components/brand/mascot'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { FormMessage } from '@/components/ui/form-message'
@@ -70,20 +69,18 @@ export function DuelOutcome({
   return (
     <div className="step-in flex flex-1 flex-col gap-6">
       <div className="flex flex-col items-center gap-3 pt-4 text-center">
-        <Mascot
-          size={104}
-          mood={
-            duel.status !== 'completed'
-              ? duel.status === 'open'
-                ? 'duel'
-                : 'sleep'
-              : duel.result === 'win'
-                ? 'party'
-                : duel.result === 'loss'
-                  ? 'oops'
-                  : 'happy'
-          }
-        />
+        <span
+          className={cn(
+            'grid size-16 place-items-center rounded-full',
+            duel.result === 'win' ? 'bg-accent text-on-accent' : 'bg-surface-2 text-ink',
+          )}
+        >
+          {duel.status === 'completed' ? (
+            <Trophy className="size-8" aria-hidden="true" />
+          ) : (
+            <Hourglass className="size-8" aria-hidden="true" />
+          )}
+        </span>
         <h1 ref={headingRef} tabIndex={-1} className="text-title outline-none">
           {title}
         </h1>

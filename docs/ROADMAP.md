@@ -115,7 +115,7 @@ Dernière mise à jour : 28 novembre 2026.
 ## Lot Identité (28 novembre 2026)
 
 - Labo identité (artifact) : mascotte, police des titres, boutons, illustrations et voix ; choix de Tim enregistrés.
-- Mascotte « le Point » (style Pastille, 7 expressions) intégrée aux écrans clés, titres en Bricolage Grotesque avec le point jaune, nouvelles illustrations d'univers, voix Kulto plus directe et drôle (`src/config/voice.ts`). Retrait de « Ligue et duels » de « Bientôt sur Kulto » (livré). Détails : `docs/DESIGN_SYSTEM.md`.
+- Titres en Bricolage Grotesque avec le point jaune, voix Kulto plus directe et drôle (`src/config/voice.ts`). Mascotte et illustrations figuratives essayées puis retirées (trop enfantines) : bannières d'univers abstraites conservées. Retrait de « Ligue et duels » de « Bientôt sur Kulto » (livré). Détails : `docs/DESIGN_SYSTEM.md`.
 
 ## Écarts et points ouverts
 

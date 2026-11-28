@@ -2,7 +2,6 @@ import { Trophy, Users } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import { Mascot } from '@/components/brand/mascot'
 import { PageHeader, SectionTitle } from '@/components/layout/page-header'
 import { PageSkeleton } from '@/components/layout/page-skeleton'
 import { Button } from '@/components/ui/button'
@@ -54,18 +53,6 @@ async function Dashboard() {
           timeZone: 'Europe/Paris',
         }).format(new Date())}
         title={`Salut ${viewer.username ?? ''}`.trim()}
-        action={
-          <Mascot
-            size={76}
-            mood={
-              progress.streak.status === 'paused'
-                ? 'sleep'
-                : progress.streak.current > 0
-                  ? 'streak'
-                  : 'neutral'
-            }
-          />
-        }
       />
 
       <TodayCard progress={progress} />
