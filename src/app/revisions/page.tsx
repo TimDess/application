@@ -1,4 +1,4 @@
-import { Repeat2 } from 'lucide-react'
+import { Mascot } from '@/components/brand/mascot'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -26,14 +26,11 @@ async function Reviews() {
 
   const idle =
     reviews.due === 0 ? (
-      <PracticeNotice
-        icon={<Repeat2 className="size-7" aria-hidden="true" />}
-        title="Rien à réviser"
-      >
+      <PracticeNotice icon={<Mascot mood="happy" size={96} />} title="Rien à réviser">
         <p className="text-body text-muted">
           {reviews.known === 0
             ? 'Termine une leçon : ses notions reviendront ici au bon moment pour que tu ne les oublies pas.'
-            : `Tes ${reviews.known} notions sont à jour. Les prochaines reviendront dans les jours qui viennent.`}
+            : `Tes ${reviews.known} notions sont à jour. Ta mémoire te dit merci, les prochaines reviennent bientôt.`}
         </p>
         <Button asChild size="lg" className="w-full">
           <Link href={reviews.known === 0 ? routes.explore : routes.dashboard}>

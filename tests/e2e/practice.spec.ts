@@ -44,7 +44,7 @@ test('the daily challenge is played once, then shared', async ({ page }) => {
   await expect(page).toHaveURL(/\/defi$/)
   await page.getByRole('button', { name: 'C’est parti' }).click()
   await expect(page.getByText('Question 1 sur 5').or(page.getByText('1/5'))).toBeVisible()
-  await playPractice(page, /Défi du jour terminé/)
+  await playPractice(page, /Défi du jour bouclé/)
   await expect(
     page.getByRole('listitem').filter({ hasText: /Défi du jour terminé\s*\+50/ }),
   ).toBeVisible()
@@ -52,7 +52,7 @@ test('the daily challenge is played once, then shared', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Partager mon résultat' })).toBeVisible()
 
   await page.goto('/defi')
-  await expect(page.getByRole('heading', { name: 'Défi du jour terminé' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Défi du jour (terminé|bouclé)/ })).toBeVisible()
   await expect(page.getByText(/^\d\/5$/)).toBeVisible()
   await expect(page.getByRole('button', { name: 'C’est parti' })).toHaveCount(0)
 })
@@ -88,7 +88,7 @@ test('notions seen in a lesson come back in reviews', async ({ page }) => {
   await expect(page.getByRole('link', { name: /Révisions.*à revoir/ })).toBeVisible()
   await page.goto('/revisions')
   await page.getByRole('button', { name: 'C’est parti' }).click()
-  await playPractice(page, /Révision (parfaite|terminée)/)
+  await playPractice(page, /Révision (parfaite|bouclée)/)
   await expect(
     page.getByRole('listitem').filter({ hasText: /Révision terminée\s*\+30/ }),
   ).toBeVisible()

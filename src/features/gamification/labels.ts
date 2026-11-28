@@ -19,14 +19,14 @@ export function streakDays(n: number) {
 export function streakMessage(status: StreakStatus): string {
   switch (status) {
     case 'done':
-      return 'Série validée pour aujourd’hui. À demain !'
+      return 'Série validée. Tu peux souffler jusqu’à demain.'
     case 'pending':
-      return 'Termine une leçon aujourd’hui pour prolonger ta série.'
+      return 'Une leçon aujourd’hui et ta série continue. Facile.'
     case 'protected':
-      return 'Une protection garde ta série au chaud. Termine une leçon pour la prolonger.'
+      return 'Ta protection a sauvé ta série. Ne la fais pas bosser deux fois.'
     case 'paused':
-      return 'Ta série a fait une pause. On repart ?'
+      return 'Ta flamme s’est éteinte. On la rallume ?'
     default:
-      return 'Termine une leçon pour lancer ta série.'
+      return 'Une leçon et ta première flamme s’allume.'
   }
 }

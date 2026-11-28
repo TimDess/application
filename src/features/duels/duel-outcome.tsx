@@ -1,20 +1,24 @@
 'use client'
 
-import { Check, Copy, Hourglass, RotateCcw, Share2, Trophy, X as Cross } from 'lucide-react'
+import { Check, Copy, RotateCcw, Share2, X as Cross } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState, useTransition } from 'react'
 import { confetti, feedback } from '@/lib/sensations'
+import { Mascot } from '@/components/brand/mascot'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { FormMessage } from '@/components/ui/form-message'
 import { brand } from '@/config/brand'
 import { duelInvitePath, duelPath, routes } from '@/config/routes'
+import { voice } from '@/config/voice'
 import { cn } from '@/lib/utils/cn'
 import { createDuelAction } from './actions'
 import type { DuelDetail } from './types'
 
-const resultTitles = { win: 'Victoire !', loss: 'Défaite', draw: 'Égalité' } as const
+const resultTitles = { win: voice.duel.win, loss: voice.duel.loss, draw: voice.duel.draw } as const
+/** A win by less than this many points is a « clutch » win. */
+const CLUTCH_MARGIN = 60
 
 export function DuelOutcome({
   duel,
@@ -50,9 +54,13 @@ export function DuelOutcome({
     })
   }
 
+  const margin = duel.me.score - (duel.opponentProgress?.score ?? 0)
+  const clutch = duel.result === 'win' && margin < CLUTCH_MARGIN
   const title =
     duel.status === 'completed' && duel.result
-      ? resultTitles[duel.result]
+      ? clutch
+        ? voice.duel.clutch
+        : resultTitles[duel.result]
       : duel.status === 'expired'
         ? 'Défi expiré'
         : duel.status === 'cancelled'
@@ -62,28 +70,30 @@ export function DuelOutcome({
   return (
     <div className="step-in flex flex-1 flex-col gap-6">
       <div className="flex flex-col items-center gap-3 pt-4 text-center">
-        <span
-          className={cn(
-            'grid size-16 place-items-center rounded-full',
-            duel.result === 'win' ? 'bg-accent text-on-accent' : 'bg-surface-2 text-ink',
-          )}
-        >
-          {duel.status === 'completed' ? (
-            <Trophy className="size-8" aria-hidden="true" />
-          ) : (
-            <Hourglass className="size-8" aria-hidden="true" />
-          )}
-        </span>
+        <Mascot
+          size={104}
+          mood={
+            duel.status !== 'completed'
+              ? duel.status === 'open'
+                ? 'duel'
+                : 'sleep'
+              : duel.result === 'win'
+                ? 'party'
+                : duel.result === 'loss'
+                  ? 'oops'
+                  : 'happy'
+          }
+        />
         <h1 ref={headingRef} tabIndex={-1} className="text-title outline-none">
           {title}
         </h1>
         <p className="max-w-sm text-body text-muted">
           {duel.status === 'completed'
             ? duel.result === 'win'
-              ? `Tu bats ${opponentName}. +20 XP.`
+              ? `${opponentName} n’a rien pu faire. +20 XP.`
               : duel.result === 'draw'
-                ? `Pile le même score que ${opponentName}. +10 XP.`
-                : `${opponentName} l’emporte cette fois. +10 XP.`
+                ? `Pile le même score que ${opponentName}. Bizarre, non ? +10 XP.`
+                : `${opponentName} t’a eu. La revanche t’attend. +10 XP.`
             : duel.status === 'expired'
               ? 'Personne n’a relevé ce défi à temps.'
               : duel.status === 'cancelled'

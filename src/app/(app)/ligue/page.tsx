@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { divisionOf, divisions, timeLeft } from '@/config/divisions'
 import { routes } from '@/config/routes'
+import { voice } from '@/config/voice'
+import { Mascot } from '@/components/brand/mascot'
 import { DuelLauncher } from '@/features/duels/duel-launcher'
 import { DivisionBadge } from '@/features/leagues/division-badge'
 import { getMyLeague, type League } from '@/features/leagues/queries'
@@ -25,9 +27,9 @@ export default function LeaguePage() {
 }
 
 const outcomeText = {
-  promoted: (d: string) => `Tu montes en ${d} !`,
-  stayed: (d: string) => `Tu restes en ${d}.`,
-  relegated: (d: string) => `Tu redescends en ${d}. On remonte cette semaine ?`,
+  promoted: voice.league.promoted,
+  stayed: voice.league.stayed,
+  relegated: voice.league.relegated,
 } as const
 
 async function LeagueView() {
@@ -39,9 +41,16 @@ async function LeagueView() {
     new Date(league.week_start).getTime() - new Date(league.last_week.week_start).getTime() ===
       7 * 86_400_000
 
+  const mine = league.standings.find((s) => s.is_me)
+  const leading = league.joined && mine?.rank === 1 && mine.points > 0
+
   return (
     <div className="flex flex-col gap-6">
-      <PageHeader title="Ligue" eyebrow="Ta division" />
+      <PageHeader
+        title="Ligue"
+        eyebrow="Ta division"
+        action={<Mascot mood={leading ? 'party' : 'duel'} size={72} />}
+      />
 
       <Card className="flex flex-col gap-4">
         <div className="flex items-center justify-between gap-3">
@@ -59,6 +68,11 @@ async function LeagueView() {
             <span className="font-semibold">
               {outcomeText[league.last_week.outcome](division.label)}
             </span>
+          </p>
+        ) : null}
+        {leading ? (
+          <p className="font-display text-heading font-bold text-accent-text">
+            {voice.league.first} Tu mènes ton groupe.
           </p>
         ) : null}
         {league.joined ? (

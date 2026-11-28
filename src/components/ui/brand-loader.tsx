@@ -21,7 +21,7 @@ export function BrandLoader({
       <span
         aria-hidden="true"
         className={cn(
-          'inline-flex items-end font-display leading-none font-bold tracking-[-0.03em] text-ink',
+          'inline-flex items-end font-ui leading-none font-bold tracking-[-0.03em] text-ink',
           size === 'lg' ? 'text-[2.75rem]' : 'text-[1.75rem]',
         )}
       >

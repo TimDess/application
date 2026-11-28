@@ -1,3 +1,4 @@
+import { TitleDot } from '@/components/ui/title-dot'
 import type { ReactNode } from 'react'
 
 export function PageHeader({
@@ -16,7 +17,7 @@ export function PageHeader({
       <div className="flex min-w-0 flex-col gap-1">
         {eyebrow ? <p className="text-body text-muted first-letter:uppercase">{eyebrow}</p> : null}
         <h1 className="font-display text-[1.875rem] leading-[1.05] font-bold tracking-[-0.03em] lg:text-[2.25rem]">
-          {title}
+          <TitleDot>{title}</TitleDot>
         </h1>
         {description ? <p className="text-body text-muted">{description}</p> : null}
       </div>

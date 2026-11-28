@@ -1,9 +1,10 @@
 'use client'
 
-import { CircleCheck, CircleX, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import Link from 'next/link'
 import { type MouseEvent, type ReactNode, useEffect, useRef, useState, useTransition } from 'react'
 import { formatLabels, QuestionView } from '@/components/games/question-view'
+import { AnswerHeading } from '@/components/learning/answer-heading'
 import { LessonResult } from '@/components/learning/lesson-result'
 import {
   WAVE_COVER_MS,
@@ -16,6 +17,7 @@ import { Button } from '@/components/ui/button'
 import { FormMessage } from '@/components/ui/form-message'
 import { Progress } from '@/components/ui/progress'
 import { routes } from '@/config/routes'
+import { voice } from '@/config/voice'
 import { RewardsPanel } from '@/features/gamification/rewards-panel'
 import type { Answer, AnswerResult } from '@/features/learning/types'
 import { cn } from '@/lib/utils/cn'
@@ -212,18 +214,7 @@ export function PracticePlayer({
                           : 'border-danger/40 bg-danger/8',
                       )}
                     >
-                      <p className="flex items-center gap-2 font-display text-heading font-semibold text-ink">
-                        {result.isCorrect ? (
-                          <CircleCheck className="size-5 text-success" aria-hidden="true" />
-                        ) : (
-                          <CircleX className="size-5 text-danger" aria-hidden="true" />
-                        )}
-                        {result.isCorrect
-                          ? 'Bonne réponse'
-                          : result.score > 0
-                            ? 'Presque'
-                            : 'Pas tout à fait'}
-                      </p>
+                      <AnswerHeading result={result} seed={question.id} />
                       <p className="text-body leading-relaxed text-ink">{result.explanation}</p>
                       <Button size="lg" onClick={next} loading={pending}>
                         {step.index + 1 < total ? 'Continuer' : 'Voir mon résultat'}
@@ -242,10 +233,10 @@ export function PracticePlayer({
               headingRef={headingRef}
               title={
                 kind === 'daily'
-                  ? 'Défi du jour terminé'
+                  ? voice.daily.done
                   : step.summary.perfect
-                    ? 'Révision parfaite !'
-                    : 'Révision terminée'
+                    ? voice.review.perfect
+                    : voice.review.done
               }
             />
             {step.summary.rewards ? <RewardsPanel rewards={step.summary.rewards} /> : null}

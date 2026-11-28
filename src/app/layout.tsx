@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Inter_Tight } from 'next/font/google'
+import { Bricolage_Grotesque, Inter, Inter_Tight } from 'next/font/google'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ThemeScript } from '@/components/theme/theme-script'
 import { ThemeWatcher } from '@/components/theme/theme-watcher'
@@ -12,6 +12,13 @@ const interTight = Inter_Tight({
   subsets: ['latin'],
   variable: '--font-inter-tight',
   weight: ['500', '600', '700'],
+  display: 'swap',
+})
+// Title font chosen in the identity lab (28 November 2026): headings, big numbers.
+const bricolage = Bricolage_Grotesque({
+  subsets: ['latin'],
+  variable: '--font-bricolage',
+  axes: ['opsz'],
   display: 'swap',
 })
 
@@ -48,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       lang={brand.language}
       data-theme="dark"
       suppressHydrationWarning
-      className={`${inter.variable} ${interTight.variable}`}
+      className={`${inter.variable} ${interTight.variable} ${bricolage.variable}`}
     >
       <head>
         <ThemeScript />

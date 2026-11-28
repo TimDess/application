@@ -113,7 +113,9 @@ export async function answerCurrentQuestion(page: Page) {
       throw new Error(`Unknown question format: ${format}`)
   }
   await expect(
-    main.getByRole('status').filter({ hasText: /Bonne réponse|Presque|Pas tout à fait/ }),
+    main.getByRole('status').filter({
+      hasText: /Bien vu|Exact|Carton plein|Tu gères|Dans le mille|Pas loin|Raté|Pas cette fois|Aïe/,
+    }),
   ).toBeVisible()
 }
 
@@ -134,7 +136,7 @@ export async function playToEnd(page: Page) {
     }
     if (
       await main
-        .getByRole('heading', { name: /Sans faute|Leçon terminée/ })
+        .getByRole('heading', { name: /Sans faute|Leçon bouclée|Celle-là t’a eu/ })
         .isVisible()
         .catch(() => false)
     )
