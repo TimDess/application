@@ -35,8 +35,9 @@ export function Button({
 }: ButtonProps) {
   const classes = cn(
     'inline-flex items-center justify-center gap-2 font-semibold whitespace-nowrap select-none',
-    'transition-[background-color,border-color,color,transform] duration-(--duration-fast) ease-(--ease-out)',
-    'active:translate-y-px disabled:pointer-events-none disabled:opacity-50',
+    // Press feedback on touch-down: squeeze fast, spring back with a slight overshoot.
+    'transition-[background-color,border-color,color,transform] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]',
+    'active:scale-[0.96] active:duration-75 active:ease-out disabled:pointer-events-none disabled:opacity-50',
     variants[variant],
     sizes[size],
     className,

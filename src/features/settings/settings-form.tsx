@@ -1,5 +1,6 @@
 'use client'
 
+import { feedback, setSensations } from '@/lib/sensations'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { useState, useTransition } from 'react'
@@ -203,21 +204,28 @@ export function SettingsForm({
       <Section
         id="sons"
         title="Sons et vibrations"
-        description="S’appliqueront dès l’arrivée des premiers mini-jeux."
+        description="Les sons et vibrations des réponses, combos, duels et récompenses."
       >
         <Card className="divide-y divide-line py-1">
           <Switch
             id="sound"
             label="Effets sonores"
             checked={s.soundEnabled}
-            onCheckedChange={(soundEnabled) => save({ soundEnabled }, { soundEnabled })}
+            onCheckedChange={(soundEnabled) => {
+              setSensations({ sound: soundEnabled })
+              if (soundEnabled) feedback('correct')
+              save({ soundEnabled }, { soundEnabled })
+            }}
           />
           <Switch
             id="haptics"
             label="Vibrations"
-            description="Sur les appareils compatibles."
+            description="Sur Android. L’iPhone ne permet pas encore les vibrations aux applications web."
             checked={s.hapticsEnabled}
-            onCheckedChange={(hapticsEnabled) => save({ hapticsEnabled }, { hapticsEnabled })}
+            onCheckedChange={(hapticsEnabled) => {
+              setSensations({ haptics: hapticsEnabled })
+              save({ hapticsEnabled }, { hapticsEnabled })
+            }}
           />
         </Card>
       </Section>

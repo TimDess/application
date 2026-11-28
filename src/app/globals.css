@@ -632,3 +632,71 @@
 .level-burst {
   animation: level-burst 640ms var(--ease-out) both;
 }
+
+/* ===================== Sensations: duel intro, countdown, timer beat ===================== */
+@keyframes duel-in-left {
+  from {
+    transform: translateX(-60vw);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes duel-in-right {
+  from {
+    transform: translateX(60vw);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes duel-vs {
+  from {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes duel-count {
+  from {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.duel-in-left {
+  animation: duel-in-left 550ms cubic-bezier(0.2, 0.9, 0.2, 1.1) both;
+}
+.duel-in-right {
+  animation: duel-in-right 550ms cubic-bezier(0.2, 0.9, 0.2, 1.1) both;
+}
+.duel-vs {
+  animation: duel-vs 500ms 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.duel-count {
+  animation: duel-count 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.anim-beat {
+  animation: beat 450ms cubic-bezier(0.3, 1.6, 0.6, 1);
+}

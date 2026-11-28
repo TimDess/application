@@ -142,7 +142,7 @@ export function OnboardingFlow({
           <button
             type="button"
             onClick={() => go(STEPS[index - 1]!)}
-            className="grid size-10 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+            className="grid size-11 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
             aria-label="Étape précédente"
           >
             <ArrowLeft className="size-5" aria-hidden="true" />

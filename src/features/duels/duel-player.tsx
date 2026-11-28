@@ -13,6 +13,10 @@ import { cn } from '@/lib/utils/cn'
 import { answerDuelQuestionAction, getDuelAction, nextDuelQuestionAction } from './actions'
 import { DuelOutcome } from './duel-outcome'
 import { remainingMs } from './parse'
+import { Avatar } from '@/components/ui/avatar'
+import { motionReduced } from '@/components/theme/theme-client'
+import { ComboChip, useAnswerFeedback } from '@/components/sensations/answer-feedback'
+import { feedback } from '@/lib/sensations'
 import type { DuelDetail, DuelTurn } from './types'
 
 type Turn = Extract<DuelTurn, { done: false }>
@@ -27,7 +31,7 @@ export function DuelPlayer({
   me: { name: string; avatarKey: string }
 }) {
   const [duel, setDuel] = useState(initial)
-  const [phase, setPhase] = useState<'intro' | 'playing' | 'end'>(
+  const [phase, setPhase] = useState<'intro' | 'countdown' | 'playing' | 'end'>(
     initial.me.finished || !['open', 'active'].includes(initial.status) ? 'end' : 'intro',
   )
   const [turn, setTurn] = useState<Turn | null>(null)
@@ -35,6 +39,8 @@ export function DuelPlayer({
   const [now, setNow] = useState(0)
   const [scored, setScored] = useState<Scored | null>(null)
   const [error, setError] = useState<string>()
+  const [count, setCount] = useState<string | null>(null)
+  const { streak, onAnswer } = useAnswerFeedback()
   const [pending, startTransition] = useTransition()
   const headingRef = useRef<HTMLHeadingElement>(null)
   const submitting = useRef(false)
@@ -45,6 +51,45 @@ export function DuelPlayer({
   useEffect(() => {
     headingRef.current?.focus()
   }, [turn?.position, phase])
+
+  /** First question: the two players face off, then 3, 2, 1 (the server clock starts after). */
+  function start() {
+    if (duel.me.answered > 0 || motionReduced()) return loadNext()
+    setPhase('countdown')
+    setCount(null)
+    feedback('swoosh')
+    const steps: [number, () => void][] = [
+      [
+        1100,
+        () => {
+          setCount('3')
+          feedback('tick')
+        },
+      ],
+      [
+        1750,
+        () => {
+          setCount('2')
+          feedback('tick')
+        },
+      ],
+      [
+        2400,
+        () => {
+          setCount('1')
+          feedback('tick', 1)
+        },
+      ],
+      [
+        3050,
+        () => {
+          setCount(null)
+          loadNext()
+        },
+      ],
+    ]
+    steps.forEach(([ms, fn]) => setTimeout(fn, ms))
+  }
 
   function loadNext() {
     setError(undefined)
@@ -80,6 +125,7 @@ export function DuelPlayer({
         return setError(res.message)
       }
       setScored(res.data)
+      onAnswer(res.data.isCorrect)
     })
   }
 
@@ -93,6 +139,13 @@ export function DuelPlayer({
   useEffect(() => {
     if (phase === 'playing' && turn && !scored && left <= 0) submit(null)
   })
+
+  // Tick on each of the last five seconds, faster-sounding on the final two.
+  useEffect(() => {
+    if (phase === 'playing' && turn && !scored && seconds > 0 && seconds <= 5) {
+      feedback('tick', seconds <= 2 ? 1 : 0)
+    }
+  }, [seconds, phase, turn, scored])
 
   function next() {
     if (scored?.finished) {
@@ -113,7 +166,7 @@ export function DuelPlayer({
       <header className="flex h-14 items-center gap-3">
         <Link
           href={routes.play}
-          className="grid size-10 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+          className="grid size-11 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
           aria-label="Quitter le duel"
         >
           <X className="size-5" aria-hidden="true" />
@@ -126,6 +179,7 @@ export function DuelPlayer({
               label={`Question ${turn.position} sur ${turn.total}`}
               className="h-2"
             />
+            <ComboChip streak={streak} />
             <span className="tabular shrink-0 text-caption font-semibold text-ink">
               {(scored ? turn.score + scored.points : turn.score).toLocaleString('fr-FR')} pts
             </span>
@@ -165,10 +219,58 @@ export function DuelPlayer({
             </ul>
             <FormMessage tone="error">{error}</FormMessage>
             <div className="mt-auto">
-              <Button size="lg" className="w-full" loading={pending} onClick={loadNext}>
+              <Button size="lg" className="w-full" loading={pending} onClick={start}>
                 {duel.me.answered > 0 ? 'Reprendre' : 'C’est parti'}
               </Button>
             </div>
+          </div>
+        ) : null}
+
+        {phase === 'countdown' ? (
+          <div
+            className="relative flex flex-1 flex-col items-center justify-center"
+            aria-live="assertive"
+          >
+            <div
+              className={cn(
+                'grid w-full grid-cols-[1fr_auto_1fr] items-center transition-opacity duration-300',
+                count && 'opacity-25',
+              )}
+            >
+              <div className="duel-in-left flex flex-col items-center gap-2">
+                <Avatar avatarKey={me.avatarKey} name={me.name} size="xl" />
+                <span className="max-w-full truncate font-semibold text-ink">Toi</span>
+              </div>
+              <span
+                className={cn(
+                  'duel-vs font-display text-[2.25rem] font-bold text-ink',
+                  count && 'invisible',
+                )}
+              >
+                VS
+              </span>
+              <div className="duel-in-right flex flex-col items-center gap-2">
+                <Avatar
+                  avatarKey={duel.opponent?.avatarKey ?? 'soleil'}
+                  name={duel.opponent?.username ?? '?'}
+                  size="xl"
+                />
+                <span className="max-w-full truncate font-semibold text-ink">
+                  {duel.opponent?.username ?? 'Adversaire'}
+                </span>
+              </div>
+            </div>
+            {count ? (
+              <span
+                key={count}
+                className="duel-count pointer-events-none absolute font-display text-[6rem] leading-none font-bold text-accent-text"
+              >
+                {count}
+              </span>
+            ) : null}
+            <h1 ref={headingRef} tabIndex={-1} className="sr-only">
+              {count ? count : 'Le duel commence'}
+            </h1>
           </div>
         ) : null}
 
@@ -187,7 +289,13 @@ export function DuelPlayer({
                   }}
                 />
               </div>
-              <span className="tabular w-10 text-right font-display text-heading font-semibold text-ink">
+              <span
+                key={scored ? 'done' : seconds}
+                className={cn(
+                  'tabular w-10 text-right font-display text-heading font-semibold',
+                  !scored && seconds <= 5 ? 'anim-beat text-danger' : 'text-ink',
+                )}
+              >
                 {scored ? '–' : `${seconds} s`}
               </span>
             </div>

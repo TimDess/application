@@ -31,6 +31,7 @@ import { universeStyle } from '@/features/universes/universe-style'
 import { LearningCard } from './learning-card'
 import { LessonResult } from './lesson-result'
 import { RewardsPanel } from '@/features/gamification/rewards-panel'
+import { ComboChip, useAnswerFeedback } from '@/components/sensations/answer-feedback'
 
 type Step =
   | { kind: 'intro' }
@@ -56,6 +57,7 @@ export function LessonPlayer({
   )
   const [waveOrigin, setWaveOrigin] = useState<{ x: number; y: number }>()
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const { streak, onAnswer } = useAnswerFeedback()
 
   const totalSteps = lesson.cards.length + lesson.questions.length
   const position =
@@ -139,6 +141,7 @@ export function LessonPlayer({
       const res = await submitAnswerAction(sessionId, questionId, answer)
       if (!res.ok) return setError(res.message)
       setResults((cur) => ({ ...cur, [questionId]: res.data }))
+      onAnswer(res.data.isCorrect)
     })
   }
 
@@ -175,7 +178,7 @@ export function LessonPlayer({
       <header className="flex h-14 items-center gap-3">
         <Link
           href={coursePath(lesson.course.slug)}
-          className="grid size-10 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+          className="grid size-11 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
           aria-label="Quitter la leçon (ta progression est sauvegardée)"
         >
           <X className="size-5" aria-hidden="true" />
@@ -186,6 +189,7 @@ export function LessonPlayer({
           label={`Étape ${position} sur ${totalSteps}`}
           className="h-2"
         />
+        <ComboChip streak={streak} />
         <span className="tabular shrink-0 text-caption text-muted">
           {position}/{totalSteps}
         </span>

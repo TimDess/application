@@ -22,7 +22,7 @@ export function PracticeNotice({
       <header className="flex h-14 items-center">
         <Link
           href={routes.dashboard}
-          className="grid size-10 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+          className="grid size-11 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
           aria-label="Retour à l’accueil"
         >
           <X className="size-5" aria-hidden="true" />
