@@ -22,11 +22,17 @@ let ctx: AudioContext | null = null
 let master: GainNode | null = null
 let reverb: GainNode | null = null
 
-/** Creates or resumes the audio context. Call from a user gesture. */
+/**
+ * Creates or resumes the audio context. iOS Safari only unlocks audio inside a gesture
+ * that completes (touchend, click, keydown), not on touch-down: call it from those.
+ */
 export function unlockAudio() {
   if (typeof window === 'undefined') return
   if (ctx) {
-    if (ctx.state === 'suspended') void ctx.resume()
+    if (ctx.state !== 'running') {
+      void ctx.resume().catch(() => undefined)
+      primeSilence()
+    }
     return
   }
   const AC =
@@ -58,6 +64,26 @@ export function unlockAudio() {
   reverb = ctx.createGain()
   reverb.gain.value = 0.32
   reverb.connect(conv).connect(master)
+  void ctx.resume().catch(() => undefined)
+  primeSilence()
+}
+
+/** Playing one silent sample inside the gesture is what finally unlocks WebKit's audio. */
+function primeSilence() {
+  if (!ctx) return
+  try {
+    const src = ctx.createBufferSource()
+    src.buffer = ctx.createBuffer(1, 1, 22050)
+    src.connect(ctx.destination)
+    src.start(0)
+  } catch {
+    // Nothing to unlock.
+  }
+}
+
+/** True once the browser lets the page play sound. */
+export function audioReady() {
+  return ctx?.state === 'running'
 }
 
 type ToneOptions = {
@@ -199,11 +225,21 @@ const recipes: Record<SoundId, (t: number, n: number) => void> = {
 /** Plays a sound if sound is on. `n` is the combo step, or 1 for an urgent tick. */
 export function playSound(id: SoundId, n = 0) {
   if (typeof window === 'undefined' || !soundEnabled()) return
-  unlockAudio()
-  if (!ctx || ctx.state !== 'running') return
-  try {
-    recipes[id](ctx.currentTime + 0.01, n)
-  } catch {
-    // Audio is a bonus: never break the page over it.
+  if (!ctx) return
+  const c = ctx
+  const run = () => {
+    try {
+      recipes[id](c.currentTime + 0.01, n)
+    } catch {
+      // Audio is a bonus: never break the page over it.
+    }
   }
+  if (c.state === 'running') return run()
+  // Still locked: try once more; plays only if this call happens inside a gesture.
+  void c
+    .resume()
+    .then(() => {
+      if (c.state === 'running') run()
+    })
+    .catch(() => undefined)
 }

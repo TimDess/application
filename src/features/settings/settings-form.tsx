@@ -227,6 +227,20 @@ export function SettingsForm({
               save({ hapticsEnabled }, { hapticsEnabled })
             }}
           />
+          <div className="flex items-center justify-between gap-3 px-4 py-3">
+            <span className="text-body text-muted">
+              Sur iPhone, coupe le mode silencieux pour entendre les sons.
+            </span>
+            <Button
+              type="button"
+              variant="secondary"
+              size="sm"
+              disabled={!s.soundEnabled}
+              onClick={() => feedback('levelup')}
+            >
+              Tester le son
+            </Button>
+          </div>
         </Card>
       </Section>
 
