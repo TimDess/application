@@ -81,7 +81,9 @@ export async function signOut(page: Page) {
 /** Answers whatever question is on screen (correctness does not matter here). */
 export async function answerCurrentQuestion(page: Page) {
   const main = page.getByRole('main')
-  const format = (await main.locator('p.text-caption').first().textContent())?.trim()
+  const format = (await main.locator('p.text-caption').first().textContent())
+    ?.split(' · ')[0]
+    ?.trim()
   switch (format) {
     case 'Quiz':
       await main.getByRole('radio').first().click()

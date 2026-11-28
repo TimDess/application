@@ -2,17 +2,17 @@
 
 Dernière mise à jour : 28 novembre 2026.
 
-| Phase              | Contenu                                                                                         | État                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées) |
-| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                          |
-| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)              |
-| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | ✅ Terminée (lots 3A, 3B, 3C)                        |
-| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                              |
-| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                              |
-| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                              |
-| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                              |
-| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                              |
+| Phase              | Contenu                                                                                         | État                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)           |
+| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                                    |
+| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                        |
+| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | ✅ Terminée (lots 3A, 3B, 3C)                                  |
+| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | 🚧 Lot 4A livré (duels asynchrones) ; 4B ligues, 4C temps réel |
+| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                        |
+| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                        |
+| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                        |
+| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                        |
 
 ## Phase 1 — livré
 
@@ -89,6 +89,15 @@ Dernière mise à jour : 28 novembre 2026.
 - Corrige l’affichage des barres de Safari dès qu’on changeait de page dans l’app installée (le périmètre était déduit de la page d’installation, faute de manifeste).
 - Après déploiement : supprimer l’icône de l’écran d’accueil et la réinstaller, iOS ne relisant le manifeste qu’à l’installation.
 - À venir : écran hors ligne (service worker), aide à l’installation, notifications.
+
+## Phase 4 — lot 4A livré (duels asynchrones)
+
+- Duel : 7 questions (quiz, vrai/faux, devine l’année : formats rapides), 15 s chacune, les mêmes pour les deux joueurs, tirées de tout le contenu publié. Chacun joue quand il veut, 48 h pour l’adversaire.
+- Trois façons de jouer : duel rapide (adversaire de cote proche ; sinon le duel attend le prochain joueur, jamais de robot), défi par lien (`/d/<code>`, jouable en invité, l’onboarding ramène au défi), revanche.
+- Questions servies une par une par le serveur, qui chronomètre (15 s + 0,8 s de tolérance réseau) ; score : 100 × difficulté (1,0 à 1,5), bonus de vitesse plafonné à 25 %, bonus de série plafonné à +30, erreur ou temps écoulé = 0.
+- Cote cachée Elo (K = 40 pour les 20 premiers duels, puis 24). XP : 10 pour sa manche, +10 pour une victoire. Une manche jouée valide la série. Forfait si l’adversaire ne joue pas à temps (balayage pg_cron toutes les 15 minutes).
+- Interface : section Duels dans Jouer (duel rapide, défier un ami, liste « à toi de jouer » / en attente / terminés), lecteur chronométré, résultat question par question, revanche, partage du lien.
+- Tests : 55 unitaires, 165 assertions pgTAP, 30 scénarios E2E (dont deux joueurs et lien de défi en invité).
 
 ## Écarts et points ouverts
 

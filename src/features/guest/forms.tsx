@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { useActionState } from 'react'
 import { Button } from '@/components/ui/button'
 import { CheckboxField, TextField } from '@/components/ui/field'
@@ -14,9 +15,11 @@ import { saveGuestAccountAction, startGuestAction } from './actions'
 const linkClass = 'font-medium text-accent-text underline underline-offset-2'
 
 export function GuestStartForm() {
+  const next = useSearchParams().get('next') ?? ''
   const [state, action, pending] = useActionState(startGuestAction, idle)
   return (
     <form action={action} className="flex flex-col gap-4" noValidate>
+      {next ? <input type="hidden" name="next" value={next} /> : null}
       <CheckboxField
         name="ageConfirmed"
         label={`J’ai ${brand.legal.minimumAge} ans ou plus.`}

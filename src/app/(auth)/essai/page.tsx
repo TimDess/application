@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Suspense } from 'react'
+import { Skeleton } from '@/components/ui/skeleton'
 import { routes } from '@/config/routes'
 import { AuthHeading } from '@/features/auth/auth-heading'
 import { GuestStartForm } from '@/features/guest/forms'
@@ -13,7 +15,9 @@ export default function TrialPage() {
         title="Essaie sans compte"
         description="Joue tout de suite. Ta progression est bien enregistrée : tu pourras la garder en créant ton compte plus tard."
       />
-      <GuestStartForm />
+      <Suspense fallback={<Skeleton className="h-48 w-full" />}>
+        <GuestStartForm />
+      </Suspense>
       <p className="text-caption text-muted">
         Un compte invité inactif pendant 30 jours est supprimé avec ses données.
       </p>

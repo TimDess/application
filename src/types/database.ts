@@ -245,6 +245,166 @@ export type Database = {
         }
         Relationships: []
       }
+      duel_answers: {
+        Row: {
+          answer: Json | null
+          answered_at: string | null
+          deadline_at: string
+          duel_id: string
+          is_correct: boolean | null
+          points: number
+          position: number
+          question_id: string
+          score: number | null
+          served_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          answer?: Json | null
+          answered_at?: string | null
+          deadline_at: string
+          duel_id: string
+          is_correct?: boolean | null
+          points?: number
+          position: number
+          question_id: string
+          score?: number | null
+          served_at?: string
+          user_id: string
+        }
+        Update: {
+          answer?: Json | null
+          answered_at?: string | null
+          deadline_at?: string
+          duel_id?: string
+          is_correct?: boolean | null
+          points?: number
+          position?: number
+          question_id?: string
+          score?: number | null
+          served_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'duel_answers_duel_id_fkey'
+            columns: ['duel_id']
+            isOneToOne: false
+            referencedRelation: 'duels'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'duel_answers_question_id_fkey'
+            columns: ['question_id']
+            isOneToOne: false
+            referencedRelation: 'questions'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      duel_players: {
+        Row: {
+          answered: number
+          correct: number
+          duel_id: string
+          finished_at: string | null
+          joined_at: string
+          rating_after: number | null
+          rating_before: number | null
+          score: number
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          answered?: number
+          correct?: number
+          duel_id: string
+          finished_at?: string | null
+          joined_at?: string
+          rating_after?: number | null
+          rating_before?: number | null
+          score?: number
+          user_id: string
+        }
+        Update: {
+          answered?: number
+          correct?: number
+          duel_id?: string
+          finished_at?: string | null
+          joined_at?: string
+          rating_after?: number | null
+          rating_before?: number | null
+          score?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'duel_players_duel_id_fkey'
+            columns: ['duel_id']
+            isOneToOne: false
+            referencedRelation: 'duels'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      duels: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          creator_id: string
+          expires_at: string
+          id: string
+          invite_code: string | null
+          is_draw: boolean
+          mode: Database['public']['Enums']['duel_mode']
+          opponent_id: string | null
+          question_ids: string[]
+          rematch_of: string | null
+          status: Database['public']['Enums']['duel_status']
+          winner_id: string | null
+        }
+        ComputedFields: never
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          creator_id: string
+          expires_at: string
+          id?: string
+          invite_code?: string | null
+          is_draw?: boolean
+          mode: Database['public']['Enums']['duel_mode']
+          opponent_id?: string | null
+          question_ids: string[]
+          rematch_of?: string | null
+          status?: Database['public']['Enums']['duel_status']
+          winner_id?: string | null
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          creator_id?: string
+          expires_at?: string
+          id?: string
+          invite_code?: string | null
+          is_draw?: boolean
+          mode?: Database['public']['Enums']['duel_mode']
+          opponent_id?: string | null
+          question_ids?: string[]
+          rematch_of?: string | null
+          status?: Database['public']['Enums']['duel_status']
+          winner_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'duels_rematch_of_fkey'
+            columns: ['rematch_of']
+            isOneToOne: false
+            referencedRelation: 'duels'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       game_config: {
         Row: {
           description: string
@@ -486,6 +646,37 @@ export type Database = {
             referencedColumns: ['id']
           },
         ]
+      }
+      player_ratings: {
+        Row: {
+          draws: number
+          duels: number
+          losses: number
+          rating: number
+          updated_at: string
+          user_id: string
+          wins: number
+        }
+        ComputedFields: never
+        Insert: {
+          draws?: number
+          duels?: number
+          losses?: number
+          rating?: number
+          updated_at?: string
+          user_id: string
+          wins?: number
+        }
+        Update: {
+          draws?: number
+          duels?: number
+          losses?: number
+          rating?: number
+          updated_at?: string
+          user_id?: string
+          wins?: number
+        }
+        Relationships: []
       }
       practice_attempts: {
         Row: {
@@ -1237,15 +1428,25 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      answer_duel_question: {
+        Args: { p_answer: Json; p_duel: string; p_position: number }
+        Returns: Json
+      }
       complete_lesson: { Args: { p_session: string }; Returns: Json }
       complete_onboarding: {
         Args: { p_avatar_key: string; p_daily_goal: number; p_universes: Json; p_username: string }
         Returns: undefined
       }
       complete_practice: { Args: { p_session: string }; Returns: Json }
+      create_duel: { Args: { p_mode: string; p_rematch_of?: string }; Returns: Json }
+      get_duel: { Args: { p_duel: string }; Returns: Json }
+      get_duel_invite: { Args: { p_code: string }; Returns: Json }
       get_my_dna: { Args: Record<PropertyKey, never>; Returns: Json }
+      get_my_duels: { Args: Record<PropertyKey, never>; Returns: Json }
       get_my_progress: { Args: Record<PropertyKey, never>; Returns: Json }
       has_role: { Args: { p_role: Database['public']['Enums']['app_role'] }; Returns: boolean }
+      join_duel_by_code: { Args: { p_code: string }; Returns: string }
+      next_duel_question: { Args: { p_duel: string }; Returns: Json }
       set_universe_preferences: { Args: { p_universes: Json }; Returns: undefined }
       start_daily_challenge: { Args: Record<PropertyKey, never>; Returns: Json }
       start_lesson: { Args: { p_lesson: string }; Returns: Json }
@@ -1265,6 +1466,8 @@ export type Database = {
       badge_rarity: 'common' | 'rare' | 'epic' | 'legendary'
       content_status: 'draft' | 'in_review' | 'published' | 'archived'
       course_level: 'decouverte' | 'debutant' | 'intermediaire' | 'avance' | 'expert' | 'maitre'
+      duel_mode: 'quick' | 'link' | 'rematch'
+      duel_status: 'open' | 'active' | 'completed' | 'expired' | 'cancelled'
       lesson_kind: 'standard' | 'exam'
       lesson_progress_status: 'in_progress' | 'completed'
       practice_kind: 'review' | 'daily'
@@ -1281,7 +1484,9 @@ export type Database = {
         | 'review_answer'
         | 'review_completed'
         | 'daily_challenge'
-      xp_source: 'question' | 'lesson' | 'chapter' | 'practice_session' | 'daily_challenge'
+        | 'duel_played'
+        | 'duel_won'
+      xp_source: 'question' | 'lesson' | 'chapter' | 'practice_session' | 'daily_challenge' | 'duel'
     }
     CompositeTypes: {
       [_ in never]: never
@@ -1401,6 +1606,8 @@ export const Constants = {
       badge_rarity: ['common', 'rare', 'epic', 'legendary'],
       content_status: ['draft', 'in_review', 'published', 'archived'],
       course_level: ['decouverte', 'debutant', 'intermediaire', 'avance', 'expert', 'maitre'],
+      duel_mode: ['quick', 'link', 'rematch'],
+      duel_status: ['open', 'active', 'completed', 'expired', 'cancelled'],
       lesson_kind: ['standard', 'exam'],
       lesson_progress_status: ['in_progress', 'completed'],
       practice_kind: ['review', 'daily'],
@@ -1417,8 +1624,10 @@ export const Constants = {
         'review_answer',
         'review_completed',
         'daily_challenge',
+        'duel_played',
+        'duel_won',
       ],
-      xp_source: ['question', 'lesson', 'chapter', 'practice_session', 'daily_challenge'],
+      xp_source: ['question', 'lesson', 'chapter', 'practice_session', 'daily_challenge', 'duel'],
     },
   },
 } as const

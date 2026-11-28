@@ -22,11 +22,15 @@ export const routes = {
   daily: '/defi',
   trial: '/essai',
   saveAccount: '/sauvegarder',
+  duels: '/duels',
+  duelInvite: '/d',
 } as const
 
 export const universePath = (slug: string) => `${routes.explore}/${slug}`
 export const coursePath = (slug: string) => `${routes.courses}/${slug}`
 export const lessonPath = (slug: string) => `${routes.lessons}/${slug}`
+export const duelPath = (id: string) => `${routes.duels}/${id}`
+export const duelInvitePath = (code: string) => `${routes.duelInvite}/${code}`
 
 /** Routes that require a signed-in user. */
 export const protectedPrefixes = [
@@ -42,6 +46,7 @@ export const protectedPrefixes = [
   routes.reviews,
   routes.daily,
   routes.saveAccount,
+  routes.duels,
 ] as const
 
 /** Routes a signed-in user has no reason to see (they are sent to the dashboard). */

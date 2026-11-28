@@ -73,7 +73,14 @@ function StepFrame({
   )
 }
 
-export function OnboardingFlow({ universes }: { universes: PublishedUniverse[] }) {
+export function OnboardingFlow({
+  universes,
+  next = routes.dashboard,
+}: {
+  universes: PublishedUniverse[]
+  /** Where to go once done (e.g. a duel invite opened before signing up). */
+  next?: string
+}) {
   const router = useRouter()
   const [step, setStep] = useState<Step>('intro')
   const [username, setUsername] = useState('')
@@ -113,7 +120,7 @@ export function OnboardingFlow({ universes }: { universes: PublishedUniverse[] }
         universes: toChoices(selection),
       })
       if (res.status === 'success') {
-        router.replace(routes.dashboard)
+        router.replace(next)
         router.refresh()
         return
       }
