@@ -2,7 +2,7 @@ import { hapticsEnabled } from './settings'
 import { playSound, type SoundId } from './sound'
 
 export { setSensations } from './settings'
-export { unlockAudio, type SoundId } from './sound'
+export { audioReady, unlockAudio, type SoundId } from './sound'
 export { burstAt, confetti, lastPointer } from './particles'
 
 // Android only for now: iPhone gives web pages no vibration access.
