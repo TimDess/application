@@ -1,6 +1,8 @@
 # Multijoueur (prévu en phase 4)
 
-Statut : **duels asynchrones livrés (lot 4A)**. Ligues (4B) et temps réel (4C) à venir.
+Statut : **duels asynchrones (lot 4A) et ligues hebdomadaires (lot 4B) livrés**. Temps réel (4C) à venir.
+
+Ligues : `supabase/migrations/20261202090000_leagues.sql` (`player_divisions`, `league_groups`, `league_members`, `league_points` ; `get_my_league`, `private.finalize_league_weeks`).
 
 Implémentation : `supabase/migrations/20261201090000_duels.sql` (tables `duels`, `duel_players`, `duel_answers`, `player_ratings` ; RPC `create_duel`, `join_duel_by_code`, `get_duel_invite`, `next_duel_question`, `answer_duel_question`, `get_my_duels`, `get_duel`), `src/features/duels/`. La liste des questions d'un duel n'est jamais lisible par le client (privilège de colonne) : chaque question est servie au moment où son chrono démarre.
 

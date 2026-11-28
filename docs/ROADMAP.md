@@ -2,17 +2,17 @@
 
 Dernière mise à jour : 28 novembre 2026.
 
-| Phase              | Contenu                                                                                         | État                                                           |
-| ------------------ | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)           |
-| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                                    |
-| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                        |
-| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | ✅ Terminée (lots 3A, 3B, 3C)                                  |
-| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | 🚧 Lot 4A livré (duels asynchrones) ; 4B ligues, 4C temps réel |
-| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                        |
-| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                        |
-| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                        |
-| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                        |
+| Phase              | Contenu                                                                                         | État                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)             |
+| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                                      |
+| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                          |
+| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | ✅ Terminée (lots 3A, 3B, 3C)                                    |
+| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | 🚧 Lots 4A (duels) et 4B (ligues) livrés ; reste 4C (temps réel) |
+| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                          |
+| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                          |
+| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                          |
+| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                          |
 
 ## Phase 1 — livré
 
@@ -98,6 +98,14 @@ Dernière mise à jour : 28 novembre 2026.
 - Cote cachée Elo (K = 40 pour les 20 premiers duels, puis 24). XP : 10 pour sa manche, +10 pour une victoire. Une manche jouée valide la série. Forfait si l’adversaire ne joue pas à temps (balayage pg_cron toutes les 15 minutes).
 - Interface : section Duels dans Jouer (duel rapide, défier un ami, liste « à toi de jouer » / en attente / terminés), lecteur chronométré, résultat question par question, revanche, partage du lien.
 - Tests : 55 unitaires, 165 assertions pgTAP, 30 scénarios E2E (dont deux joueurs et lien de défi en invité).
+
+## Phase 4 — lot 4B livré (ligues hebdomadaires)
+
+- Semaine du lundi 0 h au dimanche 23 h 59 (Paris). Six divisions : Bronze, Argent, Or, Platine, Diamant, Légende. Groupes de 30 joueurs maximum de la même division, rejoints au premier point de la semaine (duel ou défi du jour). Les invités ne participent pas.
+- Points : duel gagné 30, nul 15, perdu 5, forfait 0 ; défi du jour 20. Seuls les 15 meilleurs duels de la semaine comptent. Attribués par des triggers sur `duels` et `practice_sessions`.
+- Fin de semaine (pg_cron toutes les heures, et à l’ouverture de la page) : classement final, environ 20 % montent et 20 % descendent par groupe (petits groupes : seul le premier monte), jamais sous Bronze ni au-dessus de Légende.
+- Page Ligue : division, compte à rebours, points et duels comptés, classement du groupe avec zones de montée et de descente, bilan de la semaine passée, règles. Respecte « apparaître dans les classements » et le profil privé (« Joueur masqué »). Division affichée sur le profil.
+- Tests : 57 unitaires, 186 assertions pgTAP, 34 scénarios E2E.
 
 ## Écarts et points ouverts
 

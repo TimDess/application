@@ -478,6 +478,101 @@ export type Database = {
           },
         ]
       }
+      league_groups: {
+        Row: {
+          created_at: string
+          division: Database['public']['Enums']['league_division']
+          finalized_at: string | null
+          id: string
+          week_start: string
+        }
+        ComputedFields: never
+        Insert: {
+          created_at?: string
+          division: Database['public']['Enums']['league_division']
+          finalized_at?: string | null
+          id?: string
+          week_start: string
+        }
+        Update: {
+          created_at?: string
+          division?: Database['public']['Enums']['league_division']
+          finalized_at?: string | null
+          id?: string
+          week_start?: string
+        }
+        Relationships: []
+      }
+      league_members: {
+        Row: {
+          final_points: number | null
+          final_rank: number | null
+          group_id: string
+          joined_at: string
+          outcome: Database['public']['Enums']['league_outcome'] | null
+          user_id: string
+          week_start: string
+        }
+        ComputedFields: never
+        Insert: {
+          final_points?: number | null
+          final_rank?: number | null
+          group_id: string
+          joined_at?: string
+          outcome?: Database['public']['Enums']['league_outcome'] | null
+          user_id: string
+          week_start: string
+        }
+        Update: {
+          final_points?: number | null
+          final_rank?: number | null
+          group_id?: string
+          joined_at?: string
+          outcome?: Database['public']['Enums']['league_outcome'] | null
+          user_id?: string
+          week_start?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'league_members_group_id_fkey'
+            columns: ['group_id']
+            isOneToOne: false
+            referencedRelation: 'league_groups'
+            referencedColumns: ['id']
+          },
+        ]
+      }
+      league_points: {
+        Row: {
+          created_at: string
+          id: string
+          points: number
+          source_id: string
+          source_type: string
+          user_id: string
+          week_start: string
+        }
+        ComputedFields: never
+        Insert: {
+          created_at?: string
+          id?: string
+          points: number
+          source_id: string
+          source_type: string
+          user_id: string
+          week_start: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          points?: number
+          source_id?: string
+          source_type?: string
+          user_id?: string
+          week_start?: string
+        }
+        Relationships: []
+      }
       learning_cards: {
         Row: {
           blocks: NonNullable<Json>
@@ -646,6 +741,25 @@ export type Database = {
             referencedColumns: ['id']
           },
         ]
+      }
+      player_divisions: {
+        Row: {
+          division: Database['public']['Enums']['league_division']
+          updated_at: string
+          user_id: string
+        }
+        ComputedFields: never
+        Insert: {
+          division?: Database['public']['Enums']['league_division']
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          division?: Database['public']['Enums']['league_division']
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       player_ratings: {
         Row: {
@@ -1443,6 +1557,7 @@ export type Database = {
       get_duel_invite: { Args: { p_code: string }; Returns: Json }
       get_my_dna: { Args: Record<PropertyKey, never>; Returns: Json }
       get_my_duels: { Args: Record<PropertyKey, never>; Returns: Json }
+      get_my_league: { Args: Record<PropertyKey, never>; Returns: Json }
       get_my_progress: { Args: Record<PropertyKey, never>; Returns: Json }
       has_role: { Args: { p_role: Database['public']['Enums']['app_role'] }; Returns: boolean }
       join_duel_by_code: { Args: { p_code: string }; Returns: string }
@@ -1468,6 +1583,8 @@ export type Database = {
       course_level: 'decouverte' | 'debutant' | 'intermediaire' | 'avance' | 'expert' | 'maitre'
       duel_mode: 'quick' | 'link' | 'rematch'
       duel_status: 'open' | 'active' | 'completed' | 'expired' | 'cancelled'
+      league_division: 'bronze' | 'argent' | 'or' | 'platine' | 'diamant' | 'legende'
+      league_outcome: 'promoted' | 'stayed' | 'relegated'
       lesson_kind: 'standard' | 'exam'
       lesson_progress_status: 'in_progress' | 'completed'
       practice_kind: 'review' | 'daily'
@@ -1608,6 +1725,8 @@ export const Constants = {
       course_level: ['decouverte', 'debutant', 'intermediaire', 'avance', 'expert', 'maitre'],
       duel_mode: ['quick', 'link', 'rematch'],
       duel_status: ['open', 'active', 'completed', 'expired', 'cancelled'],
+      league_division: ['bronze', 'argent', 'or', 'platine', 'diamant', 'legende'],
+      league_outcome: ['promoted', 'stayed', 'relegated'],
       lesson_kind: ['standard', 'exam'],
       lesson_progress_status: ['in_progress', 'completed'],
       practice_kind: ['review', 'daily'],
