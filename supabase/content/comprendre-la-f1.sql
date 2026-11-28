@@ -500,336 +500,336 @@ insert into private.question_solutions (question_id, solution, explanation)
 values ('9747ca3a-04e6-5bda-bc12-1085377f5923', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"2011","t2":"2015","t3":"2019","t4":"2025"}}'::jsonb, '2011 : Pirelli seul fournisseur. 2015 : la VSC. 2019 : le code couleur simplifié. 2025 : fin du point bonus du meilleur tour.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a20f01b9-6d3b-560f-9229-d4b1fbabb47a', 'f1-x-silverstone-1950', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'La première course du championnat du monde s’est disputée en 1950.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('a20f01b9-6d3b-560f-9229-d4b1fbabb47a', 'f1-x-silverstone-1950', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'La première course du championnat du monde s’est disputée en 1950.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a20f01b9-6d3b-560f-9229-d4b1fbabb47a', '{"value":true}'::jsonb, 'Vrai : le 13 mai 1950, à Silverstone, au Royaume-Uni.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('2874d415-ac7e-509e-a012-b531964cd7db', 'f1-x-farina-ecurie', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Sur quelle voiture Giuseppe Farina devient-il le premier champion du monde ?', '{"options":[{"id":"a","label":"Alfa Romeo"},{"id":"b","label":"Ferrari"},{"id":"c","label":"Maserati"},{"id":"d","label":"Mercedes"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('2874d415-ac7e-509e-a012-b531964cd7db', 'f1-x-farina-ecurie', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Sur quelle voiture Giuseppe Farina devient-il le premier champion du monde ?', '{"options":[{"id":"a","label":"Alfa Romeo"},{"id":"b","label":"Ferrari"},{"id":"c","label":"Maserati"},{"id":"d","label":"Mercedes"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('2874d415-ac7e-509e-a012-b531964cd7db', '{"correct":["a"]}'::jsonb, 'Farina remporte le titre 1950 sur Alfa Romeo.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('0f330343-9496-50c0-acd0-b1b33656fe06', 'f1-x-farina-nationalite', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le premier champion du monde de F1 est italien.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('0f330343-9496-50c0-acd0-b1b33656fe06', 'f1-x-farina-nationalite', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le premier champion du monde de F1 est italien.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('0f330343-9496-50c0-acd0-b1b33656fe06', '{"value":true}'::jsonb, 'Vrai : Giuseppe « Nino » Farina, en 1950.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a709b89f-c379-52aa-a5e2-6372ce2fc7fa', 'f1-x-fia-sigle', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que signifie le sigle FIA ?', '{"options":[{"id":"a","label":"Fédération internationale de l’automobile"},{"id":"b","label":"Formule internationale automobile"},{"id":"c","label":"Fédération italienne de l’automobile"},{"id":"d","label":"Formula International Association"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('a709b89f-c379-52aa-a5e2-6372ce2fc7fa', 'f1-x-fia-sigle', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que signifie le sigle FIA ?', '{"options":[{"id":"a","label":"Fédération internationale de l’automobile"},{"id":"b","label":"Formule internationale automobile"},{"id":"c","label":"Fédération italienne de l’automobile"},{"id":"d","label":"Formula International Association"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a709b89f-c379-52aa-a5e2-6372ce2fc7fa', '{"correct":["a"]}'::jsonb, 'La FIA fixe les règlements sportifs et techniques de la F1.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ca7072cf-6c71-5aca-8086-07170090bc6e', 'f1-x-fia-regles', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Ce sont les écuries qui fixent elles-mêmes le règlement technique de la F1.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('ca7072cf-6c71-5aca-8086-07170090bc6e', 'f1-x-fia-regles', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Ce sont les écuries qui fixent elles-mêmes le règlement technique de la F1.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ca7072cf-6c71-5aca-8086-07170090bc6e', '{"value":false}'::jsonb, 'Faux : c’est la FIA qui fixe les règlements sportifs et techniques.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c1ecde98-d50a-59fc-9db3-3158130e2d2b', 'f1-x-constructeurs', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Comment est calculé le classement du titre constructeurs ?', '{"options":[{"id":"a","label":"En additionnant les points des deux pilotes de l’écurie"},{"id":"b","label":"En ne comptant que le meilleur pilote"},{"id":"c","label":"Au nombre de victoires uniquement"},{"id":"d","label":"Par un vote des journalistes"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('c1ecde98-d50a-59fc-9db3-3158130e2d2b', 'f1-x-constructeurs', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Comment est calculé le classement du titre constructeurs ?', '{"options":[{"id":"a","label":"En additionnant les points des deux pilotes de l’écurie"},{"id":"b","label":"En ne comptant que le meilleur pilote"},{"id":"c","label":"Au nombre de victoires uniquement"},{"id":"d","label":"Par un vote des journalistes"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c1ecde98-d50a-59fc-9db3-3158130e2d2b', '{"correct":["a"]}'::jsonb, 'Les points des deux pilotes s’additionnent pour l’écurie.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('77811089-21f6-5067-95cc-c2ae3ec8c053', 'f1-x-plateau-voitures', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Combien de voitures prennent le départ d’un Grand Prix en 2026 ?', '{"options":[{"id":"a","label":"20"},{"id":"b","label":"22"},{"id":"c","label":"24"},{"id":"d","label":"26"}],"multiple":false}'::jsonb, 2, true, '2026-11-27', 'in_review')
+values ('77811089-21f6-5067-95cc-c2ae3ec8c053', 'f1-x-plateau-voitures', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Combien de voitures prennent le départ d’un Grand Prix en 2026 ?', '{"options":[{"id":"a","label":"20"},{"id":"b","label":"22"},{"id":"c","label":"24"},{"id":"d","label":"26"}],"multiple":false}'::jsonb, 2, true, '2026-11-27', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('77811089-21f6-5067-95cc-c2ae3ec8c053', '{"correct":["b"]}'::jsonb, '11 écuries de deux pilotes : 22 voitures.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('97c352d7-a439-5150-9ac2-78fcde8134fe', 'f1-x-cadillac', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quelle écurie fait ses débuts en F1 en 2026 ?', '{"options":[{"id":"a","label":"Cadillac"},{"id":"b","label":"Porsche"},{"id":"c","label":"Toyota"},{"id":"d","label":"BMW"}],"multiple":false}'::jsonb, 2, true, '2026-11-27', 'in_review')
+values ('97c352d7-a439-5150-9ac2-78fcde8134fe', 'f1-x-cadillac', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quelle écurie fait ses débuts en F1 en 2026 ?', '{"options":[{"id":"a","label":"Cadillac"},{"id":"b","label":"Porsche"},{"id":"c","label":"Toyota"},{"id":"d","label":"BMW"}],"multiple":false}'::jsonb, 2, true, '2026-11-27', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('97c352d7-a439-5150-9ac2-78fcde8134fe', '{"correct":["a"]}'::jsonb, 'L’arrivée de Cadillac porte le plateau à 11 écuries.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b14b683c-c074-5816-913e-a428ae814007', 'f1-x-week-end-ordre', (select id from public.universes where slug = 'sport-automobile'), 'timeline', 'Remets les séances d’un week-end classique dans l’ordre.', '{"items":[{"id":"t2","label":"Qualifications"},{"id":"t3","label":"Course"},{"id":"t1","label":"Essais libres"}]}'::jsonb, 1, false, null, 'in_review')
+values ('b14b683c-c074-5816-913e-a428ae814007', 'f1-x-week-end-ordre', (select id from public.universes where slug = 'sport-automobile'), 'timeline', 'Remets les séances d’un week-end classique dans l’ordre.', '{"items":[{"id":"t2","label":"Qualifications"},{"id":"t3","label":"Course"},{"id":"t1","label":"Essais libres"}]}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b14b683c-c074-5816-913e-a428ae814007', '{"order":["t1","t2","t3"],"dates":{"t1":"Vendredi","t2":"Samedi","t3":"Dimanche"}}'::jsonb, 'Essais libres, puis qualifications, puis course le dimanche.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e38ab71e-96b7-5214-989d-f71a24f3483d', 'f1-x-course-dimanche', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Lors d’un week-end classique, le Grand Prix se dispute le dimanche.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('e38ab71e-96b7-5214-989d-f71a24f3483d', 'f1-x-course-dimanche', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Lors d’un week-end classique, le Grand Prix se dispute le dimanche.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e38ab71e-96b7-5214-989d-f71a24f3483d', '{"value":true}'::jsonb, 'Vrai : après les essais libres et les qualifications.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ff64d9ed-3335-532a-9561-e139f27e4273', 'f1-x-q1', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que se passe-t-il à la fin de la Q1 ?', '{"options":[{"id":"a","label":"Les pilotes les plus lents sont éliminés"},{"id":"b","label":"La pole position est attribuée"},{"id":"c","label":"Les pilotes changent de voiture"},{"id":"d","label":"La course démarre"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('ff64d9ed-3335-532a-9561-e139f27e4273', 'f1-x-q1', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que se passe-t-il à la fin de la Q1 ?', '{"options":[{"id":"a","label":"Les pilotes les plus lents sont éliminés"},{"id":"b","label":"La pole position est attribuée"},{"id":"c","label":"Les pilotes changent de voiture"},{"id":"d","label":"La course démarre"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ff64d9ed-3335-532a-9561-e139f27e4273', '{"correct":["a"]}'::jsonb, 'Q1 et Q2 éliminent progressivement les plus lents ; la Q3 attribue la pole.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('867d1f91-1471-5867-b084-de5639f13f6e', 'f1-x-qualifs-ordre', (select id from public.universes where slug = 'sport-automobile'), 'timeline', 'Remets les phases des qualifications dans l’ordre.', '{"items":[{"id":"t3","label":"Q3, pour la pole"},{"id":"t2","label":"Q2"},{"id":"t1","label":"Q1"}]}'::jsonb, 1, false, null, 'in_review')
+values ('867d1f91-1471-5867-b084-de5639f13f6e', 'f1-x-qualifs-ordre', (select id from public.universes where slug = 'sport-automobile'), 'timeline', 'Remets les phases des qualifications dans l’ordre.', '{"items":[{"id":"t3","label":"Q3, pour la pole"},{"id":"t2","label":"Q2"},{"id":"t1","label":"Q1"}]}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('867d1f91-1471-5867-b084-de5639f13f6e', '{"order":["t1","t2","t3"],"dates":{"t1":"1re phase","t2":"2e phase","t3":"3e phase"}}'::jsonb, 'Trois phases : Q1, Q2 puis Q3.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('0639c3aa-d3b6-581e-9144-1ff62e6fc4ad', 'f1-x-sprint-distance', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quelle distance environ parcourt-on lors d’une course sprint ?', '{"options":[{"id":"a","label":"50 km"},{"id":"b","label":"100 km"},{"id":"c","label":"200 km"},{"id":"d","label":"305 km"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('0639c3aa-d3b6-581e-9144-1ff62e6fc4ad', 'f1-x-sprint-distance', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quelle distance environ parcourt-on lors d’une course sprint ?', '{"options":[{"id":"a","label":"50 km"},{"id":"b","label":"100 km"},{"id":"c","label":"200 km"},{"id":"d","label":"305 km"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('0639c3aa-d3b6-581e-9144-1ff62e6fc4ad', '{"correct":["b"]}'::jsonb, 'Environ 100 km, soit un tiers d’un Grand Prix.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('fe45ace2-2931-55e8-bec6-e93e2aec7932', 'f1-x-sprint-jour', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quel jour se dispute la course sprint ?', '{"options":[{"id":"a","label":"Le vendredi"},{"id":"b","label":"Le samedi"},{"id":"c","label":"Le dimanche"},{"id":"d","label":"Le jeudi"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('fe45ace2-2931-55e8-bec6-e93e2aec7932', 'f1-x-sprint-jour', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quel jour se dispute la course sprint ?', '{"options":[{"id":"a","label":"Le vendredi"},{"id":"b","label":"Le samedi"},{"id":"c","label":"Le dimanche"},{"id":"d","label":"Le jeudi"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('fe45ace2-2931-55e8-bec6-e93e2aec7932', '{"correct":["b"]}'::jsonb, 'La course sprint a lieu le samedi des week-ends concernés.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('89b1d86b-bc56-5273-a8a5-d579b24aa739', 'f1-x-monaco-distance', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quelle distance environ fait le Grand Prix de Monaco ?', '{"options":[{"id":"a","label":"160 km"},{"id":"b","label":"260 km"},{"id":"c","label":"305 km"},{"id":"d","label":"400 km"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('89b1d86b-bc56-5273-a8a5-d579b24aa739', 'f1-x-monaco-distance', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quelle distance environ fait le Grand Prix de Monaco ?', '{"options":[{"id":"a","label":"160 km"},{"id":"b","label":"260 km"},{"id":"c","label":"305 km"},{"id":"d","label":"400 km"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('89b1d86b-bc56-5273-a8a5-d579b24aa739', '{"correct":["b"]}'::jsonb, 'Monaco fait exception à la règle des 305 km.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('79c49732-d403-54ca-9af9-21faf9b74eda', 'f1-x-points-deuxieme', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Combien de points marque le deuxième d’un Grand Prix ?', '{"options":[{"id":"a","label":"15"},{"id":"b","label":"18"},{"id":"c","label":"20"},{"id":"d","label":"25"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('79c49732-d403-54ca-9af9-21faf9b74eda', 'f1-x-points-deuxieme', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Combien de points marque le deuxième d’un Grand Prix ?', '{"options":[{"id":"a","label":"15"},{"id":"b","label":"18"},{"id":"c","label":"20"},{"id":"d","label":"25"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('79c49732-d403-54ca-9af9-21faf9b74eda', '{"correct":["b"]}'::jsonb, 'Barème : 25, 18, 15, 12, 10, 8, 6, 4, 2, 1.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('aed274e6-ab2e-5380-85e8-5ec9e394842c', 'f1-x-points-dixieme', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Combien de points marque le dixième d’un Grand Prix ?', '{"options":[{"id":"a","label":"0"},{"id":"b","label":"1"},{"id":"c","label":"2"},{"id":"d","label":"3"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('aed274e6-ab2e-5380-85e8-5ec9e394842c', 'f1-x-points-dixieme', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Combien de points marque le dixième d’un Grand Prix ?', '{"options":[{"id":"a","label":"0"},{"id":"b","label":"1"},{"id":"c","label":"2"},{"id":"d","label":"3"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('aed274e6-ab2e-5380-85e8-5ec9e394842c', '{"correct":["b"]}'::jsonb, 'Le dixième marque le dernier point.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a8a6e13f-2f60-5dd5-872d-7b930e978e19', 'f1-x-meilleur-tour-annee', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'À partir de quelle saison le point du meilleur tour a-t-il été supprimé ?', '{"options":[{"id":"a","label":"2023"},{"id":"b","label":"2024"},{"id":"c","label":"2025"},{"id":"d","label":"2026"}],"multiple":false}'::jsonb, 3, true, '2026-11-27', 'in_review')
+values ('a8a6e13f-2f60-5dd5-872d-7b930e978e19', 'f1-x-meilleur-tour-annee', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'À partir de quelle saison le point du meilleur tour a-t-il été supprimé ?', '{"options":[{"id":"a","label":"2023"},{"id":"b","label":"2024"},{"id":"c","label":"2025"},{"id":"d","label":"2026"}],"multiple":false}'::jsonb, 3, true, '2026-11-27', 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a8a6e13f-2f60-5dd5-872d-7b930e978e19', '{"correct":["c"]}'::jsonb, 'Le point bonus du meilleur tour a disparu à partir de 2025.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c6978c06-4dd8-5d9c-bfaa-ae672462d249', 'f1-x-sprint-huitieme', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Jusqu’à quelle place marque-t-on des points en course sprint ?', '{"options":[{"id":"a","label":"La 3e"},{"id":"b","label":"La 5e"},{"id":"c","label":"La 8e"},{"id":"d","label":"La 10e"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('c6978c06-4dd8-5d9c-bfaa-ae672462d249', 'f1-x-sprint-huitieme', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Jusqu’à quelle place marque-t-on des points en course sprint ?', '{"options":[{"id":"a","label":"La 3e"},{"id":"b","label":"La 5e"},{"id":"c","label":"La 8e"},{"id":"d","label":"La 10e"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c6978c06-4dd8-5d9c-bfaa-ae672462d249', '{"correct":["c"]}'::jsonb, 'De 8 points pour le vainqueur à 1 point pour le 8e.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d977fd29-266c-5bf8-902c-da466fd8af1c', 'f1-x-sprint-25', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le vainqueur d’une course sprint marque 25 points.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('d977fd29-266c-5bf8-902c-da466fd8af1c', 'f1-x-sprint-25', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le vainqueur d’une course sprint marque 25 points.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d977fd29-266c-5bf8-902c-da466fd8af1c', '{"value":false}'::jsonb, 'Faux : il marque 8 points.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('fcc38f3f-a971-59b4-80e4-fabff6660f96', 'f1-x-monza-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve le circuit de Monza ?', '{"options":[{"id":"a","label":"L’Italie"},{"id":"b","label":"L’Espagne"},{"id":"c","label":"La France"},{"id":"d","label":"L’Autriche"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('fcc38f3f-a971-59b4-80e4-fabff6660f96', 'f1-x-monza-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve le circuit de Monza ?', '{"options":[{"id":"a","label":"L’Italie"},{"id":"b","label":"L’Espagne"},{"id":"c","label":"La France"},{"id":"d","label":"L’Autriche"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('fcc38f3f-a971-59b4-80e4-fabff6660f96', '{"correct":["a"]}'::jsonb, 'Monza, près de Milan, est le « temple de la vitesse ».')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('868ac5af-2a5b-5592-852b-7f271102b48d', 'f1-x-monza-lent', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Monza est un circuit lent et sinueux.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('868ac5af-2a5b-5592-852b-7f271102b48d', 'f1-x-monza-lent', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Monza est un circuit lent et sinueux.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('868ac5af-2a5b-5592-852b-7f271102b48d', '{"value":false}'::jsonb, 'Faux : il est célèbre pour ses longues lignes droites et ses vitesses très élevées.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('39124b80-7578-558d-889e-9acaa7b8ee8f', 'f1-x-spa-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve Spa-Francorchamps ?', '{"options":[{"id":"a","label":"La Belgique"},{"id":"b","label":"Les Pays-Bas"},{"id":"c","label":"La France"},{"id":"d","label":"Le Luxembourg"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('39124b80-7578-558d-889e-9acaa7b8ee8f', 'f1-x-spa-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve Spa-Francorchamps ?', '{"options":[{"id":"a","label":"La Belgique"},{"id":"b","label":"Les Pays-Bas"},{"id":"c","label":"La France"},{"id":"d","label":"Le Luxembourg"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('39124b80-7578-558d-889e-9acaa7b8ee8f', '{"correct":["a"]}'::jsonb, 'Spa-Francorchamps est en Belgique, dans les Ardennes.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('919e70c6-e7f8-5f5f-8a60-60a8a82d8870', 'f1-x-silverstone-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve Silverstone ?', '{"options":[{"id":"a","label":"Le Royaume-Uni"},{"id":"b","label":"L’Irlande"},{"id":"c","label":"L’Australie"},{"id":"d","label":"Le Canada"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('919e70c6-e7f8-5f5f-8a60-60a8a82d8870', 'f1-x-silverstone-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve Silverstone ?', '{"options":[{"id":"a","label":"Le Royaume-Uni"},{"id":"b","label":"L’Irlande"},{"id":"c","label":"L’Australie"},{"id":"d","label":"Le Canada"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('919e70c6-e7f8-5f5f-8a60-60a8a82d8870', '{"correct":["a"]}'::jsonb, 'Silverstone, en Angleterre, a accueilli la toute première course en 1950.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b3ff4719-7e59-5266-92f1-82b03aa2bc6f', 'f1-x-suzuka-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve le circuit en forme de huit de Suzuka ?', '{"options":[{"id":"a","label":"Le Japon"},{"id":"b","label":"La Chine"},{"id":"c","label":"La Corée du Sud"},{"id":"d","label":"Singapour"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('b3ff4719-7e59-5266-92f1-82b03aa2bc6f', 'f1-x-suzuka-pays', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quel pays se trouve le circuit en forme de huit de Suzuka ?', '{"options":[{"id":"a","label":"Le Japon"},{"id":"b","label":"La Chine"},{"id":"c","label":"La Corée du Sud"},{"id":"d","label":"Singapour"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b3ff4719-7e59-5266-92f1-82b03aa2bc6f', '{"correct":["a"]}'::jsonb, 'Suzuka est au Japon, avec son pont qui fait croiser le tracé.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('fd37919d-9b23-53f1-a6b9-b509e4410f4d', 'f1-x-suzuka-pont', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'À Suzuka, le tracé passe sous un pont.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('fd37919d-9b23-53f1-a6b9-b509e4410f4d', 'f1-x-suzuka-pont', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'À Suzuka, le tracé passe sous un pont.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('fd37919d-9b23-53f1-a6b9-b509e4410f4d', '{"value":true}'::jsonb, 'Vrai : c’est ce pont qui permet au tracé de former un huit.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('2b4a9d58-5b23-5b5a-8b1f-e8a628e4743e', 'f1-x-urbains', (select id from public.universes where slug = 'sport-automobile'), 'match', 'Associe chaque circuit urbain à son pays.', '{"left":[{"id":"l1","label":"Monaco"},{"id":"l2","label":"Marina Bay"},{"id":"l3","label":"Las Vegas Strip"}],"right":[{"id":"r3","label":"États-Unis"},{"id":"r2","label":"Singapour"},{"id":"r1","label":"Principauté de Monaco"}]}'::jsonb, 2, false, null, 'in_review')
+values ('2b4a9d58-5b23-5b5a-8b1f-e8a628e4743e', 'f1-x-urbains', (select id from public.universes where slug = 'sport-automobile'), 'match', 'Associe chaque circuit urbain à son pays.', '{"left":[{"id":"l1","label":"Monaco"},{"id":"l2","label":"Marina Bay"},{"id":"l3","label":"Las Vegas Strip"}],"right":[{"id":"r3","label":"États-Unis"},{"id":"r2","label":"Singapour"},{"id":"r1","label":"Principauté de Monaco"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('2b4a9d58-5b23-5b5a-8b1f-e8a628e4743e', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Trois circuits tracés sur des routes publiques fermées.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('fade7d29-0f77-5d56-b541-8de8e5fa77e4', 'f1-x-urbain-routes', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Un circuit urbain est tracé sur des routes publiques fermées pour l’occasion.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('fade7d29-0f77-5d56-b541-8de8e5fa77e4', 'f1-x-urbain-routes', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Un circuit urbain est tracé sur des routes publiques fermées pour l’occasion.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('fade7d29-0f77-5d56-b541-8de8e5fa77e4', '{"value":true}'::jsonb, 'Vrai : comme à Monaco, Singapour ou Las Vegas.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d31d0274-5f6d-5b17-9858-42a9927f45e9', 'f1-x-singapour-projecteurs', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le Grand Prix de Singapour se dispute de nuit, sous projecteurs.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('d31d0274-5f6d-5b17-9858-42a9927f45e9', 'f1-x-singapour-projecteurs', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le Grand Prix de Singapour se dispute de nuit, sous projecteurs.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d31d0274-5f6d-5b17-9858-42a9927f45e9', '{"value":true}'::jsonb, 'Vrai : depuis la première édition, en 2008.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('31be2704-c5b3-5fd5-915f-482100fe42ab', 'f1-x-vegas-annee', (select id from public.universes where slug = 'sport-automobile'), 'guess_year', 'En quelle année le Grand Prix de Las Vegas fait-il son retour, sur le Strip ?', '{"min":2010,"max":2026}'::jsonb, 2, false, null, 'in_review')
+values ('31be2704-c5b3-5fd5-915f-482100fe42ab', 'f1-x-vegas-annee', (select id from public.universes where slug = 'sport-automobile'), 'guess_year', 'En quelle année le Grand Prix de Las Vegas fait-il son retour, sur le Strip ?', '{"min":2010,"max":2026}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('31be2704-c5b3-5fd5-915f-482100fe42ab', '{"year":2023,"tolerance":1}'::jsonb, 'Depuis 2023, la course se dispute de nuit dans les rues de Las Vegas.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('009632e9-890a-5c17-a871-0a1fc27952e4', 'f1-x-interlagos-ville', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quelle ville se trouve Interlagos ?', '{"options":[{"id":"a","label":"São Paulo"},{"id":"b","label":"Rio de Janeiro"},{"id":"c","label":"Buenos Aires"},{"id":"d","label":"Mexico"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('009632e9-890a-5c17-a871-0a1fc27952e4', 'f1-x-interlagos-ville', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Dans quelle ville se trouve Interlagos ?', '{"options":[{"id":"a","label":"São Paulo"},{"id":"b","label":"Rio de Janeiro"},{"id":"c","label":"Buenos Aires"},{"id":"d","label":"Mexico"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('009632e9-890a-5c17-a871-0a1fc27952e4', '{"correct":["a"]}'::jsonb, 'Interlagos accueille le Grand Prix du Brésil, à São Paulo.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8beddb87-ace5-5950-b5e4-ca8da4a91dc8', 'f1-x-mexico-effet', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quel est l’effet de l’altitude à Mexico sur les voitures ?', '{"options":[{"id":"a","label":"Moins d’appui et un refroidissement plus difficile"},{"id":"b","label":"Plus d’appui aérodynamique"},{"id":"c","label":"Des pneus qui ne s’usent pas"},{"id":"d","label":"Aucun effet"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('8beddb87-ace5-5950-b5e4-ca8da4a91dc8', 'f1-x-mexico-effet', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quel est l’effet de l’altitude à Mexico sur les voitures ?', '{"options":[{"id":"a","label":"Moins d’appui et un refroidissement plus difficile"},{"id":"b","label":"Plus d’appui aérodynamique"},{"id":"c","label":"Des pneus qui ne s’usent pas"},{"id":"d","label":"Aucun effet"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8beddb87-ace5-5950-b5e4-ca8da4a91dc8', '{"correct":["a"]}'::jsonb, 'L’air raréfié réduit l’appui et rend le refroidissement plus difficile.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7c59390e-08f9-5b47-8035-4246076fe2a2', 'f1-x-monaco-depasser', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Il est très facile de dépasser à Monaco.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('7c59390e-08f9-5b47-8035-4246076fe2a2', 'f1-x-monaco-depasser', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Il est très facile de dépasser à Monaco.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7c59390e-08f9-5b47-8035-4246076fe2a2', '{"value":false}'::jsonb, 'Faux : les rues étroites et sinueuses rendent les dépassements très difficiles.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e60387e2-55e5-55a3-a097-3722e8aed1b8', 'f1-x-pirelli-annee', (select id from public.universes where slug = 'sport-automobile'), 'guess_year', 'Depuis quelle année Pirelli est-il le fournisseur unique de pneus en F1 ?', '{"min":2000,"max":2020}'::jsonb, 2, false, null, 'in_review')
+values ('e60387e2-55e5-55a3-a097-3722e8aed1b8', 'f1-x-pirelli-annee', (select id from public.universes where slug = 'sport-automobile'), 'guess_year', 'Depuis quelle année Pirelli est-il le fournisseur unique de pneus en F1 ?', '{"min":2000,"max":2020}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e60387e2-55e5-55a3-a097-3722e8aed1b8', '{"year":2011,"tolerance":2}'::jsonb, 'Pirelli équipe toutes les écuries depuis 2011.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d27101f7-d47c-51ae-871c-014bec844c62', 'f1-x-pneu-dur', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'De quelle couleur est la bande du pneu dur ?', '{"options":[{"id":"a","label":"Blanc"},{"id":"b","label":"Rouge"},{"id":"c","label":"Jaune"},{"id":"d","label":"Vert"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('d27101f7-d47c-51ae-871c-014bec844c62', 'f1-x-pneu-dur', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'De quelle couleur est la bande du pneu dur ?', '{"options":[{"id":"a","label":"Blanc"},{"id":"b","label":"Rouge"},{"id":"c","label":"Jaune"},{"id":"d","label":"Vert"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d27101f7-d47c-51ae-871c-014bec844c62', '{"correct":["a"]}'::jsonb, 'Rouge pour le tendre, jaune pour le médium, blanc pour le dur.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c6ccd7f7-4470-5221-8cfc-aacba518d6e8', 'f1-x-pneu-medium', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'De quelle couleur est la bande du pneu médium ?', '{"options":[{"id":"a","label":"Jaune"},{"id":"b","label":"Blanc"},{"id":"c","label":"Rouge"},{"id":"d","label":"Bleu"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('c6ccd7f7-4470-5221-8cfc-aacba518d6e8', 'f1-x-pneu-medium', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'De quelle couleur est la bande du pneu médium ?', '{"options":[{"id":"a","label":"Jaune"},{"id":"b","label":"Blanc"},{"id":"c","label":"Rouge"},{"id":"d","label":"Bleu"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c6ccd7f7-4470-5221-8cfc-aacba518d6e8', '{"correct":["a"]}'::jsonb, 'Le médium est signalé par une bande jaune.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b85b3174-bc01-5818-988d-40be83f89bc4', 'f1-x-pneu-bleu', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Sur quelle piste utilise-t-on les pneus pluie à bande bleue ?', '{"options":[{"id":"a","label":"Une piste détrempée"},{"id":"b","label":"Une piste sèche"},{"id":"c","label":"Une piste froide mais sèche"},{"id":"d","label":"Une piste en terre"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('b85b3174-bc01-5818-988d-40be83f89bc4', 'f1-x-pneu-bleu', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Sur quelle piste utilise-t-on les pneus pluie à bande bleue ?', '{"options":[{"id":"a","label":"Une piste détrempée"},{"id":"b","label":"Une piste sèche"},{"id":"c","label":"Une piste froide mais sèche"},{"id":"d","label":"Une piste en terre"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b85b3174-bc01-5818-988d-40be83f89bc4', '{"correct":["a"]}'::jsonb, 'Les intermédiaires (vert) servent sur piste humide, les pneus pluie (bleu) sur piste détrempée.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('67c7d2e4-c7ba-59e9-89a9-beff45fbf225', 'f1-x-intermediaires', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Les pneus intermédiaires ont une bande verte.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('67c7d2e4-c7ba-59e9-89a9-beff45fbf225', 'f1-x-intermediaires', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Les pneus intermédiaires ont une bande verte.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('67c7d2e4-c7ba-59e9-89a9-beff45fbf225', '{"value":true}'::jsonb, 'Vrai : ils servent sur piste humide.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('40654bd3-e203-5674-8d8a-998b094644c2', 'f1-x-tendre-durable', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le pneu tendre dure plus longtemps que le pneu dur.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('40654bd3-e203-5674-8d8a-998b094644c2', 'f1-x-tendre-durable', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Le pneu tendre dure plus longtemps que le pneu dur.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('40654bd3-e203-5674-8d8a-998b094644c2', '{"value":false}'::jsonb, 'Faux : il accroche davantage mais s’use plus vite.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('0143b3c6-24a6-5a91-9931-e207782628af', 'f1-x-deux-gommes-pluie', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quand la règle des deux types de pneus secs s’applique-t-elle ?', '{"options":[{"id":"a","label":"En course sur piste sèche"},{"id":"b","label":"En qualifications"},{"id":"c","label":"Sous la pluie"},{"id":"d","label":"Uniquement à Monaco"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('0143b3c6-24a6-5a91-9931-e207782628af', 'f1-x-deux-gommes-pluie', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quand la règle des deux types de pneus secs s’applique-t-elle ?', '{"options":[{"id":"a","label":"En course sur piste sèche"},{"id":"b","label":"En qualifications"},{"id":"c","label":"Sous la pluie"},{"id":"d","label":"Uniquement à Monaco"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('0143b3c6-24a6-5a91-9931-e207782628af', '{"correct":["a"]}'::jsonb, 'Sur piste sèche, chaque pilote doit utiliser au moins deux gommes sèches différentes.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9fb55951-94ae-58cb-a061-90cdaf1e5276', 'f1-x-undercut-avant', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Faire un undercut, c’est s’arrêter au stand avant son rival.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('9fb55951-94ae-58cb-a061-90cdaf1e5276', 'f1-x-undercut-avant', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Faire un undercut, c’est s’arrêter au stand avant son rival.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9fb55951-94ae-58cb-a061-90cdaf1e5276', '{"value":true}'::jsonb, 'Vrai : on profite de pneus neufs plus rapides pour passer devant.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('302ce4e4-e763-5dee-843d-2ff67ec24a11', 'f1-x-strategies', (select id from public.universes where slug = 'sport-automobile'), 'match', 'Associe chaque terme de stratégie à sa définition.', '{"left":[{"id":"l1","label":"Undercut"},{"id":"l2","label":"Overcut"},{"id":"l3","label":"Arrêt au stand"}],"right":[{"id":"r3","label":"Changer les quatre pneus en 2 à 3 secondes"},{"id":"r2","label":"S’arrêter après son rival"},{"id":"r1","label":"S’arrêter avant son rival"}]}'::jsonb, 2, false, null, 'in_review')
+values ('302ce4e4-e763-5dee-843d-2ff67ec24a11', 'f1-x-strategies', (select id from public.universes where slug = 'sport-automobile'), 'match', 'Associe chaque terme de stratégie à sa définition.', '{"left":[{"id":"l1","label":"Undercut"},{"id":"l2","label":"Overcut"},{"id":"l3","label":"Arrêt au stand"}],"right":[{"id":"r3","label":"Changer les quatre pneus en 2 à 3 secondes"},{"id":"r2","label":"S’arrêter après son rival"},{"id":"r1","label":"S’arrêter avant son rival"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('302ce4e4-e763-5dee-843d-2ff67ec24a11', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'L’undercut mise sur les pneus neufs, l’overcut sur le temps passé en piste.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ff1fa3a4-e130-5993-b4fa-d4484e65a463', 'f1-x-overcut-but', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quel est le but d’un overcut ?', '{"options":[{"id":"a","label":"Ressortir des stands devant son rival en s’arrêtant après lui"},{"id":"b","label":"Doubler en piste sous voiture de sécurité"},{"id":"c","label":"Économiser du carburant"},{"id":"d","label":"Changer d’aileron"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('ff1fa3a4-e130-5993-b4fa-d4484e65a463', 'f1-x-overcut-but', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Quel est le but d’un overcut ?', '{"options":[{"id":"a","label":"Ressortir des stands devant son rival en s’arrêtant après lui"},{"id":"b","label":"Doubler en piste sous voiture de sécurité"},{"id":"c","label":"Économiser du carburant"},{"id":"d","label":"Changer d’aileron"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ff1fa3a4-e130-5993-b4fa-d4484e65a463', '{"correct":["a"]}'::jsonb, 'On reste en piste plus longtemps pour ressortir devant.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b968ad54-39e7-5407-b2ac-d629e9d95cb0', 'f1-x-pitlane-libre', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Dans la voie des stands, les pilotes peuvent rouler aussi vite qu’ils le veulent.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('b968ad54-39e7-5407-b2ac-d629e9d95cb0', 'f1-x-pitlane-libre', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Dans la voie des stands, les pilotes peuvent rouler aussi vite qu’ils le veulent.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b968ad54-39e7-5407-b2ac-d629e9d95cb0', '{"value":false}'::jsonb, 'Faux : la vitesse y est limitée, souvent à 80 km/h.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('076d69c7-e398-509b-8911-b490245baf29', 'f1-x-safety-car-role', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que doivent faire les pilotes derrière la voiture de sécurité ?', '{"options":[{"id":"a","label":"La suivre sans dépasser"},{"id":"b","label":"Rentrer tous au stand"},{"id":"c","label":"Couper leur moteur"},{"id":"d","label":"S’arrêter sur la piste"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('076d69c7-e398-509b-8911-b490245baf29', 'f1-x-safety-car-role', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que doivent faire les pilotes derrière la voiture de sécurité ?', '{"options":[{"id":"a","label":"La suivre sans dépasser"},{"id":"b","label":"Rentrer tous au stand"},{"id":"c","label":"Couper leur moteur"},{"id":"d","label":"S’arrêter sur la piste"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('076d69c7-e398-509b-8911-b490245baf29', '{"correct":["a"]}'::jsonb, 'La course est neutralisée : on suit la Safety Car sans dépasser.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e0d1cae6-800b-5000-a8a4-7fb6125bb000', 'f1-x-vsc-voiture', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Avec la voiture de sécurité virtuelle, aucune voiture de sécurité ne roule sur la piste.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('e0d1cae6-800b-5000-a8a4-7fb6125bb000', 'f1-x-vsc-voiture', (select id from public.universes where slug = 'sport-automobile'), 'true_false', 'Avec la voiture de sécurité virtuelle, aucune voiture de sécurité ne roule sur la piste.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e0d1cae6-800b-5000-a8a4-7fb6125bb000', '{"value":true}'::jsonb, 'Vrai : les pilotes doivent respecter une vitesse réduite, contrôlée électroniquement.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('eb93f54b-0883-52d0-92a9-023b131fb8d8', 'f1-x-drapeau-jaune', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que signifie le drapeau jaune ?', '{"options":[{"id":"a","label":"Danger : pas de dépassement"},{"id":"b","label":"Fin de la course"},{"id":"c","label":"Séance arrêtée"},{"id":"d","label":"Laisser passer un pilote plus rapide"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('eb93f54b-0883-52d0-92a9-023b131fb8d8', 'f1-x-drapeau-jaune', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que signifie le drapeau jaune ?', '{"options":[{"id":"a","label":"Danger : pas de dépassement"},{"id":"b","label":"Fin de la course"},{"id":"c","label":"Séance arrêtée"},{"id":"d","label":"Laisser passer un pilote plus rapide"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('eb93f54b-0883-52d0-92a9-023b131fb8d8', '{"correct":["a"]}'::jsonb, 'Le jaune signale un danger : on ralentit et on ne dépasse pas.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a4ece318-79cb-5c37-9047-ef708252b3f5', 'f1-x-drapeau-bleu', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que signifie le drapeau bleu ?', '{"options":[{"id":"a","label":"Laisser passer un pilote plus rapide qui prend un tour"},{"id":"b","label":"Pluie sur la piste"},{"id":"c","label":"Dernier tour"},{"id":"d","label":"Disqualification"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('a4ece318-79cb-5c37-9047-ef708252b3f5', 'f1-x-drapeau-bleu', (select id from public.universes where slug = 'sport-automobile'), 'quiz', 'Que signifie le drapeau bleu ?', '{"options":[{"id":"a","label":"Laisser passer un pilote plus rapide qui prend un tour"},{"id":"b","label":"Pluie sur la piste"},{"id":"c","label":"Dernier tour"},{"id":"d","label":"Disqualification"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)

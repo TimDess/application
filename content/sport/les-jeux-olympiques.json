@@ -1,0 +1,1185 @@
+{
+  "universe": "sport",
+  "status": "published",
+  "category": {
+    "slug": "jeux-olympiques",
+    "name": "Jeux olympiques",
+    "description": "L’histoire, les symboles et les légendes des Jeux."
+  },
+  "course": {
+    "slug": "les-jeux-olympiques",
+    "title": "Les Jeux olympiques",
+    "description": "D’Olympie à Paris 2024 : l’histoire des Jeux, leurs symboles et les champions qui les ont marqués.",
+    "level": "decouverte"
+  },
+  "knowledge": [
+    {
+      "key": "jo-antiquite",
+      "title": "Les Jeux antiques",
+      "summary": "Les premiers Jeux se tiennent à Olympie, en Grèce, traditionnellement datés de 776 av. J.-C.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-coubertin",
+      "title": "Pierre de Coubertin",
+      "summary": "Le Français Pierre de Coubertin relance les Jeux. Les premiers Jeux modernes ont lieu à Athènes en 1896.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-anneaux",
+      "title": "Les anneaux",
+      "summary": "Dessinés par Coubertin, les cinq anneaux entrelacés (bleu, jaune, noir, vert, rouge sur fond blanc) symbolisent l’union des cinq parties du monde.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-devise",
+      "title": "La devise",
+      "summary": "« Plus vite, plus haut, plus fort » (Citius, Altius, Fortius). Le mot « ensemble » y est ajouté en 2021.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-flamme",
+      "title": "La flamme",
+      "summary": "La flamme olympique est allumée à Olympie grâce aux rayons du soleil concentrés par un miroir, puis portée en relais jusqu’à la ville hôte.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-rythme",
+      "title": "Tous les quatre ans",
+      "summary": "Les Jeux d’été ont lieu tous les quatre ans. Ceux de Tokyo 2020 ont été reportés à 2021 à cause de la pandémie.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-paris",
+      "title": "Paris, ville olympique",
+      "summary": "Paris a accueilli les Jeux d’été en 1900, 1924 et 2024. En 1900, des femmes participent pour la première fois.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-hiver",
+      "title": "Les Jeux d’hiver",
+      "summary": "Les premiers Jeux d’hiver ont lieu à Chamonix, en 1924.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-paralympiques",
+      "title": "Les Jeux paralympiques",
+      "summary": "Les premiers Jeux paralympiques ont lieu à Rome en 1960.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-paris-2024",
+      "title": "Paris 2024",
+      "summary": "Cérémonie d’ouverture sur la Seine, vasque en forme de montgolfière aux Tuileries, mascottes Phryges en forme de bonnet phrygien, et le breaking comme nouvelle discipline.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-phelps",
+      "title": "Michael Phelps",
+      "summary": "Le nageur américain détient le record de 23 médailles d’or olympiques (28 médailles au total).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-bolt",
+      "title": "Usain Bolt",
+      "summary": "Le sprinteur jamaïcain remporte huit titres olympiques. Il détient le record du monde du 100 m en 9 s 58, établi en 2009.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-comaneci",
+      "title": "Nadia Comăneci",
+      "summary": "À Montréal en 1976, la gymnaste roumaine de 14 ans obtient le premier 10 parfait de l’histoire olympique.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-owens",
+      "title": "Jesse Owens",
+      "summary": "Aux Jeux de Berlin en 1936, l’athlète afro-américain remporte quatre médailles d’or sous les yeux d’Hitler.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-marathon",
+      "title": "Le marathon",
+      "summary": "Le marathon rend hommage à la légende d’un messager grec. Sa distance officielle est de 42,195 km.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-perec",
+      "title": "Marie-José Pérec",
+      "summary": "La Française remporte trois titres : le 400 m en 1992, puis le doublé 200 m - 400 m en 1996.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-riner",
+      "title": "Teddy Riner",
+      "summary": "Le judoka français compte cinq titres olympiques, dont l’individuel et l’équipe à Paris 2024.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "jo-marchand",
+      "title": "Léon Marchand",
+      "summary": "À Paris 2024, le nageur français remporte quatre titres individuels : 200 m papillon, 200 m brasse, 200 m et 400 m quatre nages.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "jo-q-olympie",
+      "format": "quiz",
+      "prompt": "Dans quel pays se tenaient les Jeux antiques ?",
+      "difficulty": 1,
+      "knowledge": ["jo-antiquite"],
+      "options": [
+        {
+          "label": "La Grèce",
+          "correct": true
+        },
+        {
+          "label": "L’Italie"
+        },
+        {
+          "label": "L’Égypte"
+        },
+        {
+          "label": "La Turquie"
+        }
+      ],
+      "explanation": "En Grèce, à Olympie."
+    },
+    {
+      "key": "jo-q-coubertin",
+      "format": "quiz",
+      "prompt": "Qui a relancé les Jeux olympiques modernes ?",
+      "difficulty": 1,
+      "knowledge": ["jo-coubertin"],
+      "options": [
+        {
+          "label": "Pierre de Coubertin",
+          "correct": true
+        },
+        {
+          "label": "Jules Rimet"
+        },
+        {
+          "label": "Jacques Rogge"
+        },
+        {
+          "label": "Avery Brundage"
+        }
+      ],
+      "explanation": "Le Français Pierre de Coubertin. Jules Rimet, lui, a créé la Coupe du monde de football."
+    },
+    {
+      "key": "jo-q-1896-ville",
+      "format": "quiz",
+      "prompt": "Dans quelle ville ont lieu les premiers Jeux modernes ?",
+      "difficulty": 2,
+      "knowledge": ["jo-coubertin"],
+      "options": [
+        {
+          "label": "Athènes",
+          "correct": true
+        },
+        {
+          "label": "Paris"
+        },
+        {
+          "label": "Londres"
+        },
+        {
+          "label": "Olympie"
+        }
+      ],
+      "explanation": "À Athènes, en 1896."
+    },
+    {
+      "key": "jo-q-1896",
+      "format": "guess_year",
+      "prompt": "En quelle année ont lieu les premiers Jeux modernes ?",
+      "difficulty": 2,
+      "knowledge": ["jo-coubertin"],
+      "year": 1896,
+      "tolerance": 4,
+      "min": 1850,
+      "max": 1950,
+      "explanation": "En 1896."
+    },
+    {
+      "key": "jo-q-tokyo",
+      "format": "true_false",
+      "prompt": "Les Jeux de Tokyo 2020 se sont tenus en 2021.",
+      "difficulty": 2,
+      "knowledge": ["jo-rythme"],
+      "answer": true,
+      "explanation": "Vrai : reportés d’un an à cause de la pandémie, mais ils ont gardé leur nom."
+    },
+    {
+      "key": "jo-q-anneaux-nb",
+      "format": "quiz",
+      "prompt": "Combien d’anneaux compte le symbole olympique ?",
+      "difficulty": 1,
+      "knowledge": ["jo-anneaux"],
+      "options": [
+        {
+          "label": "5",
+          "correct": true
+        },
+        {
+          "label": "4"
+        },
+        {
+          "label": "6"
+        },
+        {
+          "label": "7"
+        }
+      ],
+      "explanation": "Cinq, pour les cinq parties du monde."
+    },
+    {
+      "key": "jo-q-anneaux-couleur",
+      "format": "quiz",
+      "prompt": "Quelle couleur ne figure pas parmi les anneaux olympiques ?",
+      "difficulty": 2,
+      "knowledge": ["jo-anneaux"],
+      "options": [
+        {
+          "label": "Orange",
+          "correct": true
+        },
+        {
+          "label": "Bleu"
+        },
+        {
+          "label": "Vert"
+        },
+        {
+          "label": "Noir"
+        }
+      ],
+      "explanation": "Les anneaux sont bleu, jaune, noir, vert et rouge."
+    },
+    {
+      "key": "jo-q-devise",
+      "format": "quiz",
+      "prompt": "Quelle est la devise olympique ?",
+      "difficulty": 1,
+      "knowledge": ["jo-devise"],
+      "options": [
+        {
+          "label": "Plus vite, plus haut, plus fort",
+          "correct": true
+        },
+        {
+          "label": "L’important c’est de participer"
+        },
+        {
+          "label": "Un pour tous, tous pour un"
+        },
+        {
+          "label": "Toujours plus loin"
+        }
+      ],
+      "explanation": "Citius, Altius, Fortius. « L’important c’est de participer » est une phrase célèbre, pas la devise."
+    },
+    {
+      "key": "jo-q-flamme",
+      "format": "quiz",
+      "prompt": "Comment est allumée la flamme olympique ?",
+      "difficulty": 2,
+      "knowledge": ["jo-flamme"],
+      "options": [
+        {
+          "label": "Avec les rayons du soleil et un miroir",
+          "correct": true
+        },
+        {
+          "label": "Avec un briquet en or"
+        },
+        {
+          "label": "Avec la foudre"
+        },
+        {
+          "label": "Avec une allumette géante"
+        }
+      ],
+      "explanation": "Les rayons du soleil sont concentrés par un miroir parabolique, à Olympie."
+    },
+    {
+      "key": "jo-q-ensemble",
+      "format": "true_false",
+      "prompt": "Le mot « ensemble » a été ajouté à la devise olympique en 2021.",
+      "difficulty": 3,
+      "knowledge": ["jo-devise"],
+      "answer": true,
+      "explanation": "Vrai."
+    },
+    {
+      "key": "jo-q-paris-nb",
+      "format": "quiz",
+      "prompt": "Combien de fois Paris a-t-elle accueilli les Jeux d’été ?",
+      "difficulty": 2,
+      "knowledge": ["jo-paris"],
+      "options": [
+        {
+          "label": "3",
+          "correct": true
+        },
+        {
+          "label": "1"
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "4"
+        }
+      ],
+      "explanation": "Trois fois : 1900, 1924 et 2024."
+    },
+    {
+      "key": "jo-q-chamonix",
+      "format": "quiz",
+      "prompt": "Où se déroulent les premiers Jeux d’hiver, en 1924 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-hiver"],
+      "options": [
+        {
+          "label": "Chamonix",
+          "correct": true
+        },
+        {
+          "label": "Grenoble"
+        },
+        {
+          "label": "Albertville"
+        },
+        {
+          "label": "Saint-Moritz"
+        }
+      ],
+      "explanation": "À Chamonix."
+    },
+    {
+      "key": "jo-q-phryges",
+      "format": "quiz",
+      "prompt": "De quoi s’inspirent les Phryges, mascottes de Paris 2024 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-paris-2024"],
+      "options": [
+        {
+          "label": "Du bonnet phrygien",
+          "correct": true
+        },
+        {
+          "label": "Du coq gaulois"
+        },
+        {
+          "label": "De la tour Eiffel"
+        },
+        {
+          "label": "D’une baguette"
+        }
+      ],
+      "explanation": "Du bonnet phrygien, symbole de la République."
+    },
+    {
+      "key": "jo-q-breaking",
+      "format": "quiz",
+      "prompt": "Quelle discipline fait son entrée aux Jeux de Paris 2024 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-paris-2024"],
+      "options": [
+        {
+          "label": "Le breaking",
+          "correct": true
+        },
+        {
+          "label": "Le skateboard"
+        },
+        {
+          "label": "Le surf"
+        },
+        {
+          "label": "L’escalade"
+        }
+      ],
+      "explanation": "Le breaking. Skate, surf et escalade étaient déjà apparus à Tokyo."
+    },
+    {
+      "key": "jo-q-1900-femmes",
+      "format": "true_false",
+      "prompt": "Les femmes participent pour la première fois aux Jeux en 1900, à Paris.",
+      "difficulty": 3,
+      "knowledge": ["jo-paris"],
+      "answer": true,
+      "explanation": "Vrai."
+    },
+    {
+      "key": "jo-q-frise-jeux",
+      "format": "timeline",
+      "prompt": "Remets ces Jeux dans l’ordre.",
+      "difficulty": 2,
+      "knowledge": ["jo-coubertin", "jo-hiver", "jo-paralympiques", "jo-paris-2024"],
+      "items": [
+        {
+          "label": "Athènes, premiers Jeux modernes",
+          "date": "1896"
+        },
+        {
+          "label": "Chamonix, premiers Jeux d’hiver",
+          "date": "1924"
+        },
+        {
+          "label": "Rome, premiers Jeux paralympiques",
+          "date": "1960"
+        },
+        {
+          "label": "Paris 2024",
+          "date": "2024"
+        }
+      ],
+      "explanation": "1896, 1924, 1960, 2024."
+    },
+    {
+      "key": "jo-q-paralympiques",
+      "format": "quiz",
+      "prompt": "Où ont lieu les premiers Jeux paralympiques ?",
+      "difficulty": 3,
+      "knowledge": ["jo-paralympiques"],
+      "options": [
+        {
+          "label": "Rome",
+          "correct": true
+        },
+        {
+          "label": "Londres"
+        },
+        {
+          "label": "Tokyo"
+        },
+        {
+          "label": "Paris"
+        }
+      ],
+      "explanation": "À Rome, en 1960."
+    },
+    {
+      "key": "jo-q-vasque",
+      "format": "quiz",
+      "prompt": "Quelle forme avait la vasque de Paris 2024 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-paris-2024"],
+      "options": [
+        {
+          "label": "Une montgolfière",
+          "correct": true
+        },
+        {
+          "label": "Une tour Eiffel"
+        },
+        {
+          "label": "Une torche géante"
+        },
+        {
+          "label": "Un anneau"
+        }
+      ],
+      "explanation": "Une montgolfière, qui s’élevait chaque soir au-dessus des Tuileries."
+    },
+    {
+      "key": "jo-q-phelps",
+      "format": "quiz",
+      "prompt": "Combien de médailles d’or olympiques a remporté Michael Phelps ?",
+      "difficulty": 2,
+      "knowledge": ["jo-phelps"],
+      "options": [
+        {
+          "label": "23",
+          "correct": true
+        },
+        {
+          "label": "12"
+        },
+        {
+          "label": "18"
+        },
+        {
+          "label": "28"
+        }
+      ],
+      "explanation": "23 médailles d’or, et 28 médailles au total."
+    },
+    {
+      "key": "jo-q-phelps-sport",
+      "format": "quiz",
+      "prompt": "Dans quel sport Michael Phelps est-il une légende ?",
+      "difficulty": 1,
+      "knowledge": ["jo-phelps"],
+      "options": [
+        {
+          "label": "La natation",
+          "correct": true
+        },
+        {
+          "label": "L’athlétisme"
+        },
+        {
+          "label": "La gymnastique"
+        },
+        {
+          "label": "Le cyclisme"
+        }
+      ],
+      "explanation": "La natation."
+    },
+    {
+      "key": "jo-q-bolt-pays",
+      "format": "quiz",
+      "prompt": "De quel pays vient Usain Bolt ?",
+      "difficulty": 1,
+      "knowledge": ["jo-bolt"],
+      "options": [
+        {
+          "label": "La Jamaïque",
+          "correct": true
+        },
+        {
+          "label": "Les États-Unis"
+        },
+        {
+          "label": "Le Kenya"
+        },
+        {
+          "label": "Trinité-et-Tobago"
+        }
+      ],
+      "explanation": "De la Jamaïque."
+    },
+    {
+      "key": "jo-q-bolt-record",
+      "format": "quiz",
+      "prompt": "Quel est le record du monde du 100 m d’Usain Bolt ?",
+      "difficulty": 3,
+      "knowledge": ["jo-bolt"],
+      "options": [
+        {
+          "label": "9 s 58",
+          "correct": true
+        },
+        {
+          "label": "9 s 69"
+        },
+        {
+          "label": "9 s 79"
+        },
+        {
+          "label": "9 s 48"
+        }
+      ],
+      "explanation": "9 s 58, à Berlin en 2009."
+    },
+    {
+      "key": "jo-q-comaneci",
+      "format": "quiz",
+      "prompt": "Qu’a réalisé Nadia Comăneci en 1976 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-comaneci"],
+      "options": [
+        {
+          "label": "Le premier 10 parfait en gymnastique",
+          "correct": true
+        },
+        {
+          "label": "Le premier saut à 2 m"
+        },
+        {
+          "label": "Cinq records du monde en natation"
+        },
+        {
+          "label": "La première médaille de la Roumanie"
+        }
+      ],
+      "explanation": "Le premier 10 de l’histoire olympique, à 14 ans."
+    },
+    {
+      "key": "jo-q-owens-ville",
+      "format": "quiz",
+      "prompt": "Dans quelle ville Jesse Owens remporte-t-il quatre titres en 1936 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-owens"],
+      "options": [
+        {
+          "label": "Berlin",
+          "correct": true
+        },
+        {
+          "label": "Los Angeles"
+        },
+        {
+          "label": "Londres"
+        },
+        {
+          "label": "Paris"
+        }
+      ],
+      "explanation": "À Berlin, sous le régime nazi."
+    },
+    {
+      "key": "jo-q-owens-nb",
+      "format": "quiz",
+      "prompt": "Combien de médailles d’or Jesse Owens remporte-t-il en 1936 ?",
+      "difficulty": 3,
+      "knowledge": ["jo-owens"],
+      "options": [
+        {
+          "label": "4",
+          "correct": true
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "5"
+        }
+      ],
+      "explanation": "Quatre : 100 m, 200 m, saut en longueur et relais 4 x 100 m."
+    },
+    {
+      "key": "jo-q-marathon",
+      "format": "quiz",
+      "prompt": "Quelle est la distance officielle du marathon ?",
+      "difficulty": 2,
+      "knowledge": ["jo-marathon"],
+      "options": [
+        {
+          "label": "42,195 km",
+          "correct": true
+        },
+        {
+          "label": "40 km"
+        },
+        {
+          "label": "21,1 km"
+        },
+        {
+          "label": "50 km"
+        }
+      ],
+      "explanation": "42,195 km. 21,1 km, c’est le semi-marathon."
+    },
+    {
+      "key": "jo-q-marathon-grec",
+      "format": "true_false",
+      "prompt": "Le marathon rend hommage à une légende de la Grèce antique.",
+      "difficulty": 1,
+      "knowledge": ["jo-marathon"],
+      "answer": true,
+      "explanation": "Vrai : celle d’un messager courant de Marathon à Athènes."
+    },
+    {
+      "key": "jo-q-owens-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année Jesse Owens brille-t-il à Berlin ?",
+      "difficulty": 3,
+      "knowledge": ["jo-owens"],
+      "year": 1936,
+      "tolerance": 2,
+      "min": 1900,
+      "max": 1970,
+      "explanation": "En 1936."
+    },
+    {
+      "key": "jo-q-perec",
+      "format": "quiz",
+      "prompt": "Quelle athlète française réalise le doublé 200 m - 400 m en 1996 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-perec"],
+      "options": [
+        {
+          "label": "Marie-José Pérec",
+          "correct": true
+        },
+        {
+          "label": "Christine Arron"
+        },
+        {
+          "label": "Muriel Hurtis"
+        },
+        {
+          "label": "Laura Flessel"
+        }
+      ],
+      "explanation": "Marie-José Pérec, à Atlanta."
+    },
+    {
+      "key": "jo-q-riner-sport",
+      "format": "quiz",
+      "prompt": "Dans quel sport Teddy Riner est-il une légende ?",
+      "difficulty": 1,
+      "knowledge": ["jo-riner"],
+      "options": [
+        {
+          "label": "Le judo",
+          "correct": true
+        },
+        {
+          "label": "La lutte"
+        },
+        {
+          "label": "La boxe"
+        },
+        {
+          "label": "Le rugby"
+        }
+      ],
+      "explanation": "Le judo."
+    },
+    {
+      "key": "jo-q-marchand-nb",
+      "format": "quiz",
+      "prompt": "Combien de titres individuels Léon Marchand remporte-t-il à Paris 2024 ?",
+      "difficulty": 2,
+      "knowledge": ["jo-marchand"],
+      "options": [
+        {
+          "label": "4",
+          "correct": true
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "5"
+        }
+      ],
+      "explanation": "Quatre, en papillon, brasse et quatre nages."
+    },
+    {
+      "key": "jo-q-marchand-natation",
+      "format": "true_false",
+      "prompt": "Léon Marchand est un champion d’athlétisme.",
+      "difficulty": 1,
+      "knowledge": ["jo-marchand"],
+      "answer": false,
+      "explanation": "Faux : c’est un nageur."
+    },
+    {
+      "key": "jo-q-riner-titres",
+      "format": "quiz",
+      "prompt": "Combien de titres olympiques compte Teddy Riner ?",
+      "difficulty": 3,
+      "knowledge": ["jo-riner"],
+      "options": [
+        {
+          "label": "5",
+          "correct": true
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "7"
+        }
+      ],
+      "explanation": "Cinq, dont deux à Paris 2024."
+    },
+    {
+      "key": "jo-q-match-legendes",
+      "format": "match",
+      "prompt": "Associe chaque légende à son sport.",
+      "difficulty": 2,
+      "knowledge": ["jo-phelps", "jo-bolt", "jo-comaneci", "jo-riner"],
+      "pairs": [
+        {
+          "left": "Michael Phelps",
+          "right": "Natation"
+        },
+        {
+          "left": "Usain Bolt",
+          "right": "Sprint"
+        },
+        {
+          "left": "Nadia Comăneci",
+          "right": "Gymnastique"
+        },
+        {
+          "left": "Teddy Riner",
+          "right": "Judo"
+        }
+      ],
+      "explanation": "Natation, sprint, gymnastique, judo."
+    },
+    {
+      "key": "jo-q-comaneci-ville",
+      "format": "quiz",
+      "prompt": "Dans quelle ville Nadia Comăneci obtient-elle son 10 parfait ?",
+      "difficulty": 3,
+      "knowledge": ["jo-comaneci"],
+      "options": [
+        {
+          "label": "Montréal",
+          "correct": true
+        },
+        {
+          "label": "Moscou"
+        },
+        {
+          "label": "Munich"
+        },
+        {
+          "label": "Mexico"
+        }
+      ],
+      "explanation": "À Montréal, en 1976."
+    },
+    {
+      "key": "jo-q-frise-legendes",
+      "format": "timeline",
+      "prompt": "Remets ces exploits dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["jo-owens", "jo-comaneci", "jo-perec", "jo-marchand"],
+      "items": [
+        {
+          "label": "Quatre titres de Jesse Owens",
+          "date": "1936"
+        },
+        {
+          "label": "10 parfait de Comăneci",
+          "date": "1976"
+        },
+        {
+          "label": "Doublé de Pérec",
+          "date": "1996"
+        },
+        {
+          "label": "Quatre titres de Marchand",
+          "date": "2024"
+        }
+      ],
+      "explanation": "1936, 1976, 1996, 2024."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "L’histoire des Jeux",
+      "description": "D’Olympie à la Seine.",
+      "lessons": [
+        {
+          "slug": "jo-origines",
+          "title": "D’Olympie à Coubertin",
+          "objective": "Situer les Jeux antiques et la renaissance des Jeux modernes.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Olympie",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Dans la Grèce antique, des épreuves sportives sont organisées à Olympie en l’honneur de Zeus. La tradition les fait commencer en 776 av. J.-C."
+                }
+              ]
+            },
+            {
+              "title": "Un Français relance les Jeux",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1896",
+                  "label": "Premiers Jeux modernes, à Athènes"
+                },
+                {
+                  "type": "text",
+                  "text": "Pierre de Coubertin convainc le monde de faire renaître les Jeux. Ils ont lieu, comme il se doit, en Grèce."
+                }
+              ]
+            },
+            {
+              "title": "Tous les quatre ans",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Les Jeux d’été reviennent tous les quatre ans. Exception notable : Tokyo 2020, reporté à 2021 à cause de la pandémie."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jo-q-olympie",
+            "jo-q-coubertin",
+            "jo-q-1896-ville",
+            "jo-q-1896",
+            "jo-q-tokyo"
+          ]
+        },
+        {
+          "slug": "jo-symboles",
+          "title": "Les symboles",
+          "objective": "Connaître les anneaux, la devise et la flamme.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Cinq anneaux",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Dessinés par Coubertin, cinq anneaux entrelacés, bleu, jaune, noir, vert et rouge, sur fond blanc. Ils symbolisent l’union des cinq parties du monde."
+                }
+              ]
+            },
+            {
+              "title": "La devise",
+              "blocks": [
+                {
+                  "type": "fact",
+                  "text": "Citius, Altius, Fortius : « Plus vite, plus haut, plus fort ». En 2021, le mot « ensemble » est ajouté."
+                }
+              ]
+            },
+            {
+              "title": "La flamme",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La flamme est allumée à Olympie avec les rayons du soleil concentrés par un miroir, puis voyage en relais jusqu’à la ville hôte."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jo-q-anneaux-nb",
+            "jo-q-anneaux-couleur",
+            "jo-q-devise",
+            "jo-q-flamme",
+            "jo-q-ensemble"
+          ]
+        },
+        {
+          "slug": "jo-france",
+          "title": "Les Jeux en France",
+          "objective": "Connaître l’histoire olympique de la France.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Trois fois Paris",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "1900 : des femmes participent pour la première fois.",
+                    "1924 : deuxièmes Jeux à Paris.",
+                    "2024 : troisièmes Jeux, cent ans plus tard."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "L’hiver aussi",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Les tout premiers Jeux d’hiver se déroulent à Chamonix en 1924. Les premiers Jeux paralympiques ont lieu à Rome en 1960."
+                }
+              ]
+            },
+            {
+              "title": "Paris 2024",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Une cérémonie d’ouverture sur la Seine, une vasque-montgolfière aux Tuileries, les Phryges pour mascottes et le breaking, nouvelle discipline olympique."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jo-q-paris-nb",
+            "jo-q-chamonix",
+            "jo-q-phryges",
+            "jo-q-breaking",
+            "jo-q-1900-femmes"
+          ]
+        },
+        {
+          "slug": "jo-epreuve-histoire",
+          "title": "Épreuve : l’histoire des Jeux",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "jo-q-coubertin",
+            "jo-q-anneaux-nb",
+            "jo-q-paris-nb",
+            "jo-q-frise-jeux",
+            "jo-q-paralympiques",
+            "jo-q-vasque"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les légendes olympiques",
+      "description": "Records, exploits et héros français.",
+      "lessons": [
+        {
+          "slug": "jo-records",
+          "title": "Les records de légende",
+          "objective": "Connaître Phelps, Bolt et Comăneci.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "L’homme poisson",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "23",
+                  "label": "Médailles d’or olympiques de Michael Phelps, un record"
+                },
+                {
+                  "type": "text",
+                  "text": "Le nageur américain compte 28 médailles olympiques au total."
+                }
+              ]
+            },
+            {
+              "title": "L’éclair",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Usain Bolt, sprinteur jamaïcain, remporte huit titres olympiques. Son record du monde du 100 m, 9 s 58, date de 2009."
+                }
+              ]
+            },
+            {
+              "title": "Le 10 parfait",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "À Montréal en 1976, Nadia Comăneci, 14 ans, obtient le premier 10 de l’histoire en gymnastique. Le tableau d’affichage, prévu pour trois chiffres, affiche 1.00."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jo-q-phelps",
+            "jo-q-phelps-sport",
+            "jo-q-bolt-pays",
+            "jo-q-bolt-record",
+            "jo-q-comaneci"
+          ]
+        },
+        {
+          "slug": "jo-histoire-heros",
+          "title": "Héros de l’histoire",
+          "objective": "Connaître Jesse Owens et l’origine du marathon.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Berlin 1936",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Dans l’Allemagne nazie, l’Afro-Américain Jesse Owens remporte quatre médailles d’or (100 m, 200 m, longueur et relais) et ridiculise la propagande raciste du régime."
+                }
+              ]
+            },
+            {
+              "title": "Le marathon",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "42,195 km",
+                  "label": "Distance officielle du marathon"
+                },
+                {
+                  "type": "text",
+                  "text": "L’épreuve rend hommage à la légende d’un messager grec qui aurait couru de Marathon à Athènes pour annoncer une victoire."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jo-q-owens-ville",
+            "jo-q-owens-nb",
+            "jo-q-marathon",
+            "jo-q-marathon-grec",
+            "jo-q-owens-annee"
+          ]
+        },
+        {
+          "slug": "jo-francais",
+          "title": "Les Français en or",
+          "objective": "Connaître Pérec, Riner et Marchand.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La gazelle",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Marie-José Pérec gagne le 400 m en 1992, puis réalise le doublé 200 m - 400 m à Atlanta en 1996."
+                }
+              ]
+            },
+            {
+              "title": "Le géant du judo",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Teddy Riner compte cinq titres olympiques, dont deux à Paris 2024, en individuel et par équipe."
+                }
+              ]
+            },
+            {
+              "title": "Le phénomène de Paris 2024",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "4",
+                  "label": "Titres individuels de Léon Marchand à Paris 2024"
+                },
+                {
+                  "type": "text",
+                  "text": "200 m papillon, 200 m brasse, 200 m et 400 m quatre nages : la France entière vibre à La Défense Arena."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "jo-q-perec",
+            "jo-q-riner-sport",
+            "jo-q-marchand-nb",
+            "jo-q-marchand-natation",
+            "jo-q-riner-titres"
+          ]
+        },
+        {
+          "slug": "jo-epreuve-legendes",
+          "title": "Épreuve : les légendes olympiques",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "jo-q-phelps",
+            "jo-q-owens-ville",
+            "jo-q-marchand-nb",
+            "jo-q-match-legendes",
+            "jo-q-comaneci-ville",
+            "jo-q-frise-legendes"
+          ]
+        }
+      ]
+    }
+  ]
+}

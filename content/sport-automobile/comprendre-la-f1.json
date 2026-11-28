@@ -1178,8 +1178,7 @@
       "difficulty": 1,
       "knowledge": ["f1-championnat-1950"],
       "answer": true,
-      "explanation": "Vrai : le 13 mai 1950, à Silverstone, au Royaume-Uni.",
-      "status": "in_review"
+      "explanation": "Vrai : le 13 mai 1950, à Silverstone, au Royaume-Uni."
     },
     {
       "key": "f1-x-farina-ecurie",
@@ -1202,8 +1201,7 @@
           "label": "Mercedes"
         }
       ],
-      "explanation": "Farina remporte le titre 1950 sur Alfa Romeo.",
-      "status": "in_review"
+      "explanation": "Farina remporte le titre 1950 sur Alfa Romeo."
     },
     {
       "key": "f1-x-farina-nationalite",
@@ -1212,8 +1210,7 @@
       "difficulty": 2,
       "knowledge": ["f1-premier-champion"],
       "answer": true,
-      "explanation": "Vrai : Giuseppe « Nino » Farina, en 1950.",
-      "status": "in_review"
+      "explanation": "Vrai : Giuseppe « Nino » Farina, en 1950."
     },
     {
       "key": "f1-x-fia-sigle",
@@ -1236,8 +1233,7 @@
           "label": "Formula International Association"
         }
       ],
-      "explanation": "La FIA fixe les règlements sportifs et techniques de la F1.",
-      "status": "in_review"
+      "explanation": "La FIA fixe les règlements sportifs et techniques de la F1."
     },
     {
       "key": "f1-x-fia-regles",
@@ -1246,8 +1242,7 @@
       "difficulty": 1,
       "knowledge": ["f1-fia"],
       "answer": false,
-      "explanation": "Faux : c’est la FIA qui fixe les règlements sportifs et techniques.",
-      "status": "in_review"
+      "explanation": "Faux : c’est la FIA qui fixe les règlements sportifs et techniques."
     },
     {
       "key": "f1-x-constructeurs",
@@ -1270,8 +1265,7 @@
           "label": "Par un vote des journalistes"
         }
       ],
-      "explanation": "Les points des deux pilotes s’additionnent pour l’écurie.",
-      "status": "in_review"
+      "explanation": "Les points des deux pilotes s’additionnent pour l’écurie."
     },
     {
       "key": "f1-x-plateau-voitures",
@@ -1296,8 +1290,7 @@
       ],
       "explanation": "11 écuries de deux pilotes : 22 voitures.",
       "isEvolving": true,
-      "validAsOf": "2026-11-27",
-      "status": "in_review"
+      "validAsOf": "2026-11-27"
     },
     {
       "key": "f1-x-cadillac",
@@ -1322,8 +1315,7 @@
       ],
       "explanation": "L’arrivée de Cadillac porte le plateau à 11 écuries.",
       "isEvolving": true,
-      "validAsOf": "2026-11-27",
-      "status": "in_review"
+      "validAsOf": "2026-11-27"
     },
     {
       "key": "f1-x-week-end-ordre",
@@ -1345,8 +1337,7 @@
           "date": "Dimanche"
         }
       ],
-      "explanation": "Essais libres, puis qualifications, puis course le dimanche.",
-      "status": "in_review"
+      "explanation": "Essais libres, puis qualifications, puis course le dimanche."
     },
     {
       "key": "f1-x-course-dimanche",
@@ -1355,8 +1346,7 @@
       "difficulty": 1,
       "knowledge": ["f1-week-end"],
       "answer": true,
-      "explanation": "Vrai : après les essais libres et les qualifications.",
-      "status": "in_review"
+      "explanation": "Vrai : après les essais libres et les qualifications."
     },
     {
       "key": "f1-x-q1",
@@ -1379,8 +1369,7 @@
           "label": "La course démarre"
         }
       ],
-      "explanation": "Q1 et Q2 éliminent progressivement les plus lents ; la Q3 attribue la pole.",
-      "status": "in_review"
+      "explanation": "Q1 et Q2 éliminent progressivement les plus lents ; la Q3 attribue la pole."
     },
     {
       "key": "f1-x-qualifs-ordre",
@@ -1402,8 +1391,7 @@
           "date": "3e phase"
         }
       ],
-      "explanation": "Trois phases : Q1, Q2 puis Q3.",
-      "status": "in_review"
+      "explanation": "Trois phases : Q1, Q2 puis Q3."
     },
     {
       "key": "f1-x-sprint-distance",
@@ -1426,8 +1414,7 @@
           "label": "305 km"
         }
       ],
-      "explanation": "Environ 100 km, soit un tiers d’un Grand Prix.",
-      "status": "in_review"
+      "explanation": "Environ 100 km, soit un tiers d’un Grand Prix."
     },
     {
       "key": "f1-x-sprint-jour",
@@ -1450,8 +1437,7 @@
           "label": "Le jeudi"
         }
       ],
-      "explanation": "La course sprint a lieu le samedi des week-ends concernés.",
-      "status": "in_review"
+      "explanation": "La course sprint a lieu le samedi des week-ends concernés."
     },
     {
       "key": "f1-x-monaco-distance",
@@ -1474,8 +1460,7 @@
           "label": "400 km"
         }
       ],
-      "explanation": "Monaco fait exception à la règle des 305 km.",
-      "status": "in_review"
+      "explanation": "Monaco fait exception à la règle des 305 km."
     },
     {
       "key": "f1-x-points-deuxieme",
@@ -1498,8 +1483,7 @@
           "label": "25"
         }
       ],
-      "explanation": "Barème : 25, 18, 15, 12, 10, 8, 6, 4, 2, 1.",
-      "status": "in_review"
+      "explanation": "Barème : 25, 18, 15, 12, 10, 8, 6, 4, 2, 1."
     },
     {
       "key": "f1-x-points-dixieme",
@@ -1522,8 +1506,7 @@
           "label": "3"
         }
       ],
-      "explanation": "Le dixième marque le dernier point.",
-      "status": "in_review"
+      "explanation": "Le dixième marque le dernier point."
     },
     {
       "key": "f1-x-meilleur-tour-annee",
@@ -1548,8 +1531,7 @@
       ],
       "explanation": "Le point bonus du meilleur tour a disparu à partir de 2025.",
       "isEvolving": true,
-      "validAsOf": "2026-11-27",
-      "status": "in_review"
+      "validAsOf": "2026-11-27"
     },
     {
       "key": "f1-x-sprint-huitieme",
@@ -1572,8 +1554,7 @@
           "label": "La 10e"
         }
       ],
-      "explanation": "De 8 points pour le vainqueur à 1 point pour le 8e.",
-      "status": "in_review"
+      "explanation": "De 8 points pour le vainqueur à 1 point pour le 8e."
     },
     {
       "key": "f1-x-sprint-25",
@@ -1582,8 +1563,7 @@
       "difficulty": 1,
       "knowledge": ["f1-points-sprint"],
       "answer": false,
-      "explanation": "Faux : il marque 8 points.",
-      "status": "in_review"
+      "explanation": "Faux : il marque 8 points."
     },
     {
       "key": "f1-x-monza-pays",
@@ -1606,8 +1586,7 @@
           "label": "L’Autriche"
         }
       ],
-      "explanation": "Monza, près de Milan, est le « temple de la vitesse ».",
-      "status": "in_review"
+      "explanation": "Monza, près de Milan, est le « temple de la vitesse »."
     },
     {
       "key": "f1-x-monza-lent",
@@ -1616,8 +1595,7 @@
       "difficulty": 1,
       "knowledge": ["f1-monza"],
       "answer": false,
-      "explanation": "Faux : il est célèbre pour ses longues lignes droites et ses vitesses très élevées.",
-      "status": "in_review"
+      "explanation": "Faux : il est célèbre pour ses longues lignes droites et ses vitesses très élevées."
     },
     {
       "key": "f1-x-spa-pays",
@@ -1640,8 +1618,7 @@
           "label": "Le Luxembourg"
         }
       ],
-      "explanation": "Spa-Francorchamps est en Belgique, dans les Ardennes.",
-      "status": "in_review"
+      "explanation": "Spa-Francorchamps est en Belgique, dans les Ardennes."
     },
     {
       "key": "f1-x-silverstone-pays",
@@ -1664,8 +1641,7 @@
           "label": "Le Canada"
         }
       ],
-      "explanation": "Silverstone, en Angleterre, a accueilli la toute première course en 1950.",
-      "status": "in_review"
+      "explanation": "Silverstone, en Angleterre, a accueilli la toute première course en 1950."
     },
     {
       "key": "f1-x-suzuka-pays",
@@ -1688,8 +1664,7 @@
           "label": "Singapour"
         }
       ],
-      "explanation": "Suzuka est au Japon, avec son pont qui fait croiser le tracé.",
-      "status": "in_review"
+      "explanation": "Suzuka est au Japon, avec son pont qui fait croiser le tracé."
     },
     {
       "key": "f1-x-suzuka-pont",
@@ -1698,8 +1673,7 @@
       "difficulty": 2,
       "knowledge": ["f1-suzuka"],
       "answer": true,
-      "explanation": "Vrai : c’est ce pont qui permet au tracé de former un huit.",
-      "status": "in_review"
+      "explanation": "Vrai : c’est ce pont qui permet au tracé de former un huit."
     },
     {
       "key": "f1-x-urbains",
@@ -1721,8 +1695,7 @@
           "right": "États-Unis"
         }
       ],
-      "explanation": "Trois circuits tracés sur des routes publiques fermées.",
-      "status": "in_review"
+      "explanation": "Trois circuits tracés sur des routes publiques fermées."
     },
     {
       "key": "f1-x-urbain-routes",
@@ -1731,8 +1704,7 @@
       "difficulty": 1,
       "knowledge": ["f1-circuit-urbain"],
       "answer": true,
-      "explanation": "Vrai : comme à Monaco, Singapour ou Las Vegas.",
-      "status": "in_review"
+      "explanation": "Vrai : comme à Monaco, Singapour ou Las Vegas."
     },
     {
       "key": "f1-x-singapour-projecteurs",
@@ -1741,8 +1713,7 @@
       "difficulty": 1,
       "knowledge": ["f1-singapour-nuit"],
       "answer": true,
-      "explanation": "Vrai : depuis la première édition, en 2008.",
-      "status": "in_review"
+      "explanation": "Vrai : depuis la première édition, en 2008."
     },
     {
       "key": "f1-x-vegas-annee",
@@ -1754,8 +1725,7 @@
       "tolerance": 1,
       "min": 2010,
       "max": 2026,
-      "explanation": "Depuis 2023, la course se dispute de nuit dans les rues de Las Vegas.",
-      "status": "in_review"
+      "explanation": "Depuis 2023, la course se dispute de nuit dans les rues de Las Vegas."
     },
     {
       "key": "f1-x-interlagos-ville",
@@ -1778,8 +1748,7 @@
           "label": "Mexico"
         }
       ],
-      "explanation": "Interlagos accueille le Grand Prix du Brésil, à São Paulo.",
-      "status": "in_review"
+      "explanation": "Interlagos accueille le Grand Prix du Brésil, à São Paulo."
     },
     {
       "key": "f1-x-mexico-effet",
@@ -1802,8 +1771,7 @@
           "label": "Aucun effet"
         }
       ],
-      "explanation": "L’air raréfié réduit l’appui et rend le refroidissement plus difficile.",
-      "status": "in_review"
+      "explanation": "L’air raréfié réduit l’appui et rend le refroidissement plus difficile."
     },
     {
       "key": "f1-x-monaco-depasser",
@@ -1812,8 +1780,7 @@
       "difficulty": 1,
       "knowledge": ["f1-monaco-appui"],
       "answer": false,
-      "explanation": "Faux : les rues étroites et sinueuses rendent les dépassements très difficiles.",
-      "status": "in_review"
+      "explanation": "Faux : les rues étroites et sinueuses rendent les dépassements très difficiles."
     },
     {
       "key": "f1-x-pirelli-annee",
@@ -1825,8 +1792,7 @@
       "tolerance": 2,
       "min": 2000,
       "max": 2020,
-      "explanation": "Pirelli équipe toutes les écuries depuis 2011.",
-      "status": "in_review"
+      "explanation": "Pirelli équipe toutes les écuries depuis 2011."
     },
     {
       "key": "f1-x-pneu-dur",
@@ -1849,8 +1815,7 @@
           "label": "Vert"
         }
       ],
-      "explanation": "Rouge pour le tendre, jaune pour le médium, blanc pour le dur.",
-      "status": "in_review"
+      "explanation": "Rouge pour le tendre, jaune pour le médium, blanc pour le dur."
     },
     {
       "key": "f1-x-pneu-medium",
@@ -1873,8 +1838,7 @@
           "label": "Bleu"
         }
       ],
-      "explanation": "Le médium est signalé par une bande jaune.",
-      "status": "in_review"
+      "explanation": "Le médium est signalé par une bande jaune."
     },
     {
       "key": "f1-x-pneu-bleu",
@@ -1897,8 +1861,7 @@
           "label": "Une piste en terre"
         }
       ],
-      "explanation": "Les intermédiaires (vert) servent sur piste humide, les pneus pluie (bleu) sur piste détrempée.",
-      "status": "in_review"
+      "explanation": "Les intermédiaires (vert) servent sur piste humide, les pneus pluie (bleu) sur piste détrempée."
     },
     {
       "key": "f1-x-intermediaires",
@@ -1907,8 +1870,7 @@
       "difficulty": 2,
       "knowledge": ["f1-pneus-pluie"],
       "answer": true,
-      "explanation": "Vrai : ils servent sur piste humide.",
-      "status": "in_review"
+      "explanation": "Vrai : ils servent sur piste humide."
     },
     {
       "key": "f1-x-tendre-durable",
@@ -1917,8 +1879,7 @@
       "difficulty": 1,
       "knowledge": ["f1-tendre-usure"],
       "answer": false,
-      "explanation": "Faux : il accroche davantage mais s’use plus vite.",
-      "status": "in_review"
+      "explanation": "Faux : il accroche davantage mais s’use plus vite."
     },
     {
       "key": "f1-x-deux-gommes-pluie",
@@ -1941,8 +1902,7 @@
           "label": "Uniquement à Monaco"
         }
       ],
-      "explanation": "Sur piste sèche, chaque pilote doit utiliser au moins deux gommes sèches différentes.",
-      "status": "in_review"
+      "explanation": "Sur piste sèche, chaque pilote doit utiliser au moins deux gommes sèches différentes."
     },
     {
       "key": "f1-x-undercut-avant",
@@ -1951,8 +1911,7 @@
       "difficulty": 1,
       "knowledge": ["f1-undercut"],
       "answer": true,
-      "explanation": "Vrai : on profite de pneus neufs plus rapides pour passer devant.",
-      "status": "in_review"
+      "explanation": "Vrai : on profite de pneus neufs plus rapides pour passer devant."
     },
     {
       "key": "f1-x-strategies",
@@ -1974,8 +1933,7 @@
           "right": "Changer les quatre pneus en 2 à 3 secondes"
         }
       ],
-      "explanation": "L’undercut mise sur les pneus neufs, l’overcut sur le temps passé en piste.",
-      "status": "in_review"
+      "explanation": "L’undercut mise sur les pneus neufs, l’overcut sur le temps passé en piste."
     },
     {
       "key": "f1-x-overcut-but",
@@ -1998,8 +1956,7 @@
           "label": "Changer d’aileron"
         }
       ],
-      "explanation": "On reste en piste plus longtemps pour ressortir devant.",
-      "status": "in_review"
+      "explanation": "On reste en piste plus longtemps pour ressortir devant."
     },
     {
       "key": "f1-x-pitlane-libre",
@@ -2008,8 +1965,7 @@
       "difficulty": 1,
       "knowledge": ["f1-arret-stand"],
       "answer": false,
-      "explanation": "Faux : la vitesse y est limitée, souvent à 80 km/h.",
-      "status": "in_review"
+      "explanation": "Faux : la vitesse y est limitée, souvent à 80 km/h."
     },
     {
       "key": "f1-x-safety-car-role",
@@ -2032,8 +1988,7 @@
           "label": "S’arrêter sur la piste"
         }
       ],
-      "explanation": "La course est neutralisée : on suit la Safety Car sans dépasser.",
-      "status": "in_review"
+      "explanation": "La course est neutralisée : on suit la Safety Car sans dépasser."
     },
     {
       "key": "f1-x-vsc-voiture",
@@ -2042,8 +1997,7 @@
       "difficulty": 2,
       "knowledge": ["f1-vsc"],
       "answer": true,
-      "explanation": "Vrai : les pilotes doivent respecter une vitesse réduite, contrôlée électroniquement.",
-      "status": "in_review"
+      "explanation": "Vrai : les pilotes doivent respecter une vitesse réduite, contrôlée électroniquement."
     },
     {
       "key": "f1-x-drapeau-jaune",
@@ -2066,8 +2020,7 @@
           "label": "Laisser passer un pilote plus rapide"
         }
       ],
-      "explanation": "Le jaune signale un danger : on ralentit et on ne dépasse pas.",
-      "status": "in_review"
+      "explanation": "Le jaune signale un danger : on ralentit et on ne dépasse pas."
     },
     {
       "key": "f1-x-drapeau-bleu",
@@ -2090,8 +2043,7 @@
           "label": "Disqualification"
         }
       ],
-      "explanation": "Le pilote attardé doit laisser passer celui qui lui prend un tour.",
-      "status": "in_review"
+      "explanation": "Le pilote attardé doit laisser passer celui qui lui prend un tour."
     }
   ],
   "chapters": [

@@ -57,7 +57,7 @@ supabase/migrations  schéma SQL versionné ; supabase/tests : pgTAP
 2. **RLS partout.** Chaque table de `public` a RLS activée, des politiques explicites et des privilèges colonne par colonne. Toute nouvelle table arrive avec ses tests pgTAP (accès autorisé ET refusé).
 3. **Fonctions SECURITY DEFINER** : `set search_path = ''`, vérification explicite de `auth.uid()`, `revoke execute ... from public, anon`. Les helpers internes vont dans le schéma `private`.
 4. **Les bonnes réponses ne quittent jamais le serveur** : solutions et explications dans `private.question_solutions`, scoring dans `private.evaluate_answer()`.
-5. **Contenu** : toujours via `content/*.json` + `pnpm content:build`, jamais à la main en base. Le contenu rédigé par IA reste `in_review` jusqu'à validation humaine.
+5. **Contenu** : toujours via `content/*.json` + `pnpm content:build`, jamais à la main en base. Le contenu rédigé par IA reste `in_review` jusqu'à validation humaine. Exception : Tim peut autoriser une publication directe (les testeurs signalent ensuite les corrections) ; chaque parcours ainsi publié est listé dans `src/features/content/schema.test.ts`.
 6. **Secrets** : seul `SUPABASE_SECRET_KEY` est secret, uniquement dans `src/lib/supabase/admin.ts` (`server-only`). Jamais de `NEXT_PUBLIC_` sur un secret, jamais de secret dans le code, les logs ou le chat.
 7. **Session** : lue uniquement via `src/lib/auth/session.ts`. Chaque Server Action et Route Handler revérifie l'utilisateur (`requireUser`).
 8. **Nom de marque** : jamais en dur, toujours `brand` depuis `src/config/brand.ts`.

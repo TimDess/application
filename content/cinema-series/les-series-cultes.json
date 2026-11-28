@@ -1,0 +1,1126 @@
+{
+  "universe": "cinema-series",
+  "status": "published",
+  "category": {
+    "slug": "series",
+    "name": "Séries",
+    "description": "Les séries qui ont marqué la télé et le streaming."
+  },
+  "course": {
+    "slug": "les-series-cultes",
+    "title": "Les séries cultes",
+    "description": "De Friends à Squid Game, en passant par Kaamelott : les séries incontournables et les codes du binge-watching.",
+    "level": "debutant"
+  },
+  "knowledge": [
+    {
+      "key": "ser-friends",
+      "title": "Friends",
+      "summary": "Diffusée de 1994 à 2004 en dix saisons, Friends suit six amis à New York. Ils se retrouvent au café Central Perk.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-simpsons",
+      "title": "Les Simpson",
+      "summary": "Créés par Matt Groening, les Simpson vivent à Springfield depuis 1989. C’est la plus longue série scénarisée de l’histoire de la télévision américaine en prime time.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-office",
+      "title": "The Office",
+      "summary": "La version britannique (2001) est créée par Ricky Gervais. La version américaine (2005) suit Michael Scott, joué par Steve Carell, dans l’entreprise de papier Dunder Mifflin à Scranton.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-sopranos",
+      "title": "Les Soprano",
+      "summary": "Diffusée sur HBO de 1999 à 2007, la série suit Tony Soprano, mafieux du New Jersey qui consulte une psy.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-breaking-bad",
+      "title": "Breaking Bad",
+      "summary": "De 2008 à 2013, Walter White, professeur de chimie, devient fabricant de drogue à Albuquerque. Créée par Vince Gilligan, elle a pour spin-off Better Call Saul.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-lost",
+      "title": "Lost",
+      "summary": "Lancée en 2004, Lost suit les survivants du vol Oceanic 815, écrasé sur une île mystérieuse.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-netflix",
+      "title": "Netflix",
+      "summary": "Fondé en 1997 pour louer des DVD par la poste, Netflix lance son service de streaming en 2007. House of Cards (2013) est sa première grande série originale.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-stranger",
+      "title": "Stranger Things",
+      "summary": "Lancée par Netflix en 2016, la série se déroule dans les années 1980 à Hawkins, dans l’Indiana. Eleven y affronte les créatures du Monde à l’envers.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-casa",
+      "title": "La Casa de Papel",
+      "summary": "Série espagnole lancée en 2017 : des braqueurs aux noms de villes, menés par le Professeur, portent des masques de Dalí.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-squid",
+      "title": "Squid Game",
+      "summary": "Série sud-coréenne de Hwang Dong-hyuk lancée en 2021. Des joueurs endettés s’affrontent dans des jeux d’enfants mortels, comme « 1, 2, 3, soleil ».",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-lupin",
+      "title": "Lupin",
+      "summary": "Lancée en 2021, la série française Lupin met en scène Omar Sy en gentleman cambrioleur inspiré d’Arsène Lupin.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-francaises",
+      "title": "Séries françaises",
+      "summary": "Kaamelott (2005, Alexandre Astier, M6), Le Bureau des légendes (2015, Éric Rochant, Canal+), Dix pour cent (2015, France 2), Plus belle la vie (2004-2022, France 3).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "ser-codes",
+      "title": "Le vocabulaire des séries",
+      "summary": "Spin-off : série dérivée. Cliffhanger : fin d’épisode à suspense. Showrunner : responsable de la série. Binge-watching : enchaîner les épisodes.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "ser-q-central-perk",
+      "format": "quiz",
+      "prompt": "Comment s’appelle le café de Friends ?",
+      "difficulty": 1,
+      "knowledge": ["ser-friends"],
+      "options": [
+        {
+          "label": "Central Perk",
+          "correct": true
+        },
+        {
+          "label": "Monk’s Café"
+        },
+        {
+          "label": "Luke’s Diner"
+        },
+        {
+          "label": "MacLaren’s"
+        }
+      ],
+      "explanation": "Le Central Perk. Monk’s Café, c’est Seinfeld, MacLaren’s, How I Met Your Mother."
+    },
+    {
+      "key": "ser-q-friends-saisons",
+      "format": "quiz",
+      "prompt": "Combien de saisons compte Friends ?",
+      "difficulty": 2,
+      "knowledge": ["ser-friends"],
+      "options": [
+        {
+          "label": "10",
+          "correct": true
+        },
+        {
+          "label": "6"
+        },
+        {
+          "label": "8"
+        },
+        {
+          "label": "12"
+        }
+      ],
+      "explanation": "Dix saisons, de 1994 à 2004."
+    },
+    {
+      "key": "ser-q-springfield",
+      "format": "quiz",
+      "prompt": "Dans quelle ville vivent les Simpson ?",
+      "difficulty": 1,
+      "knowledge": ["ser-simpsons"],
+      "options": [
+        {
+          "label": "Springfield",
+          "correct": true
+        },
+        {
+          "label": "Scranton"
+        },
+        {
+          "label": "Hawkins"
+        },
+        {
+          "label": "Albuquerque"
+        }
+      ],
+      "explanation": "Springfield, ville imaginaire."
+    },
+    {
+      "key": "ser-q-dunder",
+      "format": "quiz",
+      "prompt": "Que vend l’entreprise Dunder Mifflin dans The Office ?",
+      "difficulty": 2,
+      "knowledge": ["ser-office"],
+      "options": [
+        {
+          "label": "Du papier",
+          "correct": true
+        },
+        {
+          "label": "Des assurances"
+        },
+        {
+          "label": "Des voitures"
+        },
+        {
+          "label": "Des ordinateurs"
+        }
+      ],
+      "explanation": "Du papier."
+    },
+    {
+      "key": "ser-q-office-uk",
+      "format": "true_false",
+      "prompt": "The Office est d’abord une série britannique.",
+      "difficulty": 2,
+      "knowledge": ["ser-office"],
+      "answer": true,
+      "explanation": "Vrai : créée par Ricky Gervais en 2001."
+    },
+    {
+      "key": "ser-q-walter",
+      "format": "quiz",
+      "prompt": "Quel est le métier de Walter White au début de Breaking Bad ?",
+      "difficulty": 1,
+      "knowledge": ["ser-breaking-bad"],
+      "options": [
+        {
+          "label": "Professeur de chimie",
+          "correct": true
+        },
+        {
+          "label": "Médecin"
+        },
+        {
+          "label": "Policier"
+        },
+        {
+          "label": "Avocat"
+        }
+      ],
+      "explanation": "Professeur de chimie dans un lycée."
+    },
+    {
+      "key": "ser-q-albuquerque",
+      "format": "quiz",
+      "prompt": "Dans quelle ville se déroule Breaking Bad ?",
+      "difficulty": 3,
+      "knowledge": ["ser-breaking-bad"],
+      "options": [
+        {
+          "label": "Albuquerque",
+          "correct": true
+        },
+        {
+          "label": "Las Vegas"
+        },
+        {
+          "label": "Miami"
+        },
+        {
+          "label": "Phoenix"
+        }
+      ],
+      "explanation": "Albuquerque, au Nouveau-Mexique."
+    },
+    {
+      "key": "ser-q-better-call",
+      "format": "quiz",
+      "prompt": "Quel est le spin-off de Breaking Bad ?",
+      "difficulty": 2,
+      "knowledge": ["ser-breaking-bad"],
+      "options": [
+        {
+          "label": "Better Call Saul",
+          "correct": true
+        },
+        {
+          "label": "Narcos"
+        },
+        {
+          "label": "Ozark"
+        },
+        {
+          "label": "The Wire"
+        }
+      ],
+      "explanation": "Better Call Saul, centré sur l’avocat Saul Goodman."
+    },
+    {
+      "key": "ser-q-sopranos-chaine",
+      "format": "quiz",
+      "prompt": "Sur quelle chaîne est diffusée Les Soprano ?",
+      "difficulty": 2,
+      "knowledge": ["ser-sopranos"],
+      "options": [
+        {
+          "label": "HBO",
+          "correct": true
+        },
+        {
+          "label": "Netflix"
+        },
+        {
+          "label": "NBC"
+        },
+        {
+          "label": "Canal+"
+        }
+      ],
+      "explanation": "HBO, qui deviendra la référence des séries de prestige."
+    },
+    {
+      "key": "ser-q-lost",
+      "format": "quiz",
+      "prompt": "Quel événement lance l’histoire de Lost ?",
+      "difficulty": 1,
+      "knowledge": ["ser-lost"],
+      "options": [
+        {
+          "label": "Un crash d’avion sur une île",
+          "correct": true
+        },
+        {
+          "label": "Une invasion extraterrestre"
+        },
+        {
+          "label": "Un braquage"
+        },
+        {
+          "label": "Une épidémie"
+        }
+      ],
+      "explanation": "Le crash du vol Oceanic 815."
+    },
+    {
+      "key": "ser-q-netflix-debut",
+      "format": "quiz",
+      "prompt": "Que faisait Netflix à ses débuts ?",
+      "difficulty": 2,
+      "knowledge": ["ser-netflix"],
+      "options": [
+        {
+          "label": "De la location de DVD par la poste",
+          "correct": true
+        },
+        {
+          "label": "Du streaming musical"
+        },
+        {
+          "label": "De la production de films au cinéma"
+        },
+        {
+          "label": "De la télévision par câble"
+        }
+      ],
+      "explanation": "Il louait des DVD par courrier."
+    },
+    {
+      "key": "ser-q-house-cards",
+      "format": "quiz",
+      "prompt": "Quelle est la première grande série originale de Netflix ?",
+      "difficulty": 3,
+      "knowledge": ["ser-netflix"],
+      "options": [
+        {
+          "label": "House of Cards",
+          "correct": true
+        },
+        {
+          "label": "Stranger Things"
+        },
+        {
+          "label": "La Casa de Papel"
+        },
+        {
+          "label": "The Crown"
+        }
+      ],
+      "explanation": "House of Cards, en 2013."
+    },
+    {
+      "key": "ser-q-hawkins",
+      "format": "quiz",
+      "prompt": "Dans quelle ville se déroule Stranger Things ?",
+      "difficulty": 2,
+      "knowledge": ["ser-stranger"],
+      "options": [
+        {
+          "label": "Hawkins",
+          "correct": true
+        },
+        {
+          "label": "Springfield"
+        },
+        {
+          "label": "Derry"
+        },
+        {
+          "label": "Twin Peaks"
+        }
+      ],
+      "explanation": "Hawkins, dans l’Indiana."
+    },
+    {
+      "key": "ser-q-stranger-80",
+      "format": "true_false",
+      "prompt": "Stranger Things se déroule dans les années 1980.",
+      "difficulty": 1,
+      "knowledge": ["ser-stranger"],
+      "answer": true,
+      "explanation": "Vrai : vélos, jeux d’arcade et talkies-walkies."
+    },
+    {
+      "key": "ser-q-netflix-fondation",
+      "format": "guess_year",
+      "prompt": "En quelle année est fondé Netflix ?",
+      "difficulty": 3,
+      "knowledge": ["ser-netflix"],
+      "year": 1997,
+      "tolerance": 3,
+      "min": 1980,
+      "max": 2015,
+      "explanation": "En 1997."
+    },
+    {
+      "key": "ser-q-frise-classiques",
+      "format": "timeline",
+      "prompt": "Remets ces lancements dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["ser-simpsons", "ser-friends", "ser-sopranos", "ser-breaking-bad"],
+      "items": [
+        {
+          "label": "Les Simpson",
+          "date": "1989"
+        },
+        {
+          "label": "Friends",
+          "date": "1994"
+        },
+        {
+          "label": "Les Soprano",
+          "date": "1999"
+        },
+        {
+          "label": "Breaking Bad",
+          "date": "2008"
+        }
+      ],
+      "explanation": "1989, 1994, 1999, 2008."
+    },
+    {
+      "key": "ser-q-groening",
+      "format": "quiz",
+      "prompt": "Qui a créé les Simpson ?",
+      "difficulty": 2,
+      "knowledge": ["ser-simpsons"],
+      "options": [
+        {
+          "label": "Matt Groening",
+          "correct": true
+        },
+        {
+          "label": "Seth MacFarlane"
+        },
+        {
+          "label": "Vince Gilligan"
+        },
+        {
+          "label": "Ricky Gervais"
+        }
+      ],
+      "explanation": "Matt Groening."
+    },
+    {
+      "key": "ser-q-michael-scott",
+      "format": "quiz",
+      "prompt": "Qui joue Michael Scott dans The Office ?",
+      "difficulty": 3,
+      "knowledge": ["ser-office"],
+      "options": [
+        {
+          "label": "Steve Carell",
+          "correct": true
+        },
+        {
+          "label": "Ricky Gervais"
+        },
+        {
+          "label": "Jim Carrey"
+        },
+        {
+          "label": "Will Ferrell"
+        }
+      ],
+      "explanation": "Steve Carell."
+    },
+    {
+      "key": "ser-q-casa-masques",
+      "format": "quiz",
+      "prompt": "Quel visage représentent les masques de La Casa de Papel ?",
+      "difficulty": 2,
+      "knowledge": ["ser-casa"],
+      "options": [
+        {
+          "label": "Salvador Dalí",
+          "correct": true
+        },
+        {
+          "label": "Pablo Picasso"
+        },
+        {
+          "label": "Guy Fawkes"
+        },
+        {
+          "label": "Che Guevara"
+        }
+      ],
+      "explanation": "Salvador Dalí."
+    },
+    {
+      "key": "ser-q-casa-noms",
+      "format": "quiz",
+      "prompt": "Comment s’appellent les braqueurs de La Casa de Papel ?",
+      "difficulty": 2,
+      "knowledge": ["ser-casa"],
+      "options": [
+        {
+          "label": "Par des noms de villes",
+          "correct": true
+        },
+        {
+          "label": "Par des noms de couleurs"
+        },
+        {
+          "label": "Par des numéros"
+        },
+        {
+          "label": "Par des noms d’animaux"
+        }
+      ],
+      "explanation": "Tokyo, Berlin, Nairobi, Rio, Denver…"
+    },
+    {
+      "key": "ser-q-squid-pays",
+      "format": "quiz",
+      "prompt": "De quel pays vient Squid Game ?",
+      "difficulty": 1,
+      "knowledge": ["ser-squid"],
+      "options": [
+        {
+          "label": "La Corée du Sud",
+          "correct": true
+        },
+        {
+          "label": "Le Japon"
+        },
+        {
+          "label": "La Chine"
+        },
+        {
+          "label": "Taïwan"
+        }
+      ],
+      "explanation": "De Corée du Sud."
+    },
+    {
+      "key": "ser-q-lupin",
+      "format": "quiz",
+      "prompt": "Quel acteur joue dans la série Lupin ?",
+      "difficulty": 1,
+      "knowledge": ["ser-lupin"],
+      "options": [
+        {
+          "label": "Omar Sy",
+          "correct": true
+        },
+        {
+          "label": "Jean Dujardin"
+        },
+        {
+          "label": "Vincent Cassel"
+        },
+        {
+          "label": "Kad Merad"
+        }
+      ],
+      "explanation": "Omar Sy."
+    },
+    {
+      "key": "ser-q-squid-jeu",
+      "format": "true_false",
+      "prompt": "Le premier jeu de Squid Game est un « 1, 2, 3, soleil ».",
+      "difficulty": 2,
+      "knowledge": ["ser-squid"],
+      "answer": true,
+      "explanation": "Vrai, avec une poupée géante qui surveille les joueurs."
+    },
+    {
+      "key": "ser-q-kaamelott",
+      "format": "quiz",
+      "prompt": "Qui a créé Kaamelott ?",
+      "difficulty": 1,
+      "knowledge": ["ser-francaises"],
+      "options": [
+        {
+          "label": "Alexandre Astier",
+          "correct": true
+        },
+        {
+          "label": "Omar Sy"
+        },
+        {
+          "label": "Éric Rochant"
+        },
+        {
+          "label": "Kad Merad"
+        }
+      ],
+      "explanation": "Alexandre Astier, qui y joue aussi le roi Arthur."
+    },
+    {
+      "key": "ser-q-bureau",
+      "format": "quiz",
+      "prompt": "De quoi parle Le Bureau des légendes ?",
+      "difficulty": 2,
+      "knowledge": ["ser-francaises"],
+      "options": [
+        {
+          "label": "D’espions français",
+          "correct": true
+        },
+        {
+          "label": "D’une agence d’acteurs"
+        },
+        {
+          "label": "D’un commissariat marseillais"
+        },
+        {
+          "label": "D’un hôpital parisien"
+        }
+      ],
+      "explanation": "Des agents de la DGSE, les services secrets français."
+    },
+    {
+      "key": "ser-q-dix-pourcent",
+      "format": "quiz",
+      "prompt": "Dans quel milieu se déroule Dix pour cent ?",
+      "difficulty": 2,
+      "knowledge": ["ser-francaises"],
+      "options": [
+        {
+          "label": "Une agence d’acteurs",
+          "correct": true
+        },
+        {
+          "label": "Une banque"
+        },
+        {
+          "label": "Un journal"
+        },
+        {
+          "label": "Une agence de pub"
+        }
+      ],
+      "explanation": "Une agence d’agents d’acteurs, avec de vraies stars dans leur propre rôle."
+    },
+    {
+      "key": "ser-q-pblv",
+      "format": "true_false",
+      "prompt": "Plus belle la vie se déroule à Marseille.",
+      "difficulty": 1,
+      "knowledge": ["ser-francaises"],
+      "answer": true,
+      "explanation": "Vrai, dans le quartier imaginaire du Mistral."
+    },
+    {
+      "key": "ser-q-kaamelott-legende",
+      "format": "quiz",
+      "prompt": "Quelle légende Kaamelott revisite-t-elle ?",
+      "difficulty": 1,
+      "knowledge": ["ser-francaises"],
+      "options": [
+        {
+          "label": "Le roi Arthur",
+          "correct": true
+        },
+        {
+          "label": "Robin des Bois"
+        },
+        {
+          "label": "Astérix"
+        },
+        {
+          "label": "Les Trois Mousquetaires"
+        }
+      ],
+      "explanation": "La légende arthurienne, version comique."
+    },
+    {
+      "key": "ser-q-spinoff",
+      "format": "quiz",
+      "prompt": "Comment appelle-t-on une série dérivée d’une autre ?",
+      "difficulty": 1,
+      "knowledge": ["ser-codes"],
+      "options": [
+        {
+          "label": "Un spin-off",
+          "correct": true
+        },
+        {
+          "label": "Un reboot"
+        },
+        {
+          "label": "Un remake"
+        },
+        {
+          "label": "Un crossover"
+        }
+      ],
+      "explanation": "Un spin-off, comme Better Call Saul pour Breaking Bad."
+    },
+    {
+      "key": "ser-q-cliffhanger",
+      "format": "quiz",
+      "prompt": "Qu’est-ce qu’un cliffhanger ?",
+      "difficulty": 1,
+      "knowledge": ["ser-codes"],
+      "options": [
+        {
+          "label": "Une fin d’épisode à suspense",
+          "correct": true
+        },
+        {
+          "label": "Un épisode spécial de Noël"
+        },
+        {
+          "label": "Une série tournée en montagne"
+        },
+        {
+          "label": "Un épisode sans dialogue"
+        }
+      ],
+      "explanation": "Une fin qui donne envie de lancer l’épisode suivant."
+    },
+    {
+      "key": "ser-q-showrunner",
+      "format": "quiz",
+      "prompt": "Quel est le rôle du showrunner ?",
+      "difficulty": 2,
+      "knowledge": ["ser-codes"],
+      "options": [
+        {
+          "label": "Diriger créativement la série",
+          "correct": true
+        },
+        {
+          "label": "Faire les cascades"
+        },
+        {
+          "label": "Composer la musique"
+        },
+        {
+          "label": "Gérer la diffusion à la télé"
+        }
+      ],
+      "explanation": "Il supervise l’écriture et la direction de la série."
+    },
+    {
+      "key": "ser-q-binge",
+      "format": "true_false",
+      "prompt": "Le binge-watching consiste à regarder un épisode par semaine.",
+      "difficulty": 1,
+      "knowledge": ["ser-codes"],
+      "answer": false,
+      "explanation": "Faux : c’est enchaîner les épisodes d’une traite."
+    },
+    {
+      "key": "ser-q-match-codes",
+      "format": "match",
+      "prompt": "Associe chaque mot à sa définition.",
+      "difficulty": 2,
+      "knowledge": ["ser-codes"],
+      "pairs": [
+        {
+          "left": "Spin-off",
+          "right": "Série dérivée"
+        },
+        {
+          "left": "Cliffhanger",
+          "right": "Fin à suspense"
+        },
+        {
+          "left": "Showrunner",
+          "right": "Responsable créatif"
+        },
+        {
+          "left": "Binge-watching",
+          "right": "Enchaîner les épisodes"
+        }
+      ],
+      "explanation": "Le vocabulaire de base des sériephiles."
+    },
+    {
+      "key": "ser-q-match-pays",
+      "format": "match",
+      "prompt": "Associe chaque série à son pays.",
+      "difficulty": 2,
+      "knowledge": ["ser-casa", "ser-squid", "ser-lupin", "ser-office"],
+      "pairs": [
+        {
+          "left": "La Casa de Papel",
+          "right": "Espagne"
+        },
+        {
+          "left": "Squid Game",
+          "right": "Corée du Sud"
+        },
+        {
+          "left": "Lupin",
+          "right": "France"
+        },
+        {
+          "left": "The Office (original)",
+          "right": "Royaume-Uni"
+        }
+      ],
+      "explanation": "Espagne, Corée du Sud, France, Royaume-Uni."
+    },
+    {
+      "key": "ser-q-professeur",
+      "format": "quiz",
+      "prompt": "Comment s’appelle le cerveau du braquage dans La Casa de Papel ?",
+      "difficulty": 2,
+      "knowledge": ["ser-casa"],
+      "options": [
+        {
+          "label": "Le Professeur",
+          "correct": true
+        },
+        {
+          "label": "Le Docteur"
+        },
+        {
+          "label": "Le Patron"
+        },
+        {
+          "label": "Le Capitaine"
+        }
+      ],
+      "explanation": "Le Professeur."
+    },
+    {
+      "key": "ser-q-kaamelott-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année débute Kaamelott ?",
+      "difficulty": 3,
+      "knowledge": ["ser-francaises"],
+      "year": 2005,
+      "tolerance": 2,
+      "min": 1995,
+      "max": 2020,
+      "explanation": "En 2005, sur M6."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les classiques américains",
+      "description": "Sitcoms, grands drames et révolution Netflix.",
+      "lessons": [
+        {
+          "slug": "ser-sitcoms",
+          "title": "Les sitcoms",
+          "objective": "Connaître Friends, les Simpson et The Office.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Six amis",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "10",
+                  "label": "Saisons de Friends, de 1994 à 2004"
+                },
+                {
+                  "type": "text",
+                  "text": "Rachel, Ross, Monica, Chandler, Joey et Phoebe se retrouvent au Central Perk, un café de New York."
+                }
+              ]
+            },
+            {
+              "title": "D’oh !",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Matt Groening crée les Simpson, famille jaune de Springfield. Depuis 1989, la série bat tous les records de longévité."
+                }
+              ]
+            },
+            {
+              "title": "Deux bureaux",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "The Office naît au Royaume-Uni en 2001 avec Ricky Gervais. La version américaine, en 2005, suit Michael Scott, patron gênant d’une entreprise de papier à Scranton."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "ser-q-central-perk",
+            "ser-q-friends-saisons",
+            "ser-q-springfield",
+            "ser-q-dunder",
+            "ser-q-office-uk"
+          ]
+        },
+        {
+          "slug": "ser-drames",
+          "title": "Les grands drames",
+          "objective": "Connaître les Soprano, Breaking Bad et Lost.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Un mafieux chez la psy",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Sur HBO, de 1999 à 2007, Tony Soprano, parrain du New Jersey, consulte une psychiatre. Beaucoup y voient le début de l’âge d’or des séries."
+                }
+              ]
+            },
+            {
+              "title": "Say my name",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Dans Breaking Bad (2008-2013), Walter White, professeur de chimie malade, fabrique de la drogue à Albuquerque. Sa suite indirecte : Better Call Saul."
+                }
+              ]
+            },
+            {
+              "title": "L’île",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2004, Lost suit les survivants du vol Oceanic 815 sur une île pleine de mystères."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "ser-q-walter",
+            "ser-q-albuquerque",
+            "ser-q-better-call",
+            "ser-q-sopranos-chaine",
+            "ser-q-lost"
+          ]
+        },
+        {
+          "slug": "ser-netflix",
+          "title": "L’ère Netflix",
+          "objective": "Raconter l’essor de Netflix et de Stranger Things.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Des DVD par la poste",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Netflix est fondé en 1997 pour louer des DVD par courrier. Le streaming arrive en 2007, puis House of Cards, première grande série originale, en 2013."
+                }
+              ]
+            },
+            {
+              "title": "Stranger Things",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2016, Netflix plonge dans les années 1980 à Hawkins, dans l’Indiana. Eleven, ses pouvoirs et le Monde à l’envers deviennent cultes."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "ser-q-netflix-debut",
+            "ser-q-house-cards",
+            "ser-q-hawkins",
+            "ser-q-stranger-80",
+            "ser-q-netflix-fondation"
+          ]
+        },
+        {
+          "slug": "ser-epreuve-classiques",
+          "title": "Épreuve : les classiques américains",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "ser-q-central-perk",
+            "ser-q-walter",
+            "ser-q-hawkins",
+            "ser-q-frise-classiques",
+            "ser-q-groening",
+            "ser-q-michael-scott"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Séries du monde et codes du genre",
+      "description": "Phénomènes mondiaux, séries françaises et vocabulaire.",
+      "lessons": [
+        {
+          "slug": "ser-monde",
+          "title": "Les phénomènes mondiaux",
+          "objective": "Connaître La Casa de Papel, Squid Game et Lupin.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Braquage à l’espagnole",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2017, La Casa de Papel met en scène des braqueurs aux noms de villes, Tokyo, Berlin, Nairobi, menés par le Professeur et masqués en Dalí."
+                }
+              ]
+            },
+            {
+              "title": "Un, deux, trois, soleil",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2021, la série sud-coréenne Squid Game, de Hwang Dong-hyuk, devient un phénomène mondial : des joueurs endettés risquent leur vie dans des jeux d’enfants."
+                }
+              ]
+            },
+            {
+              "title": "Le gentleman français",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La même année, Lupin, avec Omar Sy, fait briller une série française dans le monde entier."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "ser-q-casa-masques",
+            "ser-q-casa-noms",
+            "ser-q-squid-pays",
+            "ser-q-lupin",
+            "ser-q-squid-jeu"
+          ]
+        },
+        {
+          "slug": "ser-france",
+          "title": "Les séries françaises",
+          "objective": "Connaître les séries françaises incontournables.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "C’est pas faux",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2005, Alexandre Astier lance Kaamelott sur M6 : la légende du roi Arthur, version comédie. Ses répliques sont devenues cultes."
+                }
+              ]
+            },
+            {
+              "title": "Prestige à la française",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Le Bureau des légendes (2015, Canal+) : les espions de la DGSE, par Éric Rochant.",
+                    "Dix pour cent (2015, France 2) : les coulisses d’une agence d’acteurs."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Un record",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Plus belle la vie, feuilleton marseillais de France 3, a duré de 2004 à 2022."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "ser-q-kaamelott",
+            "ser-q-bureau",
+            "ser-q-dix-pourcent",
+            "ser-q-pblv",
+            "ser-q-kaamelott-legende"
+          ]
+        },
+        {
+          "slug": "ser-codes",
+          "title": "Le vocabulaire des séries",
+          "objective": "Maîtriser les mots des sériephiles.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Les mots à connaître",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Spin-off : série dérivée d’une autre.",
+                    "Cliffhanger : fin d’épisode à suspense.",
+                    "Showrunner : responsable créatif de la série.",
+                    "Binge-watching : enchaîner les épisodes d’une traite."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "ser-q-spinoff",
+            "ser-q-cliffhanger",
+            "ser-q-showrunner",
+            "ser-q-binge",
+            "ser-q-match-codes"
+          ]
+        },
+        {
+          "slug": "ser-epreuve-monde",
+          "title": "Épreuve : séries du monde et codes",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "ser-q-squid-pays",
+            "ser-q-kaamelott",
+            "ser-q-spinoff",
+            "ser-q-match-pays",
+            "ser-q-professeur",
+            "ser-q-kaamelott-annee"
+          ]
+        }
+      ]
+    }
+  ]
+}

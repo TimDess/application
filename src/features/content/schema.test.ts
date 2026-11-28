@@ -24,6 +24,16 @@ describe('course content', () => {
       'le-rap-francais',
       'les-sagas-cultes',
       'la-coupe-du-monde',
+      // Published directly at Tim's request (28 November 2026): testers report fixes.
+      'logos-et-marques-cultes',
+      'les-grandes-dates-de-l-histoire-de-france',
+      'la-conquete-spatiale',
+      'capitales-merveilles-et-traditions',
+      'les-legendes-du-pop-rock',
+      'les-legendes-de-la-f1',
+      'les-licences-cultes',
+      'les-series-cultes',
+      'les-jeux-olympiques',
     ])
     for (const path of files(CONTENT)) {
       const file = JSON.parse(readFileSync(path, 'utf8')) as {

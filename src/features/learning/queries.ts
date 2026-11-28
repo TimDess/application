@@ -28,11 +28,12 @@ export const getUniverseWithCourses = cache(async (slug: string) => {
   if (error) throw new Error('Impossible de charger cet univers.')
   if (!universe) return null
 
+  // Easiest courses first, so a newcomer always starts with an accessible one.
   const courses = universe.categories
     .sort((a, b) => a.sort_order - b.sort_order)
     .flatMap((cat) =>
       cat.courses
-        .sort((a, b) => a.sort_order - b.sort_order)
+        .sort((a, b) => levelRank(a.level) - levelRank(b.level) || a.sort_order - b.sort_order)
         .map((c) => ({
           id: c.id,
           slug: c.slug,
@@ -43,6 +44,7 @@ export const getUniverseWithCourses = cache(async (slug: string) => {
           lessonCount: c.chapters.reduce((n, ch) => n + ch.lessons.length, 0),
         })),
     )
+    .sort((a, b) => levelRank(a.level) - levelRank(b.level))
 
   const progress = courses.length
     ? ((
@@ -203,6 +205,11 @@ export type PlayableLesson = NonNullable<Awaited<ReturnType<typeof getLessonForP
  * What to propose on the dashboard: the course the viewer last played, otherwise the first
  * course in their favorite universes, otherwise any available course (discovery).
  */
+const levels = ['decouverte', 'debutant', 'intermediaire', 'avance', 'expert', 'maitre']
+function levelRank(level: string) {
+  return levels.indexOf(level)
+}
+
 export const getContinueCourse = cache(async (favoriteSlugs: string[]) => {
   const supabase = await createClient()
   const { data: last } = await supabase
@@ -219,11 +226,13 @@ export const getContinueCourse = cache(async (favoriteSlugs: string[]) => {
     const { data: courses } = await supabase
       .from('courses')
       .select('slug, sort_order, categories (universes (slug))')
+      .order('level')
       .order('sort_order')
     const list = courses ?? []
-    const favorite = list.find(
-      (c) => c.categories?.universes && favoriteSlugs.includes(c.categories.universes.slug),
-    )
+    // The easiest course of the first favorite universe that has one.
+    const favorite = favoriteSlugs
+      .map((fav) => list.find((c) => c.categories?.universes?.slug === fav))
+      .find(Boolean)
     slug = favorite?.slug ?? list[0]?.slug ?? null
     reason = favorite ? 'favorite' : 'discover'
   }

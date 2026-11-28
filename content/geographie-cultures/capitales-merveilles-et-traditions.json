@@ -1,0 +1,1172 @@
+{
+  "universe": "geographie-cultures",
+  "status": "published",
+  "category": {
+    "slug": "tour-du-monde",
+    "name": "Tour du monde",
+    "description": "Pays, capitales, monuments et traditions de la planète."
+  },
+  "course": {
+    "slug": "capitales-merveilles-et-traditions",
+    "title": "Capitales, merveilles et traditions",
+    "description": "Les capitales qui piègent tout le monde, les records de la planète, les monuments et les fêtes du monde entier.",
+    "level": "decouverte"
+  },
+  "knowledge": [
+    {
+      "key": "geo-capitales-pieges",
+      "title": "Les capitales pièges",
+      "summary": "La capitale n’est pas toujours la plus grande ville : Canberra (Australie), Ottawa (Canada), Brasília (Brésil), Ankara (Turquie), Washington (États-Unis).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-brasilia",
+      "title": "Brasília",
+      "summary": "Brasília, capitale du Brésil, est construite de toutes pièces et inaugurée en 1960 pour remplacer Rio de Janeiro.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-plusieurs-capitales",
+      "title": "Plusieurs capitales",
+      "summary": "L’Afrique du Sud a trois capitales : Pretoria (gouvernement), Le Cap (Parlement) et Bloemfontein (justice). La Suisse n’a pas de capitale officielle : Berne est la « ville fédérale ».",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-capitales-afrique-asie",
+      "title": "Capitales d’Afrique et d’Asie",
+      "summary": "Rabat (Maroc), Abuja (Nigeria), Hanoï (Vietnam), Islamabad (Pakistan), Wellington (Nouvelle-Zélande).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-tailles",
+      "title": "Les plus grands et les plus petits",
+      "summary": "La Russie est le plus grand pays du monde, le Vatican le plus petit.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-relief",
+      "title": "Les records naturels",
+      "summary": "L’Everest, dans l’Himalaya, est le plus haut sommet du monde (près de 8 850 m). Le Pacifique est le plus grand océan. Le Sahara est le plus grand désert chaud.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-oceans",
+      "title": "Les cinq océans",
+      "summary": "Pacifique, Atlantique, Indien, Austral et Arctique.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-drapeaux",
+      "title": "Drapeaux remarquables",
+      "summary": "Le drapeau du Népal n’est pas rectangulaire. Ceux de la Suisse et du Vatican sont carrés. Le drapeau du Brésil porte la devise « Ordem e Progresso ».",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-langues",
+      "title": "Langues du monde",
+      "summary": "Au Brésil, on parle portugais. La Suisse a quatre langues nationales : allemand, français, italien et romanche. Le Canada est officiellement bilingue, anglais et français.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-monuments",
+      "title": "Merveilles du monde",
+      "summary": "Machu Picchu (Pérou), Taj Mahal (Inde), Petra (Jordanie), Angkor (Cambodge), Christ Rédempteur (Rio de Janeiro), Colisée (Rome).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-taj",
+      "title": "Le Taj Mahal",
+      "summary": "Le Taj Mahal, à Agra en Inde, est un mausolée construit par l’empereur Shah Jahan en mémoire de son épouse.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-liberte",
+      "title": "La statue de la Liberté",
+      "summary": "Offerte par la France aux États-Unis, la statue de la Liberté est inaugurée à New York en 1886. Bartholdi la sculpte, Gustave Eiffel conçoit sa structure.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-muraille",
+      "title": "La Grande Muraille",
+      "summary": "La Grande Muraille de Chine s’étend sur des milliers de kilomètres. Contrairement à la légende, elle n’est pas visible à l’œil nu depuis l’espace.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-sagrada",
+      "title": "La Sagrada Família",
+      "summary": "Basilique de Barcelone imaginée par Antoni Gaudí, commencée en 1882, toujours en construction pendant plus d’un siècle.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-fetes",
+      "title": "Fêtes du monde",
+      "summary": "Diwali (Inde) est la fête des lumières, Holi (Inde) celle des couleurs. Le Día de los Muertos (Mexique) honore les défunts début novembre. Au Japon, le hanami célèbre la floraison des cerisiers.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-fetes-dates",
+      "title": "Fêtes à date fixe",
+      "summary": "La Saint-Patrick, fête de l’Irlande, a lieu le 17 mars. Thanksgiving, aux États-Unis, est célébré le quatrième jeudi de novembre.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "geo-cuisines",
+      "title": "Cuisines du monde",
+      "summary": "Paella (Espagne, région de Valence), pho (Vietnam), kimchi (Corée), feijoada (Brésil), haggis (Écosse). Le couscous est inscrit au patrimoine de l’Unesco depuis 2020.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "geo-q-australie",
+      "format": "quiz",
+      "prompt": "Quelle est la capitale de l’Australie ?",
+      "difficulty": 1,
+      "knowledge": ["geo-capitales-pieges"],
+      "options": [
+        {
+          "label": "Canberra",
+          "correct": true
+        },
+        {
+          "label": "Sydney"
+        },
+        {
+          "label": "Melbourne"
+        },
+        {
+          "label": "Perth"
+        }
+      ],
+      "explanation": "Canberra, choisie comme compromis entre Sydney et Melbourne."
+    },
+    {
+      "key": "geo-q-canada",
+      "format": "quiz",
+      "prompt": "Quelle est la capitale du Canada ?",
+      "difficulty": 1,
+      "knowledge": ["geo-capitales-pieges"],
+      "options": [
+        {
+          "label": "Ottawa",
+          "correct": true
+        },
+        {
+          "label": "Toronto"
+        },
+        {
+          "label": "Montréal"
+        },
+        {
+          "label": "Vancouver"
+        }
+      ],
+      "explanation": "Ottawa, en Ontario."
+    },
+    {
+      "key": "geo-q-turquie",
+      "format": "quiz",
+      "prompt": "Quelle est la capitale de la Turquie ?",
+      "difficulty": 2,
+      "knowledge": ["geo-capitales-pieges"],
+      "options": [
+        {
+          "label": "Ankara",
+          "correct": true
+        },
+        {
+          "label": "Istanbul"
+        },
+        {
+          "label": "Izmir"
+        },
+        {
+          "label": "Antalya"
+        }
+      ],
+      "explanation": "Ankara, depuis 1923. Istanbul reste la plus grande ville."
+    },
+    {
+      "key": "geo-q-brasilia",
+      "format": "guess_year",
+      "prompt": "En quelle année Brasília est-elle inaugurée ?",
+      "difficulty": 4,
+      "knowledge": ["geo-brasilia"],
+      "year": 1960,
+      "tolerance": 5,
+      "min": 1900,
+      "max": 2000,
+      "explanation": "En 1960, après moins de quatre ans de travaux."
+    },
+    {
+      "key": "geo-q-afrique-sud",
+      "format": "true_false",
+      "prompt": "L’Afrique du Sud a trois capitales.",
+      "difficulty": 2,
+      "knowledge": ["geo-plusieurs-capitales"],
+      "answer": true,
+      "explanation": "Vrai : Pretoria, Le Cap et Bloemfontein."
+    },
+    {
+      "key": "geo-q-plus-grand",
+      "format": "quiz",
+      "prompt": "Quel est le plus grand pays du monde ?",
+      "difficulty": 1,
+      "knowledge": ["geo-tailles"],
+      "options": [
+        {
+          "label": "La Russie",
+          "correct": true
+        },
+        {
+          "label": "Le Canada"
+        },
+        {
+          "label": "La Chine"
+        },
+        {
+          "label": "Les États-Unis"
+        }
+      ],
+      "explanation": "La Russie, loin devant le Canada."
+    },
+    {
+      "key": "geo-q-plus-petit",
+      "format": "quiz",
+      "prompt": "Quel est le plus petit pays du monde ?",
+      "difficulty": 1,
+      "knowledge": ["geo-tailles"],
+      "options": [
+        {
+          "label": "Le Vatican",
+          "correct": true
+        },
+        {
+          "label": "Monaco"
+        },
+        {
+          "label": "Saint-Marin"
+        },
+        {
+          "label": "Le Liechtenstein"
+        }
+      ],
+      "explanation": "Le Vatican, environ 0,44 km², au cœur de Rome."
+    },
+    {
+      "key": "geo-q-everest",
+      "format": "quiz",
+      "prompt": "Dans quelle chaîne de montagnes se trouve l’Everest ?",
+      "difficulty": 1,
+      "knowledge": ["geo-relief"],
+      "options": [
+        {
+          "label": "L’Himalaya",
+          "correct": true
+        },
+        {
+          "label": "Les Andes"
+        },
+        {
+          "label": "Les Alpes"
+        },
+        {
+          "label": "Les Rocheuses"
+        }
+      ],
+      "explanation": "L’Himalaya, entre le Népal et la Chine."
+    },
+    {
+      "key": "geo-q-ocean",
+      "format": "quiz",
+      "prompt": "Quel est le plus grand océan ?",
+      "difficulty": 1,
+      "knowledge": ["geo-relief"],
+      "options": [
+        {
+          "label": "Le Pacifique",
+          "correct": true
+        },
+        {
+          "label": "L’Atlantique"
+        },
+        {
+          "label": "L’océan Indien"
+        },
+        {
+          "label": "L’océan Arctique"
+        }
+      ],
+      "explanation": "Le Pacifique, plus vaste que toutes les terres émergées réunies."
+    },
+    {
+      "key": "geo-q-sahara",
+      "format": "true_false",
+      "prompt": "Le Sahara est le plus grand désert chaud du monde.",
+      "difficulty": 2,
+      "knowledge": ["geo-relief"],
+      "answer": true,
+      "explanation": "Vrai. Au sens large, l’Antarctique, désert froid, est encore plus grand."
+    },
+    {
+      "key": "geo-q-nepal",
+      "format": "quiz",
+      "prompt": "Quel pays a un drapeau qui n’est pas rectangulaire ?",
+      "difficulty": 2,
+      "knowledge": ["geo-drapeaux"],
+      "options": [
+        {
+          "label": "Le Népal",
+          "correct": true
+        },
+        {
+          "label": "Le Japon"
+        },
+        {
+          "label": "Le Canada"
+        },
+        {
+          "label": "La Suisse"
+        }
+      ],
+      "explanation": "Le drapeau du Népal est formé de deux triangles superposés."
+    },
+    {
+      "key": "geo-q-bresil-langue",
+      "format": "quiz",
+      "prompt": "Quelle langue parle-t-on au Brésil ?",
+      "difficulty": 1,
+      "knowledge": ["geo-langues"],
+      "options": [
+        {
+          "label": "Le portugais",
+          "correct": true
+        },
+        {
+          "label": "L’espagnol"
+        },
+        {
+          "label": "Le brésilien"
+        },
+        {
+          "label": "L’anglais"
+        }
+      ],
+      "explanation": "Le portugais, héritage de la colonisation."
+    },
+    {
+      "key": "geo-q-suisse-langues",
+      "format": "quiz",
+      "prompt": "Combien la Suisse a-t-elle de langues nationales ?",
+      "difficulty": 2,
+      "knowledge": ["geo-langues"],
+      "options": [
+        {
+          "label": "4",
+          "correct": true
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "5"
+        }
+      ],
+      "explanation": "Quatre : allemand, français, italien et romanche."
+    },
+    {
+      "key": "geo-q-drapeau-carre",
+      "format": "true_false",
+      "prompt": "Le drapeau suisse est carré.",
+      "difficulty": 2,
+      "knowledge": ["geo-drapeaux"],
+      "answer": true,
+      "explanation": "Vrai : comme celui du Vatican."
+    },
+    {
+      "key": "geo-q-match-capitales",
+      "format": "match",
+      "prompt": "Associe chaque pays à sa capitale.",
+      "difficulty": 2,
+      "knowledge": ["geo-capitales-afrique-asie"],
+      "pairs": [
+        {
+          "left": "Maroc",
+          "right": "Rabat"
+        },
+        {
+          "left": "Nigeria",
+          "right": "Abuja"
+        },
+        {
+          "left": "Vietnam",
+          "right": "Hanoï"
+        },
+        {
+          "left": "Nouvelle-Zélande",
+          "right": "Wellington"
+        }
+      ],
+      "explanation": "Rabat, Abuja, Hanoï, Wellington : quatre capitales souvent oubliées."
+    },
+    {
+      "key": "geo-q-suisse-capitale",
+      "format": "quiz",
+      "prompt": "Quelle ville sert de capitale à la Suisse ?",
+      "difficulty": 2,
+      "knowledge": ["geo-plusieurs-capitales"],
+      "options": [
+        {
+          "label": "Berne",
+          "correct": true
+        },
+        {
+          "label": "Genève"
+        },
+        {
+          "label": "Zurich"
+        },
+        {
+          "label": "Lausanne"
+        }
+      ],
+      "explanation": "Berne, dite « ville fédérale »."
+    },
+    {
+      "key": "geo-q-match-pieges",
+      "format": "match",
+      "prompt": "Associe chaque pays à sa vraie capitale.",
+      "difficulty": 2,
+      "knowledge": ["geo-capitales-pieges"],
+      "pairs": [
+        {
+          "left": "Australie",
+          "right": "Canberra"
+        },
+        {
+          "left": "Canada",
+          "right": "Ottawa"
+        },
+        {
+          "left": "Brésil",
+          "right": "Brasília"
+        },
+        {
+          "left": "Turquie",
+          "right": "Ankara"
+        }
+      ],
+      "explanation": "Aucune de ces capitales n’est la plus grande ville de son pays."
+    },
+    {
+      "key": "geo-q-pakistan",
+      "format": "quiz",
+      "prompt": "Quelle est la capitale du Pakistan ?",
+      "difficulty": 3,
+      "knowledge": ["geo-capitales-afrique-asie"],
+      "options": [
+        {
+          "label": "Islamabad",
+          "correct": true
+        },
+        {
+          "label": "Karachi"
+        },
+        {
+          "label": "Lahore"
+        },
+        {
+          "label": "Kaboul"
+        }
+      ],
+      "explanation": "Islamabad. Karachi est la plus grande ville, Kaboul la capitale de l’Afghanistan."
+    },
+    {
+      "key": "geo-q-machu-picchu",
+      "format": "quiz",
+      "prompt": "Dans quel pays se trouve le Machu Picchu ?",
+      "difficulty": 1,
+      "knowledge": ["geo-monuments"],
+      "options": [
+        {
+          "label": "Le Pérou",
+          "correct": true
+        },
+        {
+          "label": "Le Mexique"
+        },
+        {
+          "label": "La Bolivie"
+        },
+        {
+          "label": "Le Chili"
+        }
+      ],
+      "explanation": "Au Pérou, dans les Andes."
+    },
+    {
+      "key": "geo-q-taj",
+      "format": "quiz",
+      "prompt": "Qu’est-ce que le Taj Mahal ?",
+      "difficulty": 2,
+      "knowledge": ["geo-taj"],
+      "options": [
+        {
+          "label": "Un mausolée",
+          "correct": true
+        },
+        {
+          "label": "Un palais royal"
+        },
+        {
+          "label": "Un temple bouddhiste"
+        },
+        {
+          "label": "Une forteresse"
+        }
+      ],
+      "explanation": "Un mausolée construit par Shah Jahan pour son épouse."
+    },
+    {
+      "key": "geo-q-liberte-eiffel",
+      "format": "quiz",
+      "prompt": "Quel ingénieur français a conçu la structure de la statue de la Liberté ?",
+      "difficulty": 2,
+      "knowledge": ["geo-liberte"],
+      "options": [
+        {
+          "label": "Gustave Eiffel",
+          "correct": true
+        },
+        {
+          "label": "Auguste Rodin"
+        },
+        {
+          "label": "Le Corbusier"
+        },
+        {
+          "label": "Louis Pasteur"
+        }
+      ],
+      "explanation": "Gustave Eiffel, avant sa célèbre tour."
+    },
+    {
+      "key": "geo-q-muraille",
+      "format": "true_false",
+      "prompt": "La Grande Muraille de Chine est visible à l’œil nu depuis l’espace.",
+      "difficulty": 2,
+      "knowledge": ["geo-muraille"],
+      "answer": false,
+      "explanation": "Faux : c’est une légende. Elle est longue mais trop étroite pour être vue à l’œil nu depuis l’orbite."
+    },
+    {
+      "key": "geo-q-match-monuments",
+      "format": "match",
+      "prompt": "Associe chaque monument à son pays.",
+      "difficulty": 2,
+      "knowledge": ["geo-monuments"],
+      "pairs": [
+        {
+          "left": "Petra",
+          "right": "Jordanie"
+        },
+        {
+          "left": "Angkor",
+          "right": "Cambodge"
+        },
+        {
+          "left": "Christ Rédempteur",
+          "right": "Brésil"
+        },
+        {
+          "left": "Colisée",
+          "right": "Italie"
+        }
+      ],
+      "explanation": "Petra en Jordanie, Angkor au Cambodge, le Christ à Rio, le Colisée à Rome."
+    },
+    {
+      "key": "geo-q-diwali",
+      "format": "quiz",
+      "prompt": "Diwali est surnommée la fête…",
+      "difficulty": 2,
+      "knowledge": ["geo-fetes"],
+      "options": [
+        {
+          "label": "Des lumières",
+          "correct": true
+        },
+        {
+          "label": "Des couleurs"
+        },
+        {
+          "label": "Des morts"
+        },
+        {
+          "label": "Des moissons"
+        }
+      ],
+      "explanation": "La fête des lumières, en Inde. Holi est celle des couleurs."
+    },
+    {
+      "key": "geo-q-muertos",
+      "format": "quiz",
+      "prompt": "Dans quel pays célèbre-t-on le Día de los Muertos ?",
+      "difficulty": 1,
+      "knowledge": ["geo-fetes"],
+      "options": [
+        {
+          "label": "Le Mexique",
+          "correct": true
+        },
+        {
+          "label": "L’Espagne"
+        },
+        {
+          "label": "L’Argentine"
+        },
+        {
+          "label": "Cuba"
+        }
+      ],
+      "explanation": "Au Mexique, au début du mois de novembre."
+    },
+    {
+      "key": "geo-q-hanami",
+      "format": "quiz",
+      "prompt": "Que célèbre le hanami au Japon ?",
+      "difficulty": 2,
+      "knowledge": ["geo-fetes"],
+      "options": [
+        {
+          "label": "La floraison des cerisiers",
+          "correct": true
+        },
+        {
+          "label": "Le Nouvel An"
+        },
+        {
+          "label": "La fin des récoltes"
+        },
+        {
+          "label": "L’anniversaire de l’empereur"
+        }
+      ],
+      "explanation": "On pique-nique sous les cerisiers en fleurs, au printemps."
+    },
+    {
+      "key": "geo-q-saint-patrick",
+      "format": "quiz",
+      "prompt": "Quel jour est célébrée la Saint-Patrick ?",
+      "difficulty": 2,
+      "knowledge": ["geo-fetes-dates"],
+      "options": [
+        {
+          "label": "Le 17 mars",
+          "correct": true
+        },
+        {
+          "label": "Le 1er mai"
+        },
+        {
+          "label": "Le 31 octobre"
+        },
+        {
+          "label": "Le 14 février"
+        }
+      ],
+      "explanation": "Le 17 mars, fête nationale de l’Irlande."
+    },
+    {
+      "key": "geo-q-thanksgiving",
+      "format": "true_false",
+      "prompt": "Aux États-Unis, Thanksgiving tombe toujours un jeudi.",
+      "difficulty": 2,
+      "knowledge": ["geo-fetes-dates"],
+      "answer": true,
+      "explanation": "Vrai : le quatrième jeudi de novembre."
+    },
+    {
+      "key": "geo-q-pho",
+      "format": "quiz",
+      "prompt": "De quel pays vient le pho ?",
+      "difficulty": 2,
+      "knowledge": ["geo-cuisines"],
+      "options": [
+        {
+          "label": "Le Vietnam",
+          "correct": true
+        },
+        {
+          "label": "La Thaïlande"
+        },
+        {
+          "label": "Le Japon"
+        },
+        {
+          "label": "La Chine"
+        }
+      ],
+      "explanation": "Le pho est une soupe vietnamienne, souvent au bœuf."
+    },
+    {
+      "key": "geo-q-paella",
+      "format": "quiz",
+      "prompt": "De quelle région d’Espagne la paella est-elle originaire ?",
+      "difficulty": 3,
+      "knowledge": ["geo-cuisines"],
+      "options": [
+        {
+          "label": "Valence",
+          "correct": true
+        },
+        {
+          "label": "La Catalogne"
+        },
+        {
+          "label": "L’Andalousie"
+        },
+        {
+          "label": "Madrid"
+        }
+      ],
+      "explanation": "De la région de Valence."
+    },
+    {
+      "key": "geo-q-match-plats",
+      "format": "match",
+      "prompt": "Associe chaque plat à son pays.",
+      "difficulty": 2,
+      "knowledge": ["geo-cuisines"],
+      "pairs": [
+        {
+          "left": "Kimchi",
+          "right": "Corée"
+        },
+        {
+          "left": "Feijoada",
+          "right": "Brésil"
+        },
+        {
+          "left": "Haggis",
+          "right": "Écosse"
+        },
+        {
+          "left": "Pho",
+          "right": "Vietnam"
+        }
+      ],
+      "explanation": "Kimchi coréen, feijoada brésilienne, haggis écossais, pho vietnamien."
+    },
+    {
+      "key": "geo-q-couscous",
+      "format": "true_false",
+      "prompt": "Le couscous est inscrit au patrimoine immatériel de l’Unesco.",
+      "difficulty": 2,
+      "knowledge": ["geo-cuisines"],
+      "answer": true,
+      "explanation": "Vrai, depuis 2020."
+    },
+    {
+      "key": "geo-q-kimchi",
+      "format": "quiz",
+      "prompt": "Qu’est-ce que le kimchi ?",
+      "difficulty": 2,
+      "knowledge": ["geo-cuisines"],
+      "options": [
+        {
+          "label": "Du chou fermenté",
+          "correct": true
+        },
+        {
+          "label": "Une soupe de nouilles"
+        },
+        {
+          "label": "Un dessert au riz"
+        },
+        {
+          "label": "Une sauce soja"
+        }
+      ],
+      "explanation": "Du chou (souvent chinois) fermenté et pimenté, emblème de la Corée."
+    },
+    {
+      "key": "geo-q-sagrada",
+      "format": "quiz",
+      "prompt": "Quel architecte a imaginé la Sagrada Família de Barcelone ?",
+      "difficulty": 2,
+      "knowledge": ["geo-sagrada"],
+      "options": [
+        {
+          "label": "Antoni Gaudí",
+          "correct": true
+        },
+        {
+          "label": "Gustave Eiffel"
+        },
+        {
+          "label": "Le Corbusier"
+        },
+        {
+          "label": "Pablo Picasso"
+        }
+      ],
+      "explanation": "Antoni Gaudí. Le chantier a commencé en 1882."
+    },
+    {
+      "key": "geo-q-liberte-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année est inaugurée la statue de la Liberté ?",
+      "difficulty": 4,
+      "knowledge": ["geo-liberte"],
+      "year": 1886,
+      "tolerance": 5,
+      "min": 1800,
+      "max": 1950,
+      "explanation": "En 1886, à New York."
+    },
+    {
+      "key": "geo-q-holi",
+      "format": "quiz",
+      "prompt": "Lors de quelle fête indienne se lance-t-on des poudres colorées ?",
+      "difficulty": 2,
+      "knowledge": ["geo-fetes"],
+      "options": [
+        {
+          "label": "Holi",
+          "correct": true
+        },
+        {
+          "label": "Diwali"
+        },
+        {
+          "label": "Le hanami"
+        },
+        {
+          "label": "Thanksgiving"
+        }
+      ],
+      "explanation": "Holi, la fête des couleurs."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Pays et capitales",
+      "description": "Capitales pièges, records et drapeaux.",
+      "lessons": [
+        {
+          "slug": "geo-capitales",
+          "title": "Les capitales pièges",
+          "objective": "Éviter les pièges classiques sur les capitales.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Pas la plus grande ville",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Sydney, Toronto, Rio, Istanbul, New York : aucune n’est capitale ! Les capitales sont Canberra, Ottawa, Brasília, Ankara et Washington."
+                }
+              ]
+            },
+            {
+              "title": "Une capitale sortie de terre",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1960",
+                  "label": "Inauguration de Brasília"
+                },
+                {
+                  "type": "text",
+                  "text": "Le Brésil construit une capitale entièrement nouvelle au centre du pays pour remplacer Rio de Janeiro."
+                }
+              ]
+            },
+            {
+              "title": "Trois capitales",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "L’Afrique du Sud en a trois : Pretoria, Le Cap et Bloemfontein. Et la Suisse n’en a officiellement aucune : Berne est la « ville fédérale »."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "geo-q-australie",
+            "geo-q-canada",
+            "geo-q-turquie",
+            "geo-q-brasilia",
+            "geo-q-afrique-sud"
+          ]
+        },
+        {
+          "slug": "geo-records",
+          "title": "Les records de la planète",
+          "objective": "Connaître les grands records géographiques.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Le toit du monde",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "≈ 8 850 m",
+                  "label": "Altitude de l’Everest, plus haut sommet du monde"
+                },
+                {
+                  "type": "text",
+                  "text": "L’Everest se trouve dans l’Himalaya, à la frontière entre le Népal et la Chine."
+                }
+              ]
+            },
+            {
+              "title": "Géants et minuscules",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La Russie est le plus grand pays du monde, sur deux continents. Le Vatican, enclavé dans Rome, est le plus petit."
+                }
+              ]
+            },
+            {
+              "title": "Eau et sable",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Les cinq océans : Pacifique, Atlantique, Indien, Austral, Arctique.",
+                    "Le Pacifique est le plus grand.",
+                    "Le Sahara est le plus grand désert chaud du monde."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "geo-q-plus-grand",
+            "geo-q-plus-petit",
+            "geo-q-everest",
+            "geo-q-ocean",
+            "geo-q-sahara"
+          ]
+        },
+        {
+          "slug": "geo-drapeaux-langues",
+          "title": "Drapeaux et langues",
+          "objective": "Reconnaître quelques drapeaux et langues remarquables.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Drapeaux hors norme",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Népal : le seul drapeau national non rectangulaire.",
+                    "Suisse et Vatican : drapeaux carrés.",
+                    "Brésil : la devise « Ordem e Progresso » sur un globe étoilé."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Combien de langues ?",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La Suisse a quatre langues nationales : allemand, français, italien et romanche. Le Canada est officiellement bilingue. Et au Brésil, on parle portugais, pas espagnol."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "geo-q-nepal",
+            "geo-q-bresil-langue",
+            "geo-q-suisse-langues",
+            "geo-q-drapeau-carre",
+            "geo-q-match-capitales"
+          ]
+        },
+        {
+          "slug": "geo-epreuve-pays",
+          "title": "Épreuve : pays et capitales",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "geo-q-australie",
+            "geo-q-plus-petit",
+            "geo-q-bresil-langue",
+            "geo-q-suisse-capitale",
+            "geo-q-match-pieges",
+            "geo-q-pakistan"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Merveilles et traditions",
+      "description": "Monuments, fêtes et assiettes du monde.",
+      "lessons": [
+        {
+          "slug": "geo-monuments",
+          "title": "Les merveilles du monde",
+          "objective": "Situer les monuments les plus célèbres de la planète.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Un tour du monde",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Machu Picchu : cité inca au Pérou.",
+                    "Petra : cité taillée dans la roche, en Jordanie.",
+                    "Angkor : temples au Cambodge.",
+                    "Christ Rédempteur : au-dessus de Rio de Janeiro."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Un monument d’amour",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le Taj Mahal, à Agra, en Inde, est un mausolée : l’empereur Shah Jahan l’a fait construire pour son épouse défunte."
+                }
+              ]
+            },
+            {
+              "title": "Un cadeau français",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1886",
+                  "label": "Inauguration de la statue de la Liberté"
+                },
+                {
+                  "type": "text",
+                  "text": "Bartholdi la sculpte, Gustave Eiffel conçoit sa structure intérieure. La France l’offre aux États-Unis."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "geo-q-machu-picchu",
+            "geo-q-taj",
+            "geo-q-liberte-eiffel",
+            "geo-q-muraille",
+            "geo-q-match-monuments"
+          ]
+        },
+        {
+          "slug": "geo-fetes",
+          "title": "Les fêtes du monde",
+          "objective": "Reconnaître les grandes fêtes et leur pays.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Lumières et couleurs",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En Inde, Diwali est la fête des lumières, Holi celle des couleurs : on se lance des poudres colorées."
+                }
+              ]
+            },
+            {
+              "title": "Honorer et contempler",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Au Mexique, le Día de los Muertos, début novembre, honore les défunts avec des autels et des crânes colorés. Au Japon, le hanami réunit les familles sous les cerisiers en fleurs."
+                }
+              ]
+            },
+            {
+              "title": "Des dates à retenir",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "17 mars : la Saint-Patrick, fête de l’Irlande.",
+                    "Quatrième jeudi de novembre : Thanksgiving, aux États-Unis."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "geo-q-diwali",
+            "geo-q-muertos",
+            "geo-q-hanami",
+            "geo-q-saint-patrick",
+            "geo-q-thanksgiving"
+          ]
+        },
+        {
+          "slug": "geo-cuisines",
+          "title": "Cuisines du monde",
+          "objective": "Associer des plats emblématiques à leur pays.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Un plat, un pays",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Paella : Espagne, région de Valence.",
+                    "Pho : soupe vietnamienne.",
+                    "Kimchi : chou fermenté coréen.",
+                    "Feijoada : ragoût de haricots noirs brésilien.",
+                    "Haggis : panse de brebis farcie, écossaise."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Patrimoine mondial",
+              "blocks": [
+                {
+                  "type": "fact",
+                  "text": "En 2020, l’Unesco inscrit le couscous au patrimoine culturel immatériel, sur une candidature commune de l’Algérie, du Maroc, de la Mauritanie et de la Tunisie."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "geo-q-pho",
+            "geo-q-paella",
+            "geo-q-match-plats",
+            "geo-q-couscous",
+            "geo-q-kimchi"
+          ]
+        },
+        {
+          "slug": "geo-epreuve-merveilles",
+          "title": "Épreuve : merveilles et traditions",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "geo-q-machu-picchu",
+            "geo-q-muertos",
+            "geo-q-pho",
+            "geo-q-sagrada",
+            "geo-q-liberte-annee",
+            "geo-q-holi"
+          ]
+        }
+      ]
+    }
+  ]
+}

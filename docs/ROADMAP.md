@@ -77,6 +77,24 @@ Dernière mise à jour : 28 novembre 2026.
 - Correction : dans les associations, toucher l’élément présélectionné le désélectionnait et faisait perdre le choix suivant.
 - Au total : 5 parcours, 60 leçons, 308 questions (51 publiées, 257 en relecture).
 
+## Session contenu 2 (28 novembre 2026) : tous les univers remplis
+
+- Tim valide les 48 questions F1 et autorise la **publication directe** des nouveaux parcours (les testeurs signalent les corrections). Trace : liste des parcours validés dans `src/features/content/schema.test.ts`, exception notée dans `CLAUDE.md`.
+- Neuf nouveaux parcours de 8 leçons (2 chapitres de 3 leçons + 1 épreuve), 36 questions chacun, publiés en local et en production :
+  - Création & design, « Logos et marques cultes » (débutant).
+  - Histoire & société, « Les grandes dates de l’histoire de France » (découverte).
+  - Sciences & technologies, « La conquête spatiale » (débutant).
+  - Géographie & cultures, « Capitales, merveilles et traditions » (découverte).
+  - Musique, « Les légendes du pop-rock » (débutant).
+  - Sport automobile, « Les légendes de la F1 » (intermédiaire).
+  - Jeux vidéo, « Les licences cultes » (intermédiaire).
+  - Cinéma & séries, « Les séries cultes » (débutant).
+  - Sport, « Les Jeux olympiques » (découverte).
+- Les parcours d’un univers sont triés du plus accessible au plus exigeant ; « Continue ton aventure » propose le parcours le plus accessible du premier univers favori.
+- Test pgTAP 05 isolé dans un univers de test (le contenu publié d’Histoire & société faussait les scores d’ADN).
+- Au total : 14 parcours, 132 leçons, 632 questions publiées, tous les univers ont du contenu.
+- À faire : mettre à jour « La Coupe du monde » avec le résultat de l’édition 2026 (faits arrêtés à 2022) ; ajouter des parcours avancés et experts.
+
 ## Correctif (28 novembre 2026) : lien de confirmation « expiré »
 
 - Avec le modèle d’email par défaut de Supabase (pas de SMTP personnalisé), le lien confirme l’adresse puis renvoie vers `/auth/callback` avec un code PKCE, utilisable seulement dans le navigateur où le compte a été créé. Ouvert ailleurs (app Mail de l’iPhone, autre appareil), l’app affichait « lien expiré » alors que l’adresse était confirmée.

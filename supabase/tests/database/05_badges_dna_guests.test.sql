@@ -14,8 +14,12 @@ values
   ('d0000000-0000-0000-0000-0000000000d3', '00000000-0000-0000-0000-000000000000', 'authenticated', 'authenticated', null, '', null, '{}', now() - interval '2 days', now(), true, now() - interval '2 days'),
   ('e0000000-0000-0000-0000-0000000000e3', '00000000-0000-0000-0000-000000000000', 'authenticated', 'authenticated', 'old@test.local', '', now(), '{}', now() - interval '90 days', now(), false, now() - interval '90 days');
 
+-- A dedicated universe, so published content never changes the DNA scores below.
+insert into public.universes (slug, name, tagline, description, color_light, color_dark, icon_key, sort_order, status)
+values ('pgtap-badges', 'Univers de test', 'Test', 'Univers isolé pour les tests.', '#A0522D', '#E08B5E', 'landmark', 999, 'published');
+
 insert into public.categories (id, universe_id, slug, name, status)
-select '13000000-0000-0000-0000-000000000001', id, 'bdg-cat', 'Catégorie badges', 'published' from public.universes where slug = 'histoire-societe';
+select '13000000-0000-0000-0000-000000000001', id, 'bdg-cat', 'Catégorie badges', 'published' from public.universes where slug = 'pgtap-badges';
 insert into public.courses (id, category_id, slug, title, status) values
   ('23000000-0000-0000-0000-000000000001', '13000000-0000-0000-0000-000000000001', 'bdg-course', 'Parcours badges', 'published');
 insert into public.chapters (id, course_id, position, title, status) values
@@ -29,7 +33,7 @@ from public.universes u,
     ('53000000-0000-0000-0000-000000000001', 'bq-quiz', 'quiz', 'Question quiz badges', '{"options":[{"id":"a","label":"A"},{"id":"b","label":"B"}],"multiple":false}'),
     ('53000000-0000-0000-0000-000000000002', 'bq-tf', 'true_false', 'Question vrai faux badges', '{}')
   ) as v (id, key, format, prompt, payload)
-where u.slug = 'histoire-societe';
+where u.slug = 'pgtap-badges';
 insert into private.question_solutions (question_id, solution, explanation) values
   ('53000000-0000-0000-0000-000000000001', '{"correct":["b"]}', 'B est la bonne réponse.'),
   ('53000000-0000-0000-0000-000000000002', '{"value":true}', 'C’est bien vrai.');
@@ -37,7 +41,7 @@ insert into public.knowledge_items (id, key, universe_id, title)
 select v.id::uuid, v.key, u.id, v.title from public.universes u,
   (values ('63000000-0000-0000-0000-000000000001', 'bdg-n1', 'Notion badge une'),
           ('63000000-0000-0000-0000-000000000002', 'bdg-n2', 'Notion badge deux')) as v (id, key, title)
-where u.slug = 'histoire-societe';
+where u.slug = 'pgtap-badges';
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values
   ('53000000-0000-0000-0000-000000000001', '63000000-0000-0000-0000-000000000001'),
   ('53000000-0000-0000-0000-000000000002', '63000000-0000-0000-0000-000000000002');
@@ -95,7 +99,7 @@ select is((select count(*)::int from public.user_badges), 4, 'badges are stored 
 -- Cultural DNA
 -- ---------------------------------------------------------------------------
 select is(
-  (select (d ->> 'score')::int from jsonb_array_elements(public.get_my_dna()) d where d ->> 'slug' = 'histoire-societe'),
+  (select (d ->> 'score')::int from jsonb_array_elements(public.get_my_dna()) d where d ->> 'slug' = 'pgtap-badges'),
   20, 'two notions in box 1 out of two give a score of 20');
 
 reset role;
@@ -108,7 +112,7 @@ set local role authenticated;
 set local request.jwt.claims to '{"sub": "a0000000-0000-0000-0000-0000000000a3", "role": "authenticated"}';
 
 select is(
-  (select (d ->> 'score')::int || ':' || (d ->> 'mastered') from jsonb_array_elements(public.get_my_dna()) d where d ->> 'slug' = 'histoire-societe'),
+  (select (d ->> 'score')::int || ':' || (d ->> 'mastered') from jsonb_array_elements(public.get_my_dna()) d where d ->> 'slug' = 'pgtap-badges'),
   '100:2', 'retained notions fill the universe branch');
 select ok(
   (select (d ->> 'score')::int = 0 from jsonb_array_elements(public.get_my_dna()) d where d ->> 'slug' = 'jeux-video'),

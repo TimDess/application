@@ -1,0 +1,1165 @@
+{
+  "universe": "sport-automobile",
+  "status": "published",
+  "category": {
+    "slug": "formule-1",
+    "name": "Formule 1",
+    "description": "La catégorie reine du sport automobile : pilotes, écuries, circuits et stratégies."
+  },
+  "course": {
+    "slug": "les-legendes-de-la-f1",
+    "title": "Les légendes de la F1",
+    "description": "Fangio, Senna, Schumacher, Hamilton : les pilotes, les écuries et les rivalités qui ont écrit l’histoire de la Formule 1.",
+    "level": "intermediaire"
+  },
+  "knowledge": [
+    {
+      "key": "f1l-fangio",
+      "title": "Juan Manuel Fangio",
+      "summary": "L’Argentin remporte cinq titres (1951, 1954, 1955, 1956, 1957) avec quatre écuries différentes : Alfa Romeo, Mercedes, Ferrari et Maserati.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-clark",
+      "title": "Jim Clark",
+      "summary": "L’Écossais, double champion du monde avec Lotus (1963 et 1965), est considéré comme l’un des pilotes les plus doués de l’histoire.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-stewart",
+      "title": "Jackie Stewart",
+      "summary": "Triple champion du monde (1969, 1971, 1973), l’Écossais se bat pour améliorer la sécurité en F1.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-prost",
+      "title": "Alain Prost",
+      "summary": "Surnommé « le Professeur », Alain Prost est champion du monde en 1985, 1986, 1989 et 1993. C’est le seul Français titré en F1.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-senna",
+      "title": "Ayrton Senna",
+      "summary": "Le Brésilien est champion du monde en 1988, 1990 et 1991 avec McLaren. Il détient le record de victoires à Monaco (six). Il meurt à Imola le 1er mai 1994.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-prost-senna",
+      "title": "Prost contre Senna",
+      "summary": "Coéquipiers chez McLaren, Prost et Senna s’accrochent à Suzuka en 1989 puis en 1990 : deux accrochages qui décident du titre.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-schumacher",
+      "title": "Michael Schumacher",
+      "summary": "L’Allemand remporte sept titres : 1994 et 1995 avec Benetton, puis cinq d’affilée avec Ferrari, de 2000 à 2004.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-alonso",
+      "title": "Fernando Alonso",
+      "summary": "L’Espagnol est champion du monde en 2005 et 2006 avec Renault, mettant fin à la série de Schumacher.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-vettel",
+      "title": "Sebastian Vettel",
+      "summary": "L’Allemand remporte quatre titres consécutifs avec Red Bull, de 2010 à 2013. En 2010, à 23 ans, il devient le plus jeune champion de l’histoire.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-hamilton",
+      "title": "Lewis Hamilton",
+      "summary": "Le Britannique remporte sept titres entre 2008 et 2020 : un avec McLaren (2008) et six avec Mercedes. Il rejoint Ferrari en 2025.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-verstappen",
+      "title": "Max Verstappen",
+      "summary": "Le Néerlandais devient en 2016, à 18 ans, le plus jeune vainqueur d’un Grand Prix. Il remporte son premier titre en 2021 avec Red Bull.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-ferrari",
+      "title": "Ferrari",
+      "summary": "Fondée par Enzo Ferrari, l’écurie de Maranello est la seule à avoir disputé toutes les saisons du championnat depuis 1950. Son cheval cabré vient de l’avion de l’aviateur Francesco Baracca.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-anglaises",
+      "title": "Les écuries britanniques",
+      "summary": "McLaren est fondée par le Néo-Zélandais Bruce McLaren, Williams par Frank Williams, Lotus par Colin Chapman.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-hunt-lauda",
+      "title": "Hunt contre Lauda",
+      "summary": "En 1976, Niki Lauda est gravement brûlé au Nürburgring et revient six semaines plus tard. James Hunt lui prend le titre pour un point. Le film Rush (2013) raconte cette saison.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-lauda",
+      "title": "Niki Lauda",
+      "summary": "L’Autrichien est champion du monde en 1975 et 1977 avec Ferrari, puis en 1984 avec McLaren.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-rosberg",
+      "title": "Hamilton contre Rosberg",
+      "summary": "Coéquipier de Hamilton chez Mercedes, Nico Rosberg remporte le titre 2016 et prend sa retraite cinq jours plus tard.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "f1l-2021",
+      "title": "Abu Dhabi 2021",
+      "summary": "Hamilton et Verstappen arrivent à égalité de points au dernier Grand Prix de 2021, à Abu Dhabi. Verstappen s’impose au dernier tour.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "f1l-q-fangio-pays",
+      "format": "quiz",
+      "prompt": "De quel pays vient Juan Manuel Fangio ?",
+      "difficulty": 1,
+      "knowledge": ["f1l-fangio"],
+      "options": [
+        {
+          "label": "L’Argentine",
+          "correct": true
+        },
+        {
+          "label": "Le Brésil"
+        },
+        {
+          "label": "L’Italie"
+        },
+        {
+          "label": "L’Espagne"
+        }
+      ],
+      "explanation": "De l’Argentine."
+    },
+    {
+      "key": "f1l-q-fangio-titres",
+      "format": "quiz",
+      "prompt": "Combien de titres Fangio a-t-il remportés ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-fangio"],
+      "options": [
+        {
+          "label": "5",
+          "correct": true
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "4"
+        },
+        {
+          "label": "7"
+        }
+      ],
+      "explanation": "Cinq, en 1951 puis de 1954 à 1957."
+    },
+    {
+      "key": "f1l-q-fangio-ecuries",
+      "format": "true_false",
+      "prompt": "Fangio a remporté ses titres avec une seule et même écurie.",
+      "difficulty": 3,
+      "knowledge": ["f1l-fangio"],
+      "answer": false,
+      "explanation": "Faux : avec quatre écuries, Alfa Romeo, Mercedes, Ferrari et Maserati."
+    },
+    {
+      "key": "f1l-q-clark",
+      "format": "quiz",
+      "prompt": "Avec quelle écurie Jim Clark remporte-t-il ses titres ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-clark"],
+      "options": [
+        {
+          "label": "Lotus",
+          "correct": true
+        },
+        {
+          "label": "Ferrari"
+        },
+        {
+          "label": "McLaren"
+        },
+        {
+          "label": "Williams"
+        }
+      ],
+      "explanation": "Avec Lotus, en 1963 et 1965."
+    },
+    {
+      "key": "f1l-q-stewart",
+      "format": "quiz",
+      "prompt": "Pour quelle cause Jackie Stewart s’est-il particulièrement battu ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-stewart"],
+      "options": [
+        {
+          "label": "La sécurité des pilotes",
+          "correct": true
+        },
+        {
+          "label": "L’égalité salariale"
+        },
+        {
+          "label": "L’écologie"
+        },
+        {
+          "label": "La télévision des courses"
+        }
+      ],
+      "explanation": "La sécurité, à une époque où la F1 était très meurtrière."
+    },
+    {
+      "key": "f1l-q-professeur",
+      "format": "quiz",
+      "prompt": "Quel pilote est surnommé le Professeur ?",
+      "difficulty": 1,
+      "knowledge": ["f1l-prost"],
+      "options": [
+        {
+          "label": "Alain Prost",
+          "correct": true
+        },
+        {
+          "label": "Ayrton Senna"
+        },
+        {
+          "label": "Niki Lauda"
+        },
+        {
+          "label": "Jackie Stewart"
+        }
+      ],
+      "explanation": "Alain Prost, pour son pilotage cérébral."
+    },
+    {
+      "key": "f1l-q-prost-francais",
+      "format": "true_false",
+      "prompt": "Alain Prost est le seul Français champion du monde de F1.",
+      "difficulty": 2,
+      "knowledge": ["f1l-prost"],
+      "answer": true,
+      "explanation": "Vrai : quatre titres, entre 1985 et 1993."
+    },
+    {
+      "key": "f1l-q-senna-monaco",
+      "format": "quiz",
+      "prompt": "Combien de fois Ayrton Senna a-t-il gagné à Monaco ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-senna"],
+      "options": [
+        {
+          "label": "6",
+          "correct": true
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "4"
+        },
+        {
+          "label": "8"
+        }
+      ],
+      "explanation": "Six fois, un record."
+    },
+    {
+      "key": "f1l-q-suzuka",
+      "format": "quiz",
+      "prompt": "Sur quel circuit Prost et Senna s’accrochent-ils en 1989 et 1990 ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-prost-senna"],
+      "options": [
+        {
+          "label": "Suzuka",
+          "correct": true
+        },
+        {
+          "label": "Monaco"
+        },
+        {
+          "label": "Monza"
+        },
+        {
+          "label": "Interlagos"
+        }
+      ],
+      "explanation": "À Suzuka, au Japon."
+    },
+    {
+      "key": "f1l-q-match-titres",
+      "format": "match",
+      "prompt": "Associe chaque pilote à son nombre de titres.",
+      "difficulty": 3,
+      "knowledge": ["f1l-prost", "f1l-senna", "f1l-clark", "f1l-fangio"],
+      "pairs": [
+        {
+          "left": "Fangio",
+          "right": "5 titres"
+        },
+        {
+          "left": "Prost",
+          "right": "4 titres"
+        },
+        {
+          "left": "Senna",
+          "right": "3 titres"
+        },
+        {
+          "left": "Clark",
+          "right": "2 titres"
+        }
+      ],
+      "explanation": "Fangio 5, Prost 4, Senna 3, Clark 2."
+    },
+    {
+      "key": "f1l-q-schumi-ferrari",
+      "format": "quiz",
+      "prompt": "Combien de titres d’affilée Schumacher gagne-t-il avec Ferrari ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-schumacher"],
+      "options": [
+        {
+          "label": "5",
+          "correct": true
+        },
+        {
+          "label": "3"
+        },
+        {
+          "label": "7"
+        },
+        {
+          "label": "2"
+        }
+      ],
+      "explanation": "Cinq, de 2000 à 2004."
+    },
+    {
+      "key": "f1l-q-alonso",
+      "format": "quiz",
+      "prompt": "Avec quelle écurie Fernando Alonso est-il champion du monde ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-alonso"],
+      "options": [
+        {
+          "label": "Renault",
+          "correct": true
+        },
+        {
+          "label": "Ferrari"
+        },
+        {
+          "label": "McLaren"
+        },
+        {
+          "label": "Aston Martin"
+        }
+      ],
+      "explanation": "Avec Renault, en 2005 et 2006."
+    },
+    {
+      "key": "f1l-q-vettel",
+      "format": "quiz",
+      "prompt": "Quel pilote remporte quatre titres consécutifs avec Red Bull, de 2010 à 2013 ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-vettel"],
+      "options": [
+        {
+          "label": "Sebastian Vettel",
+          "correct": true
+        },
+        {
+          "label": "Max Verstappen"
+        },
+        {
+          "label": "Mark Webber"
+        },
+        {
+          "label": "Lewis Hamilton"
+        }
+      ],
+      "explanation": "Sebastian Vettel."
+    },
+    {
+      "key": "f1l-q-hamilton-mclaren",
+      "format": "true_false",
+      "prompt": "Le premier titre de Lewis Hamilton, en 2008, a été remporté avec Mercedes.",
+      "difficulty": 3,
+      "knowledge": ["f1l-hamilton"],
+      "answer": false,
+      "explanation": "Faux : avec McLaren. Les six suivants viennent avec Mercedes."
+    },
+    {
+      "key": "f1l-q-verstappen-record",
+      "format": "quiz",
+      "prompt": "Quel record Max Verstappen bat-il en 2016 ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-verstappen"],
+      "options": [
+        {
+          "label": "Plus jeune vainqueur d’un Grand Prix",
+          "correct": true
+        },
+        {
+          "label": "Plus jeune champion du monde"
+        },
+        {
+          "label": "Plus grand nombre de victoires"
+        },
+        {
+          "label": "Plus long pilote en activité"
+        }
+      ],
+      "explanation": "Il gagne en Espagne à 18 ans. Le record du plus jeune champion appartient à Vettel."
+    },
+    {
+      "key": "f1l-q-frise-champions",
+      "format": "timeline",
+      "prompt": "Remets ces premiers titres dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["f1l-fangio", "f1l-senna", "f1l-schumacher", "f1l-hamilton"],
+      "items": [
+        {
+          "label": "Fangio",
+          "date": "1951"
+        },
+        {
+          "label": "Senna",
+          "date": "1988"
+        },
+        {
+          "label": "Schumacher",
+          "date": "1994"
+        },
+        {
+          "label": "Hamilton",
+          "date": "2008"
+        }
+      ],
+      "explanation": "1951, 1988, 1994, 2008."
+    },
+    {
+      "key": "f1l-q-imola",
+      "format": "quiz",
+      "prompt": "Sur quel circuit Ayrton Senna trouve-t-il la mort en 1994 ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-senna"],
+      "options": [
+        {
+          "label": "Imola",
+          "correct": true
+        },
+        {
+          "label": "Monaco"
+        },
+        {
+          "label": "Spa-Francorchamps"
+        },
+        {
+          "label": "Silverstone"
+        }
+      ],
+      "explanation": "À Imola, en Italie, le 1er mai 1994."
+    },
+    {
+      "key": "f1l-q-vettel-jeune",
+      "format": "quiz",
+      "prompt": "Quel pilote est devenu le plus jeune champion du monde, à 23 ans ?",
+      "difficulty": 4,
+      "knowledge": ["f1l-vettel"],
+      "options": [
+        {
+          "label": "Sebastian Vettel",
+          "correct": true
+        },
+        {
+          "label": "Max Verstappen"
+        },
+        {
+          "label": "Lewis Hamilton"
+        },
+        {
+          "label": "Fernando Alonso"
+        }
+      ],
+      "explanation": "Sebastian Vettel, en 2010."
+    },
+    {
+      "key": "f1l-q-maranello",
+      "format": "quiz",
+      "prompt": "Dans quelle ville est installée Ferrari ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-ferrari"],
+      "options": [
+        {
+          "label": "Maranello",
+          "correct": true
+        },
+        {
+          "label": "Monza"
+        },
+        {
+          "label": "Turin"
+        },
+        {
+          "label": "Milan"
+        }
+      ],
+      "explanation": "À Maranello, près de Modène."
+    },
+    {
+      "key": "f1l-q-ferrari-1950",
+      "format": "true_false",
+      "prompt": "Ferrari a participé à toutes les saisons du championnat depuis 1950.",
+      "difficulty": 2,
+      "knowledge": ["f1l-ferrari"],
+      "answer": true,
+      "explanation": "Vrai : c’est la seule écurie dans ce cas."
+    },
+    {
+      "key": "f1l-q-cheval",
+      "format": "quiz",
+      "prompt": "D’où vient le cheval cabré de Ferrari ?",
+      "difficulty": 4,
+      "knowledge": ["f1l-ferrari"],
+      "options": [
+        {
+          "label": "De l’avion d’un aviateur italien",
+          "correct": true
+        },
+        {
+          "label": "Du blason de la ville de Maranello"
+        },
+        {
+          "label": "D’un cheval de course d’Enzo Ferrari"
+        },
+        {
+          "label": "D’une marque de vin"
+        }
+      ],
+      "explanation": "De l’avion de Francesco Baracca, as de la Première Guerre mondiale."
+    },
+    {
+      "key": "f1l-q-tifosi",
+      "format": "quiz",
+      "prompt": "Comment appelle-t-on les fans de Ferrari ?",
+      "difficulty": 1,
+      "knowledge": ["f1l-ferrari"],
+      "options": [
+        {
+          "label": "Les tifosi",
+          "correct": true
+        },
+        {
+          "label": "Les ultras"
+        },
+        {
+          "label": "Les supporters rouges"
+        },
+        {
+          "label": "Les cavallini"
+        }
+      ],
+      "explanation": "Les tifosi."
+    },
+    {
+      "key": "f1l-q-schumi-ferrari-annees",
+      "format": "quiz",
+      "prompt": "Quel pilote a offert cinq titres d’affilée à Ferrari ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-schumacher", "f1l-ferrari"],
+      "options": [
+        {
+          "label": "Michael Schumacher",
+          "correct": true
+        },
+        {
+          "label": "Niki Lauda"
+        },
+        {
+          "label": "Kimi Räikkönen"
+        },
+        {
+          "label": "Sebastian Vettel"
+        }
+      ],
+      "explanation": "Michael Schumacher, de 2000 à 2004."
+    },
+    {
+      "key": "f1l-q-mclaren",
+      "format": "quiz",
+      "prompt": "De quel pays venait Bruce McLaren, fondateur de l’écurie ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-anglaises"],
+      "options": [
+        {
+          "label": "La Nouvelle-Zélande",
+          "correct": true
+        },
+        {
+          "label": "Le Royaume-Uni"
+        },
+        {
+          "label": "L’Australie"
+        },
+        {
+          "label": "Le Canada"
+        }
+      ],
+      "explanation": "De Nouvelle-Zélande."
+    },
+    {
+      "key": "f1l-q-chapman",
+      "format": "quiz",
+      "prompt": "Quelle écurie a fondée Colin Chapman ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-anglaises"],
+      "options": [
+        {
+          "label": "Lotus",
+          "correct": true
+        },
+        {
+          "label": "Williams"
+        },
+        {
+          "label": "McLaren"
+        },
+        {
+          "label": "Tyrrell"
+        }
+      ],
+      "explanation": "Lotus."
+    },
+    {
+      "key": "f1l-q-prost-williams",
+      "format": "true_false",
+      "prompt": "Alain Prost a remporté son dernier titre avec Williams.",
+      "difficulty": 3,
+      "knowledge": ["f1l-prost", "f1l-anglaises"],
+      "answer": true,
+      "explanation": "Vrai, en 1993."
+    },
+    {
+      "key": "f1l-q-lauda-mclaren",
+      "format": "quiz",
+      "prompt": "Avec quelle écurie Niki Lauda remporte-t-il son titre de 1984 ?",
+      "difficulty": 4,
+      "knowledge": ["f1l-lauda"],
+      "options": [
+        {
+          "label": "McLaren",
+          "correct": true
+        },
+        {
+          "label": "Ferrari"
+        },
+        {
+          "label": "Brabham"
+        },
+        {
+          "label": "Williams"
+        }
+      ],
+      "explanation": "Avec McLaren, après ses deux titres chez Ferrari."
+    },
+    {
+      "key": "f1l-q-match-fondateurs",
+      "format": "match",
+      "prompt": "Associe chaque écurie à son fondateur.",
+      "difficulty": 3,
+      "knowledge": ["f1l-anglaises", "f1l-ferrari"],
+      "pairs": [
+        {
+          "left": "Ferrari",
+          "right": "Enzo Ferrari"
+        },
+        {
+          "left": "McLaren",
+          "right": "Bruce McLaren"
+        },
+        {
+          "left": "Williams",
+          "right": "Frank Williams"
+        },
+        {
+          "left": "Lotus",
+          "right": "Colin Chapman"
+        }
+      ],
+      "explanation": "Chaque écurie porte le nom ou la marque de son fondateur."
+    },
+    {
+      "key": "f1l-q-rush",
+      "format": "quiz",
+      "prompt": "Quelle rivalité raconte le film Rush ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-hunt-lauda"],
+      "options": [
+        {
+          "label": "James Hunt contre Niki Lauda",
+          "correct": true
+        },
+        {
+          "label": "Prost contre Senna"
+        },
+        {
+          "label": "Hamilton contre Verstappen"
+        },
+        {
+          "label": "Schumacher contre Hill"
+        }
+      ],
+      "explanation": "La saison 1976, entre Hunt et Lauda."
+    },
+    {
+      "key": "f1l-q-lauda-retour",
+      "format": "quiz",
+      "prompt": "Combien de temps après son accident du Nürburgring Lauda revient-il en course ?",
+      "difficulty": 4,
+      "knowledge": ["f1l-hunt-lauda"],
+      "options": [
+        {
+          "label": "Six semaines",
+          "correct": true
+        },
+        {
+          "label": "Six mois"
+        },
+        {
+          "label": "Un an"
+        },
+        {
+          "label": "Deux semaines"
+        }
+      ],
+      "explanation": "Six semaines seulement, encore marqué par ses brûlures."
+    },
+    {
+      "key": "f1l-q-rosberg",
+      "format": "quiz",
+      "prompt": "Que fait Nico Rosberg cinq jours après son titre de 2016 ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-rosberg"],
+      "options": [
+        {
+          "label": "Il prend sa retraite",
+          "correct": true
+        },
+        {
+          "label": "Il signe chez Ferrari"
+        },
+        {
+          "label": "Il devient patron d’écurie"
+        },
+        {
+          "label": "Il annonce un défi avec Hamilton"
+        }
+      ],
+      "explanation": "Il annonce sa retraite, au sommet."
+    },
+    {
+      "key": "f1l-q-abu-dhabi",
+      "format": "quiz",
+      "prompt": "Où se décide le titre 2021 entre Hamilton et Verstappen ?",
+      "difficulty": 2,
+      "knowledge": ["f1l-2021"],
+      "options": [
+        {
+          "label": "Abu Dhabi",
+          "correct": true
+        },
+        {
+          "label": "Monaco"
+        },
+        {
+          "label": "Silverstone"
+        },
+        {
+          "label": "Interlagos"
+        }
+      ],
+      "explanation": "À Abu Dhabi, au dernier tour du dernier Grand Prix."
+    },
+    {
+      "key": "f1l-q-hunt-1976",
+      "format": "true_false",
+      "prompt": "En 1976, James Hunt devance Niki Lauda d’un seul point.",
+      "difficulty": 3,
+      "knowledge": ["f1l-hunt-lauda"],
+      "answer": true,
+      "explanation": "Vrai : 69 points contre 68."
+    },
+    {
+      "key": "f1l-q-frise-rivalites",
+      "format": "timeline",
+      "prompt": "Remets ces duels dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["f1l-hunt-lauda", "f1l-prost-senna", "f1l-rosberg", "f1l-2021"],
+      "items": [
+        {
+          "label": "Hunt contre Lauda",
+          "date": "1976"
+        },
+        {
+          "label": "Prost contre Senna à Suzuka",
+          "date": "1989"
+        },
+        {
+          "label": "Rosberg contre Hamilton",
+          "date": "2016"
+        },
+        {
+          "label": "Verstappen contre Hamilton à Abu Dhabi",
+          "date": "2021"
+        }
+      ],
+      "explanation": "1976, 1989, 2016, 2021."
+    },
+    {
+      "key": "f1l-q-lauda-titres",
+      "format": "quiz",
+      "prompt": "Combien de titres Niki Lauda a-t-il remportés ?",
+      "difficulty": 3,
+      "knowledge": ["f1l-lauda"],
+      "options": [
+        {
+          "label": "3",
+          "correct": true
+        },
+        {
+          "label": "1"
+        },
+        {
+          "label": "2"
+        },
+        {
+          "label": "4"
+        }
+      ],
+      "explanation": "Trois : 1975, 1977 et 1984."
+    },
+    {
+      "key": "f1l-q-verstappen-premier",
+      "format": "true_false",
+      "prompt": "Max Verstappen remporte son premier titre en 2021.",
+      "difficulty": 2,
+      "knowledge": ["f1l-verstappen"],
+      "answer": true,
+      "explanation": "Vrai, au terme d’une saison folle face à Hamilton."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les pilotes de légende",
+      "description": "Des pionniers aux champions d’aujourd’hui.",
+      "lessons": [
+        {
+          "slug": "f1l-pionniers",
+          "title": "Les pionniers",
+          "objective": "Connaître Fangio, Clark et Stewart.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "El Maestro",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "5",
+                  "label": "Titres de Juan Manuel Fangio dans les années 1950"
+                },
+                {
+                  "type": "text",
+                  "text": "L’Argentin gagne avec quatre écuries différentes : Alfa Romeo, Mercedes, Ferrari et Maserati. Une performance unique."
+                }
+              ]
+            },
+            {
+              "title": "Le génie écossais",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Jim Clark remporte deux titres avec Lotus, en 1963 et 1965. Beaucoup le considèrent comme le pilote le plus naturellement doué de l’histoire."
+                }
+              ]
+            },
+            {
+              "title": "Le combat pour la sécurité",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Triple champion (1969, 1971, 1973), Jackie Stewart milite pour des circuits plus sûrs, à une époque où les accidents mortels étaient fréquents."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "f1l-q-fangio-pays",
+            "f1l-q-fangio-titres",
+            "f1l-q-fangio-ecuries",
+            "f1l-q-clark",
+            "f1l-q-stewart"
+          ]
+        },
+        {
+          "slug": "f1l-prost-senna",
+          "title": "Prost contre Senna",
+          "objective": "Raconter la plus grande rivalité de la F1.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Le Professeur",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Calculateur et précis, Alain Prost gagne quatre titres : 1985, 1986 et 1989 avec McLaren, puis 1993 avec Williams. Il reste le seul Français champion du monde de F1."
+                }
+              ]
+            },
+            {
+              "title": "Le magicien",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Ayrton Senna est titré en 1988, 1990 et 1991. Roi de la qualification et de la pluie, il gagne six fois à Monaco, un record. Il se tue à Imola le 1er mai 1994."
+                }
+              ]
+            },
+            {
+              "title": "Suzuka",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1989 puis en 1990, les deux rivaux s’accrochent au Grand Prix du Japon, à Suzuka. Les deux fois, l’accrochage décide du titre."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "f1l-q-professeur",
+            "f1l-q-prost-francais",
+            "f1l-q-senna-monaco",
+            "f1l-q-suzuka",
+            "f1l-q-match-titres"
+          ]
+        },
+        {
+          "slug": "f1l-moderne",
+          "title": "L’ère moderne",
+          "objective": "Connaître les grands champions depuis 1994.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Les années Schumacher",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Michael Schumacher gagne deux titres avec Benetton (1994, 1995), puis cinq de suite avec Ferrari, de 2000 à 2004 : sept au total."
+                }
+              ]
+            },
+            {
+              "title": "Les successeurs",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Fernando Alonso : 2005 et 2006 avec Renault.",
+                    "Sebastian Vettel : quatre titres de suite avec Red Bull, de 2010 à 2013.",
+                    "Lewis Hamilton : sept titres entre 2008 et 2020, avec McLaren puis Mercedes."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "La nouvelle génération",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 2016, à 18 ans, Max Verstappen devient le plus jeune vainqueur d’un Grand Prix. Il décroche son premier titre en 2021."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "f1l-q-schumi-ferrari",
+            "f1l-q-alonso",
+            "f1l-q-vettel",
+            "f1l-q-hamilton-mclaren",
+            "f1l-q-verstappen-record"
+          ]
+        },
+        {
+          "slug": "f1l-epreuve-pilotes",
+          "title": "Épreuve : les pilotes de légende",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "f1l-q-fangio-titres",
+            "f1l-q-professeur",
+            "f1l-q-vettel",
+            "f1l-q-frise-champions",
+            "f1l-q-imola",
+            "f1l-q-vettel-jeune"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Écuries et rivalités",
+      "description": "Les équipes mythiques et les duels qui ont fait vibrer.",
+      "lessons": [
+        {
+          "slug": "f1l-ferrari",
+          "title": "Ferrari, le mythe",
+          "objective": "Connaître l’histoire de la Scuderia.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Toujours là",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Ferrari est la seule écurie à avoir disputé toutes les saisons du championnat du monde depuis 1950."
+                }
+              ]
+            },
+            {
+              "title": "Maranello",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Fondée par Enzo Ferrari, la Scuderia est installée à Maranello, en Italie. Ses fans, les tifosi, envahissent la piste de Monza chaque année."
+                }
+              ]
+            },
+            {
+              "title": "Le cheval cabré",
+              "blocks": [
+                {
+                  "type": "fact",
+                  "text": "Le cheval cabré ornait l’avion de Francesco Baracca, as de l’aviation italienne pendant la Première Guerre mondiale. Sa famille l’offre à Enzo Ferrari."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "f1l-q-maranello",
+            "f1l-q-ferrari-1950",
+            "f1l-q-cheval",
+            "f1l-q-tifosi",
+            "f1l-q-schumi-ferrari-annees"
+          ]
+        },
+        {
+          "slug": "f1l-anglaises",
+          "title": "Les écuries britanniques",
+          "objective": "Connaître McLaren, Williams et Lotus.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Des noms de fondateurs",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "McLaren : fondée par le pilote néo-zélandais Bruce McLaren.",
+                    "Williams : fondée par Frank Williams.",
+                    "Lotus : fondée par l’ingénieur Colin Chapman."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Les grandes heures",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "McLaren domine la fin des années 1980 avec Prost et Senna. Williams règne au début des années 1990, Prost y décroche son dernier titre en 1993."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "f1l-q-mclaren",
+            "f1l-q-chapman",
+            "f1l-q-prost-williams",
+            "f1l-q-lauda-mclaren",
+            "f1l-q-match-fondateurs"
+          ]
+        },
+        {
+          "slug": "f1l-rivalites",
+          "title": "Rivalités de légende",
+          "objective": "Raconter les duels Hunt-Lauda, Hamilton-Rosberg et Hamilton-Verstappen.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "1976, Hunt et Lauda",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Gravement brûlé au Nürburgring, Niki Lauda revient en course six semaines plus tard. James Hunt lui ravit le titre pour un point. Le film Rush (2013) raconte cette saison."
+                }
+              ]
+            },
+            {
+              "title": "2016, le titre et la retraite",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Nico Rosberg bat son coéquipier Lewis Hamilton pour le titre 2016, puis annonce sa retraite cinq jours plus tard."
+                }
+              ]
+            },
+            {
+              "title": "2021, le dernier tour",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Hamilton et Verstappen arrivent à égalité de points au dernier Grand Prix, à Abu Dhabi. Verstappen dépasse Hamilton dans le dernier tour et prend le titre."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "f1l-q-rush",
+            "f1l-q-lauda-retour",
+            "f1l-q-rosberg",
+            "f1l-q-abu-dhabi",
+            "f1l-q-hunt-1976"
+          ]
+        },
+        {
+          "slug": "f1l-epreuve-ecuries",
+          "title": "Épreuve : écuries et rivalités",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "f1l-q-maranello",
+            "f1l-q-rush",
+            "f1l-q-abu-dhabi",
+            "f1l-q-frise-rivalites",
+            "f1l-q-lauda-titres",
+            "f1l-q-verstappen-premier"
+          ]
+        }
+      ]
+    }
+  ]
+}

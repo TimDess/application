@@ -1,0 +1,1159 @@
+{
+  "universe": "creation-design",
+  "status": "published",
+  "category": {
+    "slug": "branding-graphisme",
+    "name": "Branding et graphisme",
+    "description": "Logos, typographies, couleurs : la culture visuelle des marques."
+  },
+  "course": {
+    "slug": "logos-et-marques-cultes",
+    "title": "Logos et marques cultes",
+    "description": "Les histoires derrière les logos que tu croises tous les jours, les polices célèbres et les grands courants du graphisme.",
+    "level": "debutant"
+  },
+  "knowledge": [
+    {
+      "key": "dsg-swoosh",
+      "title": "Le Swoosh de Nike",
+      "summary": "Dessiné en 1971 par Carolyn Davidson, étudiante à Portland, payée 35 dollars. Nike tient son nom de la déesse grecque de la victoire.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-just-do-it",
+      "title": "Just Do It",
+      "summary": "Le slogan de Nike est lancé en 1988 par l’agence Wieden+Kennedy.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-lacoste",
+      "title": "Le crocodile Lacoste",
+      "summary": "René Lacoste, tennisman surnommé « le crocodile », lance en 1933 le polo brodé de l’animal.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-chanel",
+      "title": "Le double C de Chanel",
+      "summary": "Les deux C entrelacés de Coco Chanel apparaissent dans les années 1920.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-apple",
+      "title": "La pomme d’Apple",
+      "summary": "Le premier logo (1976) montre Newton sous un arbre. Rob Janoff dessine la pomme croquée en 1977, aux bandes arc-en-ciel jusqu’en 1998.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-coca",
+      "title": "L’écriture de Coca-Cola",
+      "summary": "Le logo en écriture cursive est tracé en 1886 par Frank Mason Robinson, comptable du créateur de la boisson.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-bibendum",
+      "title": "Bibendum",
+      "summary": "Le bonhomme Michelin, fait de pneus, est créé en 1898 par l’illustrateur O’Galop.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-starbucks",
+      "title": "La sirène de Starbucks",
+      "summary": "Starbucks naît à Seattle en 1971. Son logo représente une sirène à deux queues, inspirée d’une gravure ancienne.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-fedex",
+      "title": "La flèche cachée de FedEx",
+      "summary": "Le logo de 1994, signé Lindon Leader, cache une flèche blanche entre le E et le x.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-amazon",
+      "title": "Le sourire d’Amazon",
+      "summary": "La flèche d’Amazon relie le a au z : on trouve tout, de A à Z. Elle dessine aussi un sourire.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-toblerone",
+      "title": "L’ours de Toblerone",
+      "summary": "Le Cervin du logo Toblerone cache un ours, symbole de Berne, la ville d’origine du chocolat.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-iloveny",
+      "title": "I ♥ NY",
+      "summary": "Milton Glaser dessine I ♥ NY en 1977 pour promouvoir l’État de New York, sans être payé.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-helvetica",
+      "title": "Helvetica",
+      "summary": "Créée en 1957 par Max Miedinger et Eduard Hoffmann en Suisse, d’abord appelée Neue Haas Grotesk.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-serif",
+      "title": "Avec ou sans empattements",
+      "summary": "Les empattements (serifs) sont les petites extensions au bout des lettres. Une police sans serif en est dépourvue.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-polices",
+      "title": "Polices célèbres",
+      "summary": "Futura (Paul Renner, 1927), Times New Roman (créée en 1932 pour le journal The Times), Comic Sans (Vincent Connare, 1994, Microsoft).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-garamond",
+      "title": "Garamond",
+      "summary": "La Garamond doit son nom à Claude Garamond, graveur de caractères parisien du XVIe siècle.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-bauhaus",
+      "title": "Le Bauhaus",
+      "summary": "École fondée en 1919 à Weimar par Walter Gropius, installée à Dessau en 1925 et fermée en 1933 sous la pression des nazis.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-form-function",
+      "title": "La forme suit la fonction",
+      "summary": "Principe moderniste : l’apparence d’un objet découle de son usage. La formule vient de l’architecte Louis Sullivan.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-rand-bass",
+      "title": "Paul Rand et Saul Bass",
+      "summary": "Paul Rand signe le logo rayé d’IBM (1972). Saul Bass crée les génériques de Vertigo et Psychose d’Hitchcock.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-warhol",
+      "title": "Le pop art",
+      "summary": "Andy Warhol peint les Campbell’s Soup Cans en 1962 : la publicité et les produits de masse entrent au musée.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-rvb-cmjn",
+      "title": "RVB et CMJN",
+      "summary": "Les écrans affichent en RVB (rouge, vert, bleu, lumière). L’impression utilise le CMJN (cyan, magenta, jaune, noir).",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-pantone",
+      "title": "Pantone",
+      "summary": "Le nuancier Pantone, lancé en 1963, donne un numéro à chaque couleur. Depuis 2000, Pantone élit une couleur de l’année.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "dsg-complementaires",
+      "title": "Les couleurs complémentaires",
+      "summary": "Sur le cercle chromatique, deux couleurs opposées (bleu et orange, rouge et vert, violet et jaune) se renforcent.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "dsg-q-swoosh-prix",
+      "format": "quiz",
+      "prompt": "Combien Carolyn Davidson a-t-elle été payée pour dessiner le Swoosh de Nike ?",
+      "difficulty": 2,
+      "knowledge": ["dsg-swoosh"],
+      "options": [
+        {
+          "label": "35 dollars",
+          "correct": true
+        },
+        {
+          "label": "3 500 dollars"
+        },
+        {
+          "label": "35 000 dollars"
+        },
+        {
+          "label": "1 million de dollars"
+        }
+      ],
+      "explanation": "Seulement 35 dollars en 1971. Nike lui a ensuite offert des actions de l’entreprise."
+    },
+    {
+      "key": "dsg-q-nike-nom",
+      "format": "quiz",
+      "prompt": "D’où vient le nom Nike ?",
+      "difficulty": 1,
+      "knowledge": ["dsg-swoosh"],
+      "options": [
+        {
+          "label": "De la déesse grecque de la victoire",
+          "correct": true
+        },
+        {
+          "label": "Du prénom du fondateur"
+        },
+        {
+          "label": "D’une ville du Japon"
+        },
+        {
+          "label": "D’un mot latin pour « courir »"
+        }
+      ],
+      "explanation": "Niké est la déesse grecque de la victoire."
+    },
+    {
+      "key": "dsg-q-just-do-it",
+      "format": "guess_year",
+      "prompt": "En quelle année Nike lance-t-il le slogan Just Do It ?",
+      "difficulty": 3,
+      "knowledge": ["dsg-just-do-it"],
+      "year": 1988,
+      "tolerance": 2,
+      "min": 1970,
+      "max": 2005,
+      "explanation": "Le slogan arrive en 1988, signé par l’agence Wieden+Kennedy."
+    },
+    {
+      "key": "dsg-q-lacoste",
+      "format": "true_false",
+      "prompt": "Le crocodile de Lacoste vient du surnom du tennisman René Lacoste.",
+      "difficulty": 1,
+      "knowledge": ["dsg-lacoste"],
+      "answer": true,
+      "explanation": "Vrai : René Lacoste était surnommé « le crocodile » pour sa ténacité sur le court."
+    },
+    {
+      "key": "dsg-q-match-mode",
+      "format": "match",
+      "prompt": "Associe chaque marque à son emblème.",
+      "difficulty": 2,
+      "knowledge": ["dsg-swoosh", "dsg-lacoste", "dsg-chanel"],
+      "pairs": [
+        {
+          "left": "Nike",
+          "right": "Une virgule"
+        },
+        {
+          "left": "Lacoste",
+          "right": "Un crocodile"
+        },
+        {
+          "left": "Chanel",
+          "right": "Deux C entrelacés"
+        }
+      ],
+      "explanation": "Le Swoosh pour Nike, le crocodile pour Lacoste, le double C pour Chanel."
+    },
+    {
+      "key": "dsg-q-apple-premier",
+      "format": "quiz",
+      "prompt": "Que montrait le tout premier logo d’Apple, en 1976 ?",
+      "difficulty": 3,
+      "knowledge": ["dsg-apple"],
+      "options": [
+        {
+          "label": "Isaac Newton assis sous un arbre",
+          "correct": true
+        },
+        {
+          "label": "Une pomme rouge entière"
+        },
+        {
+          "label": "Un ordinateur"
+        },
+        {
+          "label": "Steve Jobs"
+        }
+      ],
+      "explanation": "Le premier logo montrait Newton sous un pommier. La pomme croquée arrive en 1977."
+    },
+    {
+      "key": "dsg-q-apple-arcenciel",
+      "format": "true_false",
+      "prompt": "La pomme d’Apple a été rayée de bandes arc-en-ciel jusqu’à la fin des années 1990.",
+      "difficulty": 2,
+      "knowledge": ["dsg-apple"],
+      "answer": true,
+      "explanation": "Vrai : les bandes colorées disparaissent en 1998."
+    },
+    {
+      "key": "dsg-q-coca",
+      "format": "guess_year",
+      "prompt": "En quelle année est tracé le logo de Coca-Cola ?",
+      "difficulty": 3,
+      "knowledge": ["dsg-coca"],
+      "year": 1886,
+      "tolerance": 5,
+      "min": 1850,
+      "max": 1950,
+      "explanation": "Frank Mason Robinson l’écrit en 1886, l’année de création de la boisson."
+    },
+    {
+      "key": "dsg-q-bibendum",
+      "format": "quiz",
+      "prompt": "De quoi est fait Bibendum, la mascotte de Michelin ?",
+      "difficulty": 1,
+      "knowledge": ["dsg-bibendum"],
+      "options": [
+        {
+          "label": "De pneus",
+          "correct": true
+        },
+        {
+          "label": "De ballons"
+        },
+        {
+          "label": "De nuages"
+        },
+        {
+          "label": "De guimauve"
+        }
+      ],
+      "explanation": "Bibendum est un empilement de pneus blancs, créé en 1898."
+    },
+    {
+      "key": "dsg-q-starbucks",
+      "format": "quiz",
+      "prompt": "Quelle créature figure sur le logo de Starbucks ?",
+      "difficulty": 1,
+      "knowledge": ["dsg-starbucks"],
+      "options": [
+        {
+          "label": "Une sirène",
+          "correct": true
+        },
+        {
+          "label": "Une licorne"
+        },
+        {
+          "label": "Un dragon"
+        },
+        {
+          "label": "Une fée"
+        }
+      ],
+      "explanation": "Une sirène à deux queues, inspirée d’une gravure ancienne."
+    },
+    {
+      "key": "dsg-q-fedex",
+      "format": "quiz",
+      "prompt": "Qu’est-ce qui se cache dans le logo de FedEx ?",
+      "difficulty": 2,
+      "knowledge": ["dsg-fedex"],
+      "options": [
+        {
+          "label": "Une flèche entre le E et le x",
+          "correct": true
+        },
+        {
+          "label": "Un avion dans le F"
+        },
+        {
+          "label": "Un globe dans le d"
+        },
+        {
+          "label": "Un colis dans le x"
+        }
+      ],
+      "explanation": "L’espace blanc entre le E et le x dessine une flèche."
+    },
+    {
+      "key": "dsg-q-amazon",
+      "format": "quiz",
+      "prompt": "Que relie la flèche du logo Amazon ?",
+      "difficulty": 2,
+      "knowledge": ["dsg-amazon"],
+      "options": [
+        {
+          "label": "Le a et le z",
+          "correct": true
+        },
+        {
+          "label": "Le A et le n"
+        },
+        {
+          "label": "Le m et le o"
+        },
+        {
+          "label": "Rien, c’est juste un sourire"
+        }
+      ],
+      "explanation": "Elle va du a au z : on trouve tout, de A à Z."
+    },
+    {
+      "key": "dsg-q-toblerone",
+      "format": "quiz",
+      "prompt": "Quel animal se cache dans la montagne du logo Toblerone ?",
+      "difficulty": 2,
+      "knowledge": ["dsg-toblerone"],
+      "options": [
+        {
+          "label": "Un ours",
+          "correct": true
+        },
+        {
+          "label": "Un aigle"
+        },
+        {
+          "label": "Une vache"
+        },
+        {
+          "label": "Un bouquetin"
+        }
+      ],
+      "explanation": "Un ours, symbole de Berne, la ville d’origine du chocolat."
+    },
+    {
+      "key": "dsg-q-iloveny",
+      "format": "true_false",
+      "prompt": "Milton Glaser a été très bien payé pour dessiner I ♥ NY.",
+      "difficulty": 2,
+      "knowledge": ["dsg-iloveny"],
+      "answer": false,
+      "explanation": "Faux : il l’a dessiné gratuitement, en 1977, pour soutenir l’État de New York."
+    },
+    {
+      "key": "dsg-q-match-caches",
+      "format": "match",
+      "prompt": "Associe chaque logo à son secret.",
+      "difficulty": 3,
+      "knowledge": ["dsg-fedex", "dsg-amazon", "dsg-toblerone"],
+      "pairs": [
+        {
+          "left": "FedEx",
+          "right": "Une flèche"
+        },
+        {
+          "left": "Amazon",
+          "right": "Un sourire de A à Z"
+        },
+        {
+          "left": "Toblerone",
+          "right": "Un ours"
+        }
+      ],
+      "explanation": "FedEx cache une flèche, Amazon un sourire, Toblerone un ours."
+    },
+    {
+      "key": "dsg-q-frise-logos",
+      "format": "timeline",
+      "prompt": "Remets ces logos dans l’ordre de leur création.",
+      "difficulty": 3,
+      "knowledge": ["dsg-coca", "dsg-bibendum", "dsg-swoosh", "dsg-fedex"],
+      "items": [
+        {
+          "label": "Coca-Cola",
+          "date": "1886"
+        },
+        {
+          "label": "Bibendum de Michelin",
+          "date": "1898"
+        },
+        {
+          "label": "Swoosh de Nike",
+          "date": "1971"
+        },
+        {
+          "label": "FedEx et sa flèche",
+          "date": "1994"
+        }
+      ],
+      "explanation": "1886 : Coca-Cola. 1898 : Bibendum. 1971 : le Swoosh. 1994 : FedEx."
+    },
+    {
+      "key": "dsg-q-starbucks-ville",
+      "format": "true_false",
+      "prompt": "Starbucks est né à Seattle.",
+      "difficulty": 2,
+      "knowledge": ["dsg-starbucks"],
+      "answer": true,
+      "explanation": "Vrai : le premier café ouvre à Seattle en 1971."
+    },
+    {
+      "key": "dsg-q-janoff",
+      "format": "quiz",
+      "prompt": "Qui a dessiné la pomme croquée d’Apple ?",
+      "difficulty": 3,
+      "knowledge": ["dsg-apple"],
+      "options": [
+        {
+          "label": "Rob Janoff",
+          "correct": true
+        },
+        {
+          "label": "Steve Jobs"
+        },
+        {
+          "label": "Milton Glaser"
+        },
+        {
+          "label": "Paul Rand"
+        }
+      ],
+      "explanation": "Rob Janoff, en 1977."
+    },
+    {
+      "key": "dsg-q-serif",
+      "format": "quiz",
+      "prompt": "Comment appelle-t-on les petites extensions au bout des lettres ?",
+      "difficulty": 1,
+      "knowledge": ["dsg-serif"],
+      "options": [
+        {
+          "label": "Les empattements",
+          "correct": true
+        },
+        {
+          "label": "Les ligatures"
+        },
+        {
+          "label": "Les crénages"
+        },
+        {
+          "label": "Les ascendantes"
+        }
+      ],
+      "explanation": "Les empattements, ou serifs."
+    },
+    {
+      "key": "dsg-q-helvetica-pays",
+      "format": "quiz",
+      "prompt": "De quel pays vient la police Helvetica ?",
+      "difficulty": 1,
+      "knowledge": ["dsg-helvetica"],
+      "options": [
+        {
+          "label": "La Suisse",
+          "correct": true
+        },
+        {
+          "label": "L’Allemagne"
+        },
+        {
+          "label": "Les États-Unis"
+        },
+        {
+          "label": "La France"
+        }
+      ],
+      "explanation": "Helvetica vient de Helvetia, le nom latin de la Suisse."
+    },
+    {
+      "key": "dsg-q-helvetica-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année est créée Helvetica ?",
+      "difficulty": 3,
+      "knowledge": ["dsg-helvetica"],
+      "year": 1957,
+      "tolerance": 3,
+      "min": 1900,
+      "max": 2000,
+      "explanation": "En 1957, sous le nom de Neue Haas Grotesk."
+    },
+    {
+      "key": "dsg-q-times",
+      "format": "true_false",
+      "prompt": "Times New Roman a été créée pour un journal.",
+      "difficulty": 2,
+      "knowledge": ["dsg-polices"],
+      "answer": true,
+      "explanation": "Vrai : pour le quotidien britannique The Times, en 1932."
+    },
+    {
+      "key": "dsg-q-match-polices",
+      "format": "match",
+      "prompt": "Associe chaque police à son origine.",
+      "difficulty": 3,
+      "knowledge": ["dsg-polices", "dsg-garamond"],
+      "pairs": [
+        {
+          "left": "Garamond",
+          "right": "Un graveur du XVIe siècle"
+        },
+        {
+          "left": "Futura",
+          "right": "Paul Renner, 1927"
+        },
+        {
+          "left": "Times New Roman",
+          "right": "Le journal The Times"
+        },
+        {
+          "left": "Comic Sans",
+          "right": "Microsoft, 1994"
+        }
+      ],
+      "explanation": "Garamond au XVIe siècle, Futura en 1927, Times New Roman en 1932, Comic Sans en 1994."
+    },
+    {
+      "key": "dsg-q-bauhaus-fondateur",
+      "format": "quiz",
+      "prompt": "Qui fonde le Bauhaus en 1919 ?",
+      "difficulty": 2,
+      "knowledge": ["dsg-bauhaus"],
+      "options": [
+        {
+          "label": "Walter Gropius",
+          "correct": true
+        },
+        {
+          "label": "Le Corbusier"
+        },
+        {
+          "label": "Andy Warhol"
+        },
+        {
+          "label": "Paul Rand"
+        }
+      ],
+      "explanation": "L’architecte allemand Walter Gropius, à Weimar."
+    },
+    {
+      "key": "dsg-q-frise-bauhaus",
+      "format": "timeline",
+      "prompt": "Remets l’histoire du Bauhaus dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["dsg-bauhaus"],
+      "items": [
+        {
+          "label": "Fondation à Weimar",
+          "date": "1919"
+        },
+        {
+          "label": "Installation à Dessau",
+          "date": "1925"
+        },
+        {
+          "label": "Fermeture",
+          "date": "1933"
+        }
+      ],
+      "explanation": "1919 : Weimar. 1925 : Dessau. 1933 : fermeture."
+    },
+    {
+      "key": "dsg-q-form-function",
+      "format": "true_false",
+      "prompt": "Selon le principe moderniste, la fonction suit la forme.",
+      "difficulty": 2,
+      "knowledge": ["dsg-form-function"],
+      "answer": false,
+      "explanation": "Faux : c’est l’inverse, la forme suit la fonction."
+    },
+    {
+      "key": "dsg-q-warhol",
+      "format": "quiz",
+      "prompt": "Quel produit Andy Warhol a-t-il rendu célèbre en 1962 ?",
+      "difficulty": 1,
+      "knowledge": ["dsg-warhol"],
+      "options": [
+        {
+          "label": "Les boîtes de soupe Campbell’s",
+          "correct": true
+        },
+        {
+          "label": "Les bouteilles de Coca-Cola"
+        },
+        {
+          "label": "Les boîtes de céréales"
+        },
+        {
+          "label": "Les canettes de bière"
+        }
+      ],
+      "explanation": "Ses 32 toiles des Campbell’s Soup Cans font entrer la grande consommation au musée."
+    },
+    {
+      "key": "dsg-q-match-designers",
+      "format": "match",
+      "prompt": "Associe chaque créatif à son œuvre.",
+      "difficulty": 3,
+      "knowledge": ["dsg-rand-bass", "dsg-warhol", "dsg-iloveny"],
+      "pairs": [
+        {
+          "left": "Paul Rand",
+          "right": "Le logo d’IBM"
+        },
+        {
+          "left": "Saul Bass",
+          "right": "Le générique de Psychose"
+        },
+        {
+          "left": "Andy Warhol",
+          "right": "Les soupes Campbell’s"
+        },
+        {
+          "left": "Milton Glaser",
+          "right": "I ♥ NY"
+        }
+      ],
+      "explanation": "Rand pour IBM, Bass pour Psychose, Warhol pour Campbell’s, Glaser pour I ♥ NY."
+    },
+    {
+      "key": "dsg-q-rvb",
+      "format": "quiz",
+      "prompt": "Que signifie RVB ?",
+      "difficulty": 1,
+      "knowledge": ["dsg-rvb-cmjn"],
+      "options": [
+        {
+          "label": "Rouge, vert, bleu",
+          "correct": true
+        },
+        {
+          "label": "Rouge, violet, blanc"
+        },
+        {
+          "label": "Rose, vert, bleu"
+        },
+        {
+          "label": "Rouge, vert, brun"
+        }
+      ],
+      "explanation": "Rouge, vert, bleu : les trois lumières des écrans."
+    },
+    {
+      "key": "dsg-q-cmjn",
+      "format": "true_false",
+      "prompt": "Pour imprimer une affiche, on prépare le fichier en CMJN.",
+      "difficulty": 2,
+      "knowledge": ["dsg-rvb-cmjn"],
+      "answer": true,
+      "explanation": "Vrai : l’imprimante travaille avec des encres cyan, magenta, jaune et noire."
+    },
+    {
+      "key": "dsg-q-complementaire",
+      "format": "quiz",
+      "prompt": "Quelle est la couleur complémentaire du bleu ?",
+      "difficulty": 2,
+      "knowledge": ["dsg-complementaires"],
+      "options": [
+        {
+          "label": "L’orange",
+          "correct": true
+        },
+        {
+          "label": "Le vert"
+        },
+        {
+          "label": "Le violet"
+        },
+        {
+          "label": "Le rouge"
+        }
+      ],
+      "explanation": "Bleu et orange sont opposés sur le cercle chromatique."
+    },
+    {
+      "key": "dsg-q-pantone",
+      "format": "quiz",
+      "prompt": "Que fait Pantone chaque année depuis 2000 ?",
+      "difficulty": 2,
+      "knowledge": ["dsg-pantone"],
+      "options": [
+        {
+          "label": "Il élit une couleur de l’année",
+          "correct": true
+        },
+        {
+          "label": "Il invente une nouvelle couleur"
+        },
+        {
+          "label": "Il récompense un logo"
+        },
+        {
+          "label": "Il change son propre logo"
+        }
+      ],
+      "explanation": "La couleur de l’année Pantone influence la mode et le design."
+    },
+    {
+      "key": "dsg-q-match-complementaires",
+      "format": "match",
+      "prompt": "Associe chaque couleur à sa complémentaire.",
+      "difficulty": 2,
+      "knowledge": ["dsg-complementaires"],
+      "pairs": [
+        {
+          "left": "Bleu",
+          "right": "Orange"
+        },
+        {
+          "left": "Rouge",
+          "right": "Vert"
+        },
+        {
+          "left": "Violet",
+          "right": "Jaune"
+        }
+      ],
+      "explanation": "Ce sont les trois paires opposées du cercle chromatique."
+    },
+    {
+      "key": "dsg-q-garamond",
+      "format": "quiz",
+      "prompt": "D’où vient le nom de la police Garamond ?",
+      "difficulty": 3,
+      "knowledge": ["dsg-garamond"],
+      "options": [
+        {
+          "label": "D’un graveur parisien du XVIe siècle",
+          "correct": true
+        },
+        {
+          "label": "D’un journal anglais"
+        },
+        {
+          "label": "D’une ville suisse"
+        },
+        {
+          "label": "D’un ingénieur de Microsoft"
+        }
+      ],
+      "explanation": "Claude Garamond, graveur de caractères à Paris au XVIe siècle."
+    },
+    {
+      "key": "dsg-q-pantone-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année est lancé le nuancier Pantone ?",
+      "difficulty": 4,
+      "knowledge": ["dsg-pantone"],
+      "year": 1963,
+      "tolerance": 4,
+      "min": 1920,
+      "max": 2000,
+      "explanation": "Le système Pantone apparaît en 1963."
+    },
+    {
+      "key": "dsg-q-comic-sans",
+      "format": "true_false",
+      "prompt": "Comic Sans a été dessinée chez Microsoft.",
+      "difficulty": 2,
+      "knowledge": ["dsg-polices"],
+      "answer": true,
+      "explanation": "Vrai : par Vincent Connare, en 1994."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les logos cultes",
+      "description": "Les histoires derrière les signes que tout le monde reconnaît.",
+      "lessons": [
+        {
+          "slug": "dsg-sport-mode",
+          "title": "Sport et mode",
+          "objective": "Connaître l’histoire des logos de Nike, Lacoste et Chanel.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "35 dollars pour une légende",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "35 $",
+                  "label": "Le prix payé en 1971 pour dessiner le Swoosh"
+                },
+                {
+                  "type": "text",
+                  "text": "Carolyn Davidson, étudiante en graphisme à Portland, dessine le Swoosh pour la marque qui va devenir Nike, du nom de la déesse grecque de la victoire."
+                }
+              ]
+            },
+            {
+              "title": "Just Do It",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1988, l’agence Wieden+Kennedy lance le slogan Just Do It. Trois mots qui deviennent l’un des slogans les plus célèbres de l’histoire de la pub."
+                }
+              ]
+            },
+            {
+              "title": "Un crocodile et deux C",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "René Lacoste, champion de tennis surnommé « le crocodile », brode l’animal sur ses polos dès 1933. Chez Chanel, deux C entrelacés signent la maison depuis les années 1920."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "dsg-q-swoosh-prix",
+            "dsg-q-nike-nom",
+            "dsg-q-just-do-it",
+            "dsg-q-lacoste",
+            "dsg-q-match-mode"
+          ]
+        },
+        {
+          "slug": "dsg-tech-conso",
+          "title": "Tech et grande conso",
+          "objective": "Savoir comment sont nés les logos d’Apple, Coca-Cola, Michelin et Starbucks.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La pomme croquée",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le tout premier logo d’Apple, en 1976, montre Isaac Newton sous un arbre. En 1977, Rob Janoff dessine la pomme croquée, rayée d’arc-en-ciel jusqu’en 1998."
+                }
+              ]
+            },
+            {
+              "title": "Une signature de 1886",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le logo de Coca-Cola est écrit à la main en 1886 par Frank Mason Robinson, le comptable du créateur de la boisson. Il a très peu changé depuis."
+                }
+              ]
+            },
+            {
+              "title": "Des mascottes centenaires",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "1898 : Bibendum, le bonhomme en pneus de Michelin, par O’Galop.",
+                    "1971 : Starbucks ouvre à Seattle avec une sirène à deux queues pour emblème."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "dsg-q-apple-premier",
+            "dsg-q-apple-arcenciel",
+            "dsg-q-coca",
+            "dsg-q-bibendum",
+            "dsg-q-starbucks"
+          ]
+        },
+        {
+          "slug": "dsg-secrets",
+          "title": "Les secrets cachés",
+          "objective": "Repérer les messages cachés dans des logos célèbres.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La flèche de FedEx",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Regarde l’espace blanc entre le E et le x de FedEx : il forme une flèche. Le logo, dessiné par Lindon Leader en 1994, suggère la vitesse et la direction."
+                }
+              ]
+            },
+            {
+              "title": "De A à Z",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La flèche orange d’Amazon part du a et pointe vers le z : on trouve tout sur Amazon. Elle forme aussi un sourire."
+                }
+              ]
+            },
+            {
+              "title": "Un ours dans la montagne",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le Cervin du logo Toblerone cache un ours debout, symbole de Berne, la ville où est né le chocolat. Et en 1977, Milton Glaser dessine I ♥ NY sur un coin de table, gratuitement."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "dsg-q-fedex",
+            "dsg-q-amazon",
+            "dsg-q-toblerone",
+            "dsg-q-iloveny",
+            "dsg-q-match-caches"
+          ]
+        },
+        {
+          "slug": "dsg-epreuve-logos",
+          "title": "Épreuve : les logos cultes",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "dsg-q-swoosh-prix",
+            "dsg-q-coca",
+            "dsg-q-fedex",
+            "dsg-q-frise-logos",
+            "dsg-q-starbucks-ville",
+            "dsg-q-janoff"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Typo, courants et couleurs",
+      "description": "Les bases que tout créatif connaît.",
+      "lessons": [
+        {
+          "slug": "dsg-typo",
+          "title": "Les polices célèbres",
+          "objective": "Reconnaître les grandes familles de polices et leur histoire.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Avec ou sans pieds",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Les empattements, ou serifs, sont les petites extensions au bout des lettres, comme dans Times New Roman. Une police sans serif, comme Helvetica, en est dépourvue."
+                }
+              ]
+            },
+            {
+              "title": "Helvetica, la star suisse",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1957",
+                  "label": "Création d’Helvetica en Suisse"
+                },
+                {
+                  "type": "text",
+                  "text": "Max Miedinger et Eduard Hoffmann la dessinent sous le nom de Neue Haas Grotesk. Elle prend ensuite le nom latin de la Suisse."
+                }
+              ]
+            },
+            {
+              "title": "Un panthéon de polices",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Garamond : d’après Claude Garamond, graveur parisien du XVIe siècle.",
+                    "Futura : Paul Renner, 1927.",
+                    "Times New Roman : créée en 1932 pour le journal The Times.",
+                    "Comic Sans : Vincent Connare, 1994, chez Microsoft."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "dsg-q-serif",
+            "dsg-q-helvetica-pays",
+            "dsg-q-helvetica-annee",
+            "dsg-q-times",
+            "dsg-q-match-polices"
+          ]
+        },
+        {
+          "slug": "dsg-courants",
+          "title": "Bauhaus et grands noms",
+          "objective": "Connaître le Bauhaus, le pop art et quelques designers incontournables.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Le Bauhaus",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Fondée en 1919 à Weimar par l’architecte Walter Gropius, l’école du Bauhaus mélange art, artisanat et industrie. Elle déménage à Dessau en 1925 et ferme en 1933 sous la pression des nazis."
+                }
+              ]
+            },
+            {
+              "title": "La forme suit la fonction",
+              "blocks": [
+                {
+                  "type": "fact",
+                  "text": "La formule vient de l’architecte américain Louis Sullivan. Elle résume le modernisme : un objet doit d’abord être utile, sa beauté vient de là."
+                }
+              ]
+            },
+            {
+              "title": "Des signatures",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Paul Rand : le logo rayé d’IBM (1972).",
+                    "Saul Bass : les génériques de Vertigo et Psychose.",
+                    "Andy Warhol : les boîtes de soupe Campbell’s (1962), icône du pop art."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "dsg-q-bauhaus-fondateur",
+            "dsg-q-frise-bauhaus",
+            "dsg-q-form-function",
+            "dsg-q-warhol",
+            "dsg-q-match-designers"
+          ]
+        },
+        {
+          "slug": "dsg-couleur",
+          "title": "La couleur",
+          "objective": "Comprendre RVB, CMJN, Pantone et les couleurs complémentaires.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Écran ou papier",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Un écran mélange de la lumière : rouge, vert, bleu (RVB). Une imprimante mélange des encres : cyan, magenta, jaune et noir (CMJN). Un fichier pour l’impression se prépare donc en CMJN."
+                }
+              ]
+            },
+            {
+              "title": "Un numéro par couleur",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1963",
+                  "label": "Lancement du nuancier Pantone"
+                },
+                {
+                  "type": "text",
+                  "text": "Pantone donne un numéro à chaque couleur pour qu’elle soit identique partout dans le monde. Depuis 2000, la marque élit une couleur de l’année."
+                }
+              ]
+            },
+            {
+              "title": "Les opposés s’attirent",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Sur le cercle chromatique, deux couleurs face à face sont complémentaires : bleu et orange, rouge et vert, violet et jaune. Côte à côte, elles se font ressortir."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "dsg-q-rvb",
+            "dsg-q-cmjn",
+            "dsg-q-complementaire",
+            "dsg-q-pantone",
+            "dsg-q-match-complementaires"
+          ]
+        },
+        {
+          "slug": "dsg-epreuve-typo",
+          "title": "Épreuve : typo, courants et couleurs",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "dsg-q-serif",
+            "dsg-q-bauhaus-fondateur",
+            "dsg-q-cmjn",
+            "dsg-q-garamond",
+            "dsg-q-pantone-annee",
+            "dsg-q-comic-sans"
+          ]
+        }
+      ]
+    }
+  ]
+}

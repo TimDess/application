@@ -1,0 +1,1158 @@
+{
+  "universe": "histoire-societe",
+  "status": "published",
+  "category": {
+    "slug": "histoire-de-france",
+    "name": "Histoire de France",
+    "description": "Les grands moments qui ont façonné la France."
+  },
+  "course": {
+    "slug": "les-grandes-dates-de-l-histoire-de-france",
+    "title": "Les grandes dates de l’histoire de France",
+    "description": "D’Alésia à l’euro : les dates à connaître absolument, racontées simplement.",
+    "level": "decouverte"
+  },
+  "knowledge": [
+    {
+      "key": "his-alesia",
+      "title": "Alésia",
+      "summary": "En 52 av. J.-C., Jules César bat Vercingétorix à Alésia. La Gaule passe sous domination romaine.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-charlemagne",
+      "title": "Charlemagne empereur",
+      "summary": "Le 25 décembre 800, Charlemagne est couronné empereur à Rome par le pape.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-jeanne",
+      "title": "Jeanne d’Arc",
+      "summary": "En 1429, pendant la guerre de Cent Ans, Jeanne d’Arc délivre Orléans. Elle est brûlée à Rouen en 1431.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-marignan",
+      "title": "Marignan",
+      "summary": "1515 : François Ier remporte la bataille de Marignan, en Italie.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-louis14",
+      "title": "Louis XIV",
+      "summary": "Le Roi-Soleil règne 72 ans (1643-1715), record pour un roi de France. Il fait de Versailles le siège du pouvoir.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-bastille",
+      "title": "La prise de la Bastille",
+      "summary": "Le 14 juillet 1789, les Parisiens prennent la Bastille, prison symbole du pouvoir royal.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-ddhc",
+      "title": "Les droits de l’homme",
+      "summary": "La Déclaration des droits de l’homme et du citoyen est adoptée le 26 août 1789.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-louis16",
+      "title": "La fin de la monarchie",
+      "summary": "La République est proclamée en 1792. Louis XVI est guillotiné le 21 janvier 1793.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-napoleon",
+      "title": "Napoléon",
+      "summary": "Napoléon Bonaparte se sacre empereur à Notre-Dame en 1804. Il est définitivement battu à Waterloo en 1815.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-1848",
+      "title": "1848",
+      "summary": "En 1848, la France abolit l’esclavage (décret porté par Victor Schœlcher) et instaure le suffrage universel masculin.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-1905",
+      "title": "La laïcité",
+      "summary": "La loi de 1905 sépare les Églises et l’État.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-1918",
+      "title": "La Grande Guerre",
+      "summary": "La Première Guerre mondiale dure de 1914 à 1918. L’armistice est signé le 11 novembre 1918.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-appel",
+      "title": "L’appel du 18 juin",
+      "summary": "Le 18 juin 1940, depuis Londres, le général de Gaulle appelle à continuer le combat à la radio de la BBC.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-debarquement",
+      "title": "Le Débarquement",
+      "summary": "Le 6 juin 1944, les Alliés débarquent sur les plages de Normandie.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-vote-femmes",
+      "title": "Le vote des femmes",
+      "summary": "Les Françaises obtiennent le droit de vote en 1944 et votent pour la première fois en 1945.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-5e",
+      "title": "La Ve République",
+      "summary": "La Constitution de la Ve République est adoptée en 1958, à l’initiative du général de Gaulle.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-mai68",
+      "title": "Mai 68",
+      "summary": "En mai 1968, étudiants et ouvriers lancent un immense mouvement de grève et de contestation.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-peine-mort",
+      "title": "L’abolition de la peine de mort",
+      "summary": "La peine de mort est abolie en France en 1981, portée par le ministre de la Justice Robert Badinter.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "his-euro",
+      "title": "L’euro",
+      "summary": "Les pièces et billets en euros arrivent dans les porte-monnaie le 1er janvier 2002.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "his-q-alesia",
+      "format": "quiz",
+      "prompt": "Qui remporte la bataille d’Alésia ?",
+      "difficulty": 1,
+      "knowledge": ["his-alesia"],
+      "options": [
+        {
+          "label": "Jules César",
+          "correct": true
+        },
+        {
+          "label": "Vercingétorix"
+        },
+        {
+          "label": "Charlemagne"
+        },
+        {
+          "label": "Astérix"
+        }
+      ],
+      "explanation": "César bat Vercingétorix en 52 av. J.-C. (Astérix, lui, n’y était pas)."
+    },
+    {
+      "key": "his-q-charlemagne-date",
+      "format": "quiz",
+      "prompt": "Quel jour Charlemagne est-il couronné empereur, en 800 ?",
+      "difficulty": 3,
+      "knowledge": ["his-charlemagne"],
+      "options": [
+        {
+          "label": "Le jour de Noël",
+          "correct": true
+        },
+        {
+          "label": "Le 14 juillet"
+        },
+        {
+          "label": "Le 1er janvier"
+        },
+        {
+          "label": "Le 15 août"
+        }
+      ],
+      "explanation": "Le 25 décembre 800, à Rome."
+    },
+    {
+      "key": "his-q-charlemagne",
+      "format": "quiz",
+      "prompt": "En quelle année Charlemagne devient-il empereur ?",
+      "difficulty": 2,
+      "knowledge": ["his-charlemagne"],
+      "options": [
+        {
+          "label": "800",
+          "correct": true
+        },
+        {
+          "label": "476"
+        },
+        {
+          "label": "987"
+        },
+        {
+          "label": "1066"
+        }
+      ],
+      "explanation": "En l’an 800, une date ronde facile à retenir."
+    },
+    {
+      "key": "his-q-jeanne",
+      "format": "quiz",
+      "prompt": "Quelle ville Jeanne d’Arc délivre-t-elle en 1429 ?",
+      "difficulty": 1,
+      "knowledge": ["his-jeanne"],
+      "options": [
+        {
+          "label": "Orléans",
+          "correct": true
+        },
+        {
+          "label": "Paris"
+        },
+        {
+          "label": "Rouen"
+        },
+        {
+          "label": "Reims"
+        }
+      ],
+      "explanation": "Orléans, d’où son surnom de Pucelle d’Orléans."
+    },
+    {
+      "key": "his-q-jeanne-cent-ans",
+      "format": "true_false",
+      "prompt": "Jeanne d’Arc combat pendant la guerre de Cent Ans.",
+      "difficulty": 1,
+      "knowledge": ["his-jeanne"],
+      "answer": true,
+      "explanation": "Vrai : cette guerre oppose la France et l’Angleterre de 1337 à 1453."
+    },
+    {
+      "key": "his-q-marignan",
+      "format": "quiz",
+      "prompt": "En quelle année a lieu la bataille de Marignan ?",
+      "difficulty": 2,
+      "knowledge": ["his-marignan"],
+      "options": [
+        {
+          "label": "1515",
+          "correct": true
+        },
+        {
+          "label": "1415"
+        },
+        {
+          "label": "1610"
+        },
+        {
+          "label": "1492"
+        }
+      ],
+      "explanation": "1515, Marignan : l’une des dates les plus connues de l’histoire de France."
+    },
+    {
+      "key": "his-q-marignan-roi",
+      "format": "quiz",
+      "prompt": "Quel roi gagne à Marignan ?",
+      "difficulty": 2,
+      "knowledge": ["his-marignan"],
+      "options": [
+        {
+          "label": "François Ier",
+          "correct": true
+        },
+        {
+          "label": "Louis XIV"
+        },
+        {
+          "label": "Henri IV"
+        },
+        {
+          "label": "Louis XVI"
+        }
+      ],
+      "explanation": "François Ier, au début de son règne."
+    },
+    {
+      "key": "his-q-roi-soleil",
+      "format": "quiz",
+      "prompt": "Quel roi est surnommé le Roi-Soleil ?",
+      "difficulty": 1,
+      "knowledge": ["his-louis14"],
+      "options": [
+        {
+          "label": "Louis XIV",
+          "correct": true
+        },
+        {
+          "label": "Louis XVI"
+        },
+        {
+          "label": "François Ier"
+        },
+        {
+          "label": "Henri IV"
+        }
+      ],
+      "explanation": "Louis XIV, qui avait choisi le soleil pour emblème."
+    },
+    {
+      "key": "his-q-versailles",
+      "format": "quiz",
+      "prompt": "Quel château Louis XIV transforme-t-il en siège du pouvoir ?",
+      "difficulty": 1,
+      "knowledge": ["his-louis14"],
+      "options": [
+        {
+          "label": "Versailles",
+          "correct": true
+        },
+        {
+          "label": "Chambord"
+        },
+        {
+          "label": "Fontainebleau"
+        },
+        {
+          "label": "Le Louvre"
+        }
+      ],
+      "explanation": "La cour s’installe à Versailles en 1682."
+    },
+    {
+      "key": "his-q-louis14-regne",
+      "format": "true_false",
+      "prompt": "Louis XIV a régné plus de 70 ans.",
+      "difficulty": 2,
+      "knowledge": ["his-louis14"],
+      "answer": true,
+      "explanation": "Vrai : 72 ans, de 1643 à 1715."
+    },
+    {
+      "key": "his-q-bastille",
+      "format": "quiz",
+      "prompt": "En quelle année a lieu la prise de la Bastille ?",
+      "difficulty": 1,
+      "knowledge": ["his-bastille"],
+      "options": [
+        {
+          "label": "1789",
+          "correct": true
+        },
+        {
+          "label": "1793"
+        },
+        {
+          "label": "1804"
+        },
+        {
+          "label": "1715"
+        }
+      ],
+      "explanation": "Le 14 juillet 1789."
+    },
+    {
+      "key": "his-q-bastille-quoi",
+      "format": "quiz",
+      "prompt": "Qu’était la Bastille ?",
+      "difficulty": 2,
+      "knowledge": ["his-bastille"],
+      "options": [
+        {
+          "label": "Une prison",
+          "correct": true
+        },
+        {
+          "label": "Un palais royal"
+        },
+        {
+          "label": "Une église"
+        },
+        {
+          "label": "Une caserne de pompiers"
+        }
+      ],
+      "explanation": "Une forteresse servant de prison, symbole de l’arbitraire royal."
+    },
+    {
+      "key": "his-q-ddhc",
+      "format": "quiz",
+      "prompt": "Que dit l’article 1er de la Déclaration de 1789 ?",
+      "difficulty": 2,
+      "knowledge": ["his-ddhc"],
+      "options": [
+        {
+          "label": "Les hommes naissent libres et égaux en droits",
+          "correct": true
+        },
+        {
+          "label": "Le roi est le maître de la nation"
+        },
+        {
+          "label": "Tout citoyen doit faire son service militaire"
+        },
+        {
+          "label": "La France est une et indivisible"
+        }
+      ],
+      "explanation": "Les hommes naissent et demeurent libres et égaux en droits."
+    },
+    {
+      "key": "his-q-louis16",
+      "format": "true_false",
+      "prompt": "Louis XVI a été guillotiné.",
+      "difficulty": 1,
+      "knowledge": ["his-louis16"],
+      "answer": true,
+      "explanation": "Vrai : le 21 janvier 1793, à Paris."
+    },
+    {
+      "key": "his-q-frise-revolution",
+      "format": "timeline",
+      "prompt": "Remets ces événements dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["his-bastille", "his-louis16"],
+      "items": [
+        {
+          "label": "Prise de la Bastille",
+          "date": "juillet 1789"
+        },
+        {
+          "label": "Déclaration des droits de l’homme",
+          "date": "août 1789"
+        },
+        {
+          "label": "Proclamation de la République",
+          "date": "1792"
+        },
+        {
+          "label": "Exécution de Louis XVI",
+          "date": "1793"
+        }
+      ],
+      "explanation": "Bastille, Déclaration, République, puis exécution du roi."
+    },
+    {
+      "key": "his-q-frise-ancien",
+      "format": "timeline",
+      "prompt": "Remets ces dates dans l’ordre.",
+      "difficulty": 2,
+      "knowledge": ["his-alesia", "his-charlemagne", "his-jeanne", "his-marignan"],
+      "items": [
+        {
+          "label": "Alésia",
+          "date": "52 av. J.-C."
+        },
+        {
+          "label": "Charlemagne empereur",
+          "date": "an 800"
+        },
+        {
+          "label": "Jeanne d’Arc à Orléans",
+          "date": "1429"
+        },
+        {
+          "label": "Marignan",
+          "date": "1515"
+        }
+      ],
+      "explanation": "Alésia, Charlemagne, Jeanne d’Arc, puis Marignan."
+    },
+    {
+      "key": "his-q-jeanne-mort",
+      "format": "quiz",
+      "prompt": "Dans quelle ville Jeanne d’Arc est-elle brûlée ?",
+      "difficulty": 3,
+      "knowledge": ["his-jeanne"],
+      "options": [
+        {
+          "label": "Rouen",
+          "correct": true
+        },
+        {
+          "label": "Orléans"
+        },
+        {
+          "label": "Paris"
+        },
+        {
+          "label": "Reims"
+        }
+      ],
+      "explanation": "À Rouen, en 1431."
+    },
+    {
+      "key": "his-q-match-ancien",
+      "format": "match",
+      "prompt": "Associe chaque personnage à son événement.",
+      "difficulty": 2,
+      "knowledge": ["his-alesia", "his-charlemagne", "his-marignan", "his-louis16"],
+      "pairs": [
+        {
+          "left": "Vercingétorix",
+          "right": "Alésia"
+        },
+        {
+          "left": "Charlemagne",
+          "right": "Couronnement à Rome"
+        },
+        {
+          "left": "François Ier",
+          "right": "Marignan"
+        },
+        {
+          "left": "Louis XVI",
+          "right": "Guillotine"
+        }
+      ],
+      "explanation": "Vercingétorix à Alésia, Charlemagne à Rome, François Ier à Marignan, Louis XVI guillotiné."
+    },
+    {
+      "key": "his-q-sacre",
+      "format": "guess_year",
+      "prompt": "En quelle année Napoléon devient-il empereur ?",
+      "difficulty": 2,
+      "knowledge": ["his-napoleon"],
+      "year": 1804,
+      "tolerance": 2,
+      "min": 1750,
+      "max": 1850,
+      "explanation": "Il se sacre à Notre-Dame le 2 décembre 1804."
+    },
+    {
+      "key": "his-q-waterloo",
+      "format": "quiz",
+      "prompt": "Quelle bataille marque la défaite définitive de Napoléon ?",
+      "difficulty": 1,
+      "knowledge": ["his-napoleon"],
+      "options": [
+        {
+          "label": "Waterloo",
+          "correct": true
+        },
+        {
+          "label": "Austerlitz"
+        },
+        {
+          "label": "Marignan"
+        },
+        {
+          "label": "Verdun"
+        }
+      ],
+      "explanation": "Waterloo, en 1815. Austerlitz, en 1805, est au contraire sa plus célèbre victoire."
+    },
+    {
+      "key": "his-q-schoelcher",
+      "format": "quiz",
+      "prompt": "Quel homme politique porte l’abolition de l’esclavage en 1848 ?",
+      "difficulty": 3,
+      "knowledge": ["his-1848"],
+      "options": [
+        {
+          "label": "Victor Schœlcher",
+          "correct": true
+        },
+        {
+          "label": "Victor Hugo"
+        },
+        {
+          "label": "Jean Jaurès"
+        },
+        {
+          "label": "Napoléon III"
+        }
+      ],
+      "explanation": "Victor Schœlcher, sous-secrétaire d’État aux colonies."
+    },
+    {
+      "key": "his-q-1848-femmes",
+      "format": "true_false",
+      "prompt": "En 1848, les femmes obtiennent le droit de vote.",
+      "difficulty": 2,
+      "knowledge": ["his-1848", "his-vote-femmes"],
+      "answer": false,
+      "explanation": "Faux : en 1848, seul le suffrage masculin devient universel. Les femmes attendront 1944."
+    },
+    {
+      "key": "his-q-1905",
+      "format": "guess_year",
+      "prompt": "En quelle année est votée la loi de séparation des Églises et de l’État ?",
+      "difficulty": 3,
+      "knowledge": ["his-1905"],
+      "year": 1905,
+      "tolerance": 2,
+      "min": 1850,
+      "max": 1960,
+      "explanation": "En 1905, un pilier de la laïcité à la française."
+    },
+    {
+      "key": "his-q-armistice",
+      "format": "quiz",
+      "prompt": "Quel jour est signé l’armistice de 1918 ?",
+      "difficulty": 1,
+      "knowledge": ["his-1918"],
+      "options": [
+        {
+          "label": "Le 11 novembre",
+          "correct": true
+        },
+        {
+          "label": "Le 8 mai"
+        },
+        {
+          "label": "Le 14 juillet"
+        },
+        {
+          "label": "Le 6 juin"
+        }
+      ],
+      "explanation": "Le 11 novembre 1918. Le 8 mai marque la fin de la Seconde Guerre mondiale en Europe."
+    },
+    {
+      "key": "his-q-appel-ville",
+      "format": "quiz",
+      "prompt": "D’où le général de Gaulle lance-t-il l’appel du 18 juin 1940 ?",
+      "difficulty": 2,
+      "knowledge": ["his-appel"],
+      "options": [
+        {
+          "label": "Londres",
+          "correct": true
+        },
+        {
+          "label": "Paris"
+        },
+        {
+          "label": "Alger"
+        },
+        {
+          "label": "New York"
+        }
+      ],
+      "explanation": "De Londres, sur les ondes de la BBC."
+    },
+    {
+      "key": "his-q-debarquement",
+      "format": "quiz",
+      "prompt": "Dans quelle région les Alliés débarquent-ils le 6 juin 1944 ?",
+      "difficulty": 1,
+      "knowledge": ["his-debarquement"],
+      "options": [
+        {
+          "label": "La Normandie",
+          "correct": true
+        },
+        {
+          "label": "La Bretagne"
+        },
+        {
+          "label": "La Provence"
+        },
+        {
+          "label": "Le Nord"
+        }
+      ],
+      "explanation": "Sur les plages de Normandie (un second débarquement a lieu en Provence en août)."
+    },
+    {
+      "key": "his-q-1418-duree",
+      "format": "true_false",
+      "prompt": "La Première Guerre mondiale a duré environ quatre ans.",
+      "difficulty": 1,
+      "knowledge": ["his-1918"],
+      "answer": true,
+      "explanation": "Vrai : de 1914 à 1918."
+    },
+    {
+      "key": "his-q-frise-guerres",
+      "format": "timeline",
+      "prompt": "Remets ces événements dans l’ordre.",
+      "difficulty": 2,
+      "knowledge": ["his-1918", "his-appel", "his-debarquement"],
+      "items": [
+        {
+          "label": "Début de la Grande Guerre",
+          "date": "1914"
+        },
+        {
+          "label": "Armistice",
+          "date": "1918"
+        },
+        {
+          "label": "Appel du 18 juin",
+          "date": "1940"
+        },
+        {
+          "label": "Débarquement en Normandie",
+          "date": "1944"
+        }
+      ],
+      "explanation": "1914, 1918, 1940, 1944."
+    },
+    {
+      "key": "his-q-vote-femmes",
+      "format": "guess_year",
+      "prompt": "En quelle année les Françaises obtiennent-elles le droit de vote ?",
+      "difficulty": 2,
+      "knowledge": ["his-vote-femmes"],
+      "year": 1944,
+      "tolerance": 1,
+      "min": 1900,
+      "max": 1990,
+      "explanation": "En 1944. Elles votent pour la première fois en 1945."
+    },
+    {
+      "key": "his-q-5e",
+      "format": "guess_year",
+      "prompt": "En quelle année naît la Ve République ?",
+      "difficulty": 2,
+      "knowledge": ["his-5e"],
+      "year": 1958,
+      "tolerance": 2,
+      "min": 1900,
+      "max": 2000,
+      "explanation": "En 1958, sous l’impulsion du général de Gaulle."
+    },
+    {
+      "key": "his-q-badinter",
+      "format": "quiz",
+      "prompt": "Qui porte l’abolition de la peine de mort en 1981 ?",
+      "difficulty": 2,
+      "knowledge": ["his-peine-mort"],
+      "options": [
+        {
+          "label": "Robert Badinter",
+          "correct": true
+        },
+        {
+          "label": "Simone Veil"
+        },
+        {
+          "label": "Charles de Gaulle"
+        },
+        {
+          "label": "Jacques Chirac"
+        }
+      ],
+      "explanation": "Robert Badinter, ministre de la Justice."
+    },
+    {
+      "key": "his-q-euro",
+      "format": "true_false",
+      "prompt": "Les pièces et billets en euros sont arrivés en 2002.",
+      "difficulty": 1,
+      "knowledge": ["his-euro"],
+      "answer": true,
+      "explanation": "Vrai : le 1er janvier 2002."
+    },
+    {
+      "key": "his-q-mai68",
+      "format": "quiz",
+      "prompt": "Que se passe-t-il en mai 1968 ?",
+      "difficulty": 1,
+      "knowledge": ["his-mai68"],
+      "options": [
+        {
+          "label": "Un grand mouvement de grèves et de contestation",
+          "correct": true
+        },
+        {
+          "label": "L’élection du premier président"
+        },
+        {
+          "label": "La fin de la monarchie"
+        },
+        {
+          "label": "L’arrivée de l’euro"
+        }
+      ],
+      "explanation": "Étudiants et ouvriers paralysent le pays pendant plusieurs semaines."
+    },
+    {
+      "key": "his-q-frise-moderne",
+      "format": "timeline",
+      "prompt": "Remets ces dates dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["his-napoleon", "his-1905", "his-vote-femmes", "his-peine-mort"],
+      "items": [
+        {
+          "label": "Sacre de Napoléon",
+          "date": "1804"
+        },
+        {
+          "label": "Loi de séparation des Églises et de l’État",
+          "date": "1905"
+        },
+        {
+          "label": "Droit de vote des femmes",
+          "date": "1944"
+        },
+        {
+          "label": "Abolition de la peine de mort",
+          "date": "1981"
+        }
+      ],
+      "explanation": "1804, 1905, 1944, 1981."
+    },
+    {
+      "key": "his-q-peine-mort",
+      "format": "guess_year",
+      "prompt": "En quelle année la peine de mort est-elle abolie en France ?",
+      "difficulty": 3,
+      "knowledge": ["his-peine-mort"],
+      "year": 1981,
+      "tolerance": 2,
+      "min": 1900,
+      "max": 2010,
+      "explanation": "En 1981."
+    },
+    {
+      "key": "his-q-match-moderne",
+      "format": "match",
+      "prompt": "Associe chaque date à son événement.",
+      "difficulty": 2,
+      "knowledge": ["his-1848", "his-appel", "his-debarquement", "his-euro"],
+      "pairs": [
+        {
+          "left": "1848",
+          "right": "Abolition de l’esclavage"
+        },
+        {
+          "left": "1940",
+          "right": "Appel du 18 juin"
+        },
+        {
+          "left": "1944",
+          "right": "Débarquement en Normandie"
+        },
+        {
+          "left": "2002",
+          "right": "Arrivée de l’euro"
+        }
+      ],
+      "explanation": "1848, 1940, 1944, 2002."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Des Gaulois à la Révolution",
+      "description": "Deux mille ans en quelques dates clés.",
+      "lessons": [
+        {
+          "slug": "his-antiquite-moyen-age",
+          "title": "Gaulois et Moyen Âge",
+          "objective": "Situer Alésia, Charlemagne et Jeanne d’Arc.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La défaite des Gaulois",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "52 av. J.-C.",
+                  "label": "Bataille d’Alésia"
+                },
+                {
+                  "type": "text",
+                  "text": "Vercingétorix, chef gaulois, se rend à Jules César après le siège d’Alésia. La Gaule devient romaine pour près de cinq siècles."
+                }
+              ]
+            },
+            {
+              "title": "Un empereur à Noël",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le 25 décembre 800, à Rome, le pape couronne Charlemagne empereur. Son empire couvre une grande partie de l’Europe de l’Ouest."
+                }
+              ]
+            },
+            {
+              "title": "La Pucelle d’Orléans",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En pleine guerre de Cent Ans contre les Anglais, Jeanne d’Arc délivre Orléans en 1429 et fait sacrer Charles VII à Reims. Capturée, elle est brûlée à Rouen en 1431."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "his-q-alesia",
+            "his-q-charlemagne-date",
+            "his-q-charlemagne",
+            "his-q-jeanne",
+            "his-q-jeanne-cent-ans"
+          ]
+        },
+        {
+          "slug": "his-rois",
+          "title": "François Ier et le Roi-Soleil",
+          "objective": "Connaître Marignan et le règne de Louis XIV.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "1515, Marignan",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Jeune roi, François Ier remporte la bataille de Marignan, en Italie, en 1515. C’est aussi lui qui accueille Léonard de Vinci en France."
+                }
+              ]
+            },
+            {
+              "title": "Le Roi-Soleil",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "72 ans",
+                  "label": "De règne pour Louis XIV, record des rois de France"
+                },
+                {
+                  "type": "text",
+                  "text": "Louis XIV règne de 1643 à 1715 et installe la cour à Versailles pour garder la noblesse sous son contrôle."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "his-q-marignan",
+            "his-q-marignan-roi",
+            "his-q-roi-soleil",
+            "his-q-versailles",
+            "his-q-louis14-regne"
+          ]
+        },
+        {
+          "slug": "his-revolution",
+          "title": "La Révolution",
+          "objective": "Situer les grandes étapes de la Révolution française.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "14 juillet 1789",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le peuple de Paris prend la Bastille, une prison symbole du pouvoir du roi. Le 14 juillet devient la fête nationale."
+                }
+              ]
+            },
+            {
+              "title": "Des droits pour tous",
+              "blocks": [
+                {
+                  "type": "fact",
+                  "text": "« Les hommes naissent et demeurent libres et égaux en droits. » C’est l’article 1er de la Déclaration du 26 août 1789."
+                }
+              ]
+            },
+            {
+              "title": "La fin du roi",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "1792 : proclamation de la République.",
+                    "21 janvier 1793 : Louis XVI est guillotiné."
+                  ]
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "his-q-bastille",
+            "his-q-bastille-quoi",
+            "his-q-ddhc",
+            "his-q-louis16",
+            "his-q-frise-revolution"
+          ]
+        },
+        {
+          "slug": "his-epreuve-ancien",
+          "title": "Épreuve : des Gaulois à la Révolution",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "his-q-alesia",
+            "his-q-marignan",
+            "his-q-bastille",
+            "his-q-frise-ancien",
+            "his-q-jeanne-mort",
+            "his-q-match-ancien"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "De Napoléon à aujourd’hui",
+      "description": "Empire, guerres mondiales et conquêtes de droits.",
+      "lessons": [
+        {
+          "slug": "his-xixe",
+          "title": "Napoléon et le XIXe siècle",
+          "objective": "Situer Napoléon, 1848 et la loi de 1905.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "L’Empereur",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Général devenu Premier consul, Napoléon Bonaparte se sacre empereur à Notre-Dame de Paris en 1804. Après des années de conquêtes, il est battu à Waterloo en 1815 et exilé à Sainte-Hélène."
+                }
+              ]
+            },
+            {
+              "title": "1848, année des droits",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "Abolition de l’esclavage, portée par Victor Schœlcher.",
+                    "Suffrage universel masculin : tous les hommes peuvent voter."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "La laïcité",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1905, une loi sépare les Églises et l’État. L’État ne reconnaît ni ne finance aucun culte, mais garantit la liberté de conscience."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "his-q-sacre",
+            "his-q-waterloo",
+            "his-q-schoelcher",
+            "his-q-1848-femmes",
+            "his-q-1905"
+          ]
+        },
+        {
+          "slug": "his-guerres",
+          "title": "Les guerres mondiales",
+          "objective": "Connaître les dates clés des deux guerres mondiales en France.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La Grande Guerre",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "11/11/1918",
+                  "label": "Signature de l’armistice"
+                },
+                {
+                  "type": "text",
+                  "text": "De 1914 à 1918, la Première Guerre mondiale fait des millions de morts. Le 11 novembre est devenu un jour de commémoration."
+                }
+              ]
+            },
+            {
+              "title": "L’appel du 18 juin",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le 18 juin 1940, alors que la France vient d’être battue, le général de Gaulle appelle depuis Londres, sur la BBC, à continuer le combat."
+                }
+              ]
+            },
+            {
+              "title": "Le Jour J",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le 6 juin 1944, les Alliés débarquent en Normandie. Paris est libéré fin août 1944."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "his-q-armistice",
+            "his-q-appel-ville",
+            "his-q-debarquement",
+            "his-q-1418-duree",
+            "his-q-frise-guerres"
+          ]
+        },
+        {
+          "slug": "his-5e",
+          "title": "La France d’aujourd’hui",
+          "objective": "Situer la Ve République et les grandes avancées depuis 1944.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Des droits nouveaux",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    "1944 : droit de vote des femmes (premier vote en 1945).",
+                    "1981 : abolition de la peine de mort, portée par Robert Badinter."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "La Ve République",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1958, le général de Gaulle fait adopter une nouvelle Constitution : c’est la Ve République, toujours en vigueur. Dix ans plus tard, Mai 68 secoue tout le pays."
+                }
+              ]
+            },
+            {
+              "title": "Bonjour l’euro",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1/1/2002",
+                  "label": "Arrivée des pièces et billets en euros"
+                },
+                {
+                  "type": "text",
+                  "text": "Le franc disparaît après plus de six siècles d’histoire."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "his-q-vote-femmes",
+            "his-q-5e",
+            "his-q-badinter",
+            "his-q-euro",
+            "his-q-mai68"
+          ]
+        },
+        {
+          "slug": "his-epreuve-moderne",
+          "title": "Épreuve : de Napoléon à aujourd’hui",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "his-q-waterloo",
+            "his-q-armistice",
+            "his-q-5e",
+            "his-q-frise-moderne",
+            "his-q-peine-mort",
+            "his-q-match-moderne"
+          ]
+        }
+      ]
+    }
+  ]
+}

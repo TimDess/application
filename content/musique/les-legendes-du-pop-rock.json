@@ -1,0 +1,1104 @@
+{
+  "universe": "musique",
+  "status": "published",
+  "category": {
+    "slug": "pop-rock",
+    "name": "Pop et rock",
+    "description": "Les groupes, les artistes et les albums qui ont changé la musique."
+  },
+  "course": {
+    "slug": "les-legendes-du-pop-rock",
+    "title": "Les légendes du pop-rock",
+    "description": "Des Beatles à Daft Punk : les artistes et les albums que tout le monde devrait connaître.",
+    "level": "debutant"
+  },
+  "knowledge": [
+    {
+      "key": "pr-elvis",
+      "title": "Elvis Presley",
+      "summary": "Surnommé le King, Elvis Presley popularise le rock’n’roll dans les années 1950. Sa maison, Graceland, se trouve à Memphis.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-beatles",
+      "title": "Les Beatles",
+      "summary": "Groupe de Liverpool : John Lennon, Paul McCartney, George Harrison et Ringo Starr. Ils se séparent en 1970.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-beatles-albums",
+      "title": "Albums des Beatles",
+      "summary": "Sgt. Pepper’s Lonely Hearts Club Band sort en 1967. La pochette d’Abbey Road (1969) montre le groupe sur un passage piéton.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-stones",
+      "title": "Les Rolling Stones",
+      "summary": "Mené par Mick Jagger et Keith Richards, le groupe a pour logo une langue tirée, dessinée par John Pasche au début des années 1970.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-queen",
+      "title": "Queen",
+      "summary": "Mené par Freddie Mercury, Queen sort Bohemian Rhapsody en 1975. Son concert au Live Aid, en 1985, est resté légendaire.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-bowie",
+      "title": "David Bowie",
+      "summary": "David Bowie change sans cesse d’identité, dont Ziggy Stardust, son personnage venu de l’espace.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-woodstock",
+      "title": "Woodstock",
+      "summary": "Le festival de Woodstock, en 1969 dans l’État de New York, réunit des centaines de milliers de spectateurs.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-nirvana",
+      "title": "Nirvana et le grunge",
+      "summary": "Groupe de la région de Seattle mené par Kurt Cobain, Nirvana sort Nevermind en 1991, porté par Smells Like Teen Spirit.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-marley",
+      "title": "Bob Marley",
+      "summary": "Le Jamaïcain Bob Marley fait connaître le reggae dans le monde entier.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-mj",
+      "title": "Michael Jackson",
+      "summary": "Le King of Pop. Thriller (1982) est l’album le plus vendu de l’histoire. Il dévoile le moonwalk à la télévision en 1983.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-madonna",
+      "title": "Madonna",
+      "summary": "Surnommée la Queen of Pop, Madonna explose avec Like a Virgin en 1984.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-prince",
+      "title": "Prince",
+      "summary": "Prince sort l’album et le film Purple Rain en 1984.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-beyonce",
+      "title": "Beyoncé",
+      "summary": "Beyoncé se fait connaître avec le groupe Destiny’s Child avant une carrière solo record.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-daft-punk",
+      "title": "Daft Punk",
+      "summary": "Duo français formé par Thomas Bangalter et Guy-Manuel de Homem-Christo, célèbre pour ses casques. Random Access Memories (2013) remporte le Grammy de l’album de l’année. Le duo se sépare en 2021.",
+      "verifiedAt": "2026-11-28"
+    },
+    {
+      "key": "pr-french-touch",
+      "title": "La French Touch",
+      "summary": "Dans les années 1990, la French Touch fait briller la musique électronique française : Daft Punk, Air, Cassius, puis Justice et David Guetta.",
+      "verifiedAt": "2026-11-28"
+    }
+  ],
+  "questions": [
+    {
+      "key": "pr-q-king",
+      "format": "quiz",
+      "prompt": "Quel artiste est surnommé le King ?",
+      "difficulty": 1,
+      "knowledge": ["pr-elvis"],
+      "options": [
+        {
+          "label": "Elvis Presley",
+          "correct": true
+        },
+        {
+          "label": "Michael Jackson"
+        },
+        {
+          "label": "Prince"
+        },
+        {
+          "label": "Freddie Mercury"
+        }
+      ],
+      "explanation": "Elvis, le King du rock’n’roll. Michael Jackson, lui, est le King of Pop."
+    },
+    {
+      "key": "pr-q-beatles-ville",
+      "format": "quiz",
+      "prompt": "De quelle ville viennent les Beatles ?",
+      "difficulty": 1,
+      "knowledge": ["pr-beatles"],
+      "options": [
+        {
+          "label": "Liverpool",
+          "correct": true
+        },
+        {
+          "label": "Londres"
+        },
+        {
+          "label": "Manchester"
+        },
+        {
+          "label": "Dublin"
+        }
+      ],
+      "explanation": "Liverpool, en Angleterre."
+    },
+    {
+      "key": "pr-q-beatles-intrus",
+      "format": "quiz",
+      "prompt": "Lequel de ces musiciens n’a jamais été membre des Beatles ?",
+      "difficulty": 2,
+      "knowledge": ["pr-beatles"],
+      "options": [
+        {
+          "label": "Mick Jagger",
+          "correct": true
+        },
+        {
+          "label": "Ringo Starr"
+        },
+        {
+          "label": "George Harrison"
+        },
+        {
+          "label": "Paul McCartney"
+        }
+      ],
+      "explanation": "Mick Jagger est le chanteur des Rolling Stones."
+    },
+    {
+      "key": "pr-q-abbey-road",
+      "format": "quiz",
+      "prompt": "Que montre la pochette d’Abbey Road ?",
+      "difficulty": 2,
+      "knowledge": ["pr-beatles-albums"],
+      "options": [
+        {
+          "label": "Les Beatles sur un passage piéton",
+          "correct": true
+        },
+        {
+          "label": "Un sous-marin jaune"
+        },
+        {
+          "label": "Une fanfare en uniforme"
+        },
+        {
+          "label": "Un portrait de la reine"
+        }
+      ],
+      "explanation": "Les quatre Beatles traversant la rue devant leur studio."
+    },
+    {
+      "key": "pr-q-beatles-split",
+      "format": "guess_year",
+      "prompt": "En quelle année les Beatles se séparent-ils ?",
+      "difficulty": 3,
+      "knowledge": ["pr-beatles"],
+      "year": 1970,
+      "tolerance": 2,
+      "min": 1950,
+      "max": 2000,
+      "explanation": "En 1970."
+    },
+    {
+      "key": "pr-q-stones-logo",
+      "format": "quiz",
+      "prompt": "Quel est le logo des Rolling Stones ?",
+      "difficulty": 1,
+      "knowledge": ["pr-stones"],
+      "options": [
+        {
+          "label": "Une langue tirée",
+          "correct": true
+        },
+        {
+          "label": "Une pierre qui roule"
+        },
+        {
+          "label": "Une guitare en feu"
+        },
+        {
+          "label": "Un éclair"
+        }
+      ],
+      "explanation": "Une bouche qui tire la langue."
+    },
+    {
+      "key": "pr-q-mercury",
+      "format": "quiz",
+      "prompt": "Qui est le chanteur de Queen ?",
+      "difficulty": 1,
+      "knowledge": ["pr-queen"],
+      "options": [
+        {
+          "label": "Freddie Mercury",
+          "correct": true
+        },
+        {
+          "label": "Mick Jagger"
+        },
+        {
+          "label": "David Bowie"
+        },
+        {
+          "label": "Elton John"
+        }
+      ],
+      "explanation": "Freddie Mercury."
+    },
+    {
+      "key": "pr-q-bohemian",
+      "format": "guess_year",
+      "prompt": "En quelle année sort Bohemian Rhapsody ?",
+      "difficulty": 3,
+      "knowledge": ["pr-queen"],
+      "year": 1975,
+      "tolerance": 3,
+      "min": 1960,
+      "max": 2000,
+      "explanation": "En 1975."
+    },
+    {
+      "key": "pr-q-ziggy",
+      "format": "quiz",
+      "prompt": "Quel artiste a incarné Ziggy Stardust ?",
+      "difficulty": 2,
+      "knowledge": ["pr-bowie"],
+      "options": [
+        {
+          "label": "David Bowie",
+          "correct": true
+        },
+        {
+          "label": "Freddie Mercury"
+        },
+        {
+          "label": "Prince"
+        },
+        {
+          "label": "Elton John"
+        }
+      ],
+      "explanation": "David Bowie."
+    },
+    {
+      "key": "pr-q-live-aid",
+      "format": "true_false",
+      "prompt": "Queen a donné un concert légendaire au Live Aid en 1985.",
+      "difficulty": 2,
+      "knowledge": ["pr-queen"],
+      "answer": true,
+      "explanation": "Vrai : vingt minutes restées dans l’histoire."
+    },
+    {
+      "key": "pr-q-woodstock",
+      "format": "guess_year",
+      "prompt": "En quelle année a lieu le festival de Woodstock ?",
+      "difficulty": 2,
+      "knowledge": ["pr-woodstock"],
+      "year": 1969,
+      "tolerance": 2,
+      "min": 1950,
+      "max": 2000,
+      "explanation": "En août 1969."
+    },
+    {
+      "key": "pr-q-marley",
+      "format": "quiz",
+      "prompt": "Quel genre Bob Marley a-t-il fait connaître au monde entier ?",
+      "difficulty": 1,
+      "knowledge": ["pr-marley"],
+      "options": [
+        {
+          "label": "Le reggae",
+          "correct": true
+        },
+        {
+          "label": "Le blues"
+        },
+        {
+          "label": "La salsa"
+        },
+        {
+          "label": "Le rap"
+        }
+      ],
+      "explanation": "Le reggae, né en Jamaïque."
+    },
+    {
+      "key": "pr-q-cobain",
+      "format": "quiz",
+      "prompt": "Qui est le chanteur de Nirvana ?",
+      "difficulty": 1,
+      "knowledge": ["pr-nirvana"],
+      "options": [
+        {
+          "label": "Kurt Cobain",
+          "correct": true
+        },
+        {
+          "label": "Dave Grohl"
+        },
+        {
+          "label": "Eddie Vedder"
+        },
+        {
+          "label": "Axl Rose"
+        }
+      ],
+      "explanation": "Kurt Cobain. Dave Grohl en était le batteur avant de fonder les Foo Fighters."
+    },
+    {
+      "key": "pr-q-grunge-ville",
+      "format": "quiz",
+      "prompt": "De quelle région vient le grunge ?",
+      "difficulty": 2,
+      "knowledge": ["pr-nirvana"],
+      "options": [
+        {
+          "label": "Seattle",
+          "correct": true
+        },
+        {
+          "label": "Los Angeles"
+        },
+        {
+          "label": "Londres"
+        },
+        {
+          "label": "New York"
+        }
+      ],
+      "explanation": "De la région de Seattle, au nord-ouest des États-Unis."
+    },
+    {
+      "key": "pr-q-frise-rock",
+      "format": "timeline",
+      "prompt": "Remets ces moments du rock dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["pr-beatles-albums", "pr-woodstock", "pr-queen", "pr-nirvana"],
+      "items": [
+        {
+          "label": "Sgt. Pepper’s des Beatles",
+          "date": "1967"
+        },
+        {
+          "label": "Woodstock",
+          "date": "1969"
+        },
+        {
+          "label": "Bohemian Rhapsody",
+          "date": "1975"
+        },
+        {
+          "label": "Nevermind de Nirvana",
+          "date": "1991"
+        }
+      ],
+      "explanation": "1967, 1969, 1975, 1991."
+    },
+    {
+      "key": "pr-q-match-rock",
+      "format": "match",
+      "prompt": "Associe chaque artiste à son groupe.",
+      "difficulty": 2,
+      "knowledge": ["pr-beatles", "pr-stones", "pr-queen", "pr-nirvana"],
+      "pairs": [
+        {
+          "left": "Paul McCartney",
+          "right": "The Beatles"
+        },
+        {
+          "left": "Keith Richards",
+          "right": "The Rolling Stones"
+        },
+        {
+          "left": "Freddie Mercury",
+          "right": "Queen"
+        },
+        {
+          "left": "Kurt Cobain",
+          "right": "Nirvana"
+        }
+      ],
+      "explanation": "McCartney, Richards, Mercury, Cobain."
+    },
+    {
+      "key": "pr-q-graceland",
+      "format": "quiz",
+      "prompt": "Dans quelle ville se trouve Graceland, la maison d’Elvis ?",
+      "difficulty": 3,
+      "knowledge": ["pr-elvis"],
+      "options": [
+        {
+          "label": "Memphis",
+          "correct": true
+        },
+        {
+          "label": "Nashville"
+        },
+        {
+          "label": "Las Vegas"
+        },
+        {
+          "label": "La Nouvelle-Orléans"
+        }
+      ],
+      "explanation": "À Memphis, dans le Tennessee."
+    },
+    {
+      "key": "pr-q-nevermind",
+      "format": "guess_year",
+      "prompt": "En quelle année sort Nevermind de Nirvana ?",
+      "difficulty": 3,
+      "knowledge": ["pr-nirvana"],
+      "year": 1991,
+      "tolerance": 2,
+      "min": 1975,
+      "max": 2005,
+      "explanation": "En 1991."
+    },
+    {
+      "key": "pr-q-thriller",
+      "format": "quiz",
+      "prompt": "Quel est l’album le plus vendu de l’histoire ?",
+      "difficulty": 1,
+      "knowledge": ["pr-mj"],
+      "options": [
+        {
+          "label": "Thriller, de Michael Jackson",
+          "correct": true
+        },
+        {
+          "label": "Abbey Road, des Beatles"
+        },
+        {
+          "label": "Like a Virgin, de Madonna"
+        },
+        {
+          "label": "Nevermind, de Nirvana"
+        }
+      ],
+      "explanation": "Thriller, sorti en 1982."
+    },
+    {
+      "key": "pr-q-thriller-annee",
+      "format": "guess_year",
+      "prompt": "En quelle année sort Thriller ?",
+      "difficulty": 2,
+      "knowledge": ["pr-mj"],
+      "year": 1982,
+      "tolerance": 2,
+      "min": 1970,
+      "max": 2000,
+      "explanation": "En 1982."
+    },
+    {
+      "key": "pr-q-moonwalk",
+      "format": "quiz",
+      "prompt": "Sur quelle chanson Michael Jackson dévoile-t-il le moonwalk ?",
+      "difficulty": 3,
+      "knowledge": ["pr-mj"],
+      "options": [
+        {
+          "label": "Billie Jean",
+          "correct": true
+        },
+        {
+          "label": "Thriller"
+        },
+        {
+          "label": "Beat It"
+        },
+        {
+          "label": "Bad"
+        }
+      ],
+      "explanation": "Billie Jean, en 1983."
+    },
+    {
+      "key": "pr-q-king-pop",
+      "format": "true_false",
+      "prompt": "Michael Jackson est surnommé le King of Pop.",
+      "difficulty": 1,
+      "knowledge": ["pr-mj"],
+      "answer": true,
+      "explanation": "Vrai."
+    },
+    {
+      "key": "pr-q-thriller-clip",
+      "format": "quiz",
+      "prompt": "Quelles créatures dansent dans le clip de Thriller ?",
+      "difficulty": 1,
+      "knowledge": ["pr-mj"],
+      "options": [
+        {
+          "label": "Des zombies",
+          "correct": true
+        },
+        {
+          "label": "Des robots"
+        },
+        {
+          "label": "Des vampires"
+        },
+        {
+          "label": "Des extraterrestres"
+        }
+      ],
+      "explanation": "Des zombies, pour un clip de près de quatorze minutes."
+    },
+    {
+      "key": "pr-q-queen-pop",
+      "format": "quiz",
+      "prompt": "Quelle artiste est surnommée la Queen of Pop ?",
+      "difficulty": 1,
+      "knowledge": ["pr-madonna"],
+      "options": [
+        {
+          "label": "Madonna",
+          "correct": true
+        },
+        {
+          "label": "Beyoncé"
+        },
+        {
+          "label": "Rihanna"
+        },
+        {
+          "label": "Lady Gaga"
+        }
+      ],
+      "explanation": "Madonna."
+    },
+    {
+      "key": "pr-q-purple-rain",
+      "format": "quiz",
+      "prompt": "Quel artiste a sorti Purple Rain ?",
+      "difficulty": 2,
+      "knowledge": ["pr-prince"],
+      "options": [
+        {
+          "label": "Prince",
+          "correct": true
+        },
+        {
+          "label": "Michael Jackson"
+        },
+        {
+          "label": "David Bowie"
+        },
+        {
+          "label": "Stevie Wonder"
+        }
+      ],
+      "explanation": "Prince, en 1984."
+    },
+    {
+      "key": "pr-q-destiny",
+      "format": "quiz",
+      "prompt": "Dans quel groupe Beyoncé s’est-elle fait connaître ?",
+      "difficulty": 2,
+      "knowledge": ["pr-beyonce"],
+      "options": [
+        {
+          "label": "Destiny’s Child",
+          "correct": true
+        },
+        {
+          "label": "Spice Girls"
+        },
+        {
+          "label": "TLC"
+        },
+        {
+          "label": "The Supremes"
+        }
+      ],
+      "explanation": "Destiny’s Child."
+    },
+    {
+      "key": "pr-q-like-virgin",
+      "format": "true_false",
+      "prompt": "Like a Virgin et Purple Rain sont sortis la même année.",
+      "difficulty": 3,
+      "knowledge": ["pr-madonna", "pr-prince"],
+      "answer": true,
+      "explanation": "Vrai : tous deux en 1984."
+    },
+    {
+      "key": "pr-q-match-pop",
+      "format": "match",
+      "prompt": "Associe chaque artiste à son œuvre.",
+      "difficulty": 2,
+      "knowledge": ["pr-mj", "pr-madonna", "pr-prince"],
+      "pairs": [
+        {
+          "left": "Michael Jackson",
+          "right": "Thriller"
+        },
+        {
+          "left": "Madonna",
+          "right": "Like a Virgin"
+        },
+        {
+          "left": "Prince",
+          "right": "Purple Rain"
+        }
+      ],
+      "explanation": "Trois monuments des années 1980."
+    },
+    {
+      "key": "pr-q-daft-casques",
+      "format": "quiz",
+      "prompt": "Qu’est-ce qui cache le visage des Daft Punk ?",
+      "difficulty": 1,
+      "knowledge": ["pr-daft-punk"],
+      "options": [
+        {
+          "label": "Des casques de robots",
+          "correct": true
+        },
+        {
+          "label": "Des masques de carnaval"
+        },
+        {
+          "label": "Des cagoules"
+        },
+        {
+          "label": "Des lunettes géantes"
+        }
+      ],
+      "explanation": "Des casques de robots, leur signature visuelle."
+    },
+    {
+      "key": "pr-q-get-lucky",
+      "format": "quiz",
+      "prompt": "Sur quel album de Daft Punk figure Get Lucky ?",
+      "difficulty": 3,
+      "knowledge": ["pr-daft-punk"],
+      "options": [
+        {
+          "label": "Random Access Memories",
+          "correct": true
+        },
+        {
+          "label": "Discovery"
+        },
+        {
+          "label": "Homework"
+        },
+        {
+          "label": "Human After All"
+        }
+      ],
+      "explanation": "Random Access Memories, en 2013."
+    },
+    {
+      "key": "pr-q-daft-grammy",
+      "format": "true_false",
+      "prompt": "Daft Punk a remporté le Grammy de l’album de l’année.",
+      "difficulty": 2,
+      "knowledge": ["pr-daft-punk"],
+      "answer": true,
+      "explanation": "Vrai, avec Random Access Memories."
+    },
+    {
+      "key": "pr-q-daft-fin",
+      "format": "guess_year",
+      "prompt": "En quelle année Daft Punk annonce-t-il sa séparation ?",
+      "difficulty": 3,
+      "knowledge": ["pr-daft-punk"],
+      "year": 2021,
+      "tolerance": 2,
+      "min": 2000,
+      "max": 2026,
+      "explanation": "En février 2021."
+    },
+    {
+      "key": "pr-q-french-touch",
+      "format": "quiz",
+      "prompt": "Quel artiste ne fait pas partie de la French Touch ?",
+      "difficulty": 3,
+      "knowledge": ["pr-french-touch"],
+      "options": [
+        {
+          "label": "Bob Marley",
+          "correct": true
+        },
+        {
+          "label": "Air"
+        },
+        {
+          "label": "Justice"
+        },
+        {
+          "label": "Cassius"
+        }
+      ],
+      "explanation": "Bob Marley est le roi du reggae jamaïcain."
+    },
+    {
+      "key": "pr-q-frise-pop",
+      "format": "timeline",
+      "prompt": "Remets ces sorties dans l’ordre.",
+      "difficulty": 3,
+      "knowledge": ["pr-mj", "pr-madonna", "pr-daft-punk"],
+      "items": [
+        {
+          "label": "Thriller",
+          "date": "1982"
+        },
+        {
+          "label": "Like a Virgin",
+          "date": "1984"
+        },
+        {
+          "label": "Random Access Memories",
+          "date": "2013"
+        }
+      ],
+      "explanation": "1982, 1984, 2013."
+    },
+    {
+      "key": "pr-q-daft-nationalite",
+      "format": "quiz",
+      "prompt": "De quel pays vient Daft Punk ?",
+      "difficulty": 1,
+      "knowledge": ["pr-daft-punk"],
+      "options": [
+        {
+          "label": "La France",
+          "correct": true
+        },
+        {
+          "label": "La Belgique"
+        },
+        {
+          "label": "Le Royaume-Uni"
+        },
+        {
+          "label": "L’Allemagne"
+        }
+      ],
+      "explanation": "De France : c’est la fierté de la French Touch."
+    },
+    {
+      "key": "pr-q-moonwalk-annee",
+      "format": "true_false",
+      "prompt": "Le moonwalk a été dévoilé au public dans les années 1990.",
+      "difficulty": 3,
+      "knowledge": ["pr-mj"],
+      "answer": false,
+      "explanation": "Faux : en 1983."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Les géants du rock",
+      "description": "Ceux qui ont tout inventé.",
+      "lessons": [
+        {
+          "slug": "pr-elvis-beatles",
+          "title": "Elvis et les Beatles",
+          "objective": "Connaître le King et les Fab Four.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Le King",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Dans les années 1950, Elvis Presley fait danser l’Amérique sur du rock’n’roll. Sa maison de Memphis, Graceland, est aujourd’hui un musée."
+                }
+              ]
+            },
+            {
+              "title": "Quatre garçons de Liverpool",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": ["John Lennon", "Paul McCartney", "George Harrison", "Ringo Starr"]
+                }
+              ]
+            },
+            {
+              "title": "Des albums mythiques",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Sgt. Pepper’s (1967) révolutionne l’album pop. En 1969, la pochette d’Abbey Road montre les quatre Beatles traversant un passage piéton. Le groupe se sépare en 1970."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "pr-q-king",
+            "pr-q-beatles-ville",
+            "pr-q-beatles-intrus",
+            "pr-q-abbey-road",
+            "pr-q-beatles-split"
+          ]
+        },
+        {
+          "slug": "pr-stones-queen-bowie",
+          "title": "Stones, Queen et Bowie",
+          "objective": "Reconnaître trois légendes du rock britannique.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La langue des Stones",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Mick Jagger au chant, Keith Richards à la guitare : les Rolling Stones ont pour logo une langue tirée, dessinée au début des années 1970."
+                }
+              ]
+            },
+            {
+              "title": "Queen",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Freddie Mercury et Queen sortent Bohemian Rhapsody en 1975, un morceau de six minutes sans vrai refrain. En 1985, leur concert au Live Aid est souvent cité comme le plus grand concert de rock."
+                }
+              ]
+            },
+            {
+              "title": "L’homme aux mille visages",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "David Bowie se réinvente sans arrêt. Son double le plus célèbre : Ziggy Stardust, rock star venue de l’espace."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "pr-q-stones-logo",
+            "pr-q-mercury",
+            "pr-q-bohemian",
+            "pr-q-ziggy",
+            "pr-q-live-aid"
+          ]
+        },
+        {
+          "slug": "pr-grunge",
+          "title": "De Woodstock au grunge",
+          "objective": "Situer Woodstock, Bob Marley et Nirvana.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Woodstock",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1969",
+                  "label": "Festival de Woodstock"
+                },
+                {
+                  "type": "text",
+                  "text": "Trois jours de musique, de pluie et de boue dans l’État de New York, devant des centaines de milliers de spectateurs."
+                }
+              ]
+            },
+            {
+              "title": "One Love",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Le Jamaïcain Bob Marley, avec les Wailers, fait du reggae un genre mondial."
+                }
+              ]
+            },
+            {
+              "title": "Le grunge",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1991, Nirvana, groupe de la région de Seattle mené par Kurt Cobain, sort Nevermind. Smells Like Teen Spirit devient l’hymne d’une génération."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "pr-q-woodstock",
+            "pr-q-marley",
+            "pr-q-cobain",
+            "pr-q-grunge-ville",
+            "pr-q-frise-rock"
+          ]
+        },
+        {
+          "slug": "pr-epreuve-rock",
+          "title": "Épreuve : les géants du rock",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "pr-q-beatles-ville",
+            "pr-q-mercury",
+            "pr-q-cobain",
+            "pr-q-match-rock",
+            "pr-q-graceland",
+            "pr-q-nevermind"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les icônes de la pop",
+      "description": "Rois, reines et robots.",
+      "lessons": [
+        {
+          "slug": "pr-mj",
+          "title": "Le King of Pop",
+          "objective": "Connaître les records de Michael Jackson.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Thriller",
+              "blocks": [
+                {
+                  "type": "keyfigure",
+                  "value": "1982",
+                  "label": "Sortie de Thriller, l’album le plus vendu de l’histoire"
+                },
+                {
+                  "type": "text",
+                  "text": "Le clip de Thriller, avec ses zombies, devient un mini-film culte."
+                }
+              ]
+            },
+            {
+              "title": "Le moonwalk",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "En 1983, lors d’une émission télévisée, Michael Jackson glisse en arrière sur Billie Jean : le monde découvre le moonwalk."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "pr-q-thriller",
+            "pr-q-thriller-annee",
+            "pr-q-moonwalk",
+            "pr-q-king-pop",
+            "pr-q-thriller-clip"
+          ]
+        },
+        {
+          "slug": "pr-madonna-prince",
+          "title": "Reines et princes de la pop",
+          "objective": "Reconnaître Madonna, Prince et Beyoncé.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "La Queen of Pop",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Madonna explose en 1984 avec Like a Virgin et ne cesse ensuite de se réinventer."
+                }
+              ]
+            },
+            {
+              "title": "Purple Rain",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "La même année, Prince sort Purple Rain, à la fois un album et un film."
+                }
+              ]
+            },
+            {
+              "title": "De Destiny’s Child à Queen B",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Beyoncé se fait connaître avec le groupe Destiny’s Child avant de devenir l’une des artistes les plus récompensées de l’histoire."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "pr-q-queen-pop",
+            "pr-q-purple-rain",
+            "pr-q-destiny",
+            "pr-q-like-virgin",
+            "pr-q-match-pop"
+          ]
+        },
+        {
+          "slug": "pr-french-touch",
+          "title": "Daft Punk et la French Touch",
+          "objective": "Connaître le duo le plus célèbre de la musique française.",
+          "minutes": 3,
+          "cards": [
+            {
+              "title": "Deux casques",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Thomas Bangalter et Guy-Manuel de Homem-Christo forment Daft Punk. Ils se montrent presque toujours derrière des casques de robots."
+                }
+              ]
+            },
+            {
+              "title": "La consécration",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Random Access Memories (2013), avec le tube Get Lucky, remporte le Grammy de l’album de l’année. Le duo annonce sa séparation en 2021."
+                }
+              ]
+            },
+            {
+              "title": "La French Touch",
+              "blocks": [
+                {
+                  "type": "text",
+                  "text": "Dans les années 1990, la musique électronique française s’exporte : Daft Punk, Air, Cassius, puis Justice et David Guetta."
+                }
+              ]
+            }
+          ],
+          "questions": [
+            "pr-q-daft-casques",
+            "pr-q-get-lucky",
+            "pr-q-daft-grammy",
+            "pr-q-daft-fin",
+            "pr-q-french-touch"
+          ]
+        },
+        {
+          "slug": "pr-epreuve-pop",
+          "title": "Épreuve : les icônes de la pop",
+          "objective": "Valider le chapitre en mobilisant tout ce que tu as appris.",
+          "kind": "exam",
+          "minutes": 4,
+          "cards": [],
+          "questions": [
+            "pr-q-thriller",
+            "pr-q-queen-pop",
+            "pr-q-daft-casques",
+            "pr-q-frise-pop",
+            "pr-q-daft-nationalite",
+            "pr-q-moonwalk-annee"
+          ]
+        }
+      ]
+    }
+  ]
+}
