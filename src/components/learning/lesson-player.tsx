@@ -1,6 +1,7 @@
 'use client'
 
-import { ArrowLeft, ArrowRight, CircleCheck, CircleX, Clock, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Clock, X } from 'lucide-react'
+import { AnswerHeading } from './answer-heading'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { type MouseEvent, useEffect, useRef, useState, useTransition } from 'react'
@@ -300,18 +301,7 @@ export function LessonPlayer({
                           : 'border-danger/40 bg-danger/8',
                       )}
                     >
-                      <p className="flex items-center gap-2 font-display text-heading font-semibold text-ink">
-                        {result.isCorrect ? (
-                          <CircleCheck className="size-5 text-success" aria-hidden="true" />
-                        ) : (
-                          <CircleX className="size-5 text-danger" aria-hidden="true" />
-                        )}
-                        {result.isCorrect
-                          ? 'Bonne réponse'
-                          : result.score > 0
-                            ? 'Presque'
-                            : 'Pas tout à fait'}
-                      </p>
+                      <AnswerHeading result={result} seed={question.id} />
                       <p className="text-body leading-relaxed text-ink">{result.explanation}</p>
                       <Button size="lg" onClick={next} loading={pending}>
                         {step.index + 1 < lesson.questions.length

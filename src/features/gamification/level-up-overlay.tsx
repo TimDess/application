@@ -6,6 +6,7 @@ import { confetti, feedback } from '@/lib/sensations'
 import { Button } from '@/components/ui/button'
 import { motionReduced } from '@/components/theme/theme-client'
 import { WAVE_REVEAL_MS } from '@/components/learning/wave-transition'
+import { voice } from '@/config/voice'
 
 /** Full-screen "level up" moment: a Soleil wave covers the screen, then opens on close. */
 export function LevelUpOverlay({ level, onClose }: { level: number; onClose: () => void }) {
@@ -64,7 +65,7 @@ export function LevelUpOverlay({ level, onClose }: { level: number; onClose: () 
           <span className="sr-only">Tu passes au niveau </span>
           {level}
         </h2>
-        <p className="max-w-xs text-body">Ta culture prend de l’ampleur. Continue comme ça !</p>
+        <p className="max-w-xs text-body">{voice.levelUp}</p>
         <Button
           ref={buttonRef}
           size="lg"

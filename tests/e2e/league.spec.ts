@@ -35,7 +35,7 @@ test('the daily challenge brings a player into the weekly league', async ({ page
       page.getByRole('main').getByRole('heading', { name: prompt ?? '', exact: true }),
     ).toBeHidden()
   }
-  await expect(page.getByRole('heading', { name: 'Défi du jour terminé' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Défi du jour (terminé|bouclé)/ })).toBeVisible()
   await dismissLevelUp(page)
 
   await page.goto('/ligue')

@@ -112,6 +112,11 @@ Dernière mise à jour : 28 novembre 2026.
 - Labo son et animation (artifact) : trois directions, choix de Tim enregistré (Premium, avec défaite, flamme et vague en Doux).
 - Moteur de sons et vibrations, réglages « Effets sonores » et « Vibrations » désormais effectifs, effets de jeu (éclat, combo, confettis, intro VS, battement du chrono), appui élastique, barre d’onglets à ressort, cibles tactiles de 44 px. Détails : `docs/DESIGN_SYSTEM.md`.
 
+## Lot Identité (28 novembre 2026)
+
+- Labo identité (artifact) : mascotte, police des titres, boutons, illustrations et voix ; choix de Tim enregistrés.
+- Mascotte « le Point » (style Pastille, 7 expressions) intégrée aux écrans clés, titres en Bricolage Grotesque avec le point jaune, nouvelles illustrations d'univers, voix Kulto plus directe et drôle (`src/config/voice.ts`). Retrait de « Ligue et duels » de « Bientôt sur Kulto » (livré). Détails : `docs/DESIGN_SYSTEM.md`.
+
 ## Écarts et points ouverts
 
 - **À reprendre (signalé par Tim, 28 novembre 2026)** :

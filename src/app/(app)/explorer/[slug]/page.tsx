@@ -51,6 +51,7 @@ async function Universe({ params }: { params: Promise<{ slug: string }> }) {
         {universe.courses.length === 0 ? (
           <EmptyState
             icon={BookOpen}
+            mascot="sleep"
             title="Parcours en préparation"
             description="Les premiers parcours de cet univers sont en cours d’écriture et de vérification."
           />

@@ -1,6 +1,7 @@
 'use client'
 
-import { CircleCheck, CircleX, Swords, Timer, X } from 'lucide-react'
+import { CircleCheck, Swords, Timer, X } from 'lucide-react'
+import { AnswerHeading } from '@/components/learning/answer-heading'
 import Link from 'next/link'
 import { useEffect, useRef, useState, useTransition } from 'react'
 import { formatLabels, QuestionView } from '@/components/games/question-view'
@@ -328,23 +329,16 @@ export function DuelPlayer({
                     : 'border-danger/40 bg-danger/8',
                 )}
               >
-                <p className="flex items-center justify-between gap-2 font-display text-heading font-semibold text-ink">
-                  <span className="flex items-center gap-2">
-                    {scored.isCorrect ? (
-                      <CircleCheck className="size-5 text-success" aria-hidden="true" />
-                    ) : (
-                      <CircleX className="size-5 text-danger" aria-hidden="true" />
-                    )}
-                    {scored.timedOut
-                      ? 'Temps écoulé'
-                      : scored.isCorrect
-                        ? 'Bonne réponse'
-                        : scored.score > 0
-                          ? 'Presque'
-                          : 'Pas tout à fait'}
-                  </span>
-                  <span className="tabular text-accent-text">+{scored.points}</span>
-                </p>
+                <AnswerHeading
+                  result={scored}
+                  seed={`${duel.id}-${turn.position}`}
+                  timedOut={scored.timedOut}
+                  aside={
+                    <span className="tabular shrink-0 font-display text-heading font-semibold text-accent-text">
+                      +{scored.points}
+                    </span>
+                  }
+                />
                 <p className="text-body leading-relaxed text-ink">{scored.explanation}</p>
                 <Button size="lg" onClick={next} loading={pending}>
                   {scored.finished ? 'Voir le résultat' : 'Question suivante'}

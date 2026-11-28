@@ -61,7 +61,9 @@ test('two players are matched for a quick duel', async ({ browser }, info) => {
   await b.getByRole('button', { name: 'Duel rapide' }).click()
   await expect(b.getByRole('heading', { name: `Duel contre ${nameA}` })).toBeVisible()
   await playDuel(b)
-  await expect(b.getByRole('heading', { name: /Victoire !|Défaite|Égalité/ })).toBeVisible()
+  await expect(
+    b.getByRole('heading', { name: /Victoire !|Clutch !|Perdu, cette fois|Égalité parfaite/ }),
+  ).toBeVisible()
   await expect(b.getByRole('heading', { name: 'Question par question' })).toBeVisible()
   await expect(b.getByRole('button', { name: 'Revanche' })).toBeVisible()
 
@@ -112,5 +114,7 @@ test('a friend takes up a link challenge as a guest', async ({ browser }, info) 
   await friend.getByRole('button', { name: 'Relever le défi' }).click()
   await expect(friend.getByRole('heading', { name: `Duel contre ${nameA}` })).toBeVisible()
   await playDuel(friend)
-  await expect(friend.getByRole('heading', { name: /Victoire !|Défaite|Égalité/ })).toBeVisible()
+  await expect(
+    friend.getByRole('heading', { name: /Victoire !|Clutch !|Perdu, cette fois|Égalité parfaite/ }),
+  ).toBeVisible()
 })

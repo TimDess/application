@@ -1,4 +1,4 @@
-import { CalendarCheck, CalendarClock } from 'lucide-react'
+import { Mascot } from '@/components/brand/mascot'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -34,10 +34,7 @@ async function Daily() {
   const date = dayLabel.format(new Date(`${daily.day}T00:00:00Z`))
 
   const idle = !daily.available ? (
-    <PracticeNotice
-      icon={<CalendarClock className="size-7" aria-hidden="true" />}
-      title="Pas encore de défi"
-    >
+    <PracticeNotice icon={<Mascot mood="sleep" size={96} />} title="Pas encore de défi">
       <p className="text-body text-muted">
         Le défi du jour arrive dès que les premiers parcours sont publiés.
       </p>
@@ -46,17 +43,14 @@ async function Daily() {
       </Button>
     </PracticeNotice>
   ) : daily.completed ? (
-    <PracticeNotice
-      icon={<CalendarCheck className="size-7" aria-hidden="true" />}
-      title="Défi du jour terminé"
-    >
+    <PracticeNotice icon={<Mascot mood="party" size={96} />} title="Défi du jour terminé">
       <p className="font-display text-[3rem] leading-none font-bold text-ink">
         {daily.correct}/{daily.total}
       </p>
       <p aria-hidden="true" className="text-[1.75rem] tracking-[0.2em]">
         {daily.results.map((r) => (r ? '🟨' : '⬛')).join('')}
       </p>
-      <p className="text-body text-muted">Un nouveau défi t’attend demain à minuit.</p>
+      <p className="text-body text-muted">Le prochain tombe à minuit. Garde des forces.</p>
       <div className="flex w-full flex-col gap-3">
         <ShareButton day={daily.day} results={daily.results} />
         <Button asChild size="lg">
@@ -71,7 +65,7 @@ async function Daily() {
       kind="daily"
       idle={idle}
       title="Défi du jour"
-      intro={`Le défi du ${date}, le même pour tout le monde. Une seule tentative !`}
+      intro={`Le défi du ${date} t’attend. Tout le monde a les mêmes questions, et tu n’as qu’une tentative.`}
       meta={<MetaChips items={['5 questions', 'Une seule tentative', '+50 XP', 'Partageable']} />}
     />
   )
