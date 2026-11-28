@@ -2,17 +2,17 @@
 
 Dernière mise à jour : 28 novembre 2026.
 
-| Phase              | Contenu                                                                                         | État                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées) |
-| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                          |
-| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)              |
-| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | ✅ Terminée (lots 3A, 3B, 3C)                        |
-| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | À venir                                              |
-| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                              |
-| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                              |
-| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                              |
-| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                              |
+| Phase              | Contenu                                                                                         | État                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| 0 — Cadrage        | Brief, naming, directions artistiques, architecture, schéma                                     | ✅ Terminée (Kulto, direction 2, décisions validées)             |
+| 1 — Fondations     | Projet, design system, navigation, thèmes, Supabase, auth, profils, onboarding, CI              | ✅ Terminée                                                      |
+| 2 — Apprentissage  | Contenu « as code », lecteur de leçon, fiches, 5 formats, progression, parcours F1, mode invité | ✅ Terminée (mode invité reporté en 3C)                          |
+| 3 — Gamification   | XP, niveaux, série, défi du jour, révisions espacées, badges, ADN culturel, animations          | ✅ Terminée (lots 3A, 3B, 3C)                                    |
+| 4 — Compétition    | Cote, divisions, ligues, matchmaking, duels temps réel et asynchrones                           | 🚧 Lots 4A (duels) et 4B (ligues) livrés ; reste 4C (temps réel) |
+| 5 — Social         | Amis, invitations, profils publics, duels privés, notifications                                 | À venir                                                          |
+| 6 — Administration | Éditeur de contenu, import, publication, événements, modération                                 | À venir                                                          |
+| 7 — Enrichissement | Nouveaux formats, nouveaux univers, PWA, événements temporaires                                 | À venir                                                          |
+| 8 — Production     | Audit sécurité et accessibilité, CSP, performances, domaine, projet prod                        | À venir                                                          |
 
 ## Phase 1 — livré
 
@@ -90,12 +90,33 @@ Dernière mise à jour : 28 novembre 2026.
 - Après déploiement : supprimer l’icône de l’écran d’accueil et la réinstaller, iOS ne relisant le manifeste qu’à l’installation.
 - À venir : écran hors ligne (service worker), aide à l’installation, notifications.
 
+## Phase 4 — lot 4A livré (duels asynchrones)
+
+- Duel : 7 questions (quiz, vrai/faux, devine l’année : formats rapides), 15 s chacune, les mêmes pour les deux joueurs, tirées de tout le contenu publié. Chacun joue quand il veut, 48 h pour l’adversaire.
+- Trois façons de jouer : duel rapide (adversaire de cote proche ; sinon le duel attend le prochain joueur, jamais de robot), défi par lien (`/d/<code>`, jouable en invité, l’onboarding ramène au défi), revanche.
+- Questions servies une par une par le serveur, qui chronomètre (15 s + 0,8 s de tolérance réseau) ; score : 100 × difficulté (1,0 à 1,5), bonus de vitesse plafonné à 25 %, bonus de série plafonné à +30, erreur ou temps écoulé = 0.
+- Cote cachée Elo (K = 40 pour les 20 premiers duels, puis 24). XP : 10 pour sa manche, +10 pour une victoire. Une manche jouée valide la série. Forfait si l’adversaire ne joue pas à temps (balayage pg_cron toutes les 15 minutes).
+- Interface : section Duels dans Jouer (duel rapide, défier un ami, liste « à toi de jouer » / en attente / terminés), lecteur chronométré, résultat question par question, revanche, partage du lien.
+- Tests : 55 unitaires, 165 assertions pgTAP, 30 scénarios E2E (dont deux joueurs et lien de défi en invité).
+
+## Phase 4 — lot 4B livré (ligues hebdomadaires)
+
+- Semaine du lundi 0 h au dimanche 23 h 59 (Paris). Six divisions : Bronze, Argent, Or, Platine, Diamant, Légende. Groupes de 30 joueurs maximum de la même division, rejoints au premier point de la semaine (duel ou défi du jour). Les invités ne participent pas.
+- Points : duel gagné 30, nul 15, perdu 5, forfait 0 ; défi du jour 20. Seuls les 15 meilleurs duels de la semaine comptent. Attribués par des triggers sur `duels` et `practice_sessions`.
+- Fin de semaine (pg_cron toutes les heures, et à l’ouverture de la page) : classement final, environ 20 % montent et 20 % descendent par groupe (petits groupes : seul le premier monte), jamais sous Bronze ni au-dessus de Légende.
+- Page Ligue : division, compte à rebours, points et duels comptés, classement du groupe avec zones de montée et de descente, bilan de la semaine passée, règles. Respecte « apparaître dans les classements » et le profil privé (« Joueur masqué »). Division affichée sur le profil.
+- Tests : 57 unitaires, 186 assertions pgTAP, 34 scénarios E2E.
+
 ## Écarts et points ouverts
+
+- **À reprendre (signalé par Tim, 28 novembre 2026)** :
+  - Création de compte : il reste un problème (à reproduire avec Tim ; probablement lié aux emails sans SMTP personnalisé).
+  - Pseudos des invités : un compte invité réserve son pseudo, qui devient indisponible pour un vrai joueur même si l’invité ne crée jamais de compte. Pistes : pseudo provisoire pour les invités (choisi à la sauvegarde), ou libération du pseudo à la purge des invités inactifs.
 
 - **Emails en production** : sans SMTP personnalisé (Brevo), Supabase n'envoie les emails qu'aux membres de l'équipe du projet et refuse la personnalisation des modèles. Indispensable avant d'ouvrir à d'autres joueurs (inscription, mot de passe oublié, sauvegarde d'un compte invité).
 - **Mini-test de placement** de l'onboarding : phase 3.
 - **Indices** pendant les leçons : reportés (non prioritaires, les révisions jouent le rôle de rattrapage).
-- **Contenu** : 4 parcours et 48 questions F1 à relire par Tim avant publication (passer `status` à `published` dans le JSON, ou retirer `status: "in_review"` des questions F1, puis `pnpm content:build` et appliquer le SQL).
+- **Contenu** : les 4 parcours de la session contenu sont publiés (validés par Tim le 28 novembre 2026). Restent en relecture les 48 questions supplémentaires du F1.
 - **Changement d'adresse email** : non inclus en phase 1 (le modèle d'email est prêt).
 - **Pages légales** : brouillons à faire valider juridiquement avant toute ouverture publique.
 - **Marque Kulto** : disponibilité (INPI, EUIPO, domaines) à vérifier.

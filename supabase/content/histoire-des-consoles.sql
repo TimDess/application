@@ -2,11 +2,11 @@
 begin;
 do $$ begin if not exists (select 1 from public.universes where slug = 'jeux-video') then raise exception 'unknown universe jeux-video'; end if; end $$;
 insert into public.categories (id, universe_id, slug, name, description, sort_order, status)
-values ('a76b3981-bd59-5515-89b4-c21afc43a04c', (select id from public.universes where slug = 'jeux-video'), 'consoles', 'Consoles et machines', 'L’histoire des machines qui ont fait le jeu vidéo, de l’arcade aux consoles hybrides.', 10, 'in_review')
+values ('a76b3981-bd59-5515-89b4-c21afc43a04c', (select id from public.universes where slug = 'jeux-video'), 'consoles', 'Consoles et machines', 'L’histoire des machines qui ont fait le jeu vidéo, de l’arcade aux consoles hybrides.', 10, 'published')
 on conflict (id) do update set name = excluded.name, description = excluded.description,
   status = case when public.categories.status = 'published' then 'published'::public.content_status else excluded.status end;
 insert into public.courses (id, category_id, slug, title, description, level, sort_order, status)
-values ('c79bec93-7336-5d6f-a7ef-ba815fce5703', 'a76b3981-bd59-5515-89b4-c21afc43a04c', 'histoire-des-consoles', 'Histoire des consoles', 'De Pong à la Switch 2 : les machines, les rivalités et les révolutions qui ont façonné le jeu vidéo.', 'debutant', 10, 'in_review')
+values ('c79bec93-7336-5d6f-a7ef-ba815fce5703', 'a76b3981-bd59-5515-89b4-c21afc43a04c', 'histoire-des-consoles', 'Histoire des consoles', 'De Pong à la Switch 2 : les machines, les rivalités et les révolutions qui ont façonné le jeu vidéo.', 'debutant', 10, 'published')
 on conflict (id) do update set title = excluded.title, description = excluded.description, level = excluded.level, status = excluded.status;
 update public.chapters set position = position + 1000 where course_id = 'c79bec93-7336-5d6f-a7ef-ba815fce5703';
 update public.lessons set position = position + 1000 where chapter_id in (select id from public.chapters where course_id = 'c79bec93-7336-5d6f-a7ef-ba815fce5703');
@@ -115,378 +115,378 @@ values ('6a86af8a-b50a-5537-a893-5132f74e5b83', 'jv-switch-2', (select id from p
 on conflict (id) do update set title = excluded.title, summary = excluded.summary, is_evolving = excluded.is_evolving,
   valid_as_of = excluded.valid_as_of, verified_at = excluded.verified_at, source_url = excluded.source_url;
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('dea7b5ee-8ec2-5060-abeb-58e1ac2771ba', 'jv-q-odyssey', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la première console de salon commercialisée ?', '{"options":[{"id":"a","label":"Atari 2600"},{"id":"b","label":"Magnavox Odyssey"},{"id":"c","label":"NES"},{"id":"d","label":"Intellivision"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('dea7b5ee-8ec2-5060-abeb-58e1ac2771ba', 'jv-q-odyssey', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la première console de salon commercialisée ?', '{"options":[{"id":"a","label":"Atari 2600"},{"id":"b","label":"Magnavox Odyssey"},{"id":"c","label":"NES"},{"id":"d","label":"Intellivision"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('dea7b5ee-8ec2-5060-abeb-58e1ac2771ba', '{"correct":["b"]}'::jsonb, 'La Magnavox Odyssey, conçue par Ralph Baer, sort en 1972 aux États-Unis.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a84144fa-19f1-5afc-bd7a-9d80014e7b48', 'jv-q-baer', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Ralph Baer est considéré comme l’un des pères de la console de salon.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('a84144fa-19f1-5afc-bd7a-9d80014e7b48', 'jv-q-baer', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Ralph Baer est considéré comme l’un des pères de la console de salon.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a84144fa-19f1-5afc-bd7a-9d80014e7b48', '{"value":true}'::jsonb, 'Vrai : il a conçu la Magnavox Odyssey, sortie en 1972.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('940b8d76-2356-54fa-a459-8b9c4e584623', 'jv-q-pong', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu fait le premier grand succès d’Atari ?', '{"options":[{"id":"a","label":"Pac-Man"},{"id":"b","label":"Pong"},{"id":"c","label":"Tetris"},{"id":"d","label":"Space Invaders"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('940b8d76-2356-54fa-a459-8b9c4e584623', 'jv-q-pong', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu fait le premier grand succès d’Atari ?', '{"options":[{"id":"a","label":"Pac-Man"},{"id":"b","label":"Pong"},{"id":"c","label":"Tetris"},{"id":"d","label":"Space Invaders"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('940b8d76-2356-54fa-a459-8b9c4e584623', '{"correct":["b"]}'::jsonb, 'Pong, un tennis de table minimaliste, est programmé par Allan Alcorn en 1972.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('90c31a6e-b015-54bf-be63-b0950a067bf8', 'jv-q-atari-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année Atari est-elle fondée ?', '{"min":1960,"max":1990}'::jsonb, 3, false, null, 'in_review')
+values ('90c31a6e-b015-54bf-be63-b0950a067bf8', 'jv-q-atari-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année Atari est-elle fondée ?', '{"min":1960,"max":1990}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('90c31a6e-b015-54bf-be63-b0950a067bf8', '{"year":1972,"tolerance":2}'::jsonb, 'Atari est fondée en 1972 par Nolan Bushnell et Ted Dabney.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('906622e0-3fea-52dc-ae00-3f943214b6e4', 'jv-q-pionniers', (select id from public.universes where slug = 'jeux-video'), 'match', 'Associe chaque pionnier à ce qu’il a créé.', '{"left":[{"id":"l1","label":"Ralph Baer"},{"id":"l2","label":"Allan Alcorn"},{"id":"l3","label":"Tomohiro Nishikado"}],"right":[{"id":"r3","label":"Space Invaders"},{"id":"r2","label":"Pong"},{"id":"r1","label":"Magnavox Odyssey"}]}'::jsonb, 2, false, null, 'in_review')
+values ('906622e0-3fea-52dc-ae00-3f943214b6e4', 'jv-q-pionniers', (select id from public.universes where slug = 'jeux-video'), 'match', 'Associe chaque pionnier à ce qu’il a créé.', '{"left":[{"id":"l1","label":"Ralph Baer"},{"id":"l2","label":"Allan Alcorn"},{"id":"l3","label":"Tomohiro Nishikado"}],"right":[{"id":"r3","label":"Space Invaders"},{"id":"r2","label":"Pong"},{"id":"r1","label":"Magnavox Odyssey"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('906622e0-3fea-52dc-ae00-3f943214b6e4', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Baer conçoit l’Odyssey, Alcorn programme Pong pour Atari, Nishikado crée Space Invaders chez Taito.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b9adb287-d8d6-5842-835f-3a6e3d55d02d', 'jv-q-2600', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Qu’est-ce qui fait le succès de l’Atari 2600 ?', '{"options":[{"id":"a","label":"Ses cartouches interchangeables"},{"id":"b","label":"Son lecteur de CD"},{"id":"c","label":"Son écran tactile"},{"id":"d","label":"Sa connexion à Internet"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('b9adb287-d8d6-5842-835f-3a6e3d55d02d', 'jv-q-2600', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Qu’est-ce qui fait le succès de l’Atari 2600 ?', '{"options":[{"id":"a","label":"Ses cartouches interchangeables"},{"id":"b","label":"Son lecteur de CD"},{"id":"c","label":"Son écran tactile"},{"id":"d","label":"Sa connexion à Internet"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b9adb287-d8d6-5842-835f-3a6e3d55d02d', '{"correct":["a"]}'::jsonb, 'Ses cartouches permettent de changer de jeu facilement : le jeu vidéo s’installe dans les salons.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d1e641ea-f6a4-5786-b8be-53ce56e20234', 'jv-q-2600-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort l’Atari 2600 ?', '{"min":1965,"max":1990}'::jsonb, 3, false, null, 'in_review')
+values ('d1e641ea-f6a4-5786-b8be-53ce56e20234', 'jv-q-2600-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort l’Atari 2600 ?', '{"min":1965,"max":1990}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d1e641ea-f6a4-5786-b8be-53ce56e20234', '{"year":1977,"tolerance":2}'::jsonb, 'L’Atari 2600, aussi appelée VCS, sort en 1977.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9da09834-982d-57fe-9891-f74939b69039', 'jv-q-space-invaders', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Space Invaders a été créé par Nintendo.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('9da09834-982d-57fe-9891-f74939b69039', 'jv-q-space-invaders', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Space Invaders a été créé par Nintendo.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9da09834-982d-57fe-9891-f74939b69039', '{"value":false}'::jsonb, 'Faux : Space Invaders est un jeu de Taito, créé par Tomohiro Nishikado en 1978.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('383cf544-b1cf-5c4b-9d73-09c5f53058d6', 'jv-q-krach', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la principale cause du krach du jeu vidéo de 1983 ?', '{"options":[{"id":"a","label":"Une surproduction de jeux médiocres"},{"id":"b","label":"L’arrivée d’Internet"},{"id":"c","label":"Une pénurie de puces"},{"id":"d","label":"L’interdiction des salles d’arcade"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('383cf544-b1cf-5c4b-9d73-09c5f53058d6', 'jv-q-krach', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la principale cause du krach du jeu vidéo de 1983 ?', '{"options":[{"id":"a","label":"Une surproduction de jeux médiocres"},{"id":"b","label":"L’arrivée d’Internet"},{"id":"c","label":"Une pénurie de puces"},{"id":"d","label":"L’interdiction des salles d’arcade"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('383cf544-b1cf-5c4b-9d73-09c5f53058d6', '{"correct":["a"]}'::jsonb, 'Le marché nord-américain s’effondre, saturé de consoles et de jeux de piètre qualité.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('0512e9b6-50ac-5dc9-a2da-6aa7d1968510', 'jv-q-et', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Des cartouches invendues du jeu E.T. ont été enfouies dans un désert.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('0512e9b6-50ac-5dc9-a2da-6aa7d1968510', 'jv-q-et', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Des cartouches invendues du jeu E.T. ont été enfouies dans un désert.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('0512e9b6-50ac-5dc9-a2da-6aa7d1968510', '{"value":true}'::jsonb, 'Vrai : elles ont été enterrées au Nouveau-Mexique, puis exhumées lors de fouilles en 2014.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('061ea938-5cfd-5481-9d9e-16aca3faeaa6', 'jv-q-famicom', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Sous quel nom la NES sort-elle d’abord au Japon ?', '{"options":[{"id":"a","label":"Famicom"},{"id":"b","label":"Mega Drive"},{"id":"c","label":"Super Famicom"},{"id":"d","label":"Game & Watch"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('061ea938-5cfd-5481-9d9e-16aca3faeaa6', 'jv-q-famicom', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Sous quel nom la NES sort-elle d’abord au Japon ?', '{"options":[{"id":"a","label":"Famicom"},{"id":"b","label":"Mega Drive"},{"id":"c","label":"Super Famicom"},{"id":"d","label":"Game & Watch"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('061ea938-5cfd-5481-9d9e-16aca3faeaa6', '{"correct":["a"]}'::jsonb, 'La Famicom (Family Computer) sort au Japon en 1983, avant de devenir la NES en Occident.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('bfba81fd-5478-588b-9271-f1840f310653', 'jv-q-premier-mario', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Dans quel jeu Mario apparaît-il pour la première fois ?', '{"options":[{"id":"a","label":"Super Mario Bros."},{"id":"b","label":"Donkey Kong"},{"id":"c","label":"Mario Kart"},{"id":"d","label":"Tetris"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('bfba81fd-5478-588b-9271-f1840f310653', 'jv-q-premier-mario', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Dans quel jeu Mario apparaît-il pour la première fois ?', '{"options":[{"id":"a","label":"Super Mario Bros."},{"id":"b","label":"Donkey Kong"},{"id":"c","label":"Mario Kart"},{"id":"d","label":"Tetris"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('bfba81fd-5478-588b-9271-f1840f310653', '{"correct":["b"]}'::jsonb, 'Mario fait ses débuts en 1981 dans Donkey Kong, où il s’appelle encore Jumpman.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d8104e7d-6a70-5037-bc9d-403c4c55a405', 'jv-q-miyamoto', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Shigeru Miyamoto est le créateur de Mario.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('d8104e7d-6a70-5037-bc9d-403c4c55a405', 'jv-q-miyamoto', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Shigeru Miyamoto est le créateur de Mario.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d8104e7d-6a70-5037-bc9d-403c4c55a405', '{"value":true}'::jsonb, 'Vrai : il imagine Donkey Kong puis Super Mario Bros. chez Nintendo.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('efe13451-ac41-5bdc-b38d-cec57d56598f', 'jv-q-tetris', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu est vendu avec le Game Boy en Occident ?', '{"options":[{"id":"a","label":"Tetris"},{"id":"b","label":"Pokémon"},{"id":"c","label":"Zelda"},{"id":"d","label":"Pac-Man"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('efe13451-ac41-5bdc-b38d-cec57d56598f', 'jv-q-tetris', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu est vendu avec le Game Boy en Occident ?', '{"options":[{"id":"a","label":"Tetris"},{"id":"b","label":"Pokémon"},{"id":"c","label":"Zelda"},{"id":"d","label":"Pac-Man"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('efe13451-ac41-5bdc-b38d-cec57d56598f', '{"correct":["a"]}'::jsonb, 'Tetris accompagne le Game Boy et contribue énormément à son succès.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e52005e0-a989-5282-88e5-517f29a5a1b8', 'jv-q-pajitnov', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Où Tetris a-t-il été créé ?', '{"options":[{"id":"a","label":"À Tokyo"},{"id":"b","label":"À Moscou"},{"id":"c","label":"À Seattle"},{"id":"d","label":"À Londres"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('e52005e0-a989-5282-88e5-517f29a5a1b8', 'jv-q-pajitnov', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Où Tetris a-t-il été créé ?', '{"options":[{"id":"a","label":"À Tokyo"},{"id":"b","label":"À Moscou"},{"id":"c","label":"À Seattle"},{"id":"d","label":"À Londres"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e52005e0-a989-5282-88e5-517f29a5a1b8', '{"correct":["b"]}'::jsonb, 'Alexeï Pajitnov crée Tetris en 1984 à Moscou, alors en Union soviétique.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('85c54042-e4eb-5986-9925-395a1d8c6099', 'jv-q-yokoi', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Gunpei Yokoi a conçu le Game Boy.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('85c54042-e4eb-5986-9925-395a1d8c6099', 'jv-q-yokoi', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Gunpei Yokoi a conçu le Game Boy.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('85c54042-e4eb-5986-9925-395a1d8c6099', '{"value":true}'::jsonb, 'Vrai : après les Game & Watch, il conçoit le Game Boy, sorti en 1989.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7e124550-ab82-5381-b1e3-403a0738471d', 'jv-q-frise-pionniers', (select id from public.universes where slug = 'jeux-video'), 'timeline', 'Remets ces étapes dans l’ordre chronologique.', '{"items":[{"id":"t3","label":"Krach du jeu vidéo"},{"id":"t4","label":"Sortie du Game Boy"},{"id":"t2","label":"Sortie de l’Atari 2600"},{"id":"t1","label":"Sortie de la Magnavox Odyssey"}]}'::jsonb, 3, false, null, 'in_review')
+values ('7e124550-ab82-5381-b1e3-403a0738471d', 'jv-q-frise-pionniers', (select id from public.universes where slug = 'jeux-video'), 'timeline', 'Remets ces étapes dans l’ordre chronologique.', '{"items":[{"id":"t3","label":"Krach du jeu vidéo"},{"id":"t4","label":"Sortie du Game Boy"},{"id":"t2","label":"Sortie de l’Atari 2600"},{"id":"t1","label":"Sortie de la Magnavox Odyssey"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7e124550-ab82-5381-b1e3-403a0738471d', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"1972","t2":"1977","t3":"1983","t4":"1989"}}'::jsonb, '1972 : Odyssey. 1977 : Atari 2600. 1983 : krach. 1989 : Game Boy.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('26e19892-145d-5b1f-b5c6-7c920daeae13', 'jv-q-nes-us', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année la NES sort-elle aux États-Unis ?', '{"min":1975,"max":1995}'::jsonb, 3, false, null, 'in_review')
+values ('26e19892-145d-5b1f-b5c6-7c920daeae13', 'jv-q-nes-us', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année la NES sort-elle aux États-Unis ?', '{"min":1975,"max":1995}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('26e19892-145d-5b1f-b5c6-7c920daeae13', '{"year":1985,"tolerance":2}'::jsonb, 'La NES arrive aux États-Unis en 1985, deux ans après la Famicom au Japon.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b7d0e86a-9c8a-5344-ad72-32155cf6f795', 'jv-q-mega-drive', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle console de Sega affronte la Super Nintendo ?', '{"options":[{"id":"a","label":"Master System"},{"id":"b","label":"Mega Drive"},{"id":"c","label":"Dreamcast"},{"id":"d","label":"Saturn"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('b7d0e86a-9c8a-5344-ad72-32155cf6f795', 'jv-q-mega-drive', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle console de Sega affronte la Super Nintendo ?', '{"options":[{"id":"a","label":"Master System"},{"id":"b","label":"Mega Drive"},{"id":"c","label":"Dreamcast"},{"id":"d","label":"Saturn"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b7d0e86a-9c8a-5344-ad72-32155cf6f795', '{"correct":["b"]}'::jsonb, 'La Mega Drive (Genesis aux États-Unis) est la grande rivale de la Super Nintendo.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8b10cf32-8b12-5aea-bdbe-81d6a919404e', 'jv-q-genesis', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Aux États-Unis, la Mega Drive s’appelle Genesis.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('8b10cf32-8b12-5aea-bdbe-81d6a919404e', 'jv-q-genesis', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Aux États-Unis, la Mega Drive s’appelle Genesis.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8b10cf32-8b12-5aea-bdbe-81d6a919404e', '{"value":true}'::jsonb, 'Vrai : elle y sort en 1989 sous le nom de Genesis.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('76fbf8c4-7b95-5e50-8368-0dbe5eac5a98', 'jv-q-sonic', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle mascotte Sega crée-t-elle pour rivaliser avec Mario ?', '{"options":[{"id":"a","label":"Crash Bandicoot"},{"id":"b","label":"Sonic"},{"id":"c","label":"Spyro"},{"id":"d","label":"Rayman"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('76fbf8c4-7b95-5e50-8368-0dbe5eac5a98', 'jv-q-sonic', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle mascotte Sega crée-t-elle pour rivaliser avec Mario ?', '{"options":[{"id":"a","label":"Crash Bandicoot"},{"id":"b","label":"Sonic"},{"id":"c","label":"Spyro"},{"id":"d","label":"Rayman"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('76fbf8c4-7b95-5e50-8368-0dbe5eac5a98', '{"correct":["b"]}'::jsonb, 'Sonic the Hedgehog sort en 1991 sur Mega Drive.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f609ac99-b1ab-5cf0-b880-1723cd846e1e', 'jv-q-sonic-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort le premier Sonic the Hedgehog ?', '{"min":1980,"max":2000}'::jsonb, 3, false, null, 'in_review')
+values ('f609ac99-b1ab-5cf0-b880-1723cd846e1e', 'jv-q-sonic-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort le premier Sonic the Hedgehog ?', '{"min":1980,"max":2000}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f609ac99-b1ab-5cf0-b880-1723cd846e1e', '{"year":1991,"tolerance":2}'::jsonb, 'Sonic the Hedgehog sort en 1991 sur Mega Drive.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('b14a0138-6c55-526f-b30a-73264129db66', 'jv-q-super-famicom', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Comment s’appelle la Super Nintendo au Japon ?', '{"options":[{"id":"a","label":"Super Famicom"},{"id":"b","label":"Famicom"},{"id":"c","label":"Nintendo 64"},{"id":"d","label":"Virtual Boy"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('b14a0138-6c55-526f-b30a-73264129db66', 'jv-q-super-famicom', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Comment s’appelle la Super Nintendo au Japon ?', '{"options":[{"id":"a","label":"Super Famicom"},{"id":"b","label":"Famicom"},{"id":"c","label":"Nintendo 64"},{"id":"d","label":"Virtual Boy"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('b14a0138-6c55-526f-b30a-73264129db66', '{"correct":["a"]}'::jsonb, 'Elle sort au Japon en 1990 sous le nom de Super Famicom.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8e45f2c8-f4c4-5ca8-a820-f621c0a84ed0', 'jv-q-guerre', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Au début des années 1990, Sega et Nintendo se livrent une guerre commerciale acharnée.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('8e45f2c8-f4c4-5ca8-a820-f621c0a84ed0', 'jv-q-guerre', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Au début des années 1990, Sega et Nintendo se livrent une guerre commerciale acharnée.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8e45f2c8-f4c4-5ca8-a820-f621c0a84ed0', '{"value":true}'::jsonb, 'Vrai : publicités comparatives, mascottes rivales… c’est la « guerre des consoles ».')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('19984f4f-9b5a-5c06-9795-e81527a1d62c', 'jv-q-ps1-date', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quand la première PlayStation sort-elle au Japon ?', '{"options":[{"id":"a","label":"Décembre 1994"},{"id":"b","label":"Mars 2000"},{"id":"c","label":"Juin 1996"},{"id":"d","label":"Novembre 1989"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('19984f4f-9b5a-5c06-9795-e81527a1d62c', 'jv-q-ps1-date', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quand la première PlayStation sort-elle au Japon ?', '{"options":[{"id":"a","label":"Décembre 1994"},{"id":"b","label":"Mars 2000"},{"id":"c","label":"Juin 1996"},{"id":"d","label":"Novembre 1989"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('19984f4f-9b5a-5c06-9795-e81527a1d62c', '{"correct":["a"]}'::jsonb, 'La PlayStation sort le 3 décembre 1994 au Japon.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('c716d9e9-0662-5ffc-822a-c1e7bc7d8a2f', 'jv-q-ps1-support', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Sur quel support sont vendus les jeux de la première PlayStation ?', '{"options":[{"id":"a","label":"Cartouche"},{"id":"b","label":"CD-ROM"},{"id":"c","label":"Disquette"},{"id":"d","label":"Blu-ray"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('c716d9e9-0662-5ffc-822a-c1e7bc7d8a2f', 'jv-q-ps1-support', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Sur quel support sont vendus les jeux de la première PlayStation ?', '{"options":[{"id":"a","label":"Cartouche"},{"id":"b","label":"CD-ROM"},{"id":"c","label":"Disquette"},{"id":"d","label":"Blu-ray"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('c716d9e9-0662-5ffc-822a-c1e7bc7d8a2f', '{"correct":["b"]}'::jsonb, 'Le CD-ROM offre beaucoup plus de place que les cartouches, pour un coût de fabrication plus faible.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('843146b8-3d5d-59f8-912d-35483de5a05c', 'jv-q-ps1-nintendo', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La PlayStation est née d’un projet abandonné entre Sony et Nintendo.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('843146b8-3d5d-59f8-912d-35483de5a05c', 'jv-q-ps1-nintendo', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La PlayStation est née d’un projet abandonné entre Sony et Nintendo.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('843146b8-3d5d-59f8-912d-35483de5a05c', '{"value":true}'::jsonb, 'Vrai : Sony devait concevoir un lecteur CD pour la Super Nintendo avant que Nintendo ne renonce au projet.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f787a325-cbc3-52cc-a497-8b3ff38cc5f9', 'jv-q-kutaragi', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Qui est considéré comme le père de la PlayStation ?', '{"options":[{"id":"a","label":"Ken Kutaragi"},{"id":"b","label":"Satoru Iwata"},{"id":"c","label":"Hideo Kojima"},{"id":"d","label":"Shigeru Miyamoto"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('f787a325-cbc3-52cc-a497-8b3ff38cc5f9', 'jv-q-kutaragi', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Qui est considéré comme le père de la PlayStation ?', '{"options":[{"id":"a","label":"Ken Kutaragi"},{"id":"b","label":"Satoru Iwata"},{"id":"c","label":"Hideo Kojima"},{"id":"d","label":"Shigeru Miyamoto"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f787a325-cbc3-52cc-a497-8b3ff38cc5f9', '{"correct":["a"]}'::jsonb, 'Ken Kutaragi, ingénieur chez Sony, porte le projet PlayStation.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('3b230d59-d5e0-53f4-a5b0-8522170b044f', 'jv-q-ps1-100m', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La PlayStation est la première console de salon à dépasser les 100 millions d’exemplaires.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('3b230d59-d5e0-53f4-a5b0-8522170b044f', 'jv-q-ps1-100m', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La PlayStation est la première console de salon à dépasser les 100 millions d’exemplaires.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('3b230d59-d5e0-53f4-a5b0-8522170b044f', '{"value":true}'::jsonb, 'Vrai : elle franchit ce cap au début des années 2000.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8be0301b-6a63-5e3c-bd96-1d04bfb80448', 'jv-q-mario64', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu accompagne la sortie de la Nintendo 64 ?', '{"options":[{"id":"a","label":"Super Mario 64"},{"id":"b","label":"The Legend of Zelda"},{"id":"c","label":"GoldenEye 007"},{"id":"d","label":"Mario Kart 64"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('8be0301b-6a63-5e3c-bd96-1d04bfb80448', 'jv-q-mario64', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu accompagne la sortie de la Nintendo 64 ?', '{"options":[{"id":"a","label":"Super Mario 64"},{"id":"b","label":"The Legend of Zelda"},{"id":"c","label":"GoldenEye 007"},{"id":"d","label":"Mario Kart 64"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8be0301b-6a63-5e3c-bd96-1d04bfb80448', '{"correct":["a"]}'::jsonb, 'Super Mario 64 pose les bases de la plateforme en 3D.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('2b4710c6-3e78-5e9b-bac7-abdb42c40b6c', 'jv-q-n64-cd', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La Nintendo 64 utilise des CD-ROM, comme la PlayStation.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('2b4710c6-3e78-5e9b-bac7-abdb42c40b6c', 'jv-q-n64-cd', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La Nintendo 64 utilise des CD-ROM, comme la PlayStation.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('2b4710c6-3e78-5e9b-bac7-abdb42c40b6c', '{"value":false}'::jsonb, 'Faux : Nintendo reste fidèle aux cartouches avec la Nintendo 64.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('95773755-ed17-5f8d-8079-9a90d79eabe7', 'jv-q-dreamcast', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la dernière console de Sega ?', '{"options":[{"id":"a","label":"Saturn"},{"id":"b","label":"Dreamcast"},{"id":"c","label":"Mega Drive"},{"id":"d","label":"Game Gear"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('95773755-ed17-5f8d-8079-9a90d79eabe7', 'jv-q-dreamcast', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la dernière console de Sega ?', '{"options":[{"id":"a","label":"Saturn"},{"id":"b","label":"Dreamcast"},{"id":"c","label":"Mega Drive"},{"id":"d","label":"Game Gear"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('95773755-ed17-5f8d-8079-9a90d79eabe7', '{"correct":["b"]}'::jsonb, 'Après la Dreamcast, Sega arrête les consoles en 2001 pour se consacrer aux jeux.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9402b87e-6d7e-51bc-ae0f-83b1118a4b00', 'jv-q-dreamcast-modem', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La Dreamcast intégrait un modem pour jouer en ligne.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('9402b87e-6d7e-51bc-ae0f-83b1118a4b00', 'jv-q-dreamcast-modem', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La Dreamcast intégrait un modem pour jouer en ligne.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9402b87e-6d7e-51bc-ae0f-83b1118a4b00', '{"value":true}'::jsonb, 'Vrai : c’est l’une des premières consoles pensées pour le jeu en ligne.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('541c7bec-3448-5e28-a7a8-c819dfc4de12', 'jv-q-consoles-90', (select id from public.universes where slug = 'jeux-video'), 'match', 'Associe chaque console à son fabricant.', '{"left":[{"id":"l1","label":"Saturn"},{"id":"l2","label":"Nintendo 64"},{"id":"l3","label":"PlayStation"},{"id":"l4","label":"Genesis"}],"right":[{"id":"r3","label":"Sony"},{"id":"r2","label":"Nintendo"},{"id":"r1","label":"Sega"},{"id":"r4","label":"Sega"}]}'::jsonb, 2, false, null, 'in_review')
+values ('541c7bec-3448-5e28-a7a8-c819dfc4de12', 'jv-q-consoles-90', (select id from public.universes where slug = 'jeux-video'), 'match', 'Associe chaque console à son fabricant.', '{"left":[{"id":"l1","label":"Saturn"},{"id":"l2","label":"Nintendo 64"},{"id":"l3","label":"PlayStation"},{"id":"l4","label":"Genesis"}],"right":[{"id":"r3","label":"Sony"},{"id":"r2","label":"Nintendo"},{"id":"r1","label":"Sega"},{"id":"r4","label":"Sega"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('541c7bec-3448-5e28-a7a8-c819dfc4de12', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'La Saturn et la Genesis (Mega Drive) sont de Sega, la Nintendo 64 de Nintendo, la PlayStation de Sony.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('1cc91008-73d7-56eb-ae16-5c85f38a79a8', 'jv-q-frise-90', (select id from public.universes where slug = 'jeux-video'), 'timeline', 'Remets ces sorties dans l’ordre chronologique.', '{"items":[{"id":"t2","label":"Super Famicom (Japon)"},{"id":"t4","label":"Nintendo 64 (Japon)"},{"id":"t3","label":"PlayStation (Japon)"},{"id":"t1","label":"Mega Drive (Japon)"}]}'::jsonb, 3, false, null, 'in_review')
+values ('1cc91008-73d7-56eb-ae16-5c85f38a79a8', 'jv-q-frise-90', (select id from public.universes where slug = 'jeux-video'), 'timeline', 'Remets ces sorties dans l’ordre chronologique.', '{"items":[{"id":"t2","label":"Super Famicom (Japon)"},{"id":"t4","label":"Nintendo 64 (Japon)"},{"id":"t3","label":"PlayStation (Japon)"},{"id":"t1","label":"Mega Drive (Japon)"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('1cc91008-73d7-56eb-ae16-5c85f38a79a8', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"1988","t2":"1990","t3":"1994","t4":"1996"}}'::jsonb, '1988 : Mega Drive. 1990 : Super Famicom. 1994 : PlayStation. 1996 : Nintendo 64.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('6a226732-834c-5c29-b2a2-ea0f97d40a49', 'jv-q-sega-stop', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année Sega arrête-t-il de fabriquer des consoles ?', '{"min":1990,"max":2010}'::jsonb, 3, false, null, 'in_review')
+values ('6a226732-834c-5c29-b2a2-ea0f97d40a49', 'jv-q-sega-stop', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année Sega arrête-t-il de fabriquer des consoles ?', '{"min":1990,"max":2010}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('6a226732-834c-5c29-b2a2-ea0f97d40a49', '{"year":2001,"tolerance":2}'::jsonb, 'Sega annonce l’arrêt de la Dreamcast en 2001 et devient éditeur.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f727c599-8ba7-56e5-87ae-dff52aadb5c8', 'jv-q-ps2-dvd', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel atout supplémentaire la PlayStation 2 offre-t-elle à sa sortie ?', '{"options":[{"id":"a","label":"Elle lit les DVD"},{"id":"b","label":"Elle a un écran tactile"},{"id":"c","label":"Elle détecte les mouvements"},{"id":"d","label":"Elle est portable"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('f727c599-8ba7-56e5-87ae-dff52aadb5c8', 'jv-q-ps2-dvd', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel atout supplémentaire la PlayStation 2 offre-t-elle à sa sortie ?', '{"options":[{"id":"a","label":"Elle lit les DVD"},{"id":"b","label":"Elle a un écran tactile"},{"id":"c","label":"Elle détecte les mouvements"},{"id":"d","label":"Elle est portable"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f727c599-8ba7-56e5-87ae-dff52aadb5c8', '{"correct":["a"]}'::jsonb, 'Lecteur DVD bon marché, la PS2 séduit bien au-delà des joueurs.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f80e158f-608b-5b2a-a114-f66ada2d4adb', 'jv-q-ps2-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort la PlayStation 2 ?', '{"min":1990,"max":2010}'::jsonb, 3, false, null, 'in_review')
+values ('f80e158f-608b-5b2a-a114-f66ada2d4adb', 'jv-q-ps2-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort la PlayStation 2 ?', '{"min":1990,"max":2010}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f80e158f-608b-5b2a-a114-f66ada2d4adb', '{"year":2000,"tolerance":2}'::jsonb, 'La PlayStation 2 sort en 2000 au Japon.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('fbab09cd-945b-5bc5-9306-01f0a6da6790', 'jv-q-xbox', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la première console de Microsoft ?', '{"options":[{"id":"a","label":"Xbox"},{"id":"b","label":"Xbox 360"},{"id":"c","label":"Xbox One"},{"id":"d","label":"Xbox Series X"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('fbab09cd-945b-5bc5-9306-01f0a6da6790', 'jv-q-xbox', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la première console de Microsoft ?', '{"options":[{"id":"a","label":"Xbox"},{"id":"b","label":"Xbox 360"},{"id":"c","label":"Xbox One"},{"id":"d","label":"Xbox Series X"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('fbab09cd-945b-5bc5-9306-01f0a6da6790', '{"correct":["a"]}'::jsonb, 'La Xbox sort en 2001 avec Halo: Combat Evolved.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('87b963e9-c2b8-5a07-81ba-111376c42b90', 'jv-q-xbox-live', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Xbox Live est le service de jeu en ligne de Microsoft.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('87b963e9-c2b8-5a07-81ba-111376c42b90', 'jv-q-xbox-live', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Xbox Live est le service de jeu en ligne de Microsoft.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('87b963e9-c2b8-5a07-81ba-111376c42b90', '{"value":true}'::jsonb, 'Vrai : il ouvre en 2002 sur la première Xbox.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('27c61dfd-dfd6-5446-b9c3-b7edc662635b', 'jv-q-halo', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu phare accompagne la sortie de la Xbox ?', '{"options":[{"id":"a","label":"Halo: Combat Evolved"},{"id":"b","label":"Gears of War"},{"id":"c","label":"Forza Motorsport"},{"id":"d","label":"Fable"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('27c61dfd-dfd6-5446-b9c3-b7edc662635b', 'jv-q-halo', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quel jeu phare accompagne la sortie de la Xbox ?', '{"options":[{"id":"a","label":"Halo: Combat Evolved"},{"id":"b","label":"Gears of War"},{"id":"c","label":"Forza Motorsport"},{"id":"d","label":"Fable"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('27c61dfd-dfd6-5446-b9c3-b7edc662635b', '{"correct":["a"]}'::jsonb, 'Halo devient la licence emblématique de la Xbox.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('9143ec6a-7ddb-5160-a36b-052df81bdf75', 'jv-q-ds', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la particularité de la Nintendo DS ?', '{"options":[{"id":"a","label":"Deux écrans, dont un tactile"},{"id":"b","label":"Un lecteur Blu-ray"},{"id":"c","label":"Une manette sans fil détachable"},{"id":"d","label":"La réalité virtuelle"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('9143ec6a-7ddb-5160-a36b-052df81bdf75', 'jv-q-ds', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle est la particularité de la Nintendo DS ?', '{"options":[{"id":"a","label":"Deux écrans, dont un tactile"},{"id":"b","label":"Un lecteur Blu-ray"},{"id":"c","label":"Une manette sans fil détachable"},{"id":"d","label":"La réalité virtuelle"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('9143ec6a-7ddb-5160-a36b-052df81bdf75', '{"correct":["a"]}'::jsonb, 'DS veut d’ailleurs dire « Dual Screen ».')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('84a66814-7f05-52e1-97ea-9581d363bc25', 'jv-q-psp', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La PSP est une console portable de Sony.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('84a66814-7f05-52e1-97ea-9581d363bc25', 'jv-q-psp', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La PSP est une console portable de Sony.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('84a66814-7f05-52e1-97ea-9581d363bc25', '{"value":true}'::jsonb, 'Vrai : la PlayStation Portable sort en 2004, la même année que la DS.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7662e1f1-a193-5a44-a41a-b50153a6dcf7', 'jv-q-wii', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle innovation fait le succès de la Wii ?', '{"options":[{"id":"a","label":"La détection de mouvement"},{"id":"b","label":"La 4K"},{"id":"c","label":"Le jeu en nuage"},{"id":"d","label":"Le double écran"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('7662e1f1-a193-5a44-a41a-b50153a6dcf7', 'jv-q-wii', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quelle innovation fait le succès de la Wii ?', '{"options":[{"id":"a","label":"La détection de mouvement"},{"id":"b","label":"La 4K"},{"id":"c","label":"Le jeu en nuage"},{"id":"d","label":"Le double écran"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7662e1f1-a193-5a44-a41a-b50153a6dcf7', '{"correct":["a"]}'::jsonb, 'Avec la Wiimote, on joue en bougeant : bowling, tennis, golf dans Wii Sports.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('f1c57856-3ba3-5ae8-9506-ccc754e56a6a', 'jv-q-wiimote', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Comment s’appelle la manette de la Wii ?', '{"options":[{"id":"a","label":"La Wiimote"},{"id":"b","label":"La DualShock"},{"id":"c","label":"Le Joy-Con"},{"id":"d","label":"Le Kinect"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('f1c57856-3ba3-5ae8-9506-ccc754e56a6a', 'jv-q-wiimote', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Comment s’appelle la manette de la Wii ?', '{"options":[{"id":"a","label":"La Wiimote"},{"id":"b","label":"La DualShock"},{"id":"c","label":"Le Joy-Con"},{"id":"d","label":"Le Kinect"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('f1c57856-3ba3-5ae8-9506-ccc754e56a6a', '{"correct":["a"]}'::jsonb, 'La Wiimote détecte les gestes du joueur.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ebffeae3-5ed6-553c-92e2-f9699372a958', 'jv-q-wii-sports', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Wii Sports a attiré vers le jeu vidéo un public qui ne jouait pas.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('ebffeae3-5ed6-553c-92e2-f9699372a958', 'jv-q-wii-sports', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Wii Sports a attiré vers le jeu vidéo un public qui ne jouait pas.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ebffeae3-5ed6-553c-92e2-f9699372a958', '{"value":true}'::jsonb, 'Vrai : la Wii a séduit les familles et les seniors.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('967d375f-e3d3-54a0-bda7-341240412730', 'jv-q-switch', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Pourquoi dit-on que la Switch est une console hybride ?', '{"options":[{"id":"a","label":"Elle se joue sur la télé et en portable"},{"id":"b","label":"Elle lit les CD et les cartouches"},{"id":"c","label":"Elle fonctionne sur batterie et sur secteur"},{"id":"d","label":"Elle mélange jeux et films"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('967d375f-e3d3-54a0-bda7-341240412730', 'jv-q-switch', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Pourquoi dit-on que la Switch est une console hybride ?', '{"options":[{"id":"a","label":"Elle se joue sur la télé et en portable"},{"id":"b","label":"Elle lit les CD et les cartouches"},{"id":"c","label":"Elle fonctionne sur batterie et sur secteur"},{"id":"d","label":"Elle mélange jeux et films"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('967d375f-e3d3-54a0-bda7-341240412730', '{"correct":["a"]}'::jsonb, 'On la sort de sa station pour continuer à jouer en mode portable.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5f805dd0-e1bd-5a84-8bbf-a72c93b42bdb', 'jv-q-switch-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort la Nintendo Switch ?', '{"min":2010,"max":2025}'::jsonb, 3, false, null, 'in_review')
+values ('5f805dd0-e1bd-5a84-8bbf-a72c93b42bdb', 'jv-q-switch-annee', (select id from public.universes where slug = 'jeux-video'), 'guess_year', 'En quelle année sort la Nintendo Switch ?', '{"min":2010,"max":2025}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5f805dd0-e1bd-5a84-8bbf-a72c93b42bdb', '{"year":2017,"tolerance":1}'::jsonb, 'La Switch sort le 3 mars 2017.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a874509c-9833-575a-a1f8-2d7c8f1b249a', 'jv-q-ps5', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quand sortent la PS5 et les Xbox Series X et S ?', '{"options":[{"id":"a","label":"En novembre 2020"},{"id":"b","label":"En mars 2017"},{"id":"c","label":"En juin 2025"},{"id":"d","label":"En décembre 2013"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('a874509c-9833-575a-a1f8-2d7c8f1b249a', 'jv-q-ps5', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Quand sortent la PS5 et les Xbox Series X et S ?', '{"options":[{"id":"a","label":"En novembre 2020"},{"id":"b","label":"En mars 2017"},{"id":"c","label":"En juin 2025"},{"id":"d","label":"En décembre 2013"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a874509c-9833-575a-a1f8-2d7c8f1b249a', '{"correct":["a"]}'::jsonb, 'Les deux nouvelles générations arrivent à quelques jours d’intervalle, en novembre 2020.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e953ce16-29f1-558c-a082-908c7b65353d', 'jv-q-steam-deck', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Qui fabrique le Steam Deck ?', '{"options":[{"id":"a","label":"Valve"},{"id":"b","label":"Sony"},{"id":"c","label":"Nintendo"},{"id":"d","label":"Microsoft"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('e953ce16-29f1-558c-a082-908c7b65353d', 'jv-q-steam-deck', (select id from public.universes where slug = 'jeux-video'), 'quiz', 'Qui fabrique le Steam Deck ?', '{"options":[{"id":"a","label":"Valve"},{"id":"b","label":"Sony"},{"id":"c","label":"Nintendo"},{"id":"d","label":"Microsoft"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e953ce16-29f1-558c-a082-908c7b65353d', '{"correct":["a"]}'::jsonb, 'Valve, l’entreprise derrière la boutique Steam, sort le Steam Deck en 2022.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('df2c4703-ac40-5e8c-b93e-60f4c1aa67fb', 'jv-q-switch-2', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La Nintendo Switch 2 est sortie en 2025.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('df2c4703-ac40-5e8c-b93e-60f4c1aa67fb', 'jv-q-switch-2', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'La Nintendo Switch 2 est sortie en 2025.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('df2c4703-ac40-5e8c-b93e-60f4c1aa67fb', '{"value":true}'::jsonb, 'Vrai : elle sort le 5 juin 2025.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d05cac40-73c0-5c66-96d5-694aa2dea712', 'jv-q-modernes', (select id from public.universes where slug = 'jeux-video'), 'match', 'Associe chaque console à son année de sortie.', '{"left":[{"id":"l1","label":"PlayStation 2"},{"id":"l2","label":"Wii"},{"id":"l3","label":"Switch"},{"id":"l4","label":"PlayStation 5"}],"right":[{"id":"r2","label":"2006"},{"id":"r4","label":"2020"},{"id":"r3","label":"2017"},{"id":"r1","label":"2000"}]}'::jsonb, 2, false, null, 'in_review')
+values ('d05cac40-73c0-5c66-96d5-694aa2dea712', 'jv-q-modernes', (select id from public.universes where slug = 'jeux-video'), 'match', 'Associe chaque console à son année de sortie.', '{"left":[{"id":"l1","label":"PlayStation 2"},{"id":"l2","label":"Wii"},{"id":"l3","label":"Switch"},{"id":"l4","label":"PlayStation 5"}],"right":[{"id":"r2","label":"2006"},{"id":"r4","label":"2020"},{"id":"r3","label":"2017"},{"id":"r1","label":"2000"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d05cac40-73c0-5c66-96d5-694aa2dea712', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'PS2 en 2000, Wii en 2006, Switch en 2017, PS5 en 2020.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('bb93a857-74ad-51d2-ad00-5f99da0845ef', 'jv-q-frise-modernes', (select id from public.universes where slug = 'jeux-video'), 'timeline', 'Remets ces consoles dans l’ordre de sortie.', '{"items":[{"id":"t2","label":"Nintendo DS"},{"id":"t3","label":"Steam Deck"},{"id":"t1","label":"Xbox"},{"id":"t4","label":"Nintendo Switch 2"}]}'::jsonb, 3, false, null, 'in_review')
+values ('bb93a857-74ad-51d2-ad00-5f99da0845ef', 'jv-q-frise-modernes', (select id from public.universes where slug = 'jeux-video'), 'timeline', 'Remets ces consoles dans l’ordre de sortie.', '{"items":[{"id":"t2","label":"Nintendo DS"},{"id":"t3","label":"Steam Deck"},{"id":"t1","label":"Xbox"},{"id":"t4","label":"Nintendo Switch 2"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('bb93a857-74ad-51d2-ad00-5f99da0845ef', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"2001","t2":"2004","t3":"2022","t4":"2025"}}'::jsonb, '2001 : Xbox. 2004 : DS. 2022 : Steam Deck. 2025 : Switch 2.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5c35785d-e1e6-536b-af6c-c7a5e2902003', 'jv-q-joycon', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Les manettes de la Switch s’appellent les Joy-Con.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('5c35785d-e1e6-536b-af6c-c7a5e2902003', 'jv-q-joycon', (select id from public.universes where slug = 'jeux-video'), 'true_false', 'Les manettes de la Switch s’appellent les Joy-Con.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
@@ -566,10 +566,10 @@ insert into public.question_knowledge_items (question_id, knowledge_item_id) val
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('bb93a857-74ad-51d2-ad00-5f99da0845ef', '6a86af8a-b50a-5537-a893-5132f74e5b83');
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('5c35785d-e1e6-536b-af6c-c7a5e2902003', 'fd7c068b-0f4d-5569-bc20-4e021d3e2c1d');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('c08f1948-b791-506f-a3af-a332100be411', 'c79bec93-7336-5d6f-a7ef-ba815fce5703', 1, 'Les pionniers', 'Des premières consoles au krach de 1983, puis au retour de Nintendo.', 'in_review')
+values ('c08f1948-b791-506f-a3af-a332100be411', 'c79bec93-7336-5d6f-a7ef-ba815fce5703', 1, 'Les pionniers', 'Des premières consoles au krach de 1983, puis au retour de Nintendo.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('bd44bdc8-f15e-57b3-9d89-bfde64890a12', 'c08f1948-b791-506f-a3af-a332100be411', 1, 'jv-les-debuts', 'Les débuts du jeu vidéo', 'Savoir qui a lancé les premières consoles et bornes.', 'standard', 3, 'in_review')
+values ('bd44bdc8-f15e-57b3-9d89-bfde64890a12', 'c08f1948-b791-506f-a3af-a332100be411', 1, 'jv-les-debuts', 'Les débuts du jeu vidéo', 'Savoir qui a lancé les premières consoles et bornes.', 'standard', 3, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'bd44bdc8-f15e-57b3-9d89-bfde64890a12';
@@ -583,7 +583,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('bd44
 insert into public.lesson_items (lesson_id, position, question_id) values ('bd44bdc8-f15e-57b3-9d89-bfde64890a12', 4, '90c31a6e-b015-54bf-be63-b0950a067bf8');
 insert into public.lesson_items (lesson_id, position, question_id) values ('bd44bdc8-f15e-57b3-9d89-bfde64890a12', 5, '906622e0-3fea-52dc-ae00-3f943214b6e4');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('ec188baf-09de-5a94-8767-c3ee2a031d29', 'c08f1948-b791-506f-a3af-a332100be411', 2, 'jv-atari-et-le-krach', 'L’ère Atari et le krach', 'Comprendre le succès d’Atari puis l’effondrement de 1983.', 'standard', 4, 'in_review')
+values ('ec188baf-09de-5a94-8767-c3ee2a031d29', 'c08f1948-b791-506f-a3af-a332100be411', 2, 'jv-atari-et-le-krach', 'L’ère Atari et le krach', 'Comprendre le succès d’Atari puis l’effondrement de 1983.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'ec188baf-09de-5a94-8767-c3ee2a031d29';
@@ -596,7 +596,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('ec18
 insert into public.lesson_items (lesson_id, position, question_id) values ('ec188baf-09de-5a94-8767-c3ee2a031d29', 4, '383cf544-b1cf-5c4b-9d73-09c5f53058d6');
 insert into public.lesson_items (lesson_id, position, question_id) values ('ec188baf-09de-5a94-8767-c3ee2a031d29', 5, '0512e9b6-50ac-5dc9-a2da-6aa7d1968510');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('aea3b764-9657-5ff5-b084-2542cd4245e4', 'c08f1948-b791-506f-a3af-a332100be411', 3, 'jv-nintendo-relance-tout', 'Nintendo relance tout', 'Connaître la NES, Mario et le Game Boy.', 'standard', 4, 'in_review')
+values ('aea3b764-9657-5ff5-b084-2542cd4245e4', 'c08f1948-b791-506f-a3af-a332100be411', 3, 'jv-nintendo-relance-tout', 'Nintendo relance tout', 'Connaître la NES, Mario et le Game Boy.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'aea3b764-9657-5ff5-b084-2542cd4245e4';
@@ -610,7 +610,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('aea3
 insert into public.lesson_items (lesson_id, position, question_id) values ('aea3b764-9657-5ff5-b084-2542cd4245e4', 4, 'efe13451-ac41-5bdc-b38d-cec57d56598f');
 insert into public.lesson_items (lesson_id, position, question_id) values ('aea3b764-9657-5ff5-b084-2542cd4245e4', 5, 'e52005e0-a989-5282-88e5-517f29a5a1b8');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('e7ab455f-303d-57fd-bb01-8c5332f47c9e', 'c08f1948-b791-506f-a3af-a332100be411', 4, 'jv-epreuve-pionniers', 'Épreuve : les pionniers', 'Valide tes connaissances sur les débuts du jeu vidéo.', 'exam', 4, 'in_review')
+values ('e7ab455f-303d-57fd-bb01-8c5332f47c9e', 'c08f1948-b791-506f-a3af-a332100be411', 4, 'jv-epreuve-pionniers', 'Épreuve : les pionniers', 'Valide tes connaissances sur les débuts du jeu vidéo.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'e7ab455f-303d-57fd-bb01-8c5332f47c9e';
@@ -622,10 +622,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('e7ab
 insert into public.lesson_items (lesson_id, position, question_id) values ('e7ab455f-303d-57fd-bb01-8c5332f47c9e', 5, '7e124550-ab82-5381-b1e3-403a0738471d');
 insert into public.lesson_items (lesson_id, position, question_id) values ('e7ab455f-303d-57fd-bb01-8c5332f47c9e', 6, '26e19892-145d-5b1f-b5c6-7c920daeae13');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 'c79bec93-7336-5d6f-a7ef-ba815fce5703', 2, 'La guerre des consoles', 'Sega contre Nintendo, l’arrivée de Sony et le passage à la 3D.', 'in_review')
+values ('dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 'c79bec93-7336-5d6f-a7ef-ba815fce5703', 2, 'La guerre des consoles', 'Sega contre Nintendo, l’arrivée de Sony et le passage à la 3D.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('bba8b9b4-8124-5d2b-bb9a-de755e356d4e', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 1, 'jv-sega-contre-nintendo', 'Sega contre Nintendo', 'Connaître les deux rivales du début des années 1990.', 'standard', 4, 'in_review')
+values ('bba8b9b4-8124-5d2b-bb9a-de755e356d4e', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 1, 'jv-sega-contre-nintendo', 'Sega contre Nintendo', 'Connaître les deux rivales du début des années 1990.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'bba8b9b4-8124-5d2b-bb9a-de755e356d4e';
@@ -638,7 +638,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('bba8
 insert into public.lesson_items (lesson_id, position, question_id) values ('bba8b9b4-8124-5d2b-bb9a-de755e356d4e', 4, 'b14a0138-6c55-526f-b30a-73264129db66');
 insert into public.lesson_items (lesson_id, position, question_id) values ('bba8b9b4-8124-5d2b-bb9a-de755e356d4e', 5, '8e45f2c8-f4c4-5ca8-a820-f621c0a84ed0');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('201328d5-89b5-5450-a602-122ae35acfe1', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 2, 'jv-arrivee-de-sony', 'L’arrivée de Sony', 'Savoir comment la PlayStation a bousculé le marché.', 'standard', 4, 'in_review')
+values ('201328d5-89b5-5450-a602-122ae35acfe1', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 2, 'jv-arrivee-de-sony', 'L’arrivée de Sony', 'Savoir comment la PlayStation a bousculé le marché.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '201328d5-89b5-5450-a602-122ae35acfe1';
@@ -652,7 +652,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('2013
 insert into public.lesson_items (lesson_id, position, question_id) values ('201328d5-89b5-5450-a602-122ae35acfe1', 4, 'f787a325-cbc3-52cc-a497-8b3ff38cc5f9');
 insert into public.lesson_items (lesson_id, position, question_id) values ('201328d5-89b5-5450-a602-122ae35acfe1', 5, '3b230d59-d5e0-53f4-a5b0-8522170b044f');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('212118a8-c504-5970-b9d2-9eb7c430b608', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 3, 'jv-la-3d', 'Le passage à la 3D', 'Connaître la Nintendo 64, la Saturn et la Dreamcast.', 'standard', 4, 'in_review')
+values ('212118a8-c504-5970-b9d2-9eb7c430b608', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 3, 'jv-la-3d', 'Le passage à la 3D', 'Connaître la Nintendo 64, la Saturn et la Dreamcast.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '212118a8-c504-5970-b9d2-9eb7c430b608';
@@ -665,7 +665,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('2121
 insert into public.lesson_items (lesson_id, position, question_id) values ('212118a8-c504-5970-b9d2-9eb7c430b608', 4, '9402b87e-6d7e-51bc-ae0f-83b1118a4b00');
 insert into public.lesson_items (lesson_id, position, question_id) values ('212118a8-c504-5970-b9d2-9eb7c430b608', 5, '541c7bec-3448-5e28-a7a8-c819dfc4de12');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('cb3a5090-0f6c-5c93-bb61-f3b2e395fadd', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 4, 'jv-epreuve-guerre', 'Épreuve : la guerre des consoles', 'Valide tes connaissances sur les années 1990.', 'exam', 4, 'in_review')
+values ('cb3a5090-0f6c-5c93-bb61-f3b2e395fadd', 'dbd690f6-fc46-5dad-8906-ab4e17c58d2b', 4, 'jv-epreuve-guerre', 'Épreuve : la guerre des consoles', 'Valide tes connaissances sur les années 1990.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'cb3a5090-0f6c-5c93-bb61-f3b2e395fadd';
@@ -677,10 +677,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('cb3a
 insert into public.lesson_items (lesson_id, position, question_id) values ('cb3a5090-0f6c-5c93-bb61-f3b2e395fadd', 5, 'f609ac99-b1ab-5cf0-b880-1723cd846e1e');
 insert into public.lesson_items (lesson_id, position, question_id) values ('cb3a5090-0f6c-5c93-bb61-f3b2e395fadd', 6, '6a226732-834c-5c29-b2a2-ea0f97d40a49');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('ab1dd262-655e-54f6-8995-ac128847c815', 'c79bec93-7336-5d6f-a7ef-ba815fce5703', 3, 'L’ère moderne', 'Des années 2000 à aujourd’hui : salon connecté, nouveaux publics et consoles hybrides.', 'in_review')
+values ('ab1dd262-655e-54f6-8995-ac128847c815', 'c79bec93-7336-5d6f-a7ef-ba815fce5703', 3, 'L’ère moderne', 'Des années 2000 à aujourd’hui : salon connecté, nouveaux publics et consoles hybrides.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('902e72ca-f8ba-58b0-b568-5b83286b334f', 'ab1dd262-655e-54f6-8995-ac128847c815', 1, 'jv-le-salon-connecte', 'Le salon connecté', 'Connaître la PS2 et l’arrivée de Microsoft.', 'standard', 4, 'in_review')
+values ('902e72ca-f8ba-58b0-b568-5b83286b334f', 'ab1dd262-655e-54f6-8995-ac128847c815', 1, 'jv-le-salon-connecte', 'Le salon connecté', 'Connaître la PS2 et l’arrivée de Microsoft.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '902e72ca-f8ba-58b0-b568-5b83286b334f';
@@ -693,7 +693,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('902e
 insert into public.lesson_items (lesson_id, position, question_id) values ('902e72ca-f8ba-58b0-b568-5b83286b334f', 4, '87b963e9-c2b8-5a07-81ba-111376c42b90');
 insert into public.lesson_items (lesson_id, position, question_id) values ('902e72ca-f8ba-58b0-b568-5b83286b334f', 5, '27c61dfd-dfd6-5446-b9c3-b7edc662635b');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('d4f4b374-2b7f-5528-8c38-24216a97c5c3', 'ab1dd262-655e-54f6-8995-ac128847c815', 2, 'jv-nouveaux-publics', 'De nouveaux publics', 'Comprendre comment Nintendo a élargi le jeu vidéo.', 'standard', 4, 'in_review')
+values ('d4f4b374-2b7f-5528-8c38-24216a97c5c3', 'ab1dd262-655e-54f6-8995-ac128847c815', 2, 'jv-nouveaux-publics', 'De nouveaux publics', 'Comprendre comment Nintendo a élargi le jeu vidéo.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'd4f4b374-2b7f-5528-8c38-24216a97c5c3';
@@ -706,7 +706,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('d4f4
 insert into public.lesson_items (lesson_id, position, question_id) values ('d4f4b374-2b7f-5528-8c38-24216a97c5c3', 4, 'ebffeae3-5ed6-553c-92e2-f9699372a958');
 insert into public.lesson_items (lesson_id, position, question_id) values ('d4f4b374-2b7f-5528-8c38-24216a97c5c3', 5, 'f1c57856-3ba3-5ae8-9506-ccc754e56a6a');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('f87c5099-caf4-5daa-b2c8-3e0132ee7c06', 'ab1dd262-655e-54f6-8995-ac128847c815', 3, 'jv-consoles-aujourdhui', 'Les consoles d’aujourd’hui', 'Connaître les machines actuelles.', 'standard', 4, 'in_review')
+values ('f87c5099-caf4-5daa-b2c8-3e0132ee7c06', 'ab1dd262-655e-54f6-8995-ac128847c815', 3, 'jv-consoles-aujourdhui', 'Les consoles d’aujourd’hui', 'Connaître les machines actuelles.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'f87c5099-caf4-5daa-b2c8-3e0132ee7c06';
@@ -720,7 +720,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('f87c
 insert into public.lesson_items (lesson_id, position, question_id) values ('f87c5099-caf4-5daa-b2c8-3e0132ee7c06', 5, 'e953ce16-29f1-558c-a082-908c7b65353d');
 insert into public.lesson_items (lesson_id, position, question_id) values ('f87c5099-caf4-5daa-b2c8-3e0132ee7c06', 6, 'df2c4703-ac40-5e8c-b93e-60f4c1aa67fb');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('0674ea5f-5beb-53a4-bc91-5e6c596b22ca', 'ab1dd262-655e-54f6-8995-ac128847c815', 4, 'jv-epreuve-moderne', 'Épreuve : l’ère moderne', 'Valide tes connaissances sur les consoles récentes.', 'exam', 4, 'in_review')
+values ('0674ea5f-5beb-53a4-bc91-5e6c596b22ca', 'ab1dd262-655e-54f6-8995-ac128847c815', 4, 'jv-epreuve-moderne', 'Épreuve : l’ère moderne', 'Valide tes connaissances sur les consoles récentes.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '0674ea5f-5beb-53a4-bc91-5e6c596b22ca';

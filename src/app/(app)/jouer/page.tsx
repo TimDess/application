@@ -6,6 +6,9 @@ import { SoonBadge } from '@/components/ui/pill'
 import { routes } from '@/config/routes'
 import { getMyProgress } from '@/features/gamification/queries'
 import { DailyCards } from '@/features/practice/daily-cards'
+import { DuelLauncher } from '@/features/duels/duel-launcher'
+import { DuelList } from '@/features/duels/duel-list'
+import { getMyDuels } from '@/features/duels/queries'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = { title: 'Jouer' }
@@ -15,12 +18,12 @@ const upcoming = [
     icon: Zap,
     title: 'Partie rapide',
     text: 'Quelques questions dans tes univers favoris, en deux minutes.',
-    phase: 3,
+    phase: 7,
   },
   {
     icon: Swords,
-    title: 'Duel',
-    text: 'Affronte un joueur de ton niveau, en direct ou en différé.',
+    title: 'Duel en direct',
+    text: 'Affronte un joueur connecté en même temps que toi, question par question.',
     phase: 4,
   },
   {
@@ -57,6 +60,20 @@ export default function PlayPage() {
         <PlayDaily />
       </Suspense>
 
+      <section aria-labelledby="duels" className="flex flex-col gap-3">
+        <h2 id="duels" className="text-heading">
+          Duels
+        </h2>
+        <p className="text-body text-muted">
+          7 questions, 15 secondes chacune, les mêmes pour ton adversaire. Chacun joue quand il veut
+          : vous avez 48 heures.
+        </p>
+        <DuelLauncher />
+        <Suspense fallback={null}>
+          <MyDuels />
+        </Suspense>
+      </section>
+
       <section aria-labelledby="bientot" className="flex flex-col gap-3">
         <h2 id="bientot" className="text-heading">
           Bientôt
@@ -83,4 +100,9 @@ export default function PlayPage() {
 async function PlayDaily() {
   const progress = await getMyProgress()
   return <DailyCards progress={progress} />
+}
+
+async function MyDuels() {
+  const duels = await getMyDuels()
+  return <DuelList duels={duels} />
 }

@@ -2,11 +2,11 @@
 begin;
 do $$ begin if not exists (select 1 from public.universes where slug = 'cinema-series') then raise exception 'unknown universe cinema-series'; end if; end $$;
 insert into public.categories (id, universe_id, slug, name, description, sort_order, status)
-values ('b3aca2ff-6cc8-57f1-a076-ecd9255e62c0', (select id from public.universes where slug = 'cinema-series'), 'sagas', 'Sagas et franchises', 'Les grandes sagas du cinéma et des séries, de leurs origines à leurs records.', 10, 'in_review')
+values ('b3aca2ff-6cc8-57f1-a076-ecd9255e62c0', (select id from public.universes where slug = 'cinema-series'), 'sagas', 'Sagas et franchises', 'Les grandes sagas du cinéma et des séries, de leurs origines à leurs records.', 10, 'published')
 on conflict (id) do update set name = excluded.name, description = excluded.description,
   status = case when public.categories.status = 'published' then 'published'::public.content_status else excluded.status end;
 insert into public.courses (id, category_id, slug, title, description, level, sort_order, status)
-values ('ed37990d-297f-5797-a9cd-f953157da30e', 'b3aca2ff-6cc8-57f1-a076-ecd9255e62c0', 'les-sagas-cultes', 'Les sagas cultes', 'Star Wars, James Bond, Harry Potter, Marvel, Game of Thrones… les sagas qui ont marqué le cinéma et les séries.', 'debutant', 10, 'in_review')
+values ('ed37990d-297f-5797-a9cd-f953157da30e', 'b3aca2ff-6cc8-57f1-a076-ecd9255e62c0', 'les-sagas-cultes', 'Les sagas cultes', 'Star Wars, James Bond, Harry Potter, Marvel, Game of Thrones… les sagas qui ont marqué le cinéma et les séries.', 'debutant', 10, 'published')
 on conflict (id) do update set title = excluded.title, description = excluded.description, level = excluded.level, status = excluded.status;
 update public.chapters set position = position + 1000 where course_id = 'ed37990d-297f-5797-a9cd-f953157da30e';
 update public.lessons set position = position + 1000 where chapter_id in (select id from public.chapters where course_id = 'ed37990d-297f-5797-a9cd-f953157da30e');
@@ -127,357 +127,357 @@ values ('8061ea2f-4975-5caa-9a33-783abd854739', 'sg-westeros', (select id from p
 on conflict (id) do update set title = excluded.title, summary = excluded.summary, is_evolving = excluded.is_evolving,
   valid_as_of = excluded.valid_as_of, verified_at = excluded.verified_at, source_url = excluded.source_url;
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('51ab1371-2637-58e6-a8b2-c40dcdc82c5f', 'sg-q-sw-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année sort le premier film Star Wars ?', '{"min":1965,"max":1990}'::jsonb, 2, false, null, 'in_review')
+values ('51ab1371-2637-58e6-a8b2-c40dcdc82c5f', 'sg-q-sw-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année sort le premier film Star Wars ?', '{"min":1965,"max":1990}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('51ab1371-2637-58e6-a8b2-c40dcdc82c5f', '{"year":1977,"tolerance":2}'::jsonb, 'Star Wars sort en 1977 aux États-Unis.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('3a482576-62f2-5f85-88af-183edb0ec4d1', 'sg-q-lucas', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui a créé Star Wars ?', '{"options":[{"id":"a","label":"George Lucas"},{"id":"b","label":"Steven Spielberg"},{"id":"c","label":"James Cameron"},{"id":"d","label":"Ridley Scott"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('3a482576-62f2-5f85-88af-183edb0ec4d1', 'sg-q-lucas', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui a créé Star Wars ?', '{"options":[{"id":"a","label":"George Lucas"},{"id":"b","label":"Steven Spielberg"},{"id":"c","label":"James Cameron"},{"id":"d","label":"Ridley Scott"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('3a482576-62f2-5f85-88af-183edb0ec4d1', '{"correct":["a"]}'::jsonb, 'George Lucas écrit et réalise le premier film en 1977.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('484ec680-137e-5cc1-a5cc-5e4eda8b2d40', 'sg-q-ton-pere', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans quel film Dark Vador révèle-t-il à Luke qu’il est son père ?', '{"options":[{"id":"a","label":"L’Empire contre-attaque"},{"id":"b","label":"Un nouvel espoir"},{"id":"c","label":"Le Retour du Jedi"},{"id":"d","label":"La Revanche des Sith"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('484ec680-137e-5cc1-a5cc-5e4eda8b2d40', 'sg-q-ton-pere', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans quel film Dark Vador révèle-t-il à Luke qu’il est son père ?', '{"options":[{"id":"a","label":"L’Empire contre-attaque"},{"id":"b","label":"Un nouvel espoir"},{"id":"c","label":"Le Retour du Jedi"},{"id":"d","label":"La Revanche des Sith"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('484ec680-137e-5cc1-a5cc-5e4eda8b2d40', '{"correct":["a"]}'::jsonb, 'La révélation arrive dans L’Empire contre-attaque, en 1980.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a605d82e-2eeb-5f77-815d-4654c8e10c16', 'sg-q-disney-sw', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Disney est aujourd’hui propriétaire de Star Wars.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('a605d82e-2eeb-5f77-815d-4654c8e10c16', 'sg-q-disney-sw', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Disney est aujourd’hui propriétaire de Star Wars.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a605d82e-2eeb-5f77-815d-4654c8e10c16', '{"value":true}'::jsonb, 'Vrai : Disney rachète Lucasfilm en 2012.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('01acc3e8-e4a7-5919-b8f0-3a941671d692', 'sg-q-lucasfilm-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année Disney rachète-t-il Lucasfilm ?', '{"min":2000,"max":2020}'::jsonb, 3, false, null, 'in_review')
+values ('01acc3e8-e4a7-5919-b8f0-3a941671d692', 'sg-q-lucasfilm-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année Disney rachète-t-il Lucasfilm ?', '{"min":2000,"max":2020}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('01acc3e8-e4a7-5919-b8f0-3a941671d692', '{"year":2012,"tolerance":2}'::jsonb, 'Le rachat a lieu en 2012, pour environ 4 milliards de dollars.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8fac8fae-643c-502d-aeac-810507065aa1', 'sg-q-fleming', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui a créé le personnage de James Bond ?', '{"options":[{"id":"a","label":"Ian Fleming"},{"id":"b","label":"John le Carré"},{"id":"c","label":"Agatha Christie"},{"id":"d","label":"Arthur Conan Doyle"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('8fac8fae-643c-502d-aeac-810507065aa1', 'sg-q-fleming', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui a créé le personnage de James Bond ?', '{"options":[{"id":"a","label":"Ian Fleming"},{"id":"b","label":"John le Carré"},{"id":"c","label":"Agatha Christie"},{"id":"d","label":"Arthur Conan Doyle"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8fac8fae-643c-502d-aeac-810507065aa1', '{"correct":["a"]}'::jsonb, 'Ian Fleming invente 007 dans le roman Casino Royale, en 1953.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('96892883-c74d-5261-92a5-fb0f3cb660c0', 'sg-q-casino-royale', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Casino Royale est le premier roman de la saga James Bond.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('96892883-c74d-5261-92a5-fb0f3cb660c0', 'sg-q-casino-royale', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Casino Royale est le premier roman de la saga James Bond.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('96892883-c74d-5261-92a5-fb0f3cb660c0', '{"value":true}'::jsonb, 'Vrai : Ian Fleming le publie en 1953. Il est adapté au cinéma en 2006 avec Daniel Craig.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a896841d-a22b-5892-8b4f-b03189376468', 'sg-q-007', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Le matricule de James Bond est 007.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('a896841d-a22b-5892-8b4f-b03189376468', 'sg-q-007', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Le matricule de James Bond est 007.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a896841d-a22b-5892-8b4f-b03189376468', '{"value":true}'::jsonb, 'Vrai : le double zéro signifie qu’il a le permis de tuer.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('150fd2b0-dce6-5fde-ad4c-a4aebfe97075', 'sg-q-connery', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui incarne James Bond dans le premier film de la saga ?', '{"options":[{"id":"a","label":"Sean Connery"},{"id":"b","label":"Roger Moore"},{"id":"c","label":"Pierce Brosnan"},{"id":"d","label":"Daniel Craig"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('150fd2b0-dce6-5fde-ad4c-a4aebfe97075', 'sg-q-connery', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui incarne James Bond dans le premier film de la saga ?', '{"options":[{"id":"a","label":"Sean Connery"},{"id":"b","label":"Roger Moore"},{"id":"c","label":"Pierce Brosnan"},{"id":"d","label":"Daniel Craig"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('150fd2b0-dce6-5fde-ad4c-a4aebfe97075', '{"correct":["a"]}'::jsonb, 'Sean Connery joue 007 dans James Bond 007 contre Dr No, en 1962.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('af7bdeac-7e69-502d-a0d6-1715245844f5', 'sg-q-craig', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans combien de films Daniel Craig incarne-t-il James Bond ?', '{"options":[{"id":"a","label":"3"},{"id":"b","label":"5"},{"id":"c","label":"7"},{"id":"d","label":"9"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('af7bdeac-7e69-502d-a0d6-1715245844f5', 'sg-q-craig', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans combien de films Daniel Craig incarne-t-il James Bond ?', '{"options":[{"id":"a","label":"3"},{"id":"b","label":"5"},{"id":"c","label":"7"},{"id":"d","label":"9"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('af7bdeac-7e69-502d-a0d6-1715245844f5', '{"correct":["b"]}'::jsonb, 'Cinq films, de Casino Royale (2006) à Mourir peut attendre (2021).')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a3fe9aae-912f-53ac-917e-7bf5a20c5115', 'sg-q-indy', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise Les Aventuriers de l’arche perdue ?', '{"options":[{"id":"a","label":"Steven Spielberg"},{"id":"b","label":"George Lucas"},{"id":"c","label":"Robert Zemeckis"},{"id":"d","label":"James Cameron"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('a3fe9aae-912f-53ac-917e-7bf5a20c5115', 'sg-q-indy', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise Les Aventuriers de l’arche perdue ?', '{"options":[{"id":"a","label":"Steven Spielberg"},{"id":"b","label":"George Lucas"},{"id":"c","label":"Robert Zemeckis"},{"id":"d","label":"James Cameron"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a3fe9aae-912f-53ac-917e-7bf5a20c5115', '{"correct":["a"]}'::jsonb, 'Spielberg réalise le film, sur une idée de George Lucas.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8d48c5a3-89f8-5abf-996d-cbd9820702a6', 'sg-q-ford', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Harrison Ford a joué à la fois Han Solo et Indiana Jones.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('8d48c5a3-89f8-5abf-996d-cbd9820702a6', 'sg-q-ford', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Harrison Ford a joué à la fois Han Solo et Indiana Jones.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8d48c5a3-89f8-5abf-996d-cbd9820702a6', '{"value":true}'::jsonb, 'Vrai : deux rôles cultes pour le même acteur.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8cc09bc2-92b9-59c4-98c1-09f82727cf41', 'sg-q-delorean', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans quelle voiture Marty McFly voyage-t-il dans le temps ?', '{"options":[{"id":"a","label":"Une DeLorean"},{"id":"b","label":"Une Ford Mustang"},{"id":"c","label":"Une Aston Martin"},{"id":"d","label":"Une Coccinelle"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('8cc09bc2-92b9-59c4-98c1-09f82727cf41', 'sg-q-delorean', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans quelle voiture Marty McFly voyage-t-il dans le temps ?', '{"options":[{"id":"a","label":"Une DeLorean"},{"id":"b","label":"Une Ford Mustang"},{"id":"c","label":"Une Aston Martin"},{"id":"d","label":"Une Coccinelle"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8cc09bc2-92b9-59c4-98c1-09f82727cf41', '{"correct":["a"]}'::jsonb, 'La DeLorean DMC-12, transformée par le Doc, est devenue mythique.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ad9f0846-004d-5084-89ca-ccb70fe22ecf', 'sg-q-88', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quelle vitesse la DeLorean doit-elle atteindre pour voyager dans le temps ?', '{"options":[{"id":"a","label":"55 miles à l’heure"},{"id":"b","label":"88 miles à l’heure"},{"id":"c","label":"100 miles à l’heure"},{"id":"d","label":"121 miles à l’heure"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('ad9f0846-004d-5084-89ca-ccb70fe22ecf', 'sg-q-88', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quelle vitesse la DeLorean doit-elle atteindre pour voyager dans le temps ?', '{"options":[{"id":"a","label":"55 miles à l’heure"},{"id":"b","label":"88 miles à l’heure"},{"id":"c","label":"100 miles à l’heure"},{"id":"d","label":"121 miles à l’heure"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ad9f0846-004d-5084-89ca-ccb70fe22ecf', '{"correct":["b"]}'::jsonb, 'Environ 140 km/h : « 88 miles à l’heure ! »')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('70982ab8-5d9f-570c-ba30-d2f637237fd9', 'sg-q-2015', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Dans Retour vers le futur 2, Marty arrive en 2015.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('70982ab8-5d9f-570c-ba30-d2f637237fd9', 'sg-q-2015', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Dans Retour vers le futur 2, Marty arrive en 2015.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('70982ab8-5d9f-570c-ba30-d2f637237fd9', '{"value":true}'::jsonb, 'Vrai : le 21 octobre 2015, date fêtée par les fans du monde entier.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('cea08b57-d66c-5067-90ab-7f520dea33a8', 'sg-q-zemeckis', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise Retour vers le futur ?', '{"options":[{"id":"a","label":"Robert Zemeckis"},{"id":"b","label":"Steven Spielberg"},{"id":"c","label":"John Hughes"},{"id":"d","label":"Ron Howard"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('cea08b57-d66c-5067-90ab-7f520dea33a8', 'sg-q-zemeckis', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise Retour vers le futur ?', '{"options":[{"id":"a","label":"Robert Zemeckis"},{"id":"b","label":"Steven Spielberg"},{"id":"c","label":"John Hughes"},{"id":"d","label":"Ron Howard"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('cea08b57-d66c-5067-90ab-7f520dea33a8', '{"correct":["a"]}'::jsonb, 'Robert Zemeckis réalise la trilogie, produite par Steven Spielberg.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('55e823e6-6294-57ae-8f42-3f31b1840ebb', 'sg-q-pionnieres', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque personnage à sa saga.', '{"left":[{"id":"l1","label":"Dark Vador"},{"id":"l2","label":"007"},{"id":"l3","label":"Le docteur Jones"},{"id":"l4","label":"Marty McFly"}],"right":[{"id":"r3","label":"Indiana Jones"},{"id":"r2","label":"James Bond"},{"id":"r1","label":"Star Wars"},{"id":"r4","label":"Retour vers le futur"}]}'::jsonb, 2, false, null, 'in_review')
+values ('55e823e6-6294-57ae-8f42-3f31b1840ebb', 'sg-q-pionnieres', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque personnage à sa saga.', '{"left":[{"id":"l1","label":"Dark Vador"},{"id":"l2","label":"007"},{"id":"l3","label":"Le docteur Jones"},{"id":"l4","label":"Marty McFly"}],"right":[{"id":"r3","label":"Indiana Jones"},{"id":"r2","label":"James Bond"},{"id":"r1","label":"Star Wars"},{"id":"r4","label":"Retour vers le futur"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('55e823e6-6294-57ae-8f42-3f31b1840ebb', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3","l4":"r4"}}'::jsonb, 'Quatre personnages qui ont marqué le cinéma des années 1960 à 1980.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('06887376-de9d-523b-8319-45f3e3eb876d', 'sg-q-frise-pionnieres', (select id from public.universes where slug = 'cinema-series'), 'timeline', 'Remets ces films dans l’ordre de sortie.', '{"items":[{"id":"t4","label":"Retour vers le futur"},{"id":"t1","label":"James Bond 007 contre Dr No"},{"id":"t3","label":"Les Aventuriers de l’arche perdue"},{"id":"t2","label":"Star Wars"}]}'::jsonb, 3, false, null, 'in_review')
+values ('06887376-de9d-523b-8319-45f3e3eb876d', 'sg-q-frise-pionnieres', (select id from public.universes where slug = 'cinema-series'), 'timeline', 'Remets ces films dans l’ordre de sortie.', '{"items":[{"id":"t4","label":"Retour vers le futur"},{"id":"t1","label":"James Bond 007 contre Dr No"},{"id":"t3","label":"Les Aventuriers de l’arche perdue"},{"id":"t2","label":"Star Wars"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('06887376-de9d-523b-8319-45f3e3eb876d', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"1962","t2":"1977","t3":"1981","t4":"1985"}}'::jsonb, '1962, 1977, 1981, 1985.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('e5fd1ea7-469a-500f-ac18-024016905a02', 'sg-q-jackson', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise la trilogie Le Seigneur des anneaux ?', '{"options":[{"id":"a","label":"Peter Jackson"},{"id":"b","label":"Christopher Nolan"},{"id":"c","label":"Guillermo del Toro"},{"id":"d","label":"Ridley Scott"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('e5fd1ea7-469a-500f-ac18-024016905a02', 'sg-q-jackson', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise la trilogie Le Seigneur des anneaux ?', '{"options":[{"id":"a","label":"Peter Jackson"},{"id":"b","label":"Christopher Nolan"},{"id":"c","label":"Guillermo del Toro"},{"id":"d","label":"Ridley Scott"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('e5fd1ea7-469a-500f-ac18-024016905a02', '{"correct":["a"]}'::jsonb, 'Le Néo-Zélandais Peter Jackson réalise les trois films.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('355c5bb3-6714-505f-b9d2-2a9238e8a392', 'sg-q-nz', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans quel pays la trilogie est-elle tournée ?', '{"options":[{"id":"a","label":"La Nouvelle-Zélande"},{"id":"b","label":"L’Irlande"},{"id":"c","label":"L’Islande"},{"id":"d","label":"Le Canada"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('355c5bb3-6714-505f-b9d2-2a9238e8a392', 'sg-q-nz', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Dans quel pays la trilogie est-elle tournée ?', '{"options":[{"id":"a","label":"La Nouvelle-Zélande"},{"id":"b","label":"L’Irlande"},{"id":"c","label":"L’Islande"},{"id":"d","label":"Le Canada"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('355c5bb3-6714-505f-b9d2-2a9238e8a392', '{"correct":["a"]}'::jsonb, 'Les paysages néo-zélandais sont devenus la Terre du Milieu.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8f57167a-4087-5385-9f63-c439b4379908', 'sg-q-oscars', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Combien d’Oscars remporte Le Retour du roi ?', '{"options":[{"id":"a","label":"7"},{"id":"b","label":"9"},{"id":"c","label":"11"},{"id":"d","label":"13"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('8f57167a-4087-5385-9f63-c439b4379908', 'sg-q-oscars', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Combien d’Oscars remporte Le Retour du roi ?', '{"options":[{"id":"a","label":"7"},{"id":"b","label":"9"},{"id":"c","label":"11"},{"id":"d","label":"13"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8f57167a-4087-5385-9f63-c439b4379908', '{"correct":["c"]}'::jsonb, '11 Oscars, le record, partagé avec Ben-Hur et Titanic.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('742e69b7-3f25-5183-a4fb-9bb81f10c9d2', 'sg-q-records-oscars', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque film recordman des Oscars à son année de sortie.', '{"left":[{"id":"l1","label":"Ben-Hur"},{"id":"l2","label":"Titanic"},{"id":"l3","label":"Le Retour du roi"}],"right":[{"id":"r1","label":"1959"},{"id":"r3","label":"2003"},{"id":"r2","label":"1997"}]}'::jsonb, 4, false, null, 'in_review')
+values ('742e69b7-3f25-5183-a4fb-9bb81f10c9d2', 'sg-q-records-oscars', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque film recordman des Oscars à son année de sortie.', '{"left":[{"id":"l1","label":"Ben-Hur"},{"id":"l2","label":"Titanic"},{"id":"l3","label":"Le Retour du roi"}],"right":[{"id":"r1","label":"1959"},{"id":"r3","label":"2003"},{"id":"r2","label":"1997"}]}'::jsonb, 4, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('742e69b7-3f25-5183-a4fb-9bb81f10c9d2', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Ces trois films partagent le record de 11 Oscars.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('66f08482-79c3-5994-b909-364b8fe8e333', 'sg-q-tolkien', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Le Seigneur des anneaux est un roman de J. R. R. Tolkien.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('66f08482-79c3-5994-b909-364b8fe8e333', 'sg-q-tolkien', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Le Seigneur des anneaux est un roman de J. R. R. Tolkien.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('66f08482-79c3-5994-b909-364b8fe8e333', '{"value":true}'::jsonb, 'Vrai : publié en 1954 et 1955, après Le Hobbit (1937).')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5f666ba5-7f47-5d57-97d2-24ebd8c050e6', 'sg-q-hp-auteur', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui a écrit la saga Harry Potter ?', '{"options":[{"id":"a","label":"J. K. Rowling"},{"id":"b","label":"J. R. R. Tolkien"},{"id":"c","label":"Suzanne Collins"},{"id":"d","label":"Stephenie Meyer"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('5f666ba5-7f47-5d57-97d2-24ebd8c050e6', 'sg-q-hp-auteur', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui a écrit la saga Harry Potter ?', '{"options":[{"id":"a","label":"J. K. Rowling"},{"id":"b","label":"J. R. R. Tolkien"},{"id":"c","label":"Suzanne Collins"},{"id":"d","label":"Stephenie Meyer"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5f666ba5-7f47-5d57-97d2-24ebd8c050e6', '{"correct":["a"]}'::jsonb, 'J. K. Rowling publie le premier tome en 1997.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('bccbd256-629b-58ba-888c-f1d764715d49', 'sg-q-hp-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année paraît le premier tome de Harry Potter ?', '{"min":1985,"max":2010}'::jsonb, 3, false, null, 'in_review')
+values ('bccbd256-629b-58ba-888c-f1d764715d49', 'sg-q-hp-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année paraît le premier tome de Harry Potter ?', '{"min":1985,"max":2010}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('bccbd256-629b-58ba-888c-f1d764715d49', '{"year":1997,"tolerance":2}'::jsonb, 'Harry Potter à l’école des sorciers paraît en 1997.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('76b581b4-bea2-5b33-80ff-618d11d78c92', 'sg-q-hp-films', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Combien de films compte la saga Harry Potter ?', '{"options":[{"id":"a","label":"7"},{"id":"b","label":"8"},{"id":"c","label":"9"},{"id":"d","label":"10"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('76b581b4-bea2-5b33-80ff-618d11d78c92', 'sg-q-hp-films', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Combien de films compte la saga Harry Potter ?', '{"options":[{"id":"a","label":"7"},{"id":"b","label":"8"},{"id":"c","label":"9"},{"id":"d","label":"10"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('76b581b4-bea2-5b33-80ff-618d11d78c92', '{"correct":["b"]}'::jsonb, 'Huit films : le dernier livre est découpé en deux parties.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('cc933ed5-a437-5f52-8cf0-904bece71a8b', 'sg-q-hp-acteurs', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque acteur à son personnage.', '{"left":[{"id":"l1","label":"Daniel Radcliffe"},{"id":"l2","label":"Emma Watson"},{"id":"l3","label":"Rupert Grint"}],"right":[{"id":"r3","label":"Ron Weasley"},{"id":"r1","label":"Harry Potter"},{"id":"r2","label":"Hermione Granger"}]}'::jsonb, 2, false, null, 'in_review')
+values ('cc933ed5-a437-5f52-8cf0-904bece71a8b', 'sg-q-hp-acteurs', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque acteur à son personnage.', '{"left":[{"id":"l1","label":"Daniel Radcliffe"},{"id":"l2","label":"Emma Watson"},{"id":"l3","label":"Rupert Grint"}],"right":[{"id":"r3","label":"Ron Weasley"},{"id":"r1","label":"Harry Potter"},{"id":"r2","label":"Hermione Granger"}]}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('cc933ed5-a437-5f52-8cf0-904bece71a8b', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Le trio principal des huit films.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('2b827712-5053-5da0-a406-6d9e61f63965', 'sg-q-maisons', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Poudlard compte quatre maisons.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('2b827712-5053-5da0-a406-6d9e61f63965', 'sg-q-maisons', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Poudlard compte quatre maisons.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('2b827712-5053-5da0-a406-6d9e61f63965', '{"value":true}'::jsonb, 'Vrai : Gryffondor, Serpentard, Poufsouffle et Serdaigle.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('58eb0652-896f-58b1-82f4-607a74173925', 'sg-q-iron-man', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel film lance l’univers cinématographique Marvel en 2008 ?', '{"options":[{"id":"a","label":"Iron Man"},{"id":"b","label":"Captain America"},{"id":"c","label":"Thor"},{"id":"d","label":"Avengers"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('58eb0652-896f-58b1-82f4-607a74173925', 'sg-q-iron-man', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel film lance l’univers cinématographique Marvel en 2008 ?', '{"options":[{"id":"a","label":"Iron Man"},{"id":"b","label":"Captain America"},{"id":"c","label":"Thor"},{"id":"d","label":"Avengers"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('58eb0652-896f-58b1-82f4-607a74173925', '{"correct":["a"]}'::jsonb, 'Iron Man, avec Robert Downey Jr., ouvre le bal en 2008.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ad390844-d2b8-5da9-96af-e12d9293a90c', 'sg-q-rdj', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Robert Downey Jr. incarne Iron Man.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('ad390844-d2b8-5da9-96af-e12d9293a90c', 'sg-q-rdj', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Robert Downey Jr. incarne Iron Man.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ad390844-d2b8-5da9-96af-e12d9293a90c', '{"value":true}'::jsonb, 'Vrai : il porte le rôle de 2008 à 2019.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('4839b396-28e3-5233-bbf5-92e1bbd88962', 'sg-q-disney-marvel', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quand Disney rachète-t-il Marvel ?', '{"options":[{"id":"a","label":"En 2009"},{"id":"b","label":"En 1999"},{"id":"c","label":"En 2015"},{"id":"d","label":"En 2019"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('4839b396-28e3-5233-bbf5-92e1bbd88962', 'sg-q-disney-marvel', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quand Disney rachète-t-il Marvel ?', '{"options":[{"id":"a","label":"En 2009"},{"id":"b","label":"En 1999"},{"id":"c","label":"En 2015"},{"id":"d","label":"En 2019"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('4839b396-28e3-5233-bbf5-92e1bbd88962', '{"correct":["a"]}'::jsonb, 'Disney rachète Marvel Entertainment en 2009, pour environ 4 milliards de dollars.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a0eca537-d6c4-5e78-8be6-e907888810f9', 'sg-q-endgame', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Avengers: Endgame est encore aujourd’hui le plus gros succès de l’histoire au box-office.', '{}'::jsonb, 3, false, null, 'in_review')
+values ('a0eca537-d6c4-5e78-8be6-e907888810f9', 'sg-q-endgame', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Avengers: Endgame est encore aujourd’hui le plus gros succès de l’histoire au box-office.', '{}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a0eca537-d6c4-5e78-8be6-e907888810f9', '{"value":false}'::jsonb, 'Faux : il a dépassé Avatar en 2019, mais Avatar a repris la première place en 2021.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('0d8f94df-cdb5-507a-a54e-c46fff87c7fc', 'sg-q-frise-adaptations', (select id from public.universes where slug = 'cinema-series'), 'timeline', 'Remets ces sorties dans l’ordre chronologique.', '{"items":[{"id":"t1","label":"Le Seigneur des anneaux (roman)"},{"id":"t4","label":"Iron Man (film)"},{"id":"t2","label":"Harry Potter à l’école des sorciers (roman)"},{"id":"t3","label":"La Communauté de l’anneau (film)"}]}'::jsonb, 3, false, null, 'in_review')
+values ('0d8f94df-cdb5-507a-a54e-c46fff87c7fc', 'sg-q-frise-adaptations', (select id from public.universes where slug = 'cinema-series'), 'timeline', 'Remets ces sorties dans l’ordre chronologique.', '{"items":[{"id":"t1","label":"Le Seigneur des anneaux (roman)"},{"id":"t4","label":"Iron Man (film)"},{"id":"t2","label":"Harry Potter à l’école des sorciers (roman)"},{"id":"t3","label":"La Communauté de l’anneau (film)"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('0d8f94df-cdb5-507a-a54e-c46fff87c7fc', '{"order":["t1","t2","t3","t4"],"dates":{"t1":"1954","t2":"1997","t3":"2001","t4":"2008"}}'::jsonb, '1954, 1997, 2001, 2008.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('3adbefca-9d18-50c0-a355-a5f06b55112e', 'sg-q-toy-story', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel est le premier long métrage entièrement en images de synthèse ?', '{"options":[{"id":"a","label":"Toy Story"},{"id":"b","label":"Shrek"},{"id":"c","label":"Le Roi lion"},{"id":"d","label":"Le Monde de Nemo"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('3adbefca-9d18-50c0-a355-a5f06b55112e', 'sg-q-toy-story', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel est le premier long métrage entièrement en images de synthèse ?', '{"options":[{"id":"a","label":"Toy Story"},{"id":"b","label":"Shrek"},{"id":"c","label":"Le Roi lion"},{"id":"d","label":"Le Monde de Nemo"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('3adbefca-9d18-50c0-a355-a5f06b55112e', '{"correct":["a"]}'::jsonb, 'Toy Story, de Pixar, sort en 1995.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ec034540-a330-5a54-9ce7-458998de63ee', 'sg-q-toy-story-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année sort Toy Story ?', '{"min":1985,"max":2005}'::jsonb, 3, false, null, 'in_review')
+values ('ec034540-a330-5a54-9ce7-458998de63ee', 'sg-q-toy-story-annee', (select id from public.universes where slug = 'cinema-series'), 'guess_year', 'En quelle année sort Toy Story ?', '{"min":1985,"max":2005}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ec034540-a330-5a54-9ce7-458998de63ee', '{"year":1995,"tolerance":2}'::jsonb, 'Toy Story sort en 1995.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('5d340517-89e8-5fc5-8f03-a499dff9583a', 'sg-q-shrek', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel film remporte le premier Oscar du meilleur film d’animation ?', '{"options":[{"id":"a","label":"Shrek"},{"id":"b","label":"Toy Story"},{"id":"c","label":"Monstres et Cie"},{"id":"d","label":"Le Voyage de Chihiro"}],"multiple":false}'::jsonb, 3, false, null, 'in_review')
+values ('5d340517-89e8-5fc5-8f03-a499dff9583a', 'sg-q-shrek', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel film remporte le premier Oscar du meilleur film d’animation ?', '{"options":[{"id":"a","label":"Shrek"},{"id":"b","label":"Toy Story"},{"id":"c","label":"Monstres et Cie"},{"id":"d","label":"Le Voyage de Chihiro"}],"multiple":false}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('5d340517-89e8-5fc5-8f03-a499dff9583a', '{"correct":["a"]}'::jsonb, 'Shrek, de DreamWorks, l’emporte en 2002, première année de cette catégorie.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a8400623-3d4c-5e3a-b3fe-3de9286570be', 'sg-q-pixar-disney', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Pixar appartient aujourd’hui à Disney.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('a8400623-3d4c-5e3a-b3fe-3de9286570be', 'sg-q-pixar-disney', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Pixar appartient aujourd’hui à Disney.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('a8400623-3d4c-5e3a-b3fe-3de9286570be', '{"value":true}'::jsonb, 'Vrai : Disney rachète Pixar en 2006.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('0ef4b397-d130-5e9b-8802-da8ee0f924aa', 'sg-q-shrek-studio', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel studio produit Shrek ?', '{"options":[{"id":"a","label":"DreamWorks"},{"id":"b","label":"Pixar"},{"id":"c","label":"Disney"},{"id":"d","label":"Illumination"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('0ef4b397-d130-5e9b-8802-da8ee0f924aa', 'sg-q-shrek-studio', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel studio produit Shrek ?', '{"options":[{"id":"a","label":"DreamWorks"},{"id":"b","label":"Pixar"},{"id":"c","label":"Disney"},{"id":"d","label":"Illumination"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('0ef4b397-d130-5e9b-8802-da8ee0f924aa', '{"correct":["a"]}'::jsonb, 'Shrek est une production DreamWorks, rival de Disney.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('8a5c1ddb-9809-5e96-bf64-d4760e0e6cc7', 'sg-q-mi-acteur', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel acteur porte la saga Mission : Impossible ?', '{"options":[{"id":"a","label":"Tom Cruise"},{"id":"b","label":"Matt Damon"},{"id":"c","label":"Keanu Reeves"},{"id":"d","label":"Brad Pitt"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('8a5c1ddb-9809-5e96-bf64-d4760e0e6cc7', 'sg-q-mi-acteur', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quel acteur porte la saga Mission : Impossible ?', '{"options":[{"id":"a","label":"Tom Cruise"},{"id":"b","label":"Matt Damon"},{"id":"c","label":"Keanu Reeves"},{"id":"d","label":"Brad Pitt"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('8a5c1ddb-9809-5e96-bf64-d4760e0e6cc7', '{"correct":["a"]}'::jsonb, 'Tom Cruise incarne Ethan Hunt depuis 1996.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('50aaa402-2516-5d45-a8d9-7dc971a8b128', 'sg-q-mi-serie', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Mission : Impossible est d’abord une série télévisée.', '{}'::jsonb, 2, false, null, 'in_review')
+values ('50aaa402-2516-5d45-a8d9-7dc971a8b128', 'sg-q-mi-serie', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Mission : Impossible est d’abord une série télévisée.', '{}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('50aaa402-2516-5d45-a8d9-7dc971a8b128', '{"value":true}'::jsonb, 'Vrai : la série démarre en 1966, trente ans avant le premier film.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('95c0406d-bb8c-5e2b-b4c0-008fc2c382ea', 'sg-q-burj', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quelle tour Tom Cruise escalade-t-il dans Protocole Fantôme ?', '{"options":[{"id":"a","label":"La Burj Khalifa"},{"id":"b","label":"L’Empire State Building"},{"id":"c","label":"La tour Eiffel"},{"id":"d","label":"La tour CN"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('95c0406d-bb8c-5e2b-b4c0-008fc2c382ea', 'sg-q-burj', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Quelle tour Tom Cruise escalade-t-il dans Protocole Fantôme ?', '{"options":[{"id":"a","label":"La Burj Khalifa"},{"id":"b","label":"L’Empire State Building"},{"id":"c","label":"La tour Eiffel"},{"id":"d","label":"La tour CN"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('95c0406d-bb8c-5e2b-b4c0-008fc2c382ea', '{"correct":["a"]}'::jsonb, 'Il escalade la plus haute tour du monde, à Dubaï, pour le film de 2011.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d51685ff-7322-5d3a-a68b-04dbffb80164', 'sg-q-fast', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Autour de quoi tourne le premier Fast & Furious ?', '{"options":[{"id":"a","label":"Les courses de rue"},{"id":"b","label":"Le braquage de casinos"},{"id":"c","label":"L’espionnage"},{"id":"d","label":"La boxe"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('d51685ff-7322-5d3a-a68b-04dbffb80164', 'sg-q-fast', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Autour de quoi tourne le premier Fast & Furious ?', '{"options":[{"id":"a","label":"Les courses de rue"},{"id":"b","label":"Le braquage de casinos"},{"id":"c","label":"L’espionnage"},{"id":"d","label":"La boxe"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d51685ff-7322-5d3a-a68b-04dbffb80164', '{"correct":["a"]}'::jsonb, 'Le film de 2001 plonge dans les courses de voitures clandestines à Los Angeles.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('6364753f-b9dd-5738-945f-7980099aa5fb', 'sg-q-jurassic', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise Jurassic Park ?', '{"options":[{"id":"a","label":"Steven Spielberg"},{"id":"b","label":"James Cameron"},{"id":"c","label":"Peter Jackson"},{"id":"d","label":"George Lucas"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('6364753f-b9dd-5738-945f-7980099aa5fb', 'sg-q-jurassic', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Qui réalise Jurassic Park ?', '{"options":[{"id":"a","label":"Steven Spielberg"},{"id":"b","label":"James Cameron"},{"id":"c","label":"Peter Jackson"},{"id":"d","label":"George Lucas"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('6364753f-b9dd-5738-945f-7980099aa5fb', '{"correct":["a"]}'::jsonb, 'Spielberg adapte le roman de Michael Crichton en 1993.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('269523a6-0dc3-5561-a25f-14dbb95c3a7b', 'sg-q-jurassic-cgi', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Jurassic Park a marqué un tournant pour les effets numériques.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('269523a6-0dc3-5561-a25f-14dbb95c3a7b', 'sg-q-jurassic-cgi', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Jurassic Park a marqué un tournant pour les effets numériques.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('269523a6-0dc3-5561-a25f-14dbb95c3a7b', '{"value":true}'::jsonb, 'Vrai : ses dinosaures en images de synthèse ont bluffé le monde en 1993.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('658c5740-90c3-54f5-84fa-39f921afe5e2', 'sg-q-action', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque saga à son année de départ au cinéma.', '{"left":[{"id":"l1","label":"Jurassic Park"},{"id":"l2","label":"Mission : Impossible"},{"id":"l3","label":"Fast & Furious"}],"right":[{"id":"r3","label":"2001"},{"id":"r2","label":"1996"},{"id":"r1","label":"1993"}]}'::jsonb, 3, false, null, 'in_review')
+values ('658c5740-90c3-54f5-84fa-39f921afe5e2', 'sg-q-action', (select id from public.universes where slug = 'cinema-series'), 'match', 'Associe chaque saga à son année de départ au cinéma.', '{"left":[{"id":"l1","label":"Jurassic Park"},{"id":"l2","label":"Mission : Impossible"},{"id":"l3","label":"Fast & Furious"}],"right":[{"id":"r3","label":"2001"},{"id":"r2","label":"1996"},{"id":"r1","label":"1993"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('658c5740-90c3-54f5-84fa-39f921afe5e2', '{"pairs":{"l1":"r1","l2":"r2","l3":"r3"}}'::jsonb, 'Trois sagas d’action nées entre 1993 et 2001.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('699a8cac-6f33-5c5e-a76c-9031bda3d92f', 'sg-q-got-chaine', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Sur quelle chaîne est diffusée Game of Thrones ?', '{"options":[{"id":"a","label":"HBO"},{"id":"b","label":"Netflix"},{"id":"c","label":"Canal+"},{"id":"d","label":"AMC"}],"multiple":false}'::jsonb, 1, false, null, 'in_review')
+values ('699a8cac-6f33-5c5e-a76c-9031bda3d92f', 'sg-q-got-chaine', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Sur quelle chaîne est diffusée Game of Thrones ?', '{"options":[{"id":"a","label":"HBO"},{"id":"b","label":"Netflix"},{"id":"c","label":"Canal+"},{"id":"d","label":"AMC"}],"multiple":false}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('699a8cac-6f33-5c5e-a76c-9031bda3d92f', '{"correct":["a"]}'::jsonb, 'HBO diffuse la série de 2011 à 2019.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('d26d6042-ba08-5c18-8345-7ccbb7e98572', 'sg-q-got-saisons', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Combien de saisons compte Game of Thrones ?', '{"options":[{"id":"a","label":"6"},{"id":"b","label":"7"},{"id":"c","label":"8"},{"id":"d","label":"10"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('d26d6042-ba08-5c18-8345-7ccbb7e98572', 'sg-q-got-saisons', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Combien de saisons compte Game of Thrones ?', '{"options":[{"id":"a","label":"6"},{"id":"b","label":"7"},{"id":"c","label":"8"},{"id":"d","label":"10"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('d26d6042-ba08-5c18-8345-7ccbb7e98572', '{"correct":["c"]}'::jsonb, 'Huit saisons, de 2011 à 2019.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('ce1e3f49-0c19-5779-8fec-d1b804580ef0', 'sg-q-got-martin', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Game of Thrones adapte les romans de George R. R. Martin.', '{}'::jsonb, 1, false, null, 'in_review')
+values ('ce1e3f49-0c19-5779-8fec-d1b804580ef0', 'sg-q-got-martin', (select id from public.universes where slug = 'cinema-series'), 'true_false', 'Game of Thrones adapte les romans de George R. R. Martin.', '{}'::jsonb, 1, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('ce1e3f49-0c19-5779-8fec-d1b804580ef0', '{"value":true}'::jsonb, 'Vrai : la saga Le Trône de fer.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('68460749-dc63-53bc-9edc-230d0e99ed5e', 'sg-q-hotd', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Sur quelle famille est centrée House of the Dragon ?', '{"options":[{"id":"a","label":"Les Targaryen"},{"id":"b","label":"Les Stark"},{"id":"c","label":"Les Lannister"},{"id":"d","label":"Les Baratheon"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('68460749-dc63-53bc-9edc-230d0e99ed5e', 'sg-q-hotd', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Sur quelle famille est centrée House of the Dragon ?', '{"options":[{"id":"a","label":"Les Targaryen"},{"id":"b","label":"Les Stark"},{"id":"c","label":"Les Lannister"},{"id":"d","label":"Les Baratheon"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('68460749-dc63-53bc-9edc-230d0e99ed5e', '{"correct":["a"]}'::jsonb, 'Le préquel, lancé en 2022, raconte la guerre civile des Targaryen.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('7a3b63bb-b7b9-5f1b-9892-5da959fbc73b', 'sg-q-westeros', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Sur quel continent se déroule principalement Game of Thrones ?', '{"options":[{"id":"a","label":"Westeros"},{"id":"b","label":"La Terre du Milieu"},{"id":"c","label":"Narnia"},{"id":"d","label":"Tamriel"}],"multiple":false}'::jsonb, 2, false, null, 'in_review')
+values ('7a3b63bb-b7b9-5f1b-9892-5da959fbc73b', 'sg-q-westeros', (select id from public.universes where slug = 'cinema-series'), 'quiz', 'Sur quel continent se déroule principalement Game of Thrones ?', '{"options":[{"id":"a","label":"Westeros"},{"id":"b","label":"La Terre du Milieu"},{"id":"c","label":"Narnia"},{"id":"d","label":"Tamriel"}],"multiple":false}'::jsonb, 2, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
 values ('7a3b63bb-b7b9-5f1b-9892-5da959fbc73b', '{"correct":["a"]}'::jsonb, 'Les grandes familles de Westeros se disputent le Trône de fer.')
 on conflict (question_id) do update set solution = excluded.solution, explanation = excluded.explanation, updated_at = now();
 insert into public.questions (id, key, universe_id, format, prompt, payload, difficulty, is_evolving, valid_as_of, status)
-values ('a08f58a9-20c4-5214-9207-015965ed4797', 'sg-q-frise-moderne', (select id from public.universes where slug = 'cinema-series'), 'timeline', 'Remets ces œuvres dans l’ordre de sortie.', '{"items":[{"id":"t3","label":"Game of Thrones (saison 1)"},{"id":"t1","label":"Toy Story"},{"id":"t4","label":"House of the Dragon"},{"id":"t2","label":"Shrek"}]}'::jsonb, 3, false, null, 'in_review')
+values ('a08f58a9-20c4-5214-9207-015965ed4797', 'sg-q-frise-moderne', (select id from public.universes where slug = 'cinema-series'), 'timeline', 'Remets ces œuvres dans l’ordre de sortie.', '{"items":[{"id":"t3","label":"Game of Thrones (saison 1)"},{"id":"t1","label":"Toy Story"},{"id":"t4","label":"House of the Dragon"},{"id":"t2","label":"Shrek"}]}'::jsonb, 3, false, null, 'published')
 on conflict (id) do update set format = excluded.format, prompt = excluded.prompt, payload = excluded.payload,
   difficulty = excluded.difficulty, is_evolving = excluded.is_evolving, valid_as_of = excluded.valid_as_of, status = excluded.status;
 insert into private.question_solutions (question_id, solution, explanation)
@@ -550,10 +550,10 @@ insert into public.question_knowledge_items (question_id, knowledge_item_id) val
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('a08f58a9-20c4-5214-9207-015965ed4797', '0da9cdd5-53ba-5af1-b5c6-f35a1050cd8c');
 insert into public.question_knowledge_items (question_id, knowledge_item_id) values ('a08f58a9-20c4-5214-9207-015965ed4797', '17cf33a5-185d-5625-b5a7-09989069cac8');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 'ed37990d-297f-5797-a9cd-f953157da30e', 1, 'Les pionnières', 'Star Wars, James Bond, Indiana Jones et Retour vers le futur.', 'in_review')
+values ('b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 'ed37990d-297f-5797-a9cd-f953157da30e', 1, 'Les pionnières', 'Star Wars, James Bond, Indiana Jones et Retour vers le futur.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('6710ae14-90b4-5842-aa0f-16e60d288c4f', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 1, 'sg-star-wars', 'Star Wars', 'Connaître les débuts de la saga de George Lucas.', 'standard', 3, 'in_review')
+values ('6710ae14-90b4-5842-aa0f-16e60d288c4f', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 1, 'sg-star-wars', 'Star Wars', 'Connaître les débuts de la saga de George Lucas.', 'standard', 3, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '6710ae14-90b4-5842-aa0f-16e60d288c4f';
@@ -566,7 +566,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('6710
 insert into public.lesson_items (lesson_id, position, question_id) values ('6710ae14-90b4-5842-aa0f-16e60d288c4f', 4, 'a605d82e-2eeb-5f77-815d-4654c8e10c16');
 insert into public.lesson_items (lesson_id, position, question_id) values ('6710ae14-90b4-5842-aa0f-16e60d288c4f', 5, '01acc3e8-e4a7-5919-b8f0-3a941671d692');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('813ebdec-7659-50db-a020-872470f41e59', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 2, 'sg-james-bond', 'James Bond', 'Connaître l’espion le plus célèbre du cinéma.', 'standard', 4, 'in_review')
+values ('813ebdec-7659-50db-a020-872470f41e59', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 2, 'sg-james-bond', 'James Bond', 'Connaître l’espion le plus célèbre du cinéma.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '813ebdec-7659-50db-a020-872470f41e59';
@@ -579,7 +579,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('813e
 insert into public.lesson_items (lesson_id, position, question_id) values ('813ebdec-7659-50db-a020-872470f41e59', 4, 'af7bdeac-7e69-502d-a0d6-1715245844f5');
 insert into public.lesson_items (lesson_id, position, question_id) values ('813ebdec-7659-50db-a020-872470f41e59', 5, '96892883-c74d-5261-92a5-fb0f3cb660c0');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('f5d04f73-c069-5603-b089-aaa949a51e50', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 3, 'sg-aventures-annees-80', 'Les aventures des années 1980', 'Connaître Indiana Jones et Retour vers le futur.', 'standard', 4, 'in_review')
+values ('f5d04f73-c069-5603-b089-aaa949a51e50', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 3, 'sg-aventures-annees-80', 'Les aventures des années 1980', 'Connaître Indiana Jones et Retour vers le futur.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'f5d04f73-c069-5603-b089-aaa949a51e50';
@@ -593,7 +593,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('f5d0
 insert into public.lesson_items (lesson_id, position, question_id) values ('f5d04f73-c069-5603-b089-aaa949a51e50', 5, '70982ab8-5d9f-570c-ba30-d2f637237fd9');
 insert into public.lesson_items (lesson_id, position, question_id) values ('f5d04f73-c069-5603-b089-aaa949a51e50', 6, 'cea08b57-d66c-5067-90ab-7f520dea33a8');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('e18eb052-871e-5f04-9fd2-e806a0fd6cea', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 4, 'sg-epreuve-pionnieres', 'Épreuve : les pionnières', 'Valide tes connaissances sur les premières grandes sagas.', 'exam', 4, 'in_review')
+values ('e18eb052-871e-5f04-9fd2-e806a0fd6cea', 'b69c8fe0-24a6-5c5f-a2ee-b02a6592c0e7', 4, 'sg-epreuve-pionnieres', 'Épreuve : les pionnières', 'Valide tes connaissances sur les premières grandes sagas.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'e18eb052-871e-5f04-9fd2-e806a0fd6cea';
@@ -605,10 +605,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('e18e
 insert into public.lesson_items (lesson_id, position, question_id) values ('e18eb052-871e-5f04-9fd2-e806a0fd6cea', 5, '55e823e6-6294-57ae-8f42-3f31b1840ebb');
 insert into public.lesson_items (lesson_id, position, question_id) values ('e18eb052-871e-5f04-9fd2-e806a0fd6cea', 6, '06887376-de9d-523b-8319-45f3e3eb876d');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 'ed37990d-297f-5797-a9cd-f953157da30e', 2, 'Les grandes adaptations', 'Tolkien, Harry Potter et l’univers Marvel.', 'in_review')
+values ('9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 'ed37990d-297f-5797-a9cd-f953157da30e', 2, 'Les grandes adaptations', 'Tolkien, Harry Potter et l’univers Marvel.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('b2e3aa67-a37a-539f-9904-ac83838e71af', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 1, 'sg-seigneur-des-anneaux', 'Le Seigneur des anneaux', 'Connaître la trilogie de Peter Jackson.', 'standard', 4, 'in_review')
+values ('b2e3aa67-a37a-539f-9904-ac83838e71af', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 1, 'sg-seigneur-des-anneaux', 'Le Seigneur des anneaux', 'Connaître la trilogie de Peter Jackson.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = 'b2e3aa67-a37a-539f-9904-ac83838e71af';
@@ -621,7 +621,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('b2e3
 insert into public.lesson_items (lesson_id, position, question_id) values ('b2e3aa67-a37a-539f-9904-ac83838e71af', 4, '66f08482-79c3-5994-b909-364b8fe8e333');
 insert into public.lesson_items (lesson_id, position, question_id) values ('b2e3aa67-a37a-539f-9904-ac83838e71af', 5, '742e69b7-3f25-5183-a4fb-9bb81f10c9d2');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('0a270083-f2bd-5ddc-81e9-fa1cd297e7a7', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 2, 'sg-harry-potter', 'Harry Potter', 'Connaître la saga du jeune sorcier.', 'standard', 4, 'in_review')
+values ('0a270083-f2bd-5ddc-81e9-fa1cd297e7a7', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 2, 'sg-harry-potter', 'Harry Potter', 'Connaître la saga du jeune sorcier.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '0a270083-f2bd-5ddc-81e9-fa1cd297e7a7';
@@ -634,7 +634,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('0a27
 insert into public.lesson_items (lesson_id, position, question_id) values ('0a270083-f2bd-5ddc-81e9-fa1cd297e7a7', 4, 'cc933ed5-a437-5f52-8cf0-904bece71a8b');
 insert into public.lesson_items (lesson_id, position, question_id) values ('0a270083-f2bd-5ddc-81e9-fa1cd297e7a7', 5, '2b827712-5053-5da0-a406-6d9e61f63965');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('18c23dc3-a66a-55c9-b352-70419e8dc517', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 3, 'sg-univers-marvel', 'L’univers Marvel', 'Comprendre la naissance du MCU.', 'standard', 4, 'in_review')
+values ('18c23dc3-a66a-55c9-b352-70419e8dc517', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 3, 'sg-univers-marvel', 'L’univers Marvel', 'Comprendre la naissance du MCU.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '18c23dc3-a66a-55c9-b352-70419e8dc517';
@@ -647,7 +647,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('18c2
 insert into public.lesson_items (lesson_id, position, question_id) values ('18c23dc3-a66a-55c9-b352-70419e8dc517', 4, 'a0eca537-d6c4-5e78-8be6-e907888810f9');
 insert into public.lesson_items (lesson_id, position, question_id) values ('18c23dc3-a66a-55c9-b352-70419e8dc517', 5, '0d8f94df-cdb5-507a-a54e-c46fff87c7fc');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('40c59829-4467-5903-a483-02acd01339aa', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 4, 'sg-epreuve-adaptations', 'Épreuve : les grandes adaptations', 'Valide tes connaissances sur ces sagas adaptées.', 'exam', 4, 'in_review')
+values ('40c59829-4467-5903-a483-02acd01339aa', '9ff1ba6c-a5a1-5df5-8e62-7d9c80623629', 4, 'sg-epreuve-adaptations', 'Épreuve : les grandes adaptations', 'Valide tes connaissances sur ces sagas adaptées.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '40c59829-4467-5903-a483-02acd01339aa';
@@ -659,10 +659,10 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('40c5
 insert into public.lesson_items (lesson_id, position, question_id) values ('40c59829-4467-5903-a483-02acd01339aa', 5, '0d8f94df-cdb5-507a-a54e-c46fff87c7fc');
 insert into public.lesson_items (lesson_id, position, question_id) values ('40c59829-4467-5903-a483-02acd01339aa', 6, 'cc933ed5-a437-5f52-8cf0-904bece71a8b');
 insert into public.chapters (id, course_id, position, title, description, status)
-values ('353f3b81-e198-5bbf-997d-8fd11f138c42', 'ed37990d-297f-5797-a9cd-f953157da30e', 3, 'Animation, action et séries', 'Pixar, les grandes sagas d’action et Game of Thrones.', 'in_review')
+values ('353f3b81-e198-5bbf-997d-8fd11f138c42', 'ed37990d-297f-5797-a9cd-f953157da30e', 3, 'Animation, action et séries', 'Pixar, les grandes sagas d’action et Game of Thrones.', 'published')
 on conflict (id) do update set position = excluded.position, title = excluded.title, description = excluded.description, status = excluded.status;
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('941f88c9-6777-5ed0-a4ef-de49735953b0', '353f3b81-e198-5bbf-997d-8fd11f138c42', 1, 'sg-animation', 'La révolution de l’animation', 'Connaître Toy Story et Shrek.', 'standard', 4, 'in_review')
+values ('941f88c9-6777-5ed0-a4ef-de49735953b0', '353f3b81-e198-5bbf-997d-8fd11f138c42', 1, 'sg-animation', 'La révolution de l’animation', 'Connaître Toy Story et Shrek.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '941f88c9-6777-5ed0-a4ef-de49735953b0';
@@ -675,7 +675,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('941f
 insert into public.lesson_items (lesson_id, position, question_id) values ('941f88c9-6777-5ed0-a4ef-de49735953b0', 4, 'a8400623-3d4c-5e3a-b3fe-3de9286570be');
 insert into public.lesson_items (lesson_id, position, question_id) values ('941f88c9-6777-5ed0-a4ef-de49735953b0', 5, '0ef4b397-d130-5e9b-8802-da8ee0f924aa');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('011a5947-fb00-5555-9b8d-a9816e6521bc', '353f3b81-e198-5bbf-997d-8fd11f138c42', 2, 'sg-sagas-action', 'Les sagas d’action', 'Connaître Jurassic Park, Mission : Impossible et Fast & Furious.', 'standard', 4, 'in_review')
+values ('011a5947-fb00-5555-9b8d-a9816e6521bc', '353f3b81-e198-5bbf-997d-8fd11f138c42', 2, 'sg-sagas-action', 'Les sagas d’action', 'Connaître Jurassic Park, Mission : Impossible et Fast & Furious.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '011a5947-fb00-5555-9b8d-a9816e6521bc';
@@ -689,7 +689,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('011a
 insert into public.lesson_items (lesson_id, position, question_id) values ('011a5947-fb00-5555-9b8d-a9816e6521bc', 4, 'd51685ff-7322-5d3a-a68b-04dbffb80164');
 insert into public.lesson_items (lesson_id, position, question_id) values ('011a5947-fb00-5555-9b8d-a9816e6521bc', 5, '6364753f-b9dd-5738-945f-7980099aa5fb');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('364f1b64-6299-541b-a634-08093758546f', '353f3b81-e198-5bbf-997d-8fd11f138c42', 3, 'sg-game-of-thrones', 'Game of Thrones', 'Connaître la saga phénomène de HBO.', 'standard', 4, 'in_review')
+values ('364f1b64-6299-541b-a634-08093758546f', '353f3b81-e198-5bbf-997d-8fd11f138c42', 3, 'sg-game-of-thrones', 'Game of Thrones', 'Connaître la saga phénomène de HBO.', 'standard', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '364f1b64-6299-541b-a634-08093758546f';
@@ -702,7 +702,7 @@ insert into public.lesson_items (lesson_id, position, question_id) values ('364f
 insert into public.lesson_items (lesson_id, position, question_id) values ('364f1b64-6299-541b-a634-08093758546f', 4, '68460749-dc63-53bc-9edc-230d0e99ed5e');
 insert into public.lesson_items (lesson_id, position, question_id) values ('364f1b64-6299-541b-a634-08093758546f', 5, '7a3b63bb-b7b9-5f1b-9892-5da959fbc73b');
 insert into public.lessons (id, chapter_id, position, slug, title, objective, kind, estimated_minutes, status)
-values ('9068cc62-43fa-5341-8f6d-02e0eab13e4a', '353f3b81-e198-5bbf-997d-8fd11f138c42', 4, 'sg-epreuve-moderne', 'Épreuve : animation, action et séries', 'Valide tes connaissances sur ces sagas.', 'exam', 4, 'in_review')
+values ('9068cc62-43fa-5341-8f6d-02e0eab13e4a', '353f3b81-e198-5bbf-997d-8fd11f138c42', 4, 'sg-epreuve-moderne', 'Épreuve : animation, action et séries', 'Valide tes connaissances sur ces sagas.', 'exam', 4, 'published')
 on conflict (id) do update set chapter_id = excluded.chapter_id, position = excluded.position, title = excluded.title,
   objective = excluded.objective, kind = excluded.kind, estimated_minutes = excluded.estimated_minutes, status = excluded.status;
 delete from public.learning_cards where lesson_id = '9068cc62-43fa-5341-8f6d-02e0eab13e4a';

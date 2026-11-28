@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import { brand } from '@/config/brand'
-import { routes } from '@/config/routes'
+import { routes, safeNextPath } from '@/config/routes'
 import { authErrorMessage } from '@/features/auth/errors'
 import { getSessionUser, requireUser } from '@/lib/auth/session'
 import { createClient } from '@/lib/supabase/server'
@@ -19,7 +19,8 @@ export async function startGuestAction(
   _prev: ActionState,
   formData: FormData,
 ): Promise<ActionState> {
-  if (await getSessionUser()) redirect(routes.dashboard)
+  const next = safeNextPath(text(formData, 'next') || null, routes.dashboard)
+  if (await getSessionUser()) redirect(next)
   const parsed = guestStartSchema.safeParse({
     ageConfirmed: formData.get('ageConfirmed') ?? undefined,
     termsAccepted: formData.get('termsAccepted') ?? undefined,
@@ -32,7 +33,11 @@ export async function startGuestAction(
     options: { data: { age_confirmed: 'true', terms_version: brand.legal.termsVersion } },
   })
   if (error) return failure(authErrorMessage(error.code))
-  redirect(routes.onboarding)
+  redirect(
+    next === routes.dashboard
+      ? routes.onboarding
+      : `${routes.onboarding}?next=${encodeURIComponent(next)}`,
+  )
 }
 
 /**

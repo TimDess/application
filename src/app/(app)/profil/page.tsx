@@ -13,6 +13,8 @@ import { UniverseTile } from '@/features/universes/universe-tile'
 import { getPublishedUniverses, getViewer } from '@/lib/auth/session'
 import { streakDays } from '@/features/gamification/labels'
 import { getMyBadges, getMyDna, getMyProgress } from '@/features/gamification/queries'
+import { getMyDivision } from '@/features/leagues/queries'
+import { divisionOf } from '@/config/divisions'
 import { BadgeMedal, rarityLabels, type BadgeFamily } from '@/features/gamification/badge-medal'
 import { DnaRadar } from '@/features/gamification/dna-radar'
 import { dnaIdentity, dnaShortLabels } from '@/config/dna'
@@ -42,6 +44,7 @@ async function Profile() {
     getMyDna(),
     getMyBadges(),
   ])
+  const division = divisionOf(await getMyDivision())
   const identity = dnaIdentity(dna)
   const playable = dna.filter((d) => d.available > 0)
   const earnedCount = badges.filter((b) => b.earnedAt).length
@@ -50,7 +53,7 @@ async function Profile() {
     { label: 'Niveau', value: String(progress.level) },
     { label: 'XP totale', value: progress.totalXp.toLocaleString('fr-FR') },
     { label: 'Série record', value: streakDays(progress.streak.longest) },
-    { label: 'Leçons terminées', value: String(progress.lessonsCompleted) },
+    { label: 'Division', value: division.label },
   ]
   const universeLevels = progress.universes.flatMap((p) => {
     const u = universes.find((x) => x.slug === p.slug)
