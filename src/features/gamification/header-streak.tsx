@@ -14,7 +14,7 @@ export async function HeaderStreak() {
   return (
     <Link
       href={routes.dashboard}
-      className="flex h-10 items-center gap-1.5 rounded-full px-3 text-body font-semibold text-ink hover:bg-surface-2"
+      className="flex h-11 items-center gap-1.5 rounded-full px-3 text-body font-semibold text-ink hover:bg-surface-2"
       aria-label={n > 0 ? `Série de ${streakDays(n)}` : 'Pas encore de série'}
     >
       <StreakFlame lit={n > 0} className="size-5" />

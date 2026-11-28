@@ -3,7 +3,8 @@
 import { Check, Copy, Hourglass, RotateCcw, Share2, Trophy, X as Cross } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState, useTransition } from 'react'
+import { useEffect, useState, useTransition } from 'react'
+import { confetti, feedback } from '@/lib/sensations'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { FormMessage } from '@/components/ui/form-message'
@@ -28,6 +29,17 @@ export function DuelOutcome({
   const [pending, startTransition] = useTransition()
   const [error, setError] = useState<string>()
   const opponentName = duel.opponent?.username ?? 'Adversaire'
+
+  // Celebrate once when the result is shown.
+  useEffect(() => {
+    if (duel.status !== 'completed') return
+    if (duel.result === 'win') {
+      feedback('victory')
+      const t = setTimeout(() => confetti(), 300)
+      return () => clearTimeout(t)
+    }
+    feedback(duel.result === 'loss' ? 'defeat' : 'correct')
+  }, [duel.status, duel.result])
 
   function rematch() {
     setError(undefined)

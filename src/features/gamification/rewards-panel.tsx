@@ -4,6 +4,7 @@ import { Shield, Target } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { CountUp } from '@/components/learning/count-up'
 import { motionReduced } from '@/components/theme/theme-client'
+import { feedback } from '@/lib/sensations'
 import { cn } from '@/lib/utils/cn'
 import { streakDays, xpReasonLabels } from './labels'
 import { LevelBar } from './level-bar'
@@ -17,6 +18,13 @@ import type { Rewards } from './types'
 export function RewardsPanel({ rewards }: { rewards: Rewards }) {
   const leveledUp = rewards.levelAfter > rewards.levelBefore
   const [showLevelUp, setShowLevelUp] = useState(false)
+
+  useEffect(() => {
+    const timers: ReturnType<typeof setTimeout>[] = []
+    if (rewards.streak.extended) timers.push(setTimeout(() => feedback('streak'), 900))
+    if (rewards.badges.length > 0) timers.push(setTimeout(() => feedback('badge'), 1400))
+    return () => timers.forEach(clearTimeout)
+  }, [rewards])
 
   useEffect(() => {
     if (!leveledUp) return

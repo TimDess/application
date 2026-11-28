@@ -61,6 +61,8 @@ async function AuthGate({ children }: { children: ReactNode }) {
       <PreferencesSync
         theme={viewer.settings.theme}
         reducedMotion={viewer.settings.reducedMotion}
+        soundEnabled={viewer.settings.soundEnabled}
+        hapticsEnabled={viewer.settings.hapticsEnabled}
       />
     </>
   )

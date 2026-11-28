@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { confetti, feedback } from '@/lib/sensations'
 import { Button } from '@/components/ui/button'
 import { motionReduced } from '@/components/theme/theme-client'
 import { WAVE_REVEAL_MS } from '@/components/learning/wave-transition'
@@ -13,6 +14,9 @@ export function LevelUpOverlay({ level, onClose }: { level: number; onClose: () 
 
   useEffect(() => {
     buttonRef.current?.focus()
+    feedback('levelup')
+    const t = setTimeout(() => confetti(), 380)
+    return () => clearTimeout(t)
   }, [])
 
   function close() {

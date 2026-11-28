@@ -21,6 +21,7 @@ import type { Answer, AnswerResult } from '@/features/learning/types'
 import { cn } from '@/lib/utils/cn'
 import { completePracticeAction, startPracticeAction, submitPracticeAnswerAction } from './actions'
 import { ShareButton } from './share-button'
+import { ComboChip, useAnswerFeedback } from '@/components/sensations/answer-feedback'
 import type { PracticeKind, PracticeSession, PracticeSummary } from './types'
 
 type Step =
@@ -55,6 +56,7 @@ export function PracticePlayer({
   const [wave, setWave] = useState<WavePhase>('idle')
   const [waveOrigin, setWaveOrigin] = useState<{ x: number; y: number }>()
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const { streak, onAnswer } = useAnswerFeedback()
 
   const total = session?.questions.length ?? 0
   const position = step.kind === 'question' ? step.index + 1 : step.kind === 'result' ? total : 0
@@ -105,6 +107,7 @@ export function PracticePlayer({
       const res = await submitPracticeAnswerAction(session.sessionId, questionId, answer)
       if (!res.ok) return setError(res.message)
       setResults((cur) => ({ ...cur, [questionId]: res.data }))
+      onAnswer(res.data.isCorrect)
     })
   }
 
@@ -129,7 +132,7 @@ export function PracticePlayer({
       <header className="flex h-14 items-center gap-3">
         <Link
           href={routes.dashboard}
-          className="grid size-10 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+          className="grid size-11 shrink-0 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
           aria-label="Quitter (tes réponses sont sauvegardées)"
         >
           <X className="size-5" aria-hidden="true" />
@@ -142,6 +145,7 @@ export function PracticePlayer({
               label={`Question ${position} sur ${total}`}
               className="h-2"
             />
+            <ComboChip streak={streak} />
             <span className="tabular shrink-0 text-caption text-muted">
               {position}/{total}
             </span>

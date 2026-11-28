@@ -107,6 +107,11 @@ Dernière mise à jour : 28 novembre 2026.
 - Page Ligue : division, compte à rebours, points et duels comptés, classement du groupe avec zones de montée et de descente, bilan de la semaine passée, règles. Respecte « apparaître dans les classements » et le profil privé (« Joueur masqué »). Division affichée sur le profil.
 - Tests : 57 unitaires, 186 assertions pgTAP, 34 scénarios E2E.
 
+## Lot Sensations (28 novembre 2026)
+
+- Labo son et animation (artifact) : trois directions, choix de Tim enregistré (Premium, avec défaite, flamme et vague en Doux).
+- Moteur de sons et vibrations, réglages « Effets sonores » et « Vibrations » désormais effectifs, effets de jeu (éclat, combo, confettis, intro VS, battement du chrono), appui élastique, barre d’onglets à ressort, cibles tactiles de 44 px. Détails : `docs/DESIGN_SYSTEM.md`.
+
 ## Écarts et points ouverts
 
 - **À reprendre (signalé par Tim, 28 novembre 2026)** :

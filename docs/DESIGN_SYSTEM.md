@@ -97,3 +97,13 @@ Clair, sombre, automatique. Préférence enregistrée dans un cookie (appliqué 
 
 - Mobile : barre d'onglets en bas (Accueil, Explorer, Jouer, Ligue, Profil), zones de sécurité respectées.
 - Desktop (≥ 1024 px) : sidebar fixe avec les mêmes entrées et Paramètres.
+
+## Sensations : sons, vibrations, effets (28 novembre 2026)
+
+Identité sonore choisie par Tim dans le labo (https://claude.ai/artifact/WE34e3aJednBRTpzmHMZW4) : direction **Premium** (cloches de verre en synthèse FM, clics nets, réverbération légère, sons très courts), avec **défaite, flamme et vague en Doux** (marimba, souffle feutré). Effets en intensité normale.
+
+- Moteur : `src/lib/sensations/` (Web Audio, aucun fichier ; `feedback(id, n)` joue le son et la vibration dans la même frame). Respecte les réglages « Effets sonores » et « Vibrations » (copie par appareil synchronisée depuis le compte) et le mode silencieux de l’iPhone (`audioSession` ambient). Vibrations : Android seulement, l’iPhone ne les autorise pas aux applications web.
+- Sons : toucher (à l’appui, via `SensationsRoot`), bonne réponse, combo (la note monte d’un cran par bonne réponse d’affilée), mauvaise réponse, tic-tac des 5 dernières secondes d’un duel, flamme, badge, niveau supérieur, victoire, défaite, vague.
+- Effets : éclat doré au point touché pour une bonne réponse, puce « 3 d’affilée » dès le troisième combo, confettis (victoire en duel, niveau supérieur), intro VS puis 3-2-1 avant la première question d’un duel (le chrono serveur démarre après), battement du chrono sur la fin.
+- Interface : appui élastique (écrasement à 0,96 à l’appui, retour avec léger dépassement) sur les boutons et réponses ; pastille de la barre du bas qui glisse avec un ressort, icône qui rebondit ; boutons icônes portés à 44 px ; libellés de la barre à 12 px.
+- Tout effet visuel est coupé en mouvement réduit (OS ou réglage) ; les sons restent pilotés par leur propre réglage.

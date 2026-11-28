@@ -18,7 +18,7 @@ export function MobileHeader({ aside }: { aside?: ReactNode }) {
         {aside}
         <Link
           href={routes.settings}
-          className="grid size-10 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
+          className="grid size-11 place-items-center rounded-md text-muted hover:bg-surface-2 hover:text-ink"
           aria-label="Paramètres"
         >
           <Settings className="size-5" aria-hidden="true" />

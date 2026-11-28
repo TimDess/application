@@ -2,6 +2,7 @@
 
 import { type CSSProperties, useEffect } from 'react'
 import { brand } from '@/config/brand'
+import { feedback } from '@/lib/sensations'
 
 export type WavePhase = 'idle' | 'cover' | 'hold' | 'reveal'
 
@@ -35,6 +36,9 @@ export function WaveTransition({
   origin?: { x: number; y: number }
   label?: string
 }) {
+  useEffect(() => {
+    if (phase === 'cover') feedback('swoosh')
+  }, [phase])
   if (phase === 'idle') return null
   const style = origin
     ? ({ '--wx': `${origin.x}px`, '--wy': `${origin.y}px` } as CSSProperties)

@@ -26,7 +26,7 @@ export function OptionButton({
       type="button"
       className={cn(
         'flex min-h-14 w-full items-center justify-between gap-3 rounded-[18px] border px-4 py-3 text-left text-heading font-medium text-ink',
-        'transition-[background-color,border-color,transform] duration-(--duration-fast) active:translate-y-px disabled:active:translate-y-0',
+        'transition-[background-color,border-color,transform] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-[0.97] active:duration-75 disabled:active:scale-100',
         state === 'idle' && 'glass hover:border-line-strong',
         state === 'selected' && 'border-accent bg-accent/10',
         state === 'correct' &&
